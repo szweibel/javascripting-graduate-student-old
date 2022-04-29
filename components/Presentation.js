@@ -22,7 +22,7 @@ export default function Presentation(props) {
             return element.props.children[0] === HeaderToFind;
         });
         const correctSlide = HeaderToFindIndex + 1;
-        router.push(`/workshops/${router.query.slug}/?page=${router.query.page}&slideIndex=${correctSlide}`, undefined, { shallow: true, scroll: false });
+        router.push(`/workshop/${router.query.slug}/?page=${router.query.page}&slideIndex=${correctSlide}`, undefined, { shallow: true, scroll: false });
         setOpen(true);
         }
     }

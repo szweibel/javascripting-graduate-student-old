@@ -1,13 +1,12 @@
 import PythonREPLComponent from '../components/PythonREPLComponent';
-import CodeEditorComponent from '../components/CodeEditorComponent';
+import CodeEditorComponent from '../components/Editor/PythonEditorComponent';
 import UploadtoStorage from '../components/UploadtoStorage';
-import FileList from '../components/FileList';
-import EditorWithTabs from '../components/EditorWithTabs';
-import JSInterpreter from '../components/JSInterpreterComponent';
+import EditorWithTabs from '../components/Editor/EditorWithTabs';
+import JSInterpreter from '../components/Editor/InterpreterComponent';
 import { height } from '@mui/system';
-import TerminalComponent from '../components/TerminalComponent';
-import HTMLEditor from '../components/HTMLEditor';
-import fileList from '../components/FileList';
+import HTMLEditor from '../components/Editor/HTMLEditor';
+import fileList from '../components/Editor/FileList';
+import JSTerminal from '../components/Editor/JSTerminal';
 
 export default function Test() {
 
@@ -56,6 +55,7 @@ export default function Test() {
             <div>
                 {/* <FileList files='mobydick.txt'/> */}
             </div>
+            <JSTerminal />
         </div>
     )
 
