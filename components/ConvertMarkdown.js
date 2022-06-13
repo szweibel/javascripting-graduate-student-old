@@ -11,6 +11,10 @@ import TerminalComponent from './TerminalComponent';
 import EditorWithTabsComponent from './Editor/EditorWithTabs';
 import InterpreterComponent from './Editor/InterpreterComponent';
 import Download from './Download';
+import JSTerminal from './Editor/JSTerminal';
+import HTMLEditorComponent from './Editor/HTMLEditorComponent';
+import { renderToStaticMarkup } from 'react-dom/server';
+var beautify_html = require('js-beautify').html;
 
 const Code = ({ className, children }) => {
     const [isShown, setIsShown] = useState(false);
@@ -26,11 +30,11 @@ const Code = ({ className, children }) => {
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}>
                 <pre className={className + ' ' + language}>
-                {isShown && (
-                    <>
-                        {language && <span className="language">{getLang}</span>}
+                    {isShown && (
+                        <>
+                            {language && <span className="language">{getLang}</span>}
                         </>
-                )}
+                    )}
                     <code className={className}
                         dangerouslySetInnerHTML={{ __html: highlighted.value }}>
                     </code>
@@ -68,22 +72,46 @@ const Imager = ({ className, ...props }) => {
 }
 
 const CodeEditor = ({ children, ...props }) => {
-    if (children.length > 0) {
-        if (typeof children[0] === 'object') {
-            const codeText = children[0].props.children.join('');
+    var codeText
+    if (children) {
+        if (children.length > 0) {
+            if (typeof children[0] === 'object') {
+                codeText = children[0].props.children.join('');
+                // return (
+                //     <div>
+                //         <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
+                //     </div>
+                // )
+            }
+            else {
+                codeText = children.join('');
+                // console.log('codeText', codeText);
+                // return (
+                //     <div>
+                //         <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
+                //     </div>
+                // )
+            }
             return (
                 <div>
-                    <InterpreterComponent language={props.language} defaultCode={codeText} {...props}/>
+                    <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
                 </div>
             )
+        } else {
+           codeText = children.join('');
         }
-    }   
-    const codeText = children.join('');
-    return (
-        <div>
-            <InterpreterComponent language={props.language} defaultCode={codeText} {...props}/>
-        </div>
-    );
+        return (
+            <div>
+                <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <InterpreterComponent language={props.language} {...props} />
+            </div>
+        )
+    }
 }
 
 const EditorWithTabs = ({ className, children }) => {
@@ -122,6 +150,25 @@ const Quiz = ({ className, children }) => {
     )
 }
 
+const HTMLEditor = ({ className, children }) => {
+    var html, javascript
+    for (var i = 0; i < children.length; i++) {
+        if (children[i].type === 'html') {
+            // react components converted to a string
+            html = renderToStaticMarkup(children[i].props.children);
+            html = beautify_html(html, { indent_size: 2 });   
+        }
+        if (children[i].type === 'javascript') {
+            javascript = children[i].props.children.join('');
+        }
+    }
+    return (
+        <div>
+            <HTMLEditorComponent defaultCode={html} defaultJS={javascript} />
+        </div>
+    )
+}
+
 export default function ConvertMarkdown(markdown, uploads, workshop) {
     return (
         compiler(markdown,
@@ -139,13 +186,13 @@ export default function ConvertMarkdown(markdown, uploads, workshop) {
                             className: 'image',
                         }
                     },
-                    CodeEditor:{
+                    CodeEditor: {
                         component: CodeEditor,
                         props: {
-                            allSnippets: uploads,
+                            allUploads: uploads,
                         }
                     },
-                    Download:{
+                    Download: {
                         component: Download,
                         props: {
                             workshop: workshop,
@@ -156,6 +203,8 @@ export default function ConvertMarkdown(markdown, uploads, workshop) {
                     PythonREPL,
                     Terminal,
                     EditorWithTabs,
+                    JSTerminal,
+                    HTMLEditor
                 }
 
             })

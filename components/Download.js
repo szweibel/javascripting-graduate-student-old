@@ -3,7 +3,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 
 export default function Download(props) {
-    console.log(props);
+
     const allUploads = props.allUploads;
     const chosenUploads = typeof props.files === 'string' ? props.files.split(',') : [];
   

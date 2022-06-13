@@ -15,8 +15,8 @@ import EditorTopbar from "./EditorTopbar";
 import CloseIcon from '@mui/icons-material/Close';
 
 
-export default function JSEditorComponent({defaultJS = '// Write Javascript Here', ...props }) {
-    const [javascript, setJavascript] = useState(defaultJS);
+export default function JSEditorComponent({ defaultCode = '// Write Javascript Here', ...props }) {
+    const [javascript, setJavascript] = useState(defaultCode);
     const [runningCode, setRunningCode] = useState(false);
     const outputRef = useRef(null);
     const [error, setError] = useState(null);
@@ -44,11 +44,11 @@ export default function JSEditorComponent({defaultJS = '// Write Javascript Here
 
     function closeOutput() {
         setIsoutput(false);
-      }
-    
-      function closeError() {
+    }
+
+    function closeError() {
         setIsError(false);
-      }
+    }
 
     const outputComponent = () => {
         return (
@@ -156,12 +156,12 @@ export default function JSEditorComponent({defaultJS = '// Write Javascript Here
 
     return (
         <>
-        <div className="editorContainer" style={{ height: '250px', width: '100%' }}>
-            <EditorTopbar spinnerNeeded={runningCode} 
-            snippets={filteredSnippets} run={JSrun} language='JavaScript' />
-            <EditorComponent code={javascript} 
-            onChange={onChangeJavascript} language={'javascript'} />
-        </div>
+            <div className="editorContainer" style={{ height: '250px', width: '100%' }}>
+                <EditorTopbar spinnerNeeded={runningCode}
+                    snippets={filteredSnippets} run={JSrun} language='JavaScript' />
+                <EditorComponent code={javascript}
+                    onChange={onChangeJavascript} language={'javascript'} />
+            </div>
             {isoutput && outputComponent()}
             {isError && errorComponent()}
         </>

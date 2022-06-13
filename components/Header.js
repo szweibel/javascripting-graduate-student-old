@@ -27,6 +27,8 @@ const Drawer = dynamic(
 export default function Header({ props }) {
     const [propsAvailable, setPropsAvailable] = useState(false);
     const [allWorkshops, setAllWorkshops] = useState([]);
+    const [allGuides, setAllGuides] = useState([]);
+    const [allInsights, setAllInsights] = useState([]);
     const { theme, setTheme } = useTheme()
     const [darkMode, setDarkMode] = useState();
 
@@ -34,11 +36,13 @@ export default function Header({ props }) {
         if (props && props.workshops) {
             setPropsAvailable(true)
             setAllWorkshops(props.workshops)
+            setAllGuides(props.guides)
+            setAllInsights(props.insights)
         }
     }, [props.workshops])
 
     useEffect(() => {
-        if(theme === 'dark') {
+        if (theme === 'dark') {
             setDarkMode(true)
         } else {
             setDarkMode(false)
@@ -84,42 +88,58 @@ export default function Header({ props }) {
                     },
                     Zindex: 10000,
                 }}
-                className='topBar'>
+                className='topBar-container'>
                 <Toolbar
-                    className=''>
+                    className='topBar'>
                     {/* <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2 }}
-                    >
+                        >
                         <MenuIcon />
                     </IconButton> */}
-                    <Link href='/' passHref>
-                        <Image
-                            src={logo}
-                            alt={yaml.organization + ' logo'}
-                            width={100}
-                            height={100}
-                            className='logo' />
-                    </Link>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+
+                    {/* <div
+                        id='logo-container'
+                    > */}
+                        <Link href='/'
+                            passHref>
+                            <Image
+                                src={logo}
+                                alt={yaml.organization + ' logo'}
+                                width={100}
+                                height={100}
+                                className='logo' />
+                        </Link>
+                    {/* </div> */}
+                    <div
+                        id='nav-container'
+                    >
+                    <Typography variant="h6" component="div"
+                        sx={{
+                            flexGrow: 1,
+                            flexShrink: 0,
+                        }}>
                         <Link href='/' passHref>
                             <h2 className='headerLink'>{yaml.event}</h2>
                         </Link>
                     </Typography>
-                    <ul className='links'>
-                        <li>
-                            {propsAvailable ? <Drawer files={allWorkshops} category='workshops' /> : null}
-                        </li>
-                    </ul>
+                        <ul className='links'>
+                            <li>
+                                {propsAvailable ? <Drawer files={allWorkshops} category='workshops' /> : null}
+                            </li>
+
+                        </ul>
                     <IconButton sx={{ ml: 1 }}
+                        id="dark-mode-toggle"
                         onClick={(e) => themeToggle(e)}
                         color="inherit">
                         {darkMode === true ? <Brightness7Icon /> : <DarkModeIcon />}
                     </IconButton>
-                    <Button color="inherit">Login</Button>
+                            </div>
+                    {/* <Button color="inherit">Login</Button> */}
                 </Toolbar>
             </AppBar>
         </Box>

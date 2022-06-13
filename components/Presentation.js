@@ -22,7 +22,7 @@ export default function Presentation(props) {
             return element.props.children[0] === HeaderToFind;
         });
         const correctSlide = HeaderToFindIndex + 1;
-        router.push(`/workshop/${router.query.slug}/?page=${router.query.page}&slideIndex=${correctSlide}`, undefined, { shallow: true, scroll: false });
+        router.push(`/workshops/${router.query.slug}/?page=${router.query.page}&slideIndex=${correctSlide}`, undefined, { shallow: true, scroll: false });
         setOpen(true);
         }
     }
@@ -168,7 +168,9 @@ export default function Presentation(props) {
     return (
         <>
             <div>
-                <Button onClick={handleOpen}>
+                <Button 
+                className="brutalist-button"
+                onClick={handleOpen}>
                     <SlideshowIcon />
                     Presentation Mode
                 </Button>
@@ -185,6 +187,5 @@ export default function Presentation(props) {
         </>
     )
 }
-
 
 
