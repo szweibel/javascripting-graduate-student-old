@@ -440,22 +440,33 @@ D3 is a JavaScript library that allows you to create visualizations. Other tools
 ```
 
 <HTMLEditor >
+
 <html>
-<!-- Add a svg area, empty -->
-<svg id="dataviz_area" height=200 width=450></svg>
-<p>test</p>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+    <div id="map"></div>
 </html>
+<css>
+#map {
+    height: 400px;
+    width: 400px;
+}
+</css>
 <javascript>
-var svg = d3.select('#dataviz_area')
-svg.append("circle")
-  .attr("cx", 2).attr("cy", 2).attr("r", 40).style("fill", "blue");
-svg.append("circle")
-  .attr("cx", 180).attr("cy", 70).attr("r", 40).style("fill", "red");
-svg.append("circle")
-  .attr("cx", 300).attr("cy", 100).attr("r", 40).style("fill", "green");
-console.log(122)
+```
+var map = L.map('map').setView([51.505, -0.09], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
+```
 </javascript>
 
 </HTMLEditor>

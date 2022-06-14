@@ -20,9 +20,10 @@ import { html } from "js-beautify";
 export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTML here -->", defaultCSS = "/* Write CSS Here */",
     defaultJS = '// Write Javascript Here' }, includeFrames = '[html, css, javascript]') {
     // const [code, setCode] = useState(defaultCode);
-    const [css, setCss] = useState(defaultCSS);
+    // const [css, setCss] = useState(defaultCSS);
     const [output, setOutput] = useState([]);
     const [frameKey, setFrameKey] = useState(Math.random());
+    const [outputKey, setOutputKey] = useState(Math.random());
     const [frameReady, setFrameReady] = useState(false);
     const [frameDoc, setFrameDoc] = useState(null);
     const [frameWindow, setFrameWindow] = useState(null);
@@ -32,6 +33,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
     const frameScripts = useRef([]);
     const javascript = useRef(defaultJS);
     const code = useRef(defaultCode);
+    const css = useRef(defaultCSS);
     const consoleRef = useRef(null);
 
 
@@ -120,7 +122,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
 
     const outputComponent = (output) => {
         return (
-            <div key={frameKey}>
+            <div key={outputKey}>
                 {output.map((item, index) => {
                     if (typeof item === 'string') {
                         return
@@ -133,10 +135,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
         )
     }
 
-    const onChangeCss = (newValue) => {
-        setCss(newValue);
-    };
-
+    
     const frameEval = (allCode) => {
         if (frameWindow) {
             try {
@@ -148,24 +147,32 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
             }
         }
     }
-
-    const onChangeJavascript = (newValue) => {
+    
+    const onChangeCss = (newValue) => {
+        // setCss(newValue);
+        css.current = newValue;
+        setTimeout(() => {
+        runAll();
+        }, 200);
+    };
+    
+    const onChangeJavascript = (newValue) => {    
         javascript.current = newValue;
         runAll();
     };
 
     const runAll = () => {
-        setFrameKey(Math.random());
-
+        // setFrameKey(Math.random());
+        setOutputKey(Math.random());
         doParsing(code.current);
-
         setTimeout(() => {
             frameEval(javascript.current);
         }, 200);
     }
 
     const iFrameStyle = <style>
-        {css}
+        {css.current}
+        {/* {css} */}
     </style>;
 
     const frameHead = [iFrameStyle];
@@ -179,7 +186,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                 }}>
                 <Frame
                     ref={contentRef}
-                    key={css}
+                    key={frameKey}
                     head={frameHead}
                     initialContent='<!DOCTYPE html><html><head></head><body><div id="mountHere"></div></body></html>'
                     mountTarget='#mountHere'
@@ -196,22 +203,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                                 setFrameWindow(window);
                                 setFrameDoc(document);
                                 setFrameReady(true);
-
                                 consoleRef.current = window.console;
-
-                                // window.console = {
-                                // log: (...args) => {
-                                //     setConsoleOutput(args);
-                                // }
-                                //     error: (...args) => {
-                                //         console.log(args);
-                                // }}}
-                                // window.console.error = (...args) => {
-                                //     window.console.log(...args);
-                                // }
-
-
-
                                 return (
                                     <>
                                         {outputComponent(output)}
@@ -242,13 +234,13 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
 
     const HtmlPane = () => {
         return (
-            <EditorComponent code={code.current} onChange={debounce(onChangeHTML, 200)} language={'html'} />)
+            <EditorComponent code={code.current} onChange={onChangeHTML} language={'html'} debounce={1000} />)
     }
     const CssPane = () => {
-        return (<EditorComponent code={css} onChange={onChangeCss} language={'css'} />)
+        return (<EditorComponent code={css.current} onChange={onChangeCss} language={'css'} />)
     }
     const JavascriptPane = () => {
-        return (<EditorComponent code={javascript.current} onChange={debounce(onChangeJavascript, 200)} language={'javascript'} debounce={1000} />)
+        return (<EditorComponent code={javascript.current} onChange={onChangeJavascript} language={'javascript'} debounce={1000} />)
     }
 
     const panes = [HtmlPane, CssPane, JavascriptPane, FramePane, ConsolePane];
@@ -262,9 +254,9 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                         <Allotment.Pane minSize={20}>
                             {HtmlPane()}
                         </Allotment.Pane>
-                        {/* <Allotment.Pane>
+                        <Allotment.Pane>
                             {CssPane()}
-                        </Allotment.Pane> */}
+                        </Allotment.Pane>
                         <Allotment.Pane minSize={20}>
                             {JavascriptPane()}
                         </Allotment.Pane>
@@ -277,9 +269,9 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                             >
                                 {FramePane()}
                             </Allotment.Pane>
-                            <Allotment.Pane className={'JS-console'}>
+                            {/* <Allotment.Pane className={'JS-console'}>
                                 {ConsolePane()}
-                            </Allotment.Pane>
+                            </Allotment.Pane> */}
                         </Allotment>
                     </Allotment>
                 </Allotment.Pane>

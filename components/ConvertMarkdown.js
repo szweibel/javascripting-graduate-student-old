@@ -14,7 +14,10 @@ import Download from './Download';
 import JSTerminal from './Editor/JSTerminal';
 import HTMLEditorComponent from './Editor/HTMLEditorComponent';
 import { renderToStaticMarkup } from 'react-dom/server';
-var beautify_html = require('js-beautify').html;
+import he from 'he';
+var beautify = require('js-beautify');
+var beautifyHTML = require('js-beautify').html;
+
 
 const Code = ({ className, children }) => {
     const [isShown, setIsShown] = useState(false);
@@ -77,20 +80,9 @@ const CodeEditor = ({ children, ...props }) => {
         if (children.length > 0) {
             if (typeof children[0] === 'object') {
                 codeText = children[0].props.children.join('');
-                // return (
-                //     <div>
-                //         <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
-                //     </div>
-                // )
             }
             else {
                 codeText = children.join('');
-                // console.log('codeText', codeText);
-                // return (
-                //     <div>
-                //         <InterpreterComponent language={props.language} defaultCode={codeText} {...props} />
-                //     </div>
-                // )
             }
             return (
                 <div>
@@ -98,7 +90,7 @@ const CodeEditor = ({ children, ...props }) => {
                 </div>
             )
         } else {
-           codeText = children.join('');
+            codeText = children.join('');
         }
         return (
             <div>
@@ -151,20 +143,37 @@ const Quiz = ({ className, children }) => {
 }
 
 const HTMLEditor = ({ className, children }) => {
-    var html, javascript
+    var html, css;
     for (var i = 0; i < children.length; i++) {
         if (children[i].type === 'html') {
             // react components converted to a string
             html = renderToStaticMarkup(children[i].props.children);
-            html = beautify_html(html, { indent_size: 2 });   
+            html = beautifyHTML(html, { indent_size: 2 });
         }
         if (children[i].type === 'javascript') {
-            javascript = children[i].props.children.join('');
+            var javascript = [];
+            console.log(children[i].props.children);
+            // javascript = renderToStaticMarkup(children[i].props.children.join(''));
+            // for line in children[i].props.children {
+            for (var j = 0; j < children[i].props.children.length; j++) {
+                // render as pure text instead of react components
+                var line = renderToStaticMarkup(children[i].props.children[j]);
+                line = line.replace(/<\/?code>/g, '');
+                line = he.decode(line);
+                if (line !== undefined) {
+                    javascript.push(line);
+                }
+            }
+            javascript = beautify.js(javascript.join(''), { indent_size: 2 });
+
+        }
+        if (children[i].type === 'css') {
+            css = renderToStaticMarkup(children[i].props.children.join(''));
         }
     }
     return (
         <div>
-            <HTMLEditorComponent defaultCode={html} defaultJS={javascript} />
+            <HTMLEditorComponent defaultCode={html} defaultJS={javascript} defaultCSS={css} />
         </div>
     )
 }
@@ -208,6 +217,5 @@ export default function ConvertMarkdown(markdown, uploads, workshop) {
                 }
 
             })
-
     );
 }
