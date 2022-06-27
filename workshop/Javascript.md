@@ -370,6 +370,10 @@ $('#button').click(function() {
 }
 ```
 
+# HTML & CSS
+
+You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
+
 # Finding Answers with Google
 
 The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the right questions. It comes through practice. Seeing an error
@@ -396,58 +400,15 @@ What's nice about this is that we can access the properties of the object using 
 
 Documentation exists to explain what a tool is and how to use it. Too often, whether because documentation is an afterthought, or because the people responsible for making it are better programmers than communicators, technical documentation fails to make itself clear. Paradoxically, it is often necessary to already be familiar with using a tool in order to interpret the instructions about how to use it.
 
-# The Monster D3
+# Leaflet
 
 D3 is a JavaScript library that allows you to create visualizations. Other tools are higher-level libraries that have more assumptions about how to use them. D3 is less opinionated about how to use it. It is more flexible. It is more robust. It is more efficient. It is more powerful. BUT it is more complicated. Here's a quick example of how to use D3:
-
-```html 
-<!doctype HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My JavaScripting Master's Student Project</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="scripts.js"></script>
-    </head>
-    <body>
-        <h1>This is my project!</h1>
-        <div id="response">This is the #response div.</div>
-        <button id="button">Click me!</button>
-    </body>
-</html>
-
-    <script>
-        var data = [5, 10, 15, 20, 25];
-        var svg = d3.select('body')
-            .append('svg')
-            .attr('width', 500)
-            .attr('height', 500);
-        var circles = svg.selectAll('circle')
-            .data(data)
-            .enter()
-            .append('circle');
-        circles.attr('cx', function(d, i) {
-            return i * 50;
-        })
-        circles.attr('cy', function(d) {
-            return d * 50;
-        })
-        circles.attr('r', function(d) {
-            return d;
-        });
-    </script>
-```
 
 <HTMLEditor >
 
 <html>
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-   crossorigin=""/>
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <div id="map"></div>
 </html>
 <css>
@@ -470,3 +431,16 @@ L.marker([51.5, -0.09]).addTo(map)
 </javascript>
 
 </HTMLEditor>
+
+# Clicking Stuff
+
+Let's make it so that when you click on something, something happens. 
+
+# Planning a Project
+
+Now we design the final project, drawing it out when necessary.
+
+# Lab
+asd
+
+# Lab

@@ -254,10 +254,10 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                         <Allotment.Pane minSize={20}>
                             {HtmlPane()}
                         </Allotment.Pane>
-                        <Allotment.Pane>
+                        <Allotment.Pane minSize={10}>
                             {CssPane()}
                         </Allotment.Pane>
-                        <Allotment.Pane minSize={20}>
+                        <Allotment.Pane >
                             {JavascriptPane()}
                         </Allotment.Pane>
                     </Allotment>
@@ -265,13 +265,13 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                 <Allotment.Pane>
                     <Allotment>
                         <Allotment vertical>
-                            <Allotment.Pane minSize={60}
+                            <Allotment.Pane minSize={140}
                             >
                                 {FramePane()}
                             </Allotment.Pane>
-                            {/* <Allotment.Pane className={'JS-console'}>
+                            <Allotment.Pane className={'JS-console'}>
                                 {ConsolePane()}
-                            </Allotment.Pane> */}
+                            </Allotment.Pane>
                         </Allotment>
                     </Allotment>
                 </Allotment.Pane>
