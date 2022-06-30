@@ -84,7 +84,7 @@ export default function Home({ workshop }) {
         <div>
           <div className='frontpage-top'>
             <Image
-              src={logo}
+              src={'/images/logo.png'}
               alt={yaml.organization + ' logo'}
               width={300}
               height={300}

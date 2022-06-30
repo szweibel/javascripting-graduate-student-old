@@ -107,7 +107,7 @@ export default function Header({ props }) {
                         <Link href='/'
                             passHref>
                             <Image
-                                src={logo}
+                                src={'/images/logo.png'}
                                 alt={yaml.organization + ' logo'}
                                 width={100}
                                 height={100}
