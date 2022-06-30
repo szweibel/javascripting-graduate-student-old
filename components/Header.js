@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image'
 import logo from '../public/images/logo.png';
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
-import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes';
 import Switch from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
 import Brightness7Icon from '@mui/icons-material/Brightness7';

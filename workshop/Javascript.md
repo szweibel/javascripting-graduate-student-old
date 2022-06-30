@@ -31,6 +31,13 @@ Java is a programming language that became popular in the 1990s. It was used pri
 
 You the reader may have come to this page pre-convinced that you want to learn how to program. To the wholly unconvinced, I can only ask, "Why are you taking this class?" The majority, including myself at first, exist in a state between the two. I am not going to try to convince you of the 'value' of programming, as value is a personal question. Instead I will show you a few neat tools that  
 
+<Quiz>
+- `1 = one`
+- `one = 1`*
+- `$$$ = "dollar_signs"`
+- `first_book = "Orlando"`*
+</Quiz>
+
 ## Cool, inspiring libraries
 
 What's possible with JavaScript? JavaScript is a programming language that can be used to create dynamic web pages. It can be used to create interactive web applications, or to create data visualizations and animations. Here are some cool libraries that you can use with JavaScript.

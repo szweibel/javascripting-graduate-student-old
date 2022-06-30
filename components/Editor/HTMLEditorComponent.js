@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState, useContext } from "react";
-import debounce from 'lodash.debounce';
 import ReactHtmlParser, { Options } from "react-html-parser";
 // import convertHtmlToReact from '@hedgedoc/html-to-react';
 import dynamic from "next/dynamic";

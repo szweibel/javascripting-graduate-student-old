@@ -4,7 +4,6 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
 import Link from 'next/link'
 import randomColor from '../node_modules/randomcolor'
 import CardContent from '@mui/material/CardContent';
@@ -12,12 +11,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image'
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 export default function TemporaryDrawer({ files, category, onClick, onClose, open }) {
 
