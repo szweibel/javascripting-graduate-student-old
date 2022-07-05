@@ -22,7 +22,6 @@ goals:
 
 Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development.
 
-
 <CodeEditor language='JavaScript'>
 1 + 1
 </CodeEditor>
@@ -30,13 +29,6 @@ Java is a programming language that became popular in the 1990s. It was used pri
 ## What am I doing here?
 
 You the reader may have come to this page pre-convinced that you want to learn how to program. To the wholly unconvinced, I can only ask, "Why are you taking this class?" The majority, including myself at first, exist in a state between the two. I am not going to try to convince you of the 'value' of programming, as value is a personal question. Instead I will show you a few neat tools that  
-
-<Quiz>
-- `1 = one`
-- `one = 1`*
-- `$$$ = "dollar_signs"`
-- `first_book = "Orlando"`*
-</Quiz>
 
 ## Cool, inspiring libraries
 
@@ -47,9 +39,40 @@ What's possible with JavaScript? JavaScript is a programming language that can b
 - [p5.js](https://p5js.org/)
 - [leaflet.js](https://leafletjs.com/)
 
+# A Small Program
+
+In this chapter we will learn how to write a small program in JavaScript. As is tradition, we're going to make our console say "Hello World." And then we will assign a value to a variable called "name" and then print out the value of that variable.
+
+<JSTerminal />
+
+## Variables
+
+Variables are like containers for data. They are named and can be assigned a value.
+
+```JavaScript
+var a = 1;
+var b = 2;
+var c = a + b;
+```
+
+Notice in the above example that the variable `c` is assigned the value of `a + b`. Now let's make something ever so slightly more interesting. Let's talk about the weather.
+
+```JavaScript
+var weather = 'sunny';
+var statement = 'The weather is ' + weather + ' today.';
+```
+
+We can use the `+` operator to combine strings and variables. This is called concatenation.
+
+<Quiz>
+- `1 = one`
+- `one = 1`*
+- `$$$ = "dollar_signs"`
+- `first_book = "Orlando"`*
+</Quiz>
 
 
-# Types
+## Data Types
 
 Javascript deals in data types, which are the fundamental building blocks of the language. When a variable is declared, it is assigned a type. The five core data types are:
 
@@ -58,6 +81,8 @@ Javascript deals in data types, which are the fundamental building blocks of the
 - Booleans
 - Arrays
 - Objects
+
+Let's discuss some specifics.
 
 ## Numbers
 
@@ -80,26 +105,6 @@ Javascript deals in data types, which are the fundamental building blocks of the
 
 - Dictionaries
 - Classes
-
-# Variables
-
-Variables are like containers for data. They are named and can be assigned a value.
-
-```JavaScript
-var a = 1;
-var b = 2;
-var c = a + b;
-```
-
-Notice in the above example that the variable `c` is assigned the value of `a + b`. Now let's make something ever so slightly more interesting. Let's talk about the weather.
-
-```JavaScript
-var weather = 'sunny';
-var statement = 'The weather is ' + weather + ' today.';
-```
-
-We can use the `+` operator to combine strings and variables. This is called concatenation.
-
 
 # If and Then
 
@@ -192,21 +197,21 @@ I find that lists are where programming starts to get interesting. "But why?" yo
 
 ## Slicing Arrays
 
-    ```javascript
-    var myArray = [1, 2, 3, 4, 5];
-    var arraySlice = myArray.slice(1, 3);
-    console.log(arraySlice);
-    ```
+```javascript
+var myArray = [1, 2, 3, 4, 5];
+var arraySlice = myArray.slice(1, 3);
+console.log(arraySlice);
+```
 When I write `myArray.slice(1, 3)`, I am telling the computer to take the array `myArray` and take the slice from index 1 to index 3. This is called slicing.
 What is an index? An index is a number that represents the position of a value in an array. For example, the first value in an array is at index 0. The second value is at index 1. The third value is at index 2. So, if I want to get the third value in an array, I would write `myArray[2]`. 
 
 What would this result in?
 
-    ```javascript
-    var myArray = [1, 2, 3, 4, 5];
-    var chosenValue = myArray[2];
-    console.log(chosenValue);
-    ```
+```javascript
+var myArray = [1, 2, 3, 4, 5];
+var chosenValue = myArray[2];
+console.log(chosenValue);
+```
 
 # Loops
 
@@ -348,6 +353,10 @@ If you get a runtime error, the error report will show you the line of code that
 
 If you get a logical error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
 
+# HTML & CSS
+
+You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
+
 # Input
 
 We're gonna add some INTERACTIVITY to our project. We're going to add a button to the page that will ask the user for their name. We're going to add a div to the page that will show the user their name. 
@@ -376,10 +385,6 @@ $('#button').click(function() {
     $('#response').text(name);
 }
 ```
-
-# HTML & CSS
-
-You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
 
 # Finding Answers with Google
 

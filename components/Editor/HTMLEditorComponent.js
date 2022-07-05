@@ -18,8 +18,6 @@ import { html } from "js-beautify";
 
 export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTML here -->", defaultCSS = "/* Write CSS Here */",
     defaultJS = '// Write Javascript Here' }, includeFrames = '[html, css, javascript]') {
-    // const [code, setCode] = useState(defaultCode);
-    // const [css, setCss] = useState(defaultCSS);
     const [output, setOutput] = useState([]);
     const [frameKey, setFrameKey] = useState(Math.random());
     const [outputKey, setOutputKey] = useState(Math.random());
@@ -161,7 +159,6 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
     };
 
     const runAll = () => {
-        // setFrameKey(Math.random());
         setOutputKey(Math.random());
         doParsing(code.current);
         setTimeout(() => {

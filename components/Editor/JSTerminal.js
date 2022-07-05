@@ -37,16 +37,15 @@ export default function JSTerminal() {
     return (
         <div className="terminal-container"
         style={{
-            width: '50%',
-            height: '100%',
-            minWidth: '400px',
-
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
         }}
         >
 
             <div className="term" id={randomID}
             style={{
-                width: '100%',
+                width: '50%',
                 height: '100%',
                 border: '1px solid #ccc',
                 borderRadius: '5px',

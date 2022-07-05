@@ -75,8 +75,7 @@ export default function WorkshopPage({
   useEffect(() => {
     const pageTitlesGet = pages.map((page, index) => {
       let header = undefined;
-      // if it's the frontpage vs not
-      index === 0 ? header = "Introduction" : header = page.props.children[0].props.children.props.children[0]
+      header = page.props.children[0].props.children.props.children[0]
       return (header)
     })
     setPageTitles(pageTitlesGet)

@@ -147,7 +147,10 @@ file${index + 1} = ${JSON.stringify(snippet.content)}
           }}
         /></>}
       <div className="editorContainer">
-        <EditorTopbar spinnerNeeded={(isPyodideLoading || runningCode)} snippets={filteredSnippets} run={showValue} language='Python' />
+        <EditorTopbar spinnerNeeded={(isPyodideLoading || runningCode)} 
+        snippets={filteredSnippets} run={showValue} 
+        defaultCode={defaultCode} setCode={setCode}
+        language='Python' />
         <EditorComponent code={code} onChange={onChange} maxLines='Infinity' minLines={minLines} />
       </div>
 
