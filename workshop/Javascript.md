@@ -1,6 +1,6 @@
 ---
 title: Intro to Javascript
-excerpt: This is a basic introduction to JavaScript, which is the programming language of the web. The class is designed for anyone interested in developing a website, or creating an interactive data visualization. By the end of this course, you will be able to read JavaScript you find online, and adapt it to your needs. You will have an opportunity to work with common JavaScript libraries/tools.
+excerpt: This is a basic introduction to JavaScript, which is the programming language of the web. The class is designed for anyone interested in developing a website, or creating an interactive data visualization. By the end of this course, you will be able to read JavaScript you find online and adapt it to your needs. You will also have an opportunity to work with common JavaScript libraries/tools and enhance your own research practices.
 cover_image: /images/workshop/img2.jpg
 readings:
     - Want to learn programming, but not convinced that the Python language is the right language? Check out [Five Reasons Why Learning Python Is The Best Decision](https://medium.com/datadriveninvestor/)
@@ -39,15 +39,270 @@ What's possible with JavaScript? JavaScript is a programming language that can b
 - [p5.js](https://p5js.org/)
 - [leaflet.js](https://leafletjs.com/)
 
-# A Small Program
+# Git and GitHub?
 
-In this chapter we will learn how to write a small program in JavaScript. As is tradition, we're going to make our console say "Hello World." And then we will assign a value to a variable called "name" and then print out the value of that variable.
+Intro to Git and GitHub + how to submit course assignments to repository?
+
+# Getting Started with JavaScript
+
+Let's begin our journey with the JavaScript language. As is tradition, we're first going to explore some ways to print a "Hello World!" message as output to the screen. In doing so, you will be introduced to the basics of working with the JavaScript console. As will become clearer, you can think of the console as an interactive way to run basic JavaScript commands in your browser. 
+
+To become further acquainted with the console, we will end the lesson by exploring basic data types and variables in JavaScript, and how you can use these capabilities to calculate and display a variety of conditions.
+
+## Hello, World!
+
+### Alerts
+
+One of the most basic ways to output a message is to use the `alert()` method. This method will display a message to the user visiting your web page, and then wait for the user to click on the "OK" button.
+
+To create an alert, you can write the following line of code...
+
+```JavaScript
+alert("Hello, World!");
+```
+
+...into the box below, where you can see an instance of the interactive console that we have provided for you. If you click your mouse after the `>` symbol (called the _prompt_), you can begin writing your code, and then hit the <kbd>Enter</kbd> key to run it.
 
 <JSTerminal />
 
+You should now see a pop-up box that displays your message. __Note__: If you do _not_ see a pop-up message, you may need to disable your pop-up blocker.
+
+As you can see, the alert dialog box takes the focus and forces the user to read the specified message on the current webpage. This being the case, it is wise to avoid overusing this method because it stops the user from accessing other parts of the webpage until the box is closed. It is best used as a kind of warning message. For instance, you may have seen developers use it to notify the user that they are heading to a new external website after clicking a link.
+
+You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotations marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
+
+You will also notice that there is a `;`(semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, make sure to __include the semicolon__ at the end of each line of code.
+
+### Using Your Browser's Console
+
+While we have provided a console for you embedded into this web page, you can also use the console to run commands directly from your browser's developer tools. Most modern browsers allow you access to a developer console where you can work with JavaScript and read or manipulate data on a page. 
+
+To open the developer console, you can use these methods:
+
+__Chrome:__
+- Command + Option + i (Mac)
+- Ctrl + Shift + i (Windows/Linux).
+- Open the Chrome settings menu in the top-right corner of your browser window and select `More Tools` > `Developer Tools`
+
+__Firefox:__
+- Command + Option + i (Mac)
+- Ctrl + Shift + i (Windows/Linux)
+
+__Safari:__
+- Develop menu in Safari’s Advanced preferences
+- Right-click on any page element and select Inspect Element
+- Command + Option + i
+
+__Opera:__
+- Command + Option + i (Mac)
+- Ctrl + Shift + i (Windows/Linux)
+
+Using these shortcuts should open a console window that you can use to run commands. After the `>` prompt, create another new `alert` command and hit the <kbd>Enter</kbd> key to run it. You should again see a pop-up box that displays your message.
+
+We should note here that the alert's system dialog box is not related to the design of the webpage currently being shown in the browser. Its appearance depends solely on your current operating system and browser (rather than on the HTML code of the current page). You will learn how to manipulate a webpage's content and appearance directly with JavaScript, HTML, and CSS in later lessons.  
+
+### The console.log() Function
+
+Let's use another technique to display "Hello, World!" This time, we will use the `console.log()` function, which writes a message to the console. In your browser's developer console, write the following line of code:
+
+```JavaScript
+console.log("Hello, World!");
+```
+
+You should see the message "Hello, World!" now printed out for you in the console itself.
+
+The `console.log()` function is a useful tool for testing and debugging your code. As you continue learning JavaScript and begin building your own webpages, you will find it an effective way to display and understand the results of your programs.
+
+__Note__: If you also receive a message of `undefined` in the console, don't worry! You will understand why this is happening as you continue learning more about how functions work in JavaScript.
+
+For now, let's continue working with the JavaScript console by exploring the way the language deals with data and discrete bits of information.
+
+## Data Types
+
+__Data types__ form the atomic elements of JavaScript programs and are used to store and manipulate data. The basic data types in JavaScript are: __number__, __string__, __boolean__, __array__, and __object__. For now, let's just discuss the first three of these types and how you can use them.
+
+### Numbers
+
+Values of the `number` type are, as you might have guessed, numbers. Try typing the following numbers into the console, hitting the <kbd>Enter</kbd> key after each one:
+
+```JavaScript
+> 9;
+> 3.8;
+> -1.2;
+```
+<JSTerminal />
+
+As you can see, JavaScript recognizes a variety of different number categories. Unlike other programming languages you may (or may not) be familiar with, JavaScript does not define different types of numbers, like integer, double, etc. All numbers are recognized as the same type.
+
+We can also perform various mathematical calculations on these numbers. For example, try running each of the following mathematical operations in the console:
+
+```JavaScript
+> 5 + 5
+> 5 - 5
+> 5 / 5
+> 5 * 5
+> 5 % 6
+```
+
+<JSTerminal />
+
+JavaScript effectively calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example (in case you are unfamiliar) uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.  
+
+In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of _comparison_:  seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either true or false. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
+
+<table>
+    <caption><strong>Comparison Operators</strong></caption>
+    <tr>
+        <th>Operator</th>
+        <th>Meaning</th>
+        <th>Example</th>
+        <th>Evaluation</th>
+    </tr>
+    <tr>
+        <th rowspan = "2"> < </th>
+        <td> less than? </td>
+        <td> 5 < 5 </td>
+        <td>false</td>
+    </tr>
+   <tr>
+        <td> less than? </td>
+        <td> 5 < 6 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <th rowspan = "2"> > </th>
+        <td> greater than? </td>
+        <td> 5 > 5 </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td> greater than? </td>
+        <td> 5 > 4 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <th rowspan = "2"><=</th>
+        <td> less than or equal to? </td>
+        <td> 5 <= 5 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td> less than or equal to? </td>
+        <td> 5 <= 4 </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <th rowspan = "2">>=</th>
+        <td> greater than or equal to? </td>
+        <td> 5 >= 5 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td> greater than or equal to? </td>
+        <td> 5 >= 6 </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <th rowspan = "3">==</th>
+        <td> equal to? </td>
+        <td> 5 == 5 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td> equal to? </td>
+        <td> 5 == 4 </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td> equal to? </td>
+        <td> 5 == "5" </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <th rowspan = "3">!=</th>
+        <td> not equal to? </td>
+        <td> 5 != 5 </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td> not equal to? </td>
+        <td> 5 != 4 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td> not equal to? </td>
+        <td> 5 != "5" </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <th rowspan = "2">===</th>
+        <td> "strict" equal to (includes type)? </td>
+        <td> 5 === "5" </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td> "strict equal" to (includes type)? </td>
+        <td> 5 === 5 </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <th rowspan = "2">!==</th>
+        <td> "strict" not equal to (includes type)? </td>
+        <td> 5 !== "5" </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td> "strict" not equal to (includes type)? </td>
+        <td> 5 !== 5 </td>
+        <td>false</td>
+    </tr>
+</table>
+<br />
+
+<JSTerminal />
+
+While nearly all of these operators are shared amongst the majority of modern programming languages, the `===` (triple equals) is unique to JavaScript. The distinctions between `==` (double equals) and `===` (triple equals) are important. The double equals `==` operator is used to compare _only_ the value of two variables, while the "strict" triple equals `===` operator is used to compare the value _and_ type of two variables. The strict operator will only return true if the two variables are _exactly_ the same, both in value and in type (e.g., number or string). So, while both `5 === 5` and `"5" === "5"` will return true because they are the same value and type, `5 === "5"` will return false because the latter is testing a number against a string (discussed below). Also note the difference between the double equals `==` and triple equals `===`, which test for equality, and the `!=` and `!==` operators, which test for _inequality_.
+
+We'll continue to work with comparison/equality operators throughout the course, so don't worry if they're still a bit unclear. Additionally, we have for now purposefully left out the `=` (single equals) operator, as it has a different function than evaluating equality. We'll cover the single equals operator later in this lesson.
+
+### Strings
+
+As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string. In the `"5" == "5"` example you just saw, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
+
+Just like with numbers, you can simply type a string (for instance, `Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a string type.
+
+It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
+
+__Note__: If you need to use double-quotes inside of a string, there are two ways you can do this. You can, conversely, simply use single-quotation marks to surround a phrase, e.g., `'I wonder what "truth" means today?'`, or you can use a <kbd>\</kbd> (backslash) to precede a double-quotation mark within enclosed double-quotation marks, e.g. `"I wonder what \"truth\" means today?"`. 
+
+Strings can also utilize the `+` operator to __concatenate__, or join, separate string phrases together. For example, `"Hello, " + "World!"` will return `"Hello, World!"`. Try it out in the console below.
+
+<JSTerminal />
+
+### Boolean
+
+Unlike some real-world scenarios, determining what is true and false in JavaScript is refreshingly straightforward. __Booleans__ are data types that are either firmly `true` or `false`. In utilizing the comparison operators from the table earlier, you have already discovered how the console determines truth and falsity. For instance, typing `9 > 5` evaluates to `true`, whereas `5 > 9` evaluates to `false`. Similarly, `5 >= 5` as well as `5 <= 5` both resolve as `true`. If you simply type `true` or `false` into the console, the console recognizes it as a data type and will repeat it back to you.
+
+Booleans may seem simple, but very often in programming you will need a data type that can only have one of two values, akin to a "yes" or "no" or "on" or "off" determination. We will work more with booleans as we progress through the course.
+
+As a final step for this lesson, let's make using data types a bit more interesting by introducing __variables__.
+
 ## Variables
 
-Variables are like containers for data. They are named and can be assigned a value.
+Now that we have explored a number of data types and how to use them, let's explore how to create variables in JavaScript to utilize data types more effectively.
+
+You can think of __variables__ as kinds of containers for data. They are named and can be assigned a value based on whatever data type is appropriate. To create a variable, you simply type the `var` keyword along with the name of the variable you want to create, followed by a single equal sign (`=`) and then the value of the variable. For example, `var myMessage = "Hello, World!";` will create a new variable called `myMessage` and assign it the value `"Hello, World!"`. Creating a variable is called __declaring__ or __defining__ it, and attributing a value to it is called __assigning__ it.
+
+As mentioned earlier, this drastically sets apart the single equals `=` operator from the double equals `==` operator. The single equals operator is used to __assign__ a value to a variable, while the double equals operator (as well as the triple equals) is used to __test__ if two values or variables are equal to each other (without modifying either value).
+
+In the example below, we have replicated our `Hello, World!` message, only this time using a variable. You can see that instead of simply logging the string `"Hello, World!"` to the console, we have assigned the string to a variable called `myMessage` and then logged the value of `myMessage` to the console.
+
+```JavaScript
+    var myMessage = "Hello, World!";
+    console.log(myMessage);
+```
+
+Understanding and working effectively with variables is probably the most important part of programming. They allow you to store data in memory, and then use that data to perform all kinds of operations upon it. Take a look at the example below:
 
 ```JavaScript
 var a = 1;
@@ -55,100 +310,483 @@ var b = 2;
 var c = a + b;
 ```
 
-Notice in the above example that the variable `c` is assigned the value of `a + b`. Now let's make something ever so slightly more interesting. Let's talk about the weather.
+You'll notice that the variable `c` is assigned the value of `a + b`. In other words, here we are assigning the value of a variable to that of the addition of two other variables. What do you think the result would be if we were to `console.log(c);`? 
+
+Now let's make something ever so slightly more interesting. Let's talk about the weather.
 
 ```JavaScript
 var weather = 'sunny';
 var statement = 'The weather is ' + weather + ' today.';
 ```
 
-We can use the `+` operator to combine strings and variables. This is called concatenation.
+Earlier, you saw how we can concatenate strings together to form a compound phrase. You can also use the `+` operator to combine strings and variables. In the above example, the variable `statement`, assigned `"The weather is " + weather + " today."` will return the string `"The weather is sunny today."`.
+
+Any of the data types you have already learned can be assigned to a variable. For example, you can assign a number to a variable, a string to a variable, a boolean to a variable, etc.
+
+As your programs become more complex, it is generally good practice to declare all of your variables at the top of your program. This will make it easier to find and understand your code later. Take a look at the program below:
+
+```JavaScript
+var book, author, isbn, description;
+
+book = "Hunger";
+author = "Knut Hamsun";
+isbn = 0374525285;
+
+description = "The book " + book + " by " + author + " is on ISBN " + isbn;
+console.log(description);
+
+book = "The Master and Margarita";
+author = "Mikhail Bulgakov";
+isbn = 0679760806;
+
+description = "The book " + book + " by " + author + " is on ISBN " + isbn;
+console.log(description);
+```
+
+As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program (and all on the same line!). It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in the later lessons.
+
+### Variable Naming Conventions
+
+There are a few rules for variable naming conventions in JavaScript. 
+- Variables must begin with a letter or an underscore. You can't begin a variable name with a number (although you can use numbers after). 
+- Variables must not contain spaces or special characters. For example, `myVariable` is a valid variable name, but `my variable` is not.
+- Variable names are case sensitive. That is, a variable named `My_Books` is treated as an entirely different variable than one named `my_books`.
+- You can't use one of JavaScript's reserved words as a variable name. All programming languages have a supply of words that are used internally by the language. For a complete list, see here: [Reserved Words](https://www.w3schools.com/js/js_reserved.asp).
+
+In general, try to keep your variable names as short and descriptive of their purpose as possible.
+
+## Using typeof
+
+Let's end our discussion of variables with one more nifty tool: the `typeof` operator. The `typeof` operator is used to determine the data type of a variable. For example, if you have a variable named `myVariable`, you can use the `typeof` operator to determine what kind of data it is.
+
+```JavaScript
+var myVariable = "Hello, World!";
+console.log(typeof myVariable);
+```
+
+If you look at your developer console, you should see a `string` correctly identified as the data type of `myVariable`. You can use this operator to determine the data type of any variable you have created. This can become very useful when you are working with data types that are not explicitly defined or when you are converting data types from one type to another (which we'll begin learning in the next lesson).
+
+## Review Questions
+
+Let's review some of the main concepts we've covered in this lesson and get some practice in.
+
+1. `console.log()` is best used for (select one):
 
 <Quiz>
-- `1 = one`
-- `one = 1`*
-- `$$$ = "dollar_signs"`
-- `first_book = "Orlando"`*
+- testing and debugging your code*
+- changing the appearance of a webpage
+- warning the user about something
 </Quiz>
 
+2. Select all of the following statements that will evaluate to `true`:
 
-## Data Types
+<Quiz>
+- 5*
+- 5 = 5
+- 5 == 5*
+- 5 != 5
+- 5 === 5*
+- 5 !== "5"*
+</Quiz>
 
-Javascript deals in data types, which are the fundamental building blocks of the language. When a variable is declared, it is assigned a type. The five core data types are:
+3. Which of these variable names are legal (valid) in JavaScript? (select all that apply)
 
-- Numbers
-- Strings
-- Booleans
-- Arrays
-- Objects
+<Quiz>
+- my_books* 
+- myBooks*
+- my-books
+- myBooks1*
+- 1my_books
+- myBooks&I
+</Quiz>
 
-Let's discuss some specifics.
+## Challenges
 
-## Numbers
-
-- Integers
-- Floats
-
-## Strings
-
-## Booleans
-
-- True
-- False
-
-## Arrays
-
-- Lists
-- Tuples
-
-## Objects
-
-- Dictionaries
-- Classes
-
-# If and Then
-
-Using 'if' statements, we can make decisions based on the value of a variable.
-
-Here's a simple example:
+1. In JavaScript, as in typical algebra, ambiguity in a mathematical expression is resolved by [rules of precedence (PEMDAS)](https://www.purplemath.com/modules/orderops.htm). For example, the expression `5 + 5` is evaluated as `10`, while the expression `5 + 5 * 5` is evaluated as `30`. Using the rules of precedence and the console, rework the expression `5 + 5 * 10 /2` so that it resolves to `50`. Next, utilizing the variables defined below, write an expression that resolves to `true` using the double equals `==` operator.
 
 ```JavaScript
-if ( true ) {
-    console.log('It is true!');
-}
-```
-So the thing inside the `if` statement is evaluated. If it is true, the code inside the `{}` block is executed.
-
-
-```JavaScript
-var a = 1;
-if (a == 1) {
-    console.log('a is 1');
-}
+var a = 15;
+var b = 10;
+var c = 30;
+var d = 5;
 ```
 
-```JavaScript
-var weather = 'cold';
-if (weather === 'sunny') {
-    console.log('It is a beautiful day!');
-} else {
-    console.log('It is not a beautiful day.');
-}
-```
-'console.log' is a function that prints a message to the console.
+<JSTerminal />
 
-<JSConsole />
+2. Using variables, write a simple program that 1) sends an `alert` to the user telling them to open the developer console in their browser and 2) logs a message to the console saying they have won a prize. __Note__: This is an imaginary practice scenario. In reality, you would want to avoid using `console.log()` to send messages to users when actually deploying your website. Any information you want the user of your webpage to see should be presented on the webpage itself.
 
-# Thinking in Code
+## Key Terms
 
-Let's talk about the process of thinking in code. What does someone think about before they write code? In your head, how might you imagine what the code in action would look like? For me, I have two ideas:
+Do you recall the meaning of the following terms from this lesson?
+- boolean
+- string
+- variable
+- concatenation
+- declaration/assignment
+- mutability
 
+# Control Flow
+
+So far in this course, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
+
+We are speaking here about __control flow__: the order in which the computer executes statements in a script.
+
+In general, code is run in order from the first line in the file to the last line, unless the computer runs across the (extremely frequent) structures that change the control flow, such as conditionals and loops. We will explore several of these structures in this lesson and learn how to use them to create dynamic, branching programs. To put these skills to work, at the end of the lesson you will learn to build your own small text-based "Choose Your Own Adventure" game that allows players/readers to change the outcomes of a story based on their decisions. Let's get started! 
+
+## Thinking in Code
+
+Let's talk about the process of thinking in code. What does someone think about before they write code? In your head, how might you imagine what the code in action would look like? 
+
+In general, we might present a few initial ideas about the process:
 1. The computer reads from top to bottom. It does things according to the instructions it reads, step by step. That's the sense in which we mean 'scripting'. My thought process is about the steps that are necessary to get from the beginning to a defined end. What kind of data do I have? How will it have to be transformed? What will be the result? That's the linear vision of scripting.
-2. Digging into the code is a lot more difficult. It's about the structure of the code. What is the structure of the code? What is the structure of the data? What is the structure of the code? What is the structure of the data? That's the hierarchical vision of scripting.
-3. OK actually I'm not sure what the third one is.
-4. The branching vision of code is about the decisions that are made in the process of getting to the end. The use of `if` statements and loops is the equivalent of a decision tree. 
+2. Digging into the code is a lot more difficult and we really need to envision its structure. What might the structure of the code look like? What is the structure of the data itself? That's the hierarchical vision of scripting.
+3. A branching, rather than linear, vision of code is about the decisions that are made in the process of getting to the end. The branches in the program are equivalent to a "decision tree." 
 
-# Building something that sticks around
+![Decision Tree](/images/decision-tree.drawio.png)
+
+Let's also think through what a "Choose Your Own Adventure" game would consist of. In simple terms, it would need:
+1. A predefined story (the story that the player is told)
+2. A set of choices that the player can make at certain points in the story 
+3. An internal way to change the story based on the player's choices (code branching)
+4. A set of outcomes that the player can see based on their choices 
+
+Let's keep these ideas in mind and use them as a rough roadmap for the rest of the lesson.
+
+For now, let's not worry about the details of the story. Let's first start by exploring a simple way to allow the player to make choices and a way to store those choices.
+
+## Prompts
+
+One of the simplest ways to gather user input is through the `prompt()` function. This function displays a message to the user and waits for them to enter a response in the response field. The `prompt()` function returns the user's response as a string. Let's take a look at it in detail.
+
+```JavaScript
+    var userName = prompt("What is your name?");
+```
+Here is a simple example of the `prompt()` function in action. The user is asked to enter their name and waits for them to type it out and hit <kbd>Enter</kbd>. Once the user completes their name, their response will be stored in the variable `userName`. In other words, the function __returns__ the value you enter and stores it in the variable. Try running the code in the console below, answer the prompt, and then type `userName` in the console to see that the variable is now populated with the name you have entered.
+
+<JSTerminal />
+
+Pretty nifty, right? `Prompt` code is like `alert` code, with a couple differences:
+1. In a prompt, you need a way to capture the user's response. So, you must begin the prompt with a variable declaration.
+2. In a prompt, you can specify a second message, which acts as a "default" value. If the user doesn't enter a response, the default message will be stored in the variable. For instance, we might make a prompt like: `var whatAmI = prompt("What am I?", "I am a human!");`, in which `I am a human!` will prepopulate the response field and act as the default return value if the user doesn't enter anything themselves. 
+
+### parseInt()
+
+It's important to note that the user's response to a `prompt` is _always_ a string. If you want to store and handle the user's response as a number (so you can perform arithmetic on it), you will need to convert it to a number using the `parseInt()` function. The `parseInt()` function takes a string and returns the number it represents. For example, `parseInt("5")` will return `5` (the number).
+
+Let's try this out now, this time asking the user their age:
+
+```JavaScript
+    var userAge = prompt("How old are you?");
+    userAge = parseInt(userAge);
+    alert("You are " + userAge + " years old.");
+    typeof userAge;
+```
+
+<JSTerminal />
+
+For this example we simply update `userAge` with the new conversion value. As you can see by checking with `typeof`, the user's response is now registered as a number.
+
+__Note:__ This is not a foolproof data type conversion tactic and is easily broken. For instance, if you type the response "one" into the prompt instead of 1, the `parseInt` function will return a `NaN` (Not a Number) value. The `NaN` value is a special value that is returned when you try to perform arithmetic on a value that is not recognized as a number. For our purposes at the moment, however, this technique will suffice.
+
+## If/Else Statements
+
+So far so good--we now have a way to capture user input. However, we don't yet have a way to react or respond to that input. For this we can use a different kind of structure called an __if/else statement__. These statements allow us to make decisions based on the value of a variable.
+
+The basic structure of an `if/else` statement is:
+
+```JavaScript
+    if (condition) {
+        // code to run if condition is true
+    } else {
+        // code to run if condition is false
+    }
+```
+
+If statements work like "_If condition is met, then execute the task_". In other words, the code in the `if` "block" will run if the `condition` (whatever it may be) is true and skip the `else` block, and the code in the `else` block will run if the `condition` is false and skip the initial `if` block. Note the beginning and ending curly braces `{}` surrounding each branch of the code: `if` and `else` always utilize curly braces, rather than semicolons. These braces always indicate a particular block of code and you will encounter them in many contexts.
+
+The other new thing of note here is the text following the two forward slashes `//`: these are called __comments__. Comments are used to explain the code and are not executed by the computer. They are purely for human readers. As we continue to build more complex programs, we will often use comments to explain the code. Writing comments for yourself is an important way to make sure that you recall the purpose of the code you are writing if you return to it later. It also helps others reading your code to understand your intentions as well.
+
+Let's look at a more concrete example of an if/else statement, modifying our "get the user's age" program from above and seeing if they are legally eligible to buy alcohol in the U.S. Try running the code in the console below.
+
+```JavaScript
+    var userAge = prompt("How old are you?");
+    userAge = parseInt(userAge);
+    if (userAge >= 21) {
+        alert("You are legally old enough to purchase alcohol in the U.S.");
+    } else {
+        alert("You are not legally old enough to purchase alcohol in the U.S.");
+    }
+```
+
+<JSTerminal />
+
+After gathering the user input and performing the conversion, we then use an `if/else` statement to determine if the user is old enough to purchase alcohol (that is, we check to see if they are 21 years or older). 
+
+## Else If Statements
+
+Using `else if`, you can utilize as many statements as you want in your code to check as many conditions as you need. Try running the following example in the console:
+
+```JavaScript    
+    var userAge = prompt("How old are you?");
+    userAge = parseInt(userAge);
+
+    if (userAge >= 21) {
+        alert("You are legally old enough to purchase alcohol in the U.S.");
+    } else if (userAge >= 18) {
+        alert("You are legally old enough to buy a gun (but not to purchase alcohol) in the U.S.");
+    } else {
+        alert("You are not legally old enough to purchase alcohol in the U.S.");
+    }
+```
+
+<JSTerminal />
+
+The first `if` statement checks to see if the user is old enough to purchase alcohol. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are able to buy a gun. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
+
+Along with testing as many conditions as you want, you can also run as many lines of code as you want in each block. You can even chain together a series of `if/else` statements. This is called __nesting__. For example:
+
+```JavaScript
+if (condition1){
+    // code to run if condition1 is true
+    if (condition2){
+        // code to run if condition2 is true
+        if (condition3){
+            // code to run if condition3 is true
+        } else {
+            // code to run if condition3 is false
+        }
+    } else {
+        // code to run if condition2 is false
+    }
+} else {
+    // code to run if condition1 is false
+}
+```
+
+As you might be able to tell from just this example, too many nested `if/else` statements can be hard to read and hard to maintain, so try to keep them to a minimum whenever possible.
+
+## Switch Statements
+
+Switch statements are another control flow structure used to handle multiple conditions. They are perhaps not as common, but they are useful to cover here briefly, as they can have a cleaner syntax than creating overly complex chains of `if/else` statements.
+
+The basic structure of a switch statement is:
+
+```JavaScript
+    switch (variable) {
+        case value1:
+            // code to run if `variable` is `value1`
+            break;
+        case value2:
+            // code to run if `variable` is `value2`
+            break;
+        case value3:
+            // code to run if `variable` is `value3`
+            break;
+        default:
+            // code to run if `variable` is not `value1`, `value2`, or `value3`
+            break;
+    }
+```
+
+Like the `if/else` statement, the `switch` statement is broken into a series of `case` statements. Each `case` statement is a condition that the `switch` statement will check. The `switch` statement will then execute the code in the block that is associated with the first `case` statement that is evaluated as true. If none of the `case` statements are true, the `default` block will be executed.
+
+The `break` statement is used to break out of the `switch` statement. The `break` statement is not required, but it is recommended to use it. If you omit the `break` statement, the `switch` statement will continue to execute the code in the next `case` statements even if they do not match the case.
+
+Let's take a look at a more concrete example of a `switch` statement. Let's say we were creating a computer game, and wanted to let the player pick a difficulty setting. Take a look at the following code and run it in the console:
+
+```JavaScript
+    var difficulty = prompt("What difficulty would you like to play? 1- Easy, 2- Medium, 3- Hard");
+    switch (difficulty) {
+        case "1":
+            alert("You have selected the Easy difficulty.");
+            break;
+        case "2":
+            alert("You have selected the Medium difficulty.");
+            break;
+        case "3":
+            alert("You have selected the Hard difficulty.");
+            break;
+        default:
+            alert("Invalid entry.");
+            break;
+    }
+```
+<JSTerminal />
+
+Here we have three different difficulty levels (although you can have as many levels or `cases` as you want in a `switch` statement). The first `case` statement checks to see if the user entered `1`, the second `case` statement checks to see if the user entered `2`, and the final `case` statement checks to see if the user entered `3`. If the user entered `1`, `2`, or `3`, the `alert` message is displayed. If the user entered anything else, the `default` block is executed and an error message is shown. 
+
+While this simple example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Readability is just as important as functionality in programming.
+
+## Choose Your Own Adventure
+
+Now that you have a better understanding of some basic control flow structures in JavaScript, it's time to put them to work creating a simple Choose Your Own Adventure game using `prompt` for input and `alert()` for output. Since our game is meant to be a piece of interactive fiction, we'll want to use a variable to track player choices, and perhaps also let the player input their name to personalize the game and get things started.
+
+```JavaScript
+    var playerName, playerChoice;
+
+    var playerName = prompt("What is your name?");
+    alert("Welcome, " + playerName + "!");
+```
+
+Next, we can begin adding our story. I am going to show you an example, but feel free to get creative and write a story of your own. For my example, I am going to adapt the first two lines of Fredric Brown’s short story “Knock,” written in 1948. These two lines are a complete story in themselves and are widely considered one of the shortest and yet most evocative horror/sci fi stories to date. In Brown’s story, the first two lines are as follows: 
+
+> “The last man on earth sat alone in a room.  There was a knock on the door.”
+
+I’m going to have some fun with this story and let the player decide what to do next. I will also modify the language a bit—because we are creating a Choose Your Own Adventure story, we want to use second person phrasing (you). So, my story will look rather like this:
+
+```JavaScript
+    alert(playerName + ", you are the last person on earth, sitting alone in a room. There is a knock on the door... What will you do?");
+    playerChoice = prompt("Enter 1 to cautiously approach the door. Enter 2 to hide under the table.");
+    if (playerChoice == "1"){
+        alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+    } else if (playerChoice == "2"){
+        alert("As you hide under the table you hear the doorknob rattling.");
+    }
+    else {
+        alert("Invalid entry.");
+    }
+```
+
+Here we have given the player two options by entering either `1` or `2` into the prompt. Now that we have their first options, we can add further options by nesting additional `if` statements:
+
+```JavaScript
+    if (playerChoice == "1"){
+        alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+        playerChoice = prompt("Enter 1 to bravely open the door. Enter 2 to look through the door's peephole.");
+        if (playerChoice == "1"){
+            alert("You swing the door open with courageous gusto.")
+        }
+        else if (playerChoice == "2"){
+            alert("You cautiously look through the peephole. You make out a vague shape looming before the door.")
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    } else if (playerChoice == "2"){
+        alert("As you hide under the table you hear the doorknob rattling.");
+        playerChoice = prompt("Enter 1 to stay hidden under the table. Enter 2 to get up and find a weapon to defend yourself with.");
+        if (playerChoice == "1"){
+            alert("Whatever is at the door has now begun banging on it loudly.");
+        }
+        else if (playerChoice == "2"){
+            alert("You quickly but quietly get up and look around. You see a broom in the corner of the room and wield it mightily.");
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    }
+    else {
+        alert("Invalid entry.");
+    }
+```
+
+Okay, now we have some additional options for the player to choose from, along with more error messages if they choose incorrectly. Putting it all together then, here is the story so far:
+
+```JavaScript
+    var playerName, playerChoice;
+
+    var playerName = prompt("What is your name?");
+    alert("Welcome, " + playerName + "!");
+
+    alert(playerName + ", you are the last person on earth, sitting alone in a room. There is a knock on the door... What will you do?");
+    playerChoice = prompt("Enter 1 to cautiously approach the door. Enter 2 to hide under the table.");
+    if (playerChoice == "1"){
+        alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+        playerChoice = prompt("Enter 1 to bravely open the door. Enter 2 to look through the door's peephole.");
+        if (playerChoice == "1"){
+            alert("You swing the door open with courageous gusto.")
+        }
+        else if (playerChoice == "2"){
+            alert("You cautiously look through the peephole. You make out a vague shape looming before the door.")
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    } else if (playerChoice == "2"){
+        alert("As you hide under the table you hear the doorknob rattling.");
+        playerChoice = prompt("Enter 1 to stay hidden under the table. Enter 2 to get up and find a weapon to defend yourself with.");
+        if (playerChoice == "1"){
+            alert("Whatever is at the door has now begun banging on it loudly.");
+        }
+        else if (playerChoice == "2"){
+            alert("You quickly but quietly get up and look around. You see a broom in the corner of the room and wield it mightily.");
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    }
+    else {
+        alert("Invalid entry.");
+    }
+```
+
+Try writing a short story of your own in the code editor below. (You can also copy/paste the code from mine if you want to see it in action.)
+
+<CodeEditor language='JavaScript'>
+</CodeEditor>
+
+While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code and make our programs more efficient.
+
+## Review Questions
+
+Let's review the concepts we have learned in this lesson.
+
+1. The `prompt()` function always returns a `string`.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+2. The code snippet below will throw errors or otherwise not work as intended. Why? Take a minute to look over it yourself, then select all that apply in the quiz below.
+
+```JavaScript
+prompt("What is your name?");
+if (name = "Sal Ami")
+    alert("Hello name!");
+else
+    alert("It's too bad your name isn't" + name + ".");
+```
+
+<Quiz>
+- `prompt()` needs to be assigned to a variable.*
+- a double-equals (rather than a single equals) operator is needed in the `if` statement.*
+- the first `alert` will not correctly display the name.*
+- the `if/else` statement needs curly braces.*
+</Quiz>
+
+3. Switch statements should have (select all that apply):
+
+<Quiz>
+- `break`*
+- `continue`
+- curly braces
+- a default case*
+</Quiz>
+
+## Challenges
+
+1. Write a program that has the user input a number. If the number is even, `alert` "The number is even." If the number is odd, `alert` "The number is odd."
+
+<CodeEditor language='JavaScript'>
+</CodeEditor>
+
+2. Utilizing `switch` statements, write a short Choose Your Own Adventure story that allows the player 3 choices to choose from at a time.
+
+<CodeEditor language='JavaScript'>
+</CodeEditor>
+
+## Key Terms
+
+Do you recall the meaning of the following terms from this lesson?
+- control flow
+- return
+- comments
+- nesting
+
+# Loops
+
+In this lesson we will begin exploring how to use loops to repeat blocks of code. Loops allow us to repeat a specific block of code a certain number of times.
 
 Up to this point our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. To get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout this class, we will be working in this folder.
 Click this button to download a couple of files we'll be needing. Add them to your working folder.
@@ -213,7 +851,7 @@ var chosenValue = myArray[2];
 console.log(chosenValue);
 ```
 
-# Loops
+# HTML
 
 Loops are a way to repeat a block of code a certain number of times. Deciding when and how often to repeat a block of code is a huge part of what makes programming useful. One key concept of looping is 'iteration'. Iteration is moving through a series of items, one at a time. Here is an example of a loop iterating through a list of numbers:
 
