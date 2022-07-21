@@ -39,10 +39,6 @@ What's possible with JavaScript? JavaScript is a programming language that can b
 - [p5.js](https://p5js.org/)
 - [leaflet.js](https://leafletjs.com/)
 
-# Git and GitHub?
-
-Intro to Git and GitHub + how to submit course assignments to repository?
-
 # Getting Started with JavaScript
 
 Let's begin our journey with the JavaScript language. As is tradition, we're first going to explore some ways to print a "Hello World!" message as output to the screen. In doing so, you will be introduced to the basics of working with the JavaScript console. As will become clearer, you can think of the console as an interactive way to run basic JavaScript commands in your browser. 
@@ -269,7 +265,7 @@ We'll continue to work with comparison/equality operators throughout the course,
 
 As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string. In the `"5" == "5"` example you just saw, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
 
-Just like with numbers, you can simply type a string (for instance, `Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a string type.
+Just like with numbers, you can simply type a string (for instance, `"Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a `string` type.
 
 It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
 
@@ -343,7 +339,7 @@ description = "The book " + book + " by " + author + " is on ISBN " + isbn;
 console.log(description);
 ```
 
-As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program (and all on the same line!). It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in the later lessons.
+As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program (and all on the same line!). It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in later lessons.
 
 ### Variable Naming Conventions
 
@@ -565,6 +561,12 @@ if (condition1){
 
 As you might be able to tell from just this example, too many nested `if/else` statements can be hard to read and hard to maintain, so try to keep them to a minimum whenever possible.
 
+To help you understand how each block of this conditional cascade is structured, take a look at the diagram below:
+
+![if/else diagram](/images/if-else-diagram.png)
+
+The arrows indicate the beginning (opening) and ending (closing) braces of a particular `if/else` statement. By matching the colors of each statement, you can see how the curly braces are continually nesting and designating their own blocks of code. While many modern code editors have their own built-in syntax highlighting (or coloring) as well as automatic indentation and bracing to make our code more visually understandable, it is still important to keep a close eye on your code and make sure you are following the correct structure and working in the correct block. 
+
 ## Switch Statements
 
 Switch statements are another control flow structure used to handle multiple conditions. They are perhaps not as common, but they are useful to cover here briefly, as they can have a cleaner syntax than creating overly complex chains of `if/else` statements.
@@ -725,7 +727,7 @@ Try writing a short story of your own in the code editor below. (You can also co
 <CodeEditor language='JavaScript'>
 </CodeEditor>
 
-While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code and make our programs more efficient.
+While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
 
 ## Review Questions
 
@@ -784,9 +786,1042 @@ Do you recall the meaning of the following terms from this lesson?
 - comments
 - nesting
 
-# Loops
+# Loops and Arrays
 
-In this lesson we will begin exploring how to use loops to repeat blocks of code. Loops allow us to repeat a specific block of code a certain number of times.
+In this lesson we will begin exploring how to use __loops__ to repeat blocks of code and iterate over a series of values. We will also learn to work with a very versatile new data type called `arrays`. To put these skills to work, at the end of the lesson we will create a simple library app that allows users to search for a book and see if it is located in the library's collection. 
+
+## Arrays
+
+Let's begin by learning about the `array` data type. So far, you have encountered variables that only contain a single value. An array, in contrast, is a _series_ or a _collection_ of values stored in a single variable. The following is an example of four different arrays:
+
+```JavaScript
+var myArray1 = [1, 2, 3, 4, 5];
+var myArray2 = ['a', 'b', 'c', 'd', 'e'];
+var myArray3 = [true, false, true, false];
+var myArray4 = [1, 2, 'dog', true, [1, 2, 3]];
+```
+
+Creating an array is just like other variable declarations you have seen, but the items it contains are always denoted by square brackets `[]`. An array can house any of the data types we have encountered so far. The first array, for example, contains a series of numbers, the second array contains a series of letters, and the third array contains a series of booleans. Arrays are very versatile and can also contain a mix of different data types, like in the fourth example. As you can see, this array even contains another array `[1, 2, 3]`!
+
+Arrays are useful when you want to have a series of values that are easily accessible. Creating an individual variable for each of the values in the example above, for instance, would make your code very confusing and hard to work with.
+
+Let's look at how we can access the values in an array.
+
+## Accessing Values in an Array
+
+To work with particular values in an array, we access its __index__. Values in an array are numbered starting from 0. The first value in an array is at index 0, the second value at index 1, and so on. Take a look at the example below:
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray[0]); // returns 1
+```
+
+We access the index of an array by using the square brackets `[]` and the corresponding index number. The code snippet above will `alert` the value at index 0 of the array `myArray`. Remember, 0 is the _first_ value in an array, 1 is the _second_ value, and so on.
+
+Try using `alert` to display the value for each of the items from the example in the code editor below:
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+As you can see, when you access the value at index 4 (`myArray[4]`), you get the value `1, 2, 3`. Again, this is because the value at index 4 is an array itself.
+
+## Changing Values in an Array
+
+To change the value at a particular index in an array, we use the same syntax. We use the square brackets `[]` and the index number to access the value, and then assign that index a new value.
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray[0] = 'cat';
+alert(myArray[0]); // returns 'cat'
+```
+
+In this example, the value at index 0 will be changed to `'cat'`.
+
+## Adding Values to an Array
+
+To add a new value to the end of an array, we use the `push()` method. This method takes a single value and adds it to the end of the array.
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.push('cat');
+alert(myArray[5]); // returns 'cat'
+```
+
+This code adds the value `'cat'` to the end of the array `myArray`.
+
+## Removing Values from an Array
+
+To remove a value from an array, we can use the `pop()` method. This method removes the last value in the array and returns it.
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.pop();
+alert(myArray[4]);
+```
+
+Try running this code in the code editor below.
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+Oh no, we are now getting a message of `undefined`! But this is exactly what we intended to happen, because the `pop()` method removed the last value in the array, so when we try to access it JavaScript finds nothing there.
+
+## Splicing an Array
+
+If we want to remove a range of values from an array or start at a particular index, we can use the `splice()` method. This method takes two parameters: the first parameter is the index number of the first value we want to start from and remove, and the second parameter is the number of values to remove in total.
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.splice(0, 2);
+alert(myArray[0]); // returns 'dog'
+```
+
+In this example, the first two values in the array `myArray` are removed (we start at index 0 and remove two values total). After the operation, the value at index 0 is now `'dog'`.
+
+## Determining the Length of an Array
+
+It may not always be clear to you how many values are actually stored in a particular array at any given time, especially if it becomes very large or you are adding and removing a lot of elements. To determine the number of values in an array, we use the `length` property. The `length` property returns the number of values in an array. For example:
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray.length); // returns 5
+```
+
+We utilize `length` by prefacing it with a `.` (dot). This is called _dot notation_, and indicates we are working with a __method__. We'll cover what exactly methods are in later lessons, but for now keep in mind you utilize `length` with a dot and the array you want to work with.
+
+As you can see, `length` counts through the values in the array, so it will return 5. It is important to note here that `length` starts with 1, not 0, so although the last value in the array is at index 4, `length` will still return 5. Confusing, right? It is simply a quirk of the language to get used to, so keep it in mind when working with arrays.
+
+As an example, if you want to access the last value in the array, you can use the `[length - 1]` syntax. This will always return the last value in the array:
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray[myArray.length - 1]); // returns [1, 2, 3]
+```
+
+This is a useful way to access the last value in an array even when you don't know how many elements the array holds.
+
+## The sort() Method
+
+Let's take a look at one last method that we can use on arrays. The `sort()` method sorts an array in alphabetical order, and is particularly useful if you have an array of letters or strings:
+
+```JavaScript
+var myArray = ['c', 'b', 'a', 'e', 'd'];
+myArray.sort();
+alert(myArray); // returns ['a', 'b', 'c', 'd', 'e']
+```
+
+You can, however, also use the `sort()` method to sort an array in numerical order. For example:
+
+```JavaScript
+var myArray = [2, 4, 3, 1, 5];
+myArray.sort();
+alert(myArray); // returns [1, 2, 3, 4, 5]
+```
+
+There are [many other methods](https://www.w3schools.com/js/js_array_methods.asp) you can perform on arrays, and we have only scratched the surface here. But keep in mind that arrays are a powerful tool for storing and manipulating data. Let's now take a look at how we can loop through arrays to make our code more efficient.
+
+## Looping Through an Array
+
+We have so far seen how we can access values in an array, and manipulate them in ways that are useful. But what if we want to do something with every value in an array? For instance, if we wanted to print out every value in an array, it would be very tedious to write out the same code over and over like so:
+
+```JavaScript
+myArray[0];
+myArray[1];
+myArray[2];
+myArray[3];
+...
+```
+
+Thankfully, there is a way to do this in a more efficient way. Let's explore a new kind of technique called __looping__. Looping is a way to iterate through a structure and perform an action on each element.
+
+## The For Loop
+
+When you want to loop through an array, the most common way is with a `for` loop. This loop will __iterate__ through the array and execute a block of code for each value in the array.
+
+The general structure of a `for` loop is as follows:
+
+```JavaScript
+for (var i = 0; i < array.length; i++) {
+    // do something
+}
+```
+
+This may look a little complicated, so let's explore it a bit. The `for` loop is comprised of three parts: the first part is the initialization of the loop, which is the variable `i` in this case (`i` is often used by convention, but the variable name can be anything you want). The second part is the condition that the loop will continue to execute until, and the third part is the incrementor. Each is separated by a semi-colon `;`.
+
+To break it down a little more:
+- `var i = 0`: This is the starting point of the loop. It will serve as the index number of the first element in the array.
+- `i < array.length`: This is the condition of the loop. It is a boolean expression that determines whether the loop should continue. In other words, it says: "while `i` is less than the `length` of the array, do the following:".
+- `i++`: This is the incrementor. `++` is a new operator that means that the value of `i` will increase or ___increment__ by 1 each time the loop executes. We use it to increment the index number of the loop so that it will continually move to the next element in the array. 
+
+ Let's see how this works in action using our `myArray` array from earlier:
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+for (var i = 0; i < myArray.length; i++) {
+    alert(myArray[i]);
+}
+```
+
+Try running this code in the code editor below.
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+As you can see, the loop iterated through the array and alerted each value in the array. You'll notice that the loop executed the alert 5 times instead of displaying all the values at once. This is because the loop is executing the alert once for each value in the array. In other words, the code inside the `for` loop block executes once for each value in the array based on the current value of `i`. So, if there are 5 values in the array, the loop will execute 5 times.
+
+## The While Loop
+
+The `while` loop is similar to the `for` loop, but it will infinitely execute the code inside a loop until a certain specified condition is met. This is useful if you want a certain code block to run until a particular outcome is resolved. Let's look at an example: 
+
+```JavaScript
+var i = 0;
+while (i < 5) {
+    alert(i);
+    i++;
+}
+```
+
+As you can see, the loop executed the alert 5 times, incrementing the value of `i` each time. In other words, this code is saying: "while `i` is less than 5, do the following:".
+
+## Putting It All Together - The Library App
+
+Let's use the skills we've learned in this lesson to create a simple app that will allow us to sort, display, and search for book titles from our library.
+
+To begin, let's imagine a number of fiction titles that are available in our library and add them to an array. We'll sort this array to put it in alphabetical order. We will also create an empty array `libRequests` that will store all the requests from the user, and an empty string `requestedTitle` that will store the title of the book that the user requested in the prompt.
+
+```JavaScript
+var bookTitles = [
+    'Too Loud a Solitude',
+    'Things Fall Apart',
+    'The Master and Margarita',
+    'The Three Body Problem',
+    'The Woman Destroyed',
+    'Beloved',
+    'The Tenant of Wildfell Hall',
+    "Lady Chatterley's Lover",
+];
+
+bookTitles.sort()
+var libRequests = []
+var requestedTitle = "";
+```
+
+Next, let's give the user a short welcome message. We will also let them know they can make a request by typing `request` at the prompt, display all book titles by typing `display`, or quit the program by typing `quit`:
+
+```JavaScript
+alert("Welcome to the library!\n\nPlease search for a book title when prompted.\n\nType `request` at the prompt to make a request for a book.\n\nYou can also type `display` at the prompt to display all available book titles.\n\nType `quit` at the prompt to quit the program.");
+```
+
+Our welcome message gives the user a few options for what they can do. To keep the text display neat, we use `\n` characters to create two new lines after each statement.
+
+At this point, we can envision a few things about how our program should operate:
+- We want to allow the user to search for books until they decide to quit. So, a `while` loop will be needed.
+- We want to check if the user types request or display at the prompt. If they do, we want to perform the appropriate action. So, we will need several `if/else` statements. 
+- We want to iterate through the array of book titles and display each one. So, we can use a `for` loop to accomplish this.
+
+Okay, so far so good. However, we are missing one crucial piece. We want the program to check if a book title the user enters is in the library. That is, we want to see if the string the user enters matches an item in the array `bookTitles`. How can we do this? Let's introduce a new method: `indexOf`.
+
+### indexOf
+
+`indexOf` is a method that returns the index of the first occurrence of a value in an array. If the value is not found, it will return `-1`. Here's an example:
+
+```JavaScript
+var myArray = ['dog', 'cat', 'bird', 'fish'];
+myArray.indexOf('dog'); // returns 0
+myArray.indexOf('cat'); // returns 1
+myArray.indexOf('bird'); // returns 2
+myArray.indexOf('fish'); // returns 3
+myArray.indexOf('cow'); // returns -1
+```
+
+Using this method, we can check if a book title the user enters is in the library (if the string the user enters matches an item in the array `bookTitles`). If it doesn't (if the method returns `-1`), we can alert the user that the book they requested is not in the library.
+
+With this method we should now have everything we need. Let's put the whole program together:
+
+```JavaScript
+var bookTitles = [
+    'Too Loud a Solitude',
+    'Things Fall Apart',
+    'The Master and Margarita',
+    'The Three Body Problem',
+    'The Woman Destroyed',
+    'Beloved',
+    'The Tenant of Wildfell Hall',
+    "Lady Chatterley's Lover",
+];
+
+bookTitles.sort();
+var libRequests = [];
+var requestedTitle = "";
+
+alert("Welcome to the library!\n\nPlease search for a book title when prompted.\n\nType `request` at the prompt to make a request for a book.\n\nYou can also type `display` at the prompt to display all available book titles.\n\nType `quit` at the prompt to quit the program.");
+
+var response = "";
+while (response != 'quit') {
+    response = prompt("Search for a book title or make a request by typing 'request': ");
+    if (response == 'request') {
+        requestedTitle = prompt("What book would you like to request? ");
+        libRequests.push(requestedTitle); // add the requested title to the library requests array
+        alert("You have requested the following titles:" + libRequests + "."); // alert the user their requests
+    }
+    else if (response == 'display') {
+        for (var i = 0; i < bookTitles.length; i++) {
+            alert(bookTitles[i]); // display all available book titles
+            }
+    }
+    else {
+        var bookIndex = bookTitles.indexOf(response); // check if the book the user entered is in the library
+        if (response != 'quit'){
+            if (bookIndex == -1) {
+                alert("Sorry, we don't have that book. You can always request it.");
+            }
+            else {
+                alert("Yes, " + response + " is available to check out.");
+            }
+        }
+    }
+}
+```
+
+Try running and exploring the program:
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action, we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
+
+Congratulations! You have now successfully created a basic library search program. There are, of course, a number of limitations to this program. For instance: 
+- The search parameters are not very robust. The user must type out the full title of the book, with the exact spelling and punctuation of the title. As you might imagine, this is not a very good user experience.
+- The `for` loop sends an alert for each book in the library. This is not ideal, especially if we had a large amount of books. We would want to display the books in a more organized manner.
+
+These are basic considerations we would want to take into account if we were actually designing a library search program. However, if you can understand how this program works, you are well on your way to creating complex and robust JavaScript programs. To get some practice in, try out the challenges below.
+
+## Review Questions
+
+Let's review the concepts we have learned in this lesson.
+
+1. What will be the result of the `alert` in the program below?
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.pop();
+alert(myArray[4]);
+```
+
+<Quiz>
+- 1, 2, 3
+- true
+- undefined*
+</Quiz>
+
+2. What will be the result of the `alert` in the following code?
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray.length);
+```
+
+<Quiz>
+- 4
+- 5*
+- 6
+</Quiz>
+
+3. What will be the result of the `alert` in the following code?
+
+```JavaScript
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.splice(0, 2);
+alert(myArray[0]);
+```
+
+<Quiz>
+- 1
+- 2
+- dog*
+- true
+- [1, 2, 3]
+</Quiz>
+
+## Challenges
+
+1. Write a `for` loop that prints all even numbers from 0 to 100 to the console.
+
+2. The library program currently requires the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp) to make the search parameters case insensitive. _Hint: You will want to perform the toLowerCase method both on the user's response and the book titles in the library._
+
+## Key Terms
+
+Do you recall the following terms from this lesson?
+- `array`
+- `index`
+- `length`
+- `push`
+- `pop`
+- `splice`
+- `sort`
+- `indexOf`
+
+# Functions
+
+In the last lesson, we learned how to loop through a series of statements to repeat blocks of code. As you saw, this can be very useful if we want to automate a series of tasks that would otherwise take forever to write out manually. __Functions__ are another technique that can be used to repeat and reuse blocks of code and help us automate tasks. In this lesson, we will learn how to create our own functions and how to use them. To this end, at the end of the lesson we will create a simple grading program that will allow you to add, calculate, and display student grades.
+
+## What are Functions?
+
+Functions are blocks of code that are designed to perform a specific task and can be reused. When developing applications, you will likely need to perform the same action in many different places. For example, you may need to perform a specific calculation on a number of different values and in different places in your code. Or, you might want to show an error message whenever an error occurs. Instead of rewriting the same code over and over again to perform these actions, you can wrap the code in a function and then call the function whenever you need to perform the action.
+
+The basic syntax for creating a function is as follows:
+
+```JavaScript
+function functionName(parameter1, parameter2, ...) {
+    // code to be executed
+    return value;
+}
+```
+
+To create a function, you must first define the function name. Naming conventions for functions are [lower CamelCase](https://wiki.c2.com/?LowerCamelCase), in which the first word is lowercase and the following words begin with a capital letter. Next you define the function's __parameters__ or __arguments__ within closed parentheses `()`. The parameters are the values that will be __passed__ into the function when it is called. Passing in parameters allows us to reuse the same function for different tasks, because we can pass in different values to the function each time we want to reuse it. The parameters are separated by commas. You can define as many parameters as you want.
+
+Like loops, you can see that functions use curly braces to define their contents. The contents of the function are the code that will be executed whenever the function is called.
+
+For a procedure to be designated a function, it will also __return__ a value. In other words, a function takes some input, transforms that input somehow, and returns an output. 
+
+To make this all clearer, let's look at a basic example of a function. We will create a function called `add` that takes two numbers as parameters and returns the sum of the two numbers.
+
+```JavaScript
+function add(num1, num2) {
+    return num1 + num2;
+}
+```
+First we define the function `add()` with two parameters to pass in, `num1` and `num2`. To add the two numbers we can simply return `num1 + num2`. Note that we could also have defined a variable `sum` and then returned `sum`, like so:
+
+```JavaScript
+function add(num1, num2) {
+    var sum = num1 + num2;
+    return sum;
+}
+```
+
+This is functionally the same result. The only difference is that we have created a new variable within the function to store the sum.
+
+## Calling a Function
+
+If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function. Let's try calling the `add()` function with two number values:
+
+```JavaScript
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+add(1, 2);
+```
+
+Try running this code in the editor below.
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+As you can see, the result of the `add()` function above returns 3 to the console. This is because `add()` takes two numbers as parameters and returns the sum of the two numbers. In this case, `num1` is 1 and `num2` is 2. If you change the values of `num1` and `num2` to different numbers, the result will also change. Again, this allows us to reuse the `add()` function to perform the same calculation on different values.
+
+We could also capture the result of the function in a variable and then work with that variable. For example:
+
+```JavaScript
+function add(num1, num2) {
+    var sum = num1 + num2;
+    return sum;
+}
+
+var result = add(1, 2);
+alert(result);
+```
+
+Here we are calling the `add` function and storing the result of the function (the return value) in the variable `result`. We can then use the variable to perform whatever action we want.
+
+__Note:__ Make sure you are passing in the correct number of parameters when calling a function (at least for functions you have created yourself. Built-in functions inherent to JavaScript can behave a little differently, but don't worry about that right now). If you call the function with too few parameters or too many parameters, your function will likely either behave in unexpected ways or throw an error.
+
+It is worth pointing out that you can also call a function with no parameters and also without an explicit `return` statement. For example, we can create a function called `alertHello` that will simply alert "Hello!" to the user.
+
+```JavaScript
+function alertHello() {
+    alert('Hello!');
+}
+
+alertHello();
+```
+
+Running this code will alert "Hello!" to the user.
+
+Note that if your code does not have a return statement or if the content does not return a value, JavaScript functions will automatically return `undefined`.
+
+Here's an example:
+
+```JavaScript
+function doNothing() {
+    // do nothing
+}
+
+doNothing();
+```
+
+If you type this code into the developer console in your browser, you will see that the function returns `undefined` because you have not provided it with any return value.
+
+Okay, now that we have some basic understanding of how functions operate, let's look at how they create new "scopes" in your code.
+
+## Scope
+
+When you create a function, it designates a new __scope__. Scope is the context in which a particular variable is accessible. In other words, it means where a variable can be available for use (read, manipulated, displayed, etc.) in your code. Depending on how and where you declare your variables, you can have different scopes. To understand scope, let's discuss the different ways to declare variables in JavaScript.
+
+### Rethinking Variable Declarations: `var` vs. `let` and `const`
+
+So far in this course, we have used the `var` keyword to declare variables. While this was the old standard way of declaring variables in JavaScript, in most modern usages it has been replaced by the `let` and `const` keywords. `const` in particular has become the new standard for declaring variables in JavaScript. While you can see that the syntax is the same...
+
+```JavaScript
+var name = 'John';
+let age = 30;
+const isAdmin = true;
+```
+
+...the behavior of the keywords is different. From now on, __we will shift to using the `let` and `const` keywords in this course, and in particular, to using `const`.__ What, then, are the differences between these variable declarations?
+
+To understand the differences between these declarations, we need to understand their scope. Let's understand the scope of each of these types and see why `let` and especially `const` are the new standard.
+
+### `var`
+
+`var` declarations can be "globally" and "function/locally" scoped. Global scope means that the variable is available for use anywhere throughout your code. Function scope means that the variable is available for use only within the function it is defined. When declared outside of a function, `var` is global and can be accessed anywhere in your code. When declared inside of a function, `var` is function-scoped and can only be accessed within the function. Take a look at the example below:
+
+```JavaScript
+var greet = "hi there";
+
+function newFunction() {
+    var hello = "hello";
+}
+```
+
+In this example, `greet` is globally scoped because it exists outside of the function, while `hello` is function scoped. These variables have different scopes or levels of access. To see what I mean, try running the code below in the editor:
+
+```JavaScript
+var greet = "hey hi"
+
+function newFunction() {
+    var hello = "hello";
+}
+
+console.log(greet); // this would work
+console.log(hello); // but this will not
+```
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+As you can see, the console trips up at the `console.log(hello);` and throws a `ReferenceError`, which states that '`hello is not defined`. This is because `hello` is only available inside of the function in which it was declared. If you try to access `hello` outside of the function, JavaScript can't find the variable declaration you are referring to.
+    
+You have also seen how `var` declarations are mutable, insofar as they can be re-declared and reassigned. You can change the value of a `var` at any time:
+
+```JavaScript
+// re-declaration
+var greet = "hi there";
+var greet = "hello there";
+
+// reassignment
+var greet = "hi there";
+greet = "hello there";
+```
+
+While this can be useful in some circumstances, it is not recommended. Once your programs become more complex, you may find yourself accidentally re-declaring or reassigning variables without realizing it. This can cause unexpected behavior and can be a source of bugs. This is a large part of why we will use the `let` and `const` keywords in the future instead of `var`, so let's discuss each of those keywords next.
+
+## `let`
+
+In contrast to `var`, `let` declarations are block-scoped. This means that the variable is only available within the block of code in which it is declared. As you have seen, a block is a section of code surrounded by curly braces. So, a variable declared inside of a block with `let` is only available within that block. Try running the code below in the editor:
+
+```JavaScript
+let someValue = 1;
+
+if (someValue > 0) {
+    let greet = "hi there";
+    console.log(greet); // this will successfully log "hi there"
+}
+
+console.log(someValue); // this will successfully log 1
+console.log(greet); // but this throws a ReferenceError
+```
+
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+We can see that using `greet` outside of its block (the curly braces where it was defined) returns an error. Again, this is because `greet` is only available inside of the block in which it was declared. __Note:__ If you cannot see the two successful console logs, check the developer console in your browser, rather than in the embedded code editor.
+
+Just like with `var`, you can reassign the values of `let` variables at any time. However, unlike `var`, you cannot re-declare a `let` variable. So while this will work:
+
+```JavaScript
+// reassignment
+let greet = "hi there";
+greet = "hello there";
+```
+
+This will not:
+
+```JavaScript
+// re-declaration, will error
+let greet = "hi there";
+let greet = "hello there";
+```
+
+If you try running the re-declaration code you will get a `SyntaxError` that says `"Identifier 'greet' has already been declared"`. Using `let` therefore solves the problem of accidentally re-declaring variables. 
+
+__Note:__ While you cannot re-declare a `let` variable within the block is which it was declared, you _can_ re-declare a `let` variable _outside_ of the block in which it was declared:
+
+```JavaScript
+let greet = "hi there";
+if (true) {
+    let greet = "hello there";
+    console.log(greet); // this will successfully log "hello there"
+}
+console.log(greet); // will successfully log "hi there"
+```
+
+Do you understand why this works? Because they are block-scoped, both `greet` variables are treated as _entirely different_ variables!
+
+As you can see, `let` is an improvement over `var` in the sense that it can help you avoid accidentally modifying the value of a variable that you did not intend to modify. However, `const` has become the standard for many cases, so let's look at why.
+
+## `const`
+
+In the rest of this course, we will often use `const` to declare variables. Like `let`, `const` is block-scoped. This means that the variable is only available within the block of code in which it is declared. However, unlike `let`, `const` variables are __immutable__. This means that once they are declared, they cannot be updated or re-declared. As you might have guessed, `const` is shorthand for "constant." In other words, `const` is a way to declare variables that you will never want to modify.
+
+The value of a `const` variable always remains the same within its scope. So, if we declare a `const` variable, we can't do any of the following:
+
+```JavaScript
+// reassignment
+const greet = "hi there";
+greet = "wait, say hello there instead"; // throws a TypeError
+
+// re-declaration
+const greet = "hi there";
+const greet = "I really wish I could say hello there"; // throws a TypeError
+```
+
+Running this code would give you a `TypeError` saying `"Cannot assign to constant variable"`. This is because we are trying to change the value of a constant variable.
+
+Okay, now that we have a basic understanding of how scope in JavaScript works, let's move on to utilizing functions to create a simple grading program.
+
+## The Student Grades Program
+
+Using functions, let's create a simple program that will allow us to evaluate student grades.
+
+Let's imagine that students have just submitted a homework assignment and we need to evaluate their grades. We want to:
+1. Easily display their grades.
+2. A new student has joined and submitted work, so we want to add a student to our list of students.
+3. Evaluate their numbered grade to a letter (A, B, C, D, or F).
+
+Functions are perfect for this because we can define each of these three tasks as a separate function. We can then call each of these functions at the appropriate time. Remember, functions should be used to perform a single task.
+
+To begin, let's create an array of students with their corresponding grades:
+
+```JavaScript
+let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+```
+
+This array contains four students. Each element (student) is itself an array with two elements. The first element is the student's name and the second element is the student's grade. This is called a __multi-dimensional array__, or an array of arrays. They are useful when we want to store multiple pieces of information about each element of an array.
+
+Now that we have some student data, let's create a function that will allow us to display the students' names and their grades. Because we want to display each student's name and their corresponding grade, we will need to use a `for` loop to iterate over the students array. So, let's create a new `printAllGrades` function that will do just that:
+
+```JavaScript
+let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+
+function printAllGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i][0] + ': ' + students[i][1]);
+    }
+}
+
+printAllGrades(students);
+```
+Try running this code in the editor below, and check the developer console in your browser to see the output.
+
+<CodeEditor language='JavaScript'>
+     </CodeEditor>
+
+In the developer console you should see each of the students' names and their corresponding grades. Let's break down the `for` loop in the function to see how this works. First, we declare a variable `i` that will be used to iterate over the students array. We will initialize `i` to 0, and then increment `i` by 1 each time the loop runs. Next, we need to check if `i` is less than the length of the students array. If it is, we will continue to run the loop. Inside the loop, we use the variable `i` to access the current element of the students array. Notice the first part of the `console.log()` statement and the difference between the two `students` statements. In the first, we are using `students[i][0]` index to access the student's name. As `[i]` increments, we will iterate through each of the items of the array. Because we have fixed the second element as `[0]`, it will always display the first element of each item (namely, the student's name). In the second, we are using `students[i][1]` to access the student's grade. Again, it will iterate through each of the items of the array. However, this time we are using index `[i][1]` to access the second element of each item (grade). See below to help you understand the reference of each index in the array:
+
+    students[0][0] = 'Bob'; // name of student 0
+    students[0][1] = '55';  // grade of student 0
+
+    students[1][0] = 'Alice'; // name of student 1
+    students[1][1] = '98';  // grade of student 1
+
+    students[2][0] = 'Juan'; // name of student 2
+    students[2][1] = '77'; // grade of student 2
+
+    students[3][0] = 'Samar'; // name of student 3
+    students[3][1] = '100'; // grade of student 3
+
+Simply by iterating through each index of the array we are able to concurrently display the first and second elements of each item.
+
+Okay, so far so good. Now, let's add a new student to our list of students. Do you remember how to add a new element to an array? Take a look at this function:
+
+```JavaScript
+function addStudent(students, name, grade) {
+    students.push([name, grade]);
+}
+
+addStudent(students, 'Biff', '32');
+```
+
+As you might recall, we can use `push` to add a new item. In this code we have created a new function that takes three arguments. The first argument is the `students` array that we want to add to, the second argument is the name of the new student, and the third argument is the grade of the new student. We provide each of these arguments to the function when we call it (poor Biff didn't do too well, sadly).
+
+Let's put it together with the rest of the program, and display our updated students list. Try running the code in the editor:
+
+```JavaScript
+let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+
+function printAllGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i][0] + ': ' + students[i][1]);
+    }
+}
+
+function addStudent(students, name, grade) {
+    students.push([name, grade]);
+}
+
+addStudent(students, 'Biff', '32');
+printAllGrades(students);
+```
+
+<CodeEditor language='JavaScript'>
+     </CodeEditor>
+
+You should now see the new student's name and grade.
+
+It might be helpful if we could search for a student by name and display their grade. Let's create a new function that will do just that:
+
+```JavaScript
+function findStudentGrade(students, name) {
+    for (let i = 0; i < students.length; i++) {
+        if (students[i][0] === name) {
+            return students[i][1];
+        }
+    }
+}
+
+console.log(findStudentGrade(students, 'Alice'));
+```
+
+Again, here we are using the `for` loop to iterate over the students array. We are also using the `if` statement to check if the current element of the students array matches the name we are searching for. If it does, we will return the grade of the student. As parameters we simply pass in the `students` array and the name of the student we are searching for.
+
+Lastly, let's create a new function `toLetterGrade()` that will evaluate a student's grade and return a letter grade. For this function, we could also utilize our `findStudentGrade()` function so that we can search for a student and convert their grade, like so:
+
+```JavaScript
+function toLetterGrade(students, name) {
+    const grade = findStudentGrade(students, name);
+    if (grade >= 90) {
+        return 'A';
+    } else if (grade >= 80) {
+        return 'B';
+    } else if (grade >= 70) {
+        return 'C';
+    } else if (grade >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+console.log(toLetterGrade(students, 'Alice'));
+```
+
+As you can see, we create a new constant variable `grade` and assign it the value of the grade of the student we are searching for by capturing the result of our `findStudentGrade()` function. Keep in mind that it can be very useful to store the result of a function in a variable, even within a different function! We then use a series of `if/else` statements to determine the letter grade of the student and return it.
+
+Let's put the whole program together and run it:
+
+```JavaScript
+let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+
+function printAllGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i][0] + ': ' + students[i][1]);
+    }
+}
+
+function addStudent(students, name, grade) {
+    students.push([name, grade]);
+}
+
+function findStudentGrade(students, name) {
+    for (let i = 0; i < students.length; i++) {
+        if (students[i][0] === name) {
+            return students[i][1];
+        }
+    }
+}
+
+function toLetterGrade(students, name) {
+    const grade = findStudentGrade(students, name);
+    if (grade >= 90) {
+        return 'A';
+    } else if (grade >= 80) {
+        return 'B';
+    } else if (grade >= 70) {
+        return 'C';
+    } else if (grade >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+addStudent(students, 'Biff', '32');
+printAllGrades(students);
+console.log(findStudentGrade(students, 'Alice'));
+console.log(toLetterGrade(students, 'Alice'));
+```
+
+Try running the program below in the editor and seeing the result in the developer console.
+
+<CodeEditor language='JavaScript'>
+     </CodeEditor>
+
+Congratulations, you have now created a simple grading program utilizing functions!
+
+Functions are a great way to keep your code organized and readable. They can also be used to create reusable pieces of code that can be employed in multiple places in your program. Remember that functions should ideally always be used to perform a single task, and that their names should be descriptive of the task they are performing.
+
+## Review Questions
+
+Let's review the concepts we have learned in this lesson.
+
+1. What is the naming convention for functions in JavaScript?
+
+<Quiz>
+- lowercase_with_underscores
+- lower camelCase*
+- snake_case
+- PascalCase
+</Quiz>
+
+2. What will be the result of the following code?
+
+```JavaScript
+let someValue = 1;
+
+if (someValue > 0) {
+    let greet = "hi there";
+    console.log(greet);
+}
+
+console.log(greet);
+```
+
+<Quiz>
+- hi there
+- undefined
+- ReferenceError*
+- TypeError
+</Quiz>
+
+3. Should you use the `var` keyword to declare a variable?
+
+<Quiz>
+- Yes
+- No*
+- Don't tell me what to do!
+</Quiz>
+
+## Challenges
+
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to do this.)
+
+2. Biff decided to drop your class after his unfortunate grade. Add a function to the Student Grades program that will remove Biff from the list of students.
+
+3. At the moment, our `toLetterGrade()` function requires the user to manually type the name of each student in order to convert their grade. Write a new function that will iterate through the entire list of students and convert their grades to letter grades.
+
+## Key Terms
+
+Do you recall the meaning of the following terms?
+
+- parameter/argument
+- pass (values)
+- call (function)
+- return value
+- constant
+- multidimensional array
+- scope
+
+# VSCode and GitHub
+
+Up to this point we have been working entirely in the browser and our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. So, to get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout the rest of this course, we will be working in this folder.
+
+Click this button to download a couple of files we'll be needing. Add them to your working folder.
+
+<Download files='index.html, script.js'><br />
+
+Next, we'll want to get our coding environment set up. This will be the main focus of this particular lesson. We'll first install the VSCode code editor, and then learn how to set up and use a GitHub repository.
+
+Much of your academic career has likely been structured around sending in single documents. For instance, a .pdf or Word document of your latest essay masterpiece. In general, however, going forward in this class you'll want to think of your work in terms of a __project__, which is a collection of files and code that you want to work on. In the coding environment we'll set up and project we'll create, we'll be working with many files that will all contribute to the same project. A website, for instance, is a project, made up of many different files. What we will end up building by the end of this course will all be housed in the same folder and will be managed though a single GitHub repository. This will hopefully make more sense once we get into it.
+
+For now, let's go ahead and install VSCode.
+
+## VSCode
+
+VSCode is a free and open-source code editor that is available for Windows, Mac, and Linux. It is a great tool for developers to use when they are working on code. It supports syntax highlighting, code completion, has built-in GitHub integration, and has an extensive library of extensions that can be used to extend its functionality.
+
+### Installing VSCode
+
+Navigate to the [homepage of VSCode](https://code.visualstudio.com/) and download the appropriate version for your operating system (stable version).
+
+![VSCode homepage](/images/vscode_homepage.png)
+
+Once it is installed, open up the application. On the left sidebar, you'll see a few different options. Let's look at three of them:
+
+![VSCode sidebar](/images/vs_code_sidebar.png)
+
+- The Explorer Window is the main window that you'll be working with. It is the main way to navigate through your project and to interact with files.
+- The Search Window is a window that you can use to search for files or words throughout your project.
+- The Source Control Window will allow you to manage your project's files and code through GitHub integration.
+
+These are the main windows you'll be working with, along with the main code editor area, in which you'll be writing code.
+
+### Opening a Project
+
+For now, go ahead and open up the Explorer Window and click Open Folder. Navigate to your working folder for the course, select the folder, and click Select Folder.
+
+In the Explorer, you should now be able to view both the `index.html` file and the `script.js` file, and can open them to view the code for each file.
+
+![New Project](/images/vscode_openproject.png)
+
+Next, let's go ahead and initialize a git repository for our project.
+
+## Creating a GitHub Account
+
+The first step we'll need to take is to set up a GitHub account. Navigate to the [GitHub homepage](https://github.com/) and click Sign Up for GitHub. You'll be prompted to create a new account.
+
+![GitHub Sign Up](/images/github_homepage.png)
+
+Work through the steps to create a new account and return here when you are done.
+
+## Getting Acquainted with Git and GitHub
+
+Now that you have a GitHub account, let's go ahead and initialize a repository (folder) for our project. 
+
+First, we should understand a little about how Git and Github work. __Git__ is a version control system that allows you to track changes to your files. If you have used "track changes" in the past with either Microsoft Word or Google Docs, you're likely familiar with the terminology.
+
+GitHub is an online platform for hosting Git repositories. It functions for some, predominantly programmers, as a social network for sharing and collaborating on code-based projects. Users can share their own projects, as well as search for others, which they can then often work on and contribute to. Digital Humanists, librarians, and other academics are also finding ways Git and GitHub are useful in writing projects and teaching.
+
+A [study of how Digital Humanists use GitHub](https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf), conducted by Lisa Spiro and Sean Morey Smith, found that a wide range of users, including professors, research staff, graduate students, IT staff, and librarians commonly used the site in their DH work. They used GitHub for a diverse range of activities, such as:
+
+- Developing software
+- Sharing data sets
+- Creating websites
+- Writing articles and books
+- Collating online resources
+- Keeping research notes
+- Hosting syllabi and course materials
+
+Nevertheless, using Git and GitHub effectively takes a bit of practice. It is notorious for being a bit of a pain in the neck (leading to such websites as [Oh Shit, Git!](https://ohshitgit.com/)), but it is worth it.
+
+## Initializing a Git Repository on GitHub
+
+Git can be enabled in a folder, and then used to save the state of the contents in that folder at different points in the future. It will also keep a record of all changes made in the past. It knows exactly when a file is added to a project and even when it is deleted. It can even resurrect files that have been deleted, if needed.
+
+Let's go ahead and initialize a git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
+
+![Initialize Repository](/images/vscode_initgit.png)
+
+You should now be able to see the following:
+
+![Initial Commit](/images/vscode_gitcommit.png)
+
+In Git, every change you make to a file and submit to the repository is called a __commit__. A commit is effectively a snapshot of the file at a certain point in time. Every commit also has a __commit message__, which is a short description of what the commit is all about, either for yourself or for others you are collaborating with.
+
+Let's go ahead and make our first commit. In VSCode, type "first commit" in the message window and click `Commit`.
+
+You should receive a message that `There are no staged changes to commit`. 
+
+![No Staged Changes](/images/vscode_nostaged.png)
+
+This is because we haven't made any changes to any files yet and because we haven't __staged__ any files yet. Before making a commit, you need to add the files to the staging environment. Staged files are those that are ready to be committed. This will make more sense later as we continue to work with Git.
+
+For now, go ahead and click `Yes` to the prompt.
+
+Afterwards, you should see a button updated to `Publish Branch`.
+
+![Publish Branch](/images/vscode_publishbranch.png)
+
+Go ahead and click Publish Branch. You should be prompted to sign into GitHub. Go ahead and click `Allow`, and sign in to GitHub with your account.
+
+If you receive a message to `Authorize VSCode`, click Authorize.
+
+![Authorize VSCode](/images/github_authorize.png)
+
+If you are given additional messages to allow VSCode to access your account, click through to allow.
+
+Lastly, you will want to give your repository a name. In VSCode at the top, you should say a text field window for typing the name of your repository. Give it whatever name you want, and click `Publish to public repository`.
+
+Afterwards, you should see a message that says `Successfully published to GitHub` in the lower right corner of VSCode. (If you also receive a message to `periodically run got fetch`, you can just say no for now.)
+
+![Successfully Published](/images/github_published.png)
+
+If you click through to `Open in GitHub`, you should be able to see the repository you just created, along with a message of your first commit.
+
+![New Repository](/images/github_new_repository.png)
+
+Congratulations! You have successfully created a new GitHub repository for this course.
+
+Let's go ahead and explore our files a bit, make a new change, and make a new commit to our repository.
+
+## Exploring our Files
+
+Back in VSCode, open up the Explorer Window and click on the `index.html` file. 
+
+![index.html](/images/index_scrn.png)
+
+This is an HTML file. It contains the code for the page that we will be working with. We will learn more about HTML in the next lesson.
+
+Now open the `script.js` file. As you can tell by the file extension (`.js`), this is a JavaScript file. It contains the code for the JavaScript that we will be working with.
+
+As a project, each of these files is contributing to the webpage. We will learn more about how later, but for now let's look at the webpage in your browser.
+
+Navigate to your folder containing these two files (in your file system, not in VSCode), and double-click the `index.html` file to open it in your browser.
+
+You should see the following:
+
+![Hey it worked!](/images/heyitworked.png)
+
+If you reference both files in VSCode, you can see that text from each is being reflected on the webpage. In the HTML file, we are displaying `This is my project!` and `This is the response div`. In the JavaScript file, we are providing an alert that says `Hey it worked!`.
+
+### Making a Change
+
+Without worrying about the HTML for now, let's change the `Hey it worked!` message to `My project is going to be awesome!`.
+
+If you save, the file now, you should see a new change being registered in the source control window.
+
+![Second Commit](/images/second_commit.png)
+
+The number 1 in the source control icon indicates that there is one change to the file. If you click on it, you can see that it is tracking the changes made to the file. The little `M` next to the file name indicates that the file is modified. 
+
+### Staging our Change
+
+You can also see a `+` (plus) sign next to the file name, which allows you to stage a change for commit. Go ahead and click it. You should now see a section that says `Staged Changes`.
+
+![Staged Changes](/images/staged_changes.png)
+
+### Committing our Change
+
+Now that we have staged our change, let's go ahead and commit our change. Be sure to type a message for the commit, like `Second Commit`.
+
+### Pushing our Changes to GitHub
+
+You should now see a button that says `Sync Changes`. In the lingo of Git, this is called __pushing__ your changes. It is a way to send your changes to the remote repository on GitHub. Simply committing your changes will not make the changes on your remote repository until you push them. Let's go ahead and click `Sync Changes` and click `Ok`to the prompt.
+
+If you navigate to your repository in GitHub, you should see a new commit with the message `Second Commit`.
+
+![New Commit](/images/github_secondcommit.png)
+
+Congratulations! You have successfully pushed your changes to GitHub.
+
+In general, the process for working with Git is as follows:
+1. Make Changes
+2. Stage modified files
+3. Commit files with message
+4. Push to remote repository on GitHub
+
+# HTML
 
 Up to this point our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. To get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout this class, we will be working in this folder.
 Click this button to download a couple of files we'll be needing. Add them to your working folder.
@@ -820,38 +1855,7 @@ alert('Hey, it worked!');
 
 <JSConsole />
 
-# Arrays
 
-Arrays are a collection of data. They are similar to lists in other languages. They are denoted by square brackets. They can hold any type of data:
-
-```javascript
-var myArray = [1, 2, 3, 4, 5];
-var myArray = ['a', 'b', 'c', 'd', 'e'];
-var myArray = [true, false, true, false];
-var myArray = [1, 2, 'dog', true, [1, 2, 3]];
-```
-
-I find that lists are where programming starts to get interesting. "But why?" you might ask. Well, arrays are a great way to store data and process it. So if you have a list of tasks to do, you can go through them one by one. "But how?" you might ask. Well, you can use the `for` loop to do that.
-
-## Slicing Arrays
-
-```javascript
-var myArray = [1, 2, 3, 4, 5];
-var arraySlice = myArray.slice(1, 3);
-console.log(arraySlice);
-```
-When I write `myArray.slice(1, 3)`, I am telling the computer to take the array `myArray` and take the slice from index 1 to index 3. This is called slicing.
-What is an index? An index is a number that represents the position of a value in an array. For example, the first value in an array is at index 0. The second value is at index 1. The third value is at index 2. So, if I want to get the third value in an array, I would write `myArray[2]`. 
-
-What would this result in?
-
-```javascript
-var myArray = [1, 2, 3, 4, 5];
-var chosenValue = myArray[2];
-console.log(chosenValue);
-```
-
-# HTML
 
 Loops are a way to repeat a block of code a certain number of times. Deciding when and how often to repeat a block of code is a huge part of what makes programming useful. One key concept of looping is 'iteration'. Iteration is moving through a series of items, one at a time. Here is an example of a loop iterating through a list of numbers:
 
