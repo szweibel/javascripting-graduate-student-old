@@ -59,6 +59,10 @@ a {
   color: #45b1c1;
 }
 
+em{
+  font-style: italic;
+}
+
 blockquote {
   background: var(--background);
   border-left: 10px solid #ccc;
