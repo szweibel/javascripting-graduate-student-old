@@ -33,11 +33,11 @@ const Code = ({ className, children }) => {
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}>
                 <pre className={className + ' ' + language}>
-                    {isShown && (
+                    {/* {isShown && (
                         <>
                             {language && <span className="language">{getLang}</span>}
                         </>
-                    )}
+                    )} */}
                     <code className={className}
                         dangerouslySetInnerHTML={{ __html: highlighted.value }}>
                     </code>

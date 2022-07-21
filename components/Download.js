@@ -42,14 +42,20 @@ export default function Download(props) {
     }
 
     return (
-        // custom download button that shows the names of the files that are selected
-        <div className="download-button">
-            <button onClick={() => handleDownload(filteredUploads)}>Download</button>
-            <div className="file-names">
-                {filteredUploads.map(
-                    file => <div key={file.slug}>{file.slug}</div>
-                )}
-            </div>
+        <div className="download-button"
+        style={{
+            marginTop: '20px',
+            // marginBottom: '10px',
+        }}
+        >
+            <button 
+            className="brutalist-button"
+            style={{
+                cursor: 'pointer',
+            }}
+            onClick={() => handleDownload(filteredUploads)}>Download: {filteredUploads.map(file => 
+                <span key={file.slug}>{file.slug} </span>
+            )}</button>
         </div>
     )
 }
