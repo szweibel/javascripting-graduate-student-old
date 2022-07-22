@@ -144,7 +144,7 @@ We can also perform various mathematical calculations on these numbers. For exam
 
 JavaScript effectively calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example (in case you are unfamiliar) uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.  
 
-In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of _comparison_:  seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either true or false. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
+In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison:  seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either true or false. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
 
 <table>
     <caption><strong>Comparison Operators</strong></caption>
@@ -339,7 +339,7 @@ description = "The book " + book + " by " + author + " is on ISBN " + isbn;
 console.log(description);
 ```
 
-As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program (and all on the same line!). It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in later lessons.
+As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program.  It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in later lessons.
 
 ### Variable Naming Conventions
 
@@ -348,6 +348,7 @@ There are a few rules for variable naming conventions in JavaScript.
 - Variables must not contain spaces or special characters. For example, `myVariable` is a valid variable name, but `my variable` is not.
 - Variable names are case sensitive. That is, a variable named `My_Books` is treated as an entirely different variable than one named `my_books`.
 - You can't use one of JavaScript's reserved words as a variable name. All programming languages have a supply of words that are used internally by the language. For a complete list, see here: [Reserved Words](https://www.w3schools.com/js/js_reserved.asp).
+- Do not include hyphens `-`. Hyphens can be misconstrued by JavaScript as attempts to subtract one value from another and will cause errors.
 
 In general, try to keep your variable names as short and descriptive of their purpose as possible.
 
@@ -440,7 +441,9 @@ In general, we might present a few initial ideas about the process:
 
 ![Decision Tree](/images/decision-tree.drawio.png)
 
-Let's also think through what a "Choose Your Own Adventure" game would consist of. In simple terms, it would need:
+The decision tree is a visual representation of the process of getting to the end of a program. The diagram above shows how code will follow the different "branches" depending on the truth or falsity of a certain condition.
+
+To aid us in thinking about what our program might look like, let's also consider what a typical "Choose Your Own Adventure" game would consist of. In simple terms, it would need:
 1. A predefined story (the story that the player is told)
 2. A set of choices that the player can make at certain points in the story 
 3. An internal way to change the story based on the player's choices (code branching)
@@ -457,7 +460,7 @@ One of the simplest ways to gather user input is through the `prompt()` function
 ```JavaScript
     var userName = prompt("What is your name?");
 ```
-Here is a simple example of the `prompt()` function in action. The user is asked to enter their name and waits for them to type it out and hit <kbd>Enter</kbd>. Once the user completes their name, their response will be stored in the variable `userName`. In other words, the function __returns__ the value you enter and stores it in the variable. Try running the code in the console below, answer the prompt, and then type `userName` in the console to see that the variable is now populated with the name you have entered.
+Here is a simple example of the `prompt()` function in action. The user is asked to enter their name and waits for them to type it out and hit <kbd>Enter</kbd>. Once the user completes their name, their response will be stored in the variable `userName`. In other words, the function __returns__ the value you enter and stores it in the variable. we'll learn more about returns in a later lesson discussion functions. For now, try running the code in the console below, answer the prompt, and then type `userName` in the console to see that the variable is now populated with the name you have entered.
 
 <JSTerminal />
 
@@ -502,21 +505,21 @@ If statements work like "_If condition is met, then execute the task_". In other
 
 The other new thing of note here is the text following the two forward slashes `//`: these are called __comments__. Comments are used to explain the code and are not executed by the computer. They are purely for human readers. As we continue to build more complex programs, we will often use comments to explain the code. Writing comments for yourself is an important way to make sure that you recall the purpose of the code you are writing if you return to it later. It also helps others reading your code to understand your intentions as well.
 
-Let's look at a more concrete example of an if/else statement, modifying our "get the user's age" program from above and seeing if they are legally eligible to buy alcohol in the U.S. Try running the code in the console below.
+Let's look at a more concrete example of an if/else statement, modifying our "get the user's age" program from above and seeing if they are legally eligible to vote (as far as age goes) in the U.S. Try running the code in the console below.
 
 ```JavaScript
     var userAge = prompt("How old are you?");
     userAge = parseInt(userAge);
-    if (userAge >= 21) {
-        alert("You are legally old enough to purchase alcohol in the U.S.");
+    if (userAge >= 18) {
+        alert("You are legally old enough to vote in the U.S.");
     } else {
-        alert("You are not legally old enough to purchase alcohol in the U.S.");
+        alert("You are not legally old enough to vote in the U.S.");
     }
 ```
 
 <JSTerminal />
 
-After gathering the user input and performing the conversion, we then use an `if/else` statement to determine if the user is old enough to purchase alcohol (that is, we check to see if they are 21 years or older). 
+After gathering the user input and performing the conversion, we then use an `if/else` statement to determine if the user is old enough to vote (that is, we check to see if they are 18 years or older). 
 
 ## Else If Statements
 
@@ -526,18 +529,18 @@ Using `else if`, you can utilize as many statements as you want in your code to 
     var userAge = prompt("How old are you?");
     userAge = parseInt(userAge);
 
-    if (userAge >= 21) {
-        alert("You are legally old enough to purchase alcohol in the U.S.");
-    } else if (userAge >= 18) {
-        alert("You are legally old enough to buy a gun (but not to purchase alcohol) in the U.S.");
+    if (userAge >= 18) {
+        alert("You are legally old enough to vote and drive in the U.S.");
+    } else if (userAge >= 16) {
+        alert("You are not old enough to vote, but you are old enough to drive in the U.S.");
     } else {
-        alert("You are not legally old enough to purchase alcohol in the U.S.");
+        alert("You are not legally old enough to vote or drive in the U.S.");
     }
 ```
 
 <JSTerminal />
 
-The first `if` statement checks to see if the user is old enough to purchase alcohol. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are able to buy a gun. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
+The first `if` statement checks to see if the user is old enough to purchase vote. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are at least able to drive. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the last `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
 
 Along with testing as many conditions as you want, you can also run as many lines of code as you want in each block. You can even chain together a series of `if/else` statements. This is called __nesting__. For example:
 
@@ -617,7 +620,7 @@ Let's take a look at a more concrete example of a `switch` statement. Let's say 
 
 Here we have three different difficulty levels (although you can have as many levels or `cases` as you want in a `switch` statement). The first `case` statement checks to see if the user entered `1`, the second `case` statement checks to see if the user entered `2`, and the final `case` statement checks to see if the user entered `3`. If the user entered `1`, `2`, or `3`, the `alert` message is displayed. If the user entered anything else, the `default` block is executed and an error message is shown. 
 
-While this simple example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Readability is just as important as functionality in programming.
+While this simple example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many less curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
 
 ## Choose Your Own Adventure
 
@@ -684,6 +687,8 @@ Here we have given the player two options by entering either `1` or `2` into the
 
 Okay, now we have some additional options for the player to choose from, along with more error messages if they choose incorrectly. Putting it all together then, here is the story so far:
 
+TODO: It is very hard to see and type this much code in the console/code editor. Maybe an issue to consider?
+
 ```JavaScript
     var playerName, playerChoice;
 
@@ -740,7 +745,7 @@ Let's review the concepts we have learned in this lesson.
 - False
 </Quiz>
 
-2. The code snippet below will throw errors or otherwise not work as intended. Why? Take a minute to look over it yourself, then select all that apply in the quiz below.
+2. The code snippet below will throw errors or otherwise not work as intended. Why? Take a moment to look over it carefully, then select all that apply in the quiz below.
 
 ```JavaScript
 prompt("What is your name?");
@@ -753,8 +758,8 @@ else
 <Quiz>
 - `prompt()` needs to be assigned to a variable.*
 - a double-equals (rather than a single equals) operator is needed in the `if` statement.*
-- the first `alert` will not correctly display the name.*
-- the `if/else` statement needs curly braces.*
+- the first `alert` will not correctly display `name` as intended.*
+- the `if/else` statement needs curly braces for each part.*
 </Quiz>
 
 3. Switch statements should have (select all that apply):
@@ -835,7 +840,7 @@ myArray[0] = 'cat';
 alert(myArray[0]); // returns 'cat'
 ```
 
-In this example, the value at index 0 will be changed to `'cat'`.
+In this example, the value at index 0 (originally `1`) will be changed to `'cat'`.
 
 ## Adding Values to an Array
 
@@ -851,7 +856,7 @@ This code adds the value `'cat'` to the end of the array `myArray`.
 
 ## Removing Values from an Array
 
-To remove a value from an array, we can use the `pop()` method. This method removes the last value in the array and returns it.
+To remove a value from an array, we can use the `pop()` method. This method removes the last value in the array.
 
 ```JavaScript
 var myArray = [1, 2, 'dog', true, [1, 2, 3]];
@@ -864,7 +869,9 @@ Try running this code in the code editor below.
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-Oh no, we are now getting a message of `undefined`! But this is exactly what we intended to happen, because the `pop()` method removed the last value in the array, so when we try to access it JavaScript finds nothing there.
+Oh no, we are now getting a message of `undefined`! But this is exactly what we intended to happen, because the `pop()` method removed the last value in the array. So, when we try to access it, JavaScript finds nothing there.
+
+TODO: Probably just remove splice()
 
 ## Splicing an Array
 
@@ -922,7 +929,7 @@ There are [many other methods](https://www.w3schools.com/js/js_array_methods.asp
 
 ## Looping Through an Array
 
-We have so far seen how we can access values in an array, and manipulate them in ways that are useful. But what if we want to do something with every value in an array? For instance, if we wanted to print out every value in an array, it would be very tedious to write out the same code over and over like so:
+We have so far seen how we can access values in an array, and manipulate them in ways that are useful. But what if we want to do something with every value in an array? For instance, if we wanted to access every value in an array, it would be very tedious to write out the same code over and over, referencing each and every item:
 
 ```JavaScript
 myArray[0];
@@ -932,11 +939,11 @@ myArray[3];
 ...
 ```
 
-Thankfully, there is a way to do this in a more efficient way. Let's explore a new kind of technique called __looping__. Looping is a way to iterate through a structure and perform an action on each element.
+Thankfully, we can do this in a more efficient way. Let's explore a new kind of technique called __looping__. Looping is a way to iterate through a structure and perform an action on each element.
 
 ## The For Loop
 
-When you want to loop through an array, the most common way is with a `for` loop. This loop will __iterate__ through the array and execute a block of code for each value in the array.
+When you want to loop through an array, the most common way is with a `for` loop. This loop will __iterate__ or step through the array and execute a block of code for each value in the array.
 
 The general structure of a `for` loop is as follows:
 
@@ -945,6 +952,8 @@ for (var i = 0; i < array.length; i++) {
     // do something
 }
 ```
+
+TODO: Reverse logic, explain more clearly, add another example
 
 This may look a little complicated, so let's explore it a bit. The `for` loop is comprised of three parts: the first part is the initialization of the loop, which is the variable `i` in this case (`i` is often used by convention, but the variable name can be anything you want). The second part is the condition that the loop will continue to execute until, and the third part is the incrementor. Each is separated by a semi-colon `;`.
 
@@ -971,7 +980,7 @@ As you can see, the loop iterated through the array and alerted each value in th
 
 ## The While Loop
 
-The `while` loop is similar to the `for` loop, but it will infinitely execute the code inside a loop until a certain specified condition is met. This is useful if you want a certain code block to run until a particular outcome is resolved. Let's look at an example: 
+The `while` loop is similar to the `for` loop, but it will infinitely execute the code inside a loop until a certain specified condition is met. This is useful if you want a certain code block to run until a particular outcome is resolved. Try running the example in the code editor below: 
 
 ```JavaScript
 var i = 0;
@@ -981,13 +990,16 @@ while (i < 5) {
 }
 ```
 
-As you can see, the loop executed the alert 5 times, incrementing the value of `i` each time. In other words, this code is saying: "while `i` is less than 5, do the following:".
+<CodeEditor language='JavaScript'>
+    </CodeEditor>
+
+As you can see, the loop executed the alert 5 times, incrementing the value of `i` each time. In other words, this loop is saying: "while `i` is less than 5, do the following:".
 
 ## Putting It All Together - The Library App
 
 Let's use the skills we've learned in this lesson to create a simple app that will allow us to sort, display, and search for book titles from our library.
 
-To begin, let's imagine a number of fiction titles that are available in our library and add them to an array. We'll sort this array to put it in alphabetical order. We will also create an empty array `libRequests` that will store all the requests from the user, and an empty string `requestedTitle` that will store the title of the book that the user requested in the prompt.
+To begin, let's imagine a number of fiction titles that are available in our library and add them to an array. We'll sort this array to put it in alphabetical order.
 
 ```JavaScript
 var bookTitles = [
@@ -1002,9 +1014,11 @@ var bookTitles = [
 ];
 
 bookTitles.sort()
-var libRequests = []
 var requestedTitle = "";
+var libRequests = []
 ```
+
+Because we want to get book requests from the user, an empty string `requestedTitle` will store the title of the book that the user requested in the prompt, and an empty array `libRequests` will store all the many requests the user may enter.
 
 Next, let's give the user a short welcome message. We will also let them know they can make a request by typing `request` at the prompt, display all book titles by typing `display`, or quit the program by typing `quit`:
 
@@ -1012,14 +1026,14 @@ Next, let's give the user a short welcome message. We will also let them know th
 alert("Welcome to the library!\n\nPlease search for a book title when prompted.\n\nType `request` at the prompt to make a request for a book.\n\nYou can also type `display` at the prompt to display all available book titles.\n\nType `quit` at the prompt to quit the program.");
 ```
 
-Our welcome message gives the user a few options for what they can do. To keep the text display neat, we use `\n` characters to create two new lines after each statement.
+Our welcome message gives the user a few options for what they can do. To keep the text display neat, we use `\n` characters (specifically 2 in this case) to create two new lines after each statement.
 
 At this point, we can envision a few things about how our program should operate:
 - We want to allow the user to search for books until they decide to quit. So, a `while` loop will be needed.
-- We want to check if the user types request or display at the prompt. If they do, we want to perform the appropriate action. So, we will need several `if/else` statements. 
+- We want to check if the user types `request` or `display` at the prompt. If they do, we want to perform the appropriate action. So, we will need several `if/else` statements. 
 - We want to iterate through the array of book titles and display each one. So, we can use a `for` loop to accomplish this.
 
-Okay, so far so good. However, we are missing one crucial piece. We want the program to check if a book title the user enters is in the library. That is, we want to see if the string the user enters matches an item in the array `bookTitles`. How can we do this? Let's introduce a new method: `indexOf`.
+Okay, conceptually we have the basic toolkit. However, we are missing one crucial piece. We want the program to check if a book title the user enters is actually in the library. That is, we want to see if the string the user enters matches an item in the array `bookTitles`. How can we do this? Let's introduce one more new method: `indexOf`.
 
 ### indexOf
 
@@ -1035,6 +1049,8 @@ myArray.indexOf('cow'); // returns -1
 ```
 
 Using this method, we can check if a book title the user enters is in the library (if the string the user enters matches an item in the array `bookTitles`). If it doesn't (if the method returns `-1`), we can alert the user that the book they requested is not in the library.
+
+TODO: Break all this down into pieces
 
 With this method we should now have everything we need. Let's put the whole program together:
 
@@ -1100,7 +1116,7 @@ These are basic considerations we would want to take into account if we were act
 
 Let's review the concepts we have learned in this lesson.
 
-1. What will be the result of the `alert` in the program below?
+1. What will be the result of the `alert` in the code below?
 
 ```JavaScript
 var myArray = [1, 2, 'dog', true, [1, 2, 3]];
@@ -1114,7 +1130,7 @@ alert(myArray[4]);
 - undefined*
 </Quiz>
 
-2. What will be the result of the `alert` in the following code?
+2. What will be the result of the `alert` in this code snippet?
 
 ```JavaScript
 var myArray = [1, 2, 'dog', true, [1, 2, 3]];
@@ -1127,7 +1143,7 @@ alert(myArray.length);
 - 6
 </Quiz>
 
-3. What will be the result of the `alert` in the following code?
+3. What will be the result of the `alert` here?
 
 ```JavaScript
 var myArray = [1, 2, 'dog', true, [1, 2, 3]];
@@ -1147,7 +1163,7 @@ alert(myArray[0]);
 
 1. Write a `for` loop that prints all even numbers from 0 to 100 to the console.
 
-2. The library program currently requires the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp) to make the search parameters case insensitive. _Hint: You will want to perform the toLowerCase method both on the user's response and the book titles in the library._
+2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp), which converts all the letters of a string to lowercase, to make the search parameters case insensitive. _Hint: To match the two terms, you will want to perform the `toLowerCase` method both on the user's response as well as on each book title in the library. Try storing these results in a new variable!_
 
 ## Key Terms
 
@@ -1412,6 +1428,8 @@ Let's imagine that students have just submitted a homework assignment and we nee
 
 Functions are perfect for this because we can define each of these three tasks as a separate function. We can then call each of these functions at the appropriate time. Remember, functions should be used to perform a single task.
 
+TODO: Convert to dictionary
+
 To begin, let's create an array of students with their corresponding grades:
 
 ```JavaScript
@@ -1578,7 +1596,7 @@ Try running the program below in the editor and seeing the result in the develop
 <CodeEditor language='JavaScript'>
      </CodeEditor>
 
-Congratulations, you have now created a simple grading program utilizing functions!
+*Congratulations*, you have now created a simple grading program utilizing functions!
 
 Functions are a great way to keep your code organized and readable. They can also be used to create reusable pieces of code that can be employed in multiple places in your program. Remember that functions should ideally always be used to perform a single task, and that their names should be descriptive of the task they are performing.
 
@@ -1643,23 +1661,27 @@ Do you recall the meaning of the following terms?
 - multidimensional array
 - scope
 
+# Making Mistakes
+
+
+
 # VSCode and GitHub
 
 Up to this point we have been working entirely in the browser and our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. So, to get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout the rest of this course, we will be working in this folder.
 
-Click this button to download a couple of files we'll be needing. Add them to your working folder.
+Click this button to download a couple of files we'll be needing. Unzip the folder and add the files to your working folder.
 
 <Download files='index.html, script.js'><br />
 
 Next, we'll want to get our coding environment set up. This will be the main focus of this particular lesson. We'll first install the VSCode code editor, and then learn how to set up and use a GitHub repository.
 
-Much of your academic career has likely been structured around sending in single documents. For instance, a .pdf or Word document of your latest essay masterpiece. In general, however, going forward in this class you'll want to think of your work in terms of a __project__, which is a collection of files and code that you want to work on. In the coding environment we'll set up and project we'll create, we'll be working with many files that will all contribute to the same project. A website, for instance, is a project, made up of many different files. What we will end up building by the end of this course will all be housed in the same folder and will be managed though a single GitHub repository. This will hopefully make more sense once we get into it.
+Much of your academic career has likely been structured around sending in single documents. For instance, a .pdf or Word document of your latest essay masterpiece. In general, however, going forward in this class you'll want to think of your work in terms of a __project__, which is a collection of files and code that you want to work on. In the coding environment we'll set up and the project we'll create, we'll be working with many files that will all contribute to the same overall project. A website, for instance, is a project, made up of many different files. What we will end up building by the end of this course will all be housed in the same folder and will be managed though a single GitHub repository. This will hopefully make more sense once we get into it.
 
 For now, let's go ahead and install VSCode.
 
 ## VSCode
 
-VSCode is a free and open-source code editor that is available for Windows, Mac, and Linux. It is a great tool for developers to use when they are working on code. It supports syntax highlighting, code completion, has built-in GitHub integration, and has an extensive library of extensions that can be used to extend its functionality.
+VSCode is a free and open-source code editor that is available for Windows, Mac, and Linux. It is a great tool for developers to use when they are working on code. It supports syntax highlighting, code completion, has built-in GitHub integration, and has an large library of extensions that can be used to extend its functionality.
 
 ### Installing VSCode
 
@@ -1713,13 +1735,13 @@ A [study of how Digital Humanists use GitHub](https://digitalscholarship.files.w
 - Keeping research notes
 - Hosting syllabi and course materials
 
-Nevertheless, using Git and GitHub effectively takes a bit of practice. It is notorious for being a bit of a pain in the neck (leading to such websites as [Oh Shit, Git!](https://ohshitgit.com/)), but it is worth it.
+Although it has many benefits, using Git and GitHub effectively does take a bit of practice. It is notorious for being a bit of a pain in the neck (leading to such websites as [Oh Shit, Git!](https://ohshitgit.com/)), but it is worth the effort.
 
 ## Initializing a Git Repository on GitHub
 
 Git can be enabled in a folder, and then used to save the state of the contents in that folder at different points in the future. It will also keep a record of all changes made in the past. It knows exactly when a file is added to a project and even when it is deleted. It can even resurrect files that have been deleted, if needed.
 
-Let's go ahead and initialize a git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
+Let's go ahead and initialize a Git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
 
 ![Initialize Repository](/images/vscode_initgit.png)
 
@@ -1751,9 +1773,9 @@ If you receive a message to `Authorize VSCode`, click Authorize.
 
 If you are given additional messages to allow VSCode to access your account, click through to allow.
 
-Lastly, you will want to give your repository a name. In VSCode at the top, you should say a text field window for typing the name of your repository. Give it whatever name you want, and click `Publish to public repository`.
+Lastly, you will want to give your repository a name. In VSCode at the top, you should see a text field window for typing the name of your repository. Give it whatever name you want, and click `Publish to public repository`.
 
-Afterwards, you should see a message that says `Successfully published to GitHub` in the lower right corner of VSCode. (If you also receive a message to `periodically run got fetch`, you can just say no for now.)
+Afterwards, you should see a message that says `Successfully published to GitHub` in the lower right corner of VSCode. (If you also receive a message to `periodically run git fetch`, you can just say no for now.)
 
 ![Successfully Published](/images/github_published.png)
 
@@ -1789,7 +1811,7 @@ If you reference both files in VSCode, you can see that text from each is being 
 
 Without worrying about the HTML for now, let's change the `Hey it worked!` message to `My project is going to be awesome!`.
 
-If you save, the file now, you should see a new change being registered in the source control window.
+If you save the file now, you should see a new change being registered in the source control window.
 
 ![Second Commit](/images/second_commit.png)
 
@@ -1821,13 +1843,35 @@ In general, the process for working with Git is as follows:
 3. Commit files with message
 4. Push to remote repository on GitHub
 
-# HTML
+# HTML and CSS
+
+# Interactive Web Design
+
+# Getting Data
+
+# Leaflet
+
+# Reading Documentation
+
+# Starting Your Project
+
+# Create the Page
+
+# Building Interactivity / Integrating JS
+
+# Going Live
+
+
 
 Up to this point our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. To get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout this class, we will be working in this folder.
 Click this button to download a couple of files we'll be needing. Add them to your working folder.
 <Download files='index.html, script.js'>
 
 ## The HTML
+
+
+
+
 
 First we need to understand the HTML. HTML is the markup language that is used to create web pages. It is a simple language that is used to describe the structure of a web page. 
     
@@ -1904,7 +1948,7 @@ $('#button').click(function() {
 
 See how we're connecting the button to the loop? We're using the `$` function to select the element with the id `button`. We're also using the `click` function to run the loop when the button is clicked.
 
-# Functions
+
 
 Functions are a way to group code together. They are useful for keeping your code organized. They are also a great way to reuse code. Here's an example:
 
@@ -1973,7 +2017,7 @@ for (var i = 0; i < NYBoroughs.length; i++) {
 var t = 10;
 </CodeEditor>
 
-# Errors in JavaScript
+
 
 When encountering an error, the browser will stop running the code. It will show an error message. The error will show a few things:
 
@@ -1995,11 +2039,10 @@ If you get a runtime error, the error report will show you the line of code that
 
 If you get a logical error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
 
-# HTML & CSS
 
 You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
 
-# Input
+
 
 We're gonna add some INTERACTIVITY to our project. We're going to add a button to the page that will ask the user for their name. We're going to add a div to the page that will show the user their name. 
 
@@ -2028,11 +2071,11 @@ $('#button').click(function() {
 }
 ```
 
-# Finding Answers with Google
+
 
 The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the right questions. It comes through practice. Seeing an error
 
-# Objects in JavaScript
+
 
 Objects are a way to store data in a structured way. They are useful for storing data that has a lot of different properties. Here's an example:
 
@@ -2050,11 +2093,11 @@ What's nice about this is that we can access the properties of the object using 
     person['name'];
 ```
 
-# Documentation and How to Interpret It
+
 
 Documentation exists to explain what a tool is and how to use it. Too often, whether because documentation is an afterthought, or because the people responsible for making it are better programmers than communicators, technical documentation fails to make itself clear. Paradoxically, it is often necessary to already be familiar with using a tool in order to interpret the instructions about how to use it.
 
-# Leaflet
+
 
 D3 is a JavaScript library that allows you to create visualizations. Other tools are higher-level libraries that have more assumptions about how to use them. D3 is less opinionated about how to use it. It is more flexible. It is more robust. It is more efficient. It is more powerful. BUT it is more complicated. Here's a quick example of how to use D3:
 
@@ -2086,15 +2129,3 @@ L.marker([51.5, -0.09]).addTo(map)
 
 </HTMLEditor>
 
-# Clicking Stuff
-
-Let's make it so that when you click on something, something happens. 
-
-# Planning a Project
-
-Now we design the final project, drawing it out when necessary.
-
-# Lab
-asd
-
-# Lab
