@@ -59,8 +59,23 @@ a {
   color: #45b1c1;
 }
 
-em{
+em {
   font-style: italic;
+}
+
+/* scrollbar  */
+
+*::-webkit-scrollbar {
+  width: 1em;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
 }
 
 blockquote {
@@ -464,7 +479,8 @@ header a:hover {
   width: 100%;
   height: 100%;
   background-color: black;
-  /* margin-bottom: 20px; */
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .JS-console {
@@ -740,6 +756,8 @@ table, th, td {
 .quiz {
   background-color: var(--background);
   padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .quiz label {
@@ -750,7 +768,7 @@ table, th, td {
   margin-top: 20px !important;
   padding: 5px !important;
   border: 2px solid #d5222c !important;
-  background: white;
+  background: var(--background-page) !important;
   box-shadow: #d5222c 8px 8px 0px; 
 }
 
