@@ -162,7 +162,7 @@ export default function JSEditorComponent({ defaultCode = '// Write Javascript H
 
     return (
         <>
-            <div className="editorContainer" style={{ height: '250px', width: '100%' }}>
+            <div className="editorContainer" style={{ width: '100%' }}>
                 <EditorTopbar spinnerNeeded={runningCode}
                     snippets={filteredSnippets} 
                     run={JSrun} language='JavaScript'
@@ -170,7 +170,9 @@ export default function JSEditorComponent({ defaultCode = '// Write Javascript H
                     setCode={setCode}
                     />
                 <EditorComponent code={code}
-                    onChange={onChangeJavascript} language={'javascript'} />
+                    onChange={onChangeJavascript} language={'javascript'}
+                    {...props}
+                    />
             </div>
             {isoutput && outputComponent()}
             {isError && errorComponent()}

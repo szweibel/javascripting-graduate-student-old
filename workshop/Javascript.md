@@ -780,7 +780,7 @@ else
 
 2. Utilizing `switch` statements, write a short Choose Your Own Adventure story that allows the player 3 choices to choose from at a time.
 
-<CodeEditor language='JavaScript'>
+<CodeEditor language='JavaScript' height='500px'>
 </CodeEditor>
 
 ## Key Terms
