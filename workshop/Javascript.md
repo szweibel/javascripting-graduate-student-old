@@ -729,7 +729,7 @@ TODO: It is very hard to see and type this much code in the console/code editor.
 
 Try writing a short story of your own in the code editor below. (You can also copy/paste the code from mine if you want to see it in action.)
 
-<CodeEditor language='JavaScript'>
+<CodeEditor language='JavaScript' height = '10000px'>
 </CodeEditor>
 
 While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
@@ -871,8 +871,6 @@ Try running this code in the code editor below.
 
 Oh no, we are now getting a message of `undefined`! But this is exactly what we intended to happen, because the `pop()` method removed the last value in the array. So, when we try to access it, JavaScript finds nothing there.
 
-TODO: Probably just remove splice()
-
 ## Splicing an Array
 
 If we want to remove a range of values from an array or start at a particular index, we can use the `splice()` method. This method takes two parameters: the first parameter is the index number of the first value we want to start from and remove, and the second parameter is the number of values to remove in total.
@@ -995,6 +993,8 @@ while (i < 5) {
 
 As you can see, the loop executed the alert 5 times, incrementing the value of `i` each time. In other words, this loop is saying: "while `i` is less than 5, do the following:".
 
+__Note:__ It is very important to make sure your `while` loops ultimately end by satisfying the condition you specify. If you don't, the loop will continue forever, and the user will be required to force-quit your program or close the window to stop it.
+
 ## Putting It All Together - The Library App
 
 Let's use the skills we've learned in this lesson to create a simple app that will allow us to sort, display, and search for book titles from our library.
@@ -1050,8 +1050,6 @@ myArray.indexOf('cow'); // returns -1
 
 Using this method, we can check if a book title the user enters is in the library (if the string the user enters matches an item in the array `bookTitles`). If it doesn't (if the method returns `-1`), we can alert the user that the book they requested is not in the library.
 
-TODO: Break all this down into pieces
-
 With this method we should now have everything we need. Let's put the whole program together:
 
 ```JavaScript
@@ -1075,19 +1073,23 @@ alert("Welcome to the library!\n\nPlease search for a book title when prompted.\
 var response = "";
 while (response != 'quit') {
     response = prompt("Search for a book title or make a request by typing 'request': ");
+    // check if the user wants to make a request
     if (response == 'request') {
         requestedTitle = prompt("What book would you like to request? ");
         libRequests.push(requestedTitle); // add the requested title to the library requests array
         alert("You have requested the following titles:" + libRequests + "."); // alert the user their requests
     }
+    // check if the user wants to display all the titles
     else if (response == 'display') {
         for (var i = 0; i < bookTitles.length; i++) {
             alert(bookTitles[i]); // display all available book titles
             }
     }
+    // otherwise, check if the book the user entered is in the library
     else {
-        var bookIndex = bookTitles.indexOf(response); // check if the book the user entered is in the library
+        var bookIndex = bookTitles.indexOf(response);
         if (response != 'quit'){
+            // if indexOf returns -1, the book the user entered is not in the library
             if (bookIndex == -1) {
                 alert("Sorry, we don't have that book. You can always request it.");
             }
@@ -1104,7 +1106,7 @@ Try running and exploring the program:
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action, we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
+Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action, we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
 
 Congratulations! You have now successfully created a basic library search program. There are, of course, a number of limitations to this program. For instance: 
 - The search parameters are not very robust. The user must type out the full title of the book, with the exact spelling and punctuation of the title. As you might imagine, this is not a very good user experience.
@@ -1421,184 +1423,198 @@ Okay, now that we have a basic understanding of how scope in JavaScript works, l
 
 Using functions, let's create a simple program that will allow us to evaluate student grades.
 
-Let's imagine that students have just submitted a homework assignment and we need to evaluate their grades. We want to:
+Let's imagine that students have just submitted several homework assignments and we need to evaluate their grades. We want to:
 1. Easily display their grades.
 2. A new student has joined and submitted work, so we want to add a student to our list of students.
-3. Evaluate their numbered grade to a letter (A, B, C, D, or F).
+3. Evaluate their numbered grades to a letter (A, B, C, D, or F).
 
 Functions are perfect for this because we can define each of these three tasks as a separate function. We can then call each of these functions at the appropriate time. Remember, functions should be used to perform a single task.
 
-TODO: Convert to dictionary
+## Objects
 
-To begin, let's create an array of students with their corresponding grades:
+For this program, we first need a way to store the information about each student. We want to store the name of each student as well as their corresponding grades. While we could solely use arrays to accomplish this, it makes much more sense to utilize a new data type called __objects__. 
+
+Objects are similar to arrays, but they are more flexible. Objects are collections of _key-value_ pairs, and each key-value pair is called a _property_. In real life, all objects have properties. For example, a car has properties such as `make`, `model`, `year`, `color`, and so on. Analogously, we might imagine that a student has properties such as `name`, `grade`, `GPA`, and so on.
+
+To create an object, we use the curly brace `{}` syntax. For example, we could create a student object with the following code:
 
 ```JavaScript
-let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+let student = {
+    name: "Bob",
+    grade: "A",
+    GPA: 4.0
+};
 ```
 
-This array contains four students. Each element (student) is itself an array with two elements. The first element is the student's name and the second element is the student's grade. This is called a __multi-dimensional array__, or an array of arrays. They are useful when we want to store multiple pieces of information about each element of an array.
+Here we have a student object with three properties: `name`, `grade`, and `GPA`. Each key is followed by a colon `:` and the corresponding value. We separate each key-value pair (each property) with commas.
 
-Now that we have some student data, let's create a function that will allow us to display the students' names and their grades. Because we want to display each student's name and their corresponding grade, we will need to use a `for` loop to iterate over the students array. So, let's create a new `printAllGrades` function that will do just that:
+To access the value of a property, we use the `.` syntax with the key. For example, to log the properties of our `student` object, we could write:
 
 ```JavaScript
-let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
+console.log(student.name); // logs "Bob"
+console.log(student.grade); // logs "A"
+console.log(student.GPA); // logs 4.0
+```
 
-function printAllGrades(students) {
+As you can see, objects very usefully allow us to associate a number of different properties with a single item.
+
+For our purposes, we have many students rather than just one. How might we accomplish this? Well, we can create an array of objects! Let's try creating an array of student objects.
+
+```JavaScript
+let students = [
+    {
+        name: "Bob",
+        grades: [88, 90, 80, 77, 89]
+    },
+    {
+        name: "Alice",
+        grades: [100, 95, 92, 89, 97]
+    },
+    {
+        name: "Juan",
+        grades: [91, 90, 94, 86, 90]
+    }
+];
+```
+
+Here we have an array of three student objects. Each student object has a `name` property and a `grades` property. The `grades` property is itself an array of numbers (5 different grades).
+
+### Printing the Grades
+
+Next, let's write a function to print all student names and their grades. Because we want to iterate through the array of student objects, we will use a `for` loop.
+
+```JavaScript
+// print all student names and their grades
+function printGrades(students) {
     for (let i = 0; i < students.length; i++) {
-        console.log(students[i][0] + ': ' + students[i][1]);
+        console.log(students[i].name + ": " + students[i].grades);
     }
 }
 
-printAllGrades(students);
+printGrades(students);
 ```
-Try running this code in the editor below, and check the developer console in your browser to see the output.
 
-<CodeEditor language='JavaScript'>
-     </CodeEditor>
+As you can see, we are accessing the `name` and `grades` properties of each student object (using the `.` dot operator) and logging them as we loop through.
 
-In the developer console you should see each of the students' names and their corresponding grades. Let's break down the `for` loop in the function to see how this works. First, we declare a variable `i` that will be used to iterate over the students array. We will initialize `i` to 0, and then increment `i` by 1 each time the loop runs. Next, we need to check if `i` is less than the length of the students array. If it is, we will continue to run the loop. Inside the loop, we use the variable `i` to access the current element of the students array. Notice the first part of the `console.log()` statement and the difference between the two `students` statements. In the first, we are using `students[i][0]` index to access the student's name. As `[i]` increments, we will iterate through each of the items of the array. Because we have fixed the second element as `[0]`, it will always display the first element of each item (namely, the student's name). In the second, we are using `students[i][1]` to access the student's grade. Again, it will iterate through each of the items of the array. However, this time we are using index `[i][1]` to access the second element of each item (grade). See below to help you understand the reference of each index in the array:
+### Adding a Student
 
-    students[0][0] = 'Bob'; // name of student 0
-    students[0][1] = '55';  // grade of student 0
-
-    students[1][0] = 'Alice'; // name of student 1
-    students[1][1] = '98';  // grade of student 1
-
-    students[2][0] = 'Juan'; // name of student 2
-    students[2][1] = '77'; // grade of student 2
-
-    students[3][0] = 'Samar'; // name of student 3
-    students[3][1] = '100'; // grade of student 3
-
-Simply by iterating through each index of the array we are able to concurrently display the first and second elements of each item.
-
-Okay, so far so good. Now, let's add a new student to our list of students. Do you remember how to add a new element to an array? Take a look at this function:
+A new student joined our class and submitted his work. So, let's add him to our array of students with a new `addStudent` function.
 
 ```JavaScript
-function addStudent(students, name, grade) {
-    students.push([name, grade]);
+function addStudent(name, grades) {
+    let student = {
+        name: name,
+        grades: grades
+    };
+    students.push(student);
 }
 
-addStudent(students, 'Biff', '32');
+addStudent("Biff", [71, 80, 56, 65, 60]);
 ```
 
-As you might recall, we can use `push` to add a new item. In this code we have created a new function that takes three arguments. The first argument is the `students` array that we want to add to, the second argument is the name of the new student, and the third argument is the grade of the new student. We provide each of these arguments to the function when we call it (poor Biff didn't do too well, sadly).
+In the function, we are creating a new student object with `name` and `grades` properties to match the other students. We then add this object to the end of the `students` array using the `push` method. Finally, we call the function with the name and grades of the new student (poor Biff didn't do too well, sadly). If you were to run the `printGrades` function now, you would see that the new student is included in the list of students.
 
-Let's put it together with the rest of the program, and display our updated students list. Try running the code in the editor:
+### Converting Grades to Letters
+
+Lastly, let's create a function to convert all student grades to letter grades and print them: 
 
 ```JavaScript
-let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
-
-function printAllGrades(students) {
+function convertGrades(students) {
     for (let i = 0; i < students.length; i++) {
-        console.log(students[i][0] + ': ' + students[i][1]);
-    }
-}
-
-function addStudent(students, name, grade) {
-    students.push([name, grade]);
-}
-
-addStudent(students, 'Biff', '32');
-printAllGrades(students);
-```
-
-<CodeEditor language='JavaScript'>
-     </CodeEditor>
-
-You should now see the new student's name and grade.
-
-It might be helpful if we could search for a student by name and display their grade. Let's create a new function that will do just that:
-
-```JavaScript
-function findStudentGrade(students, name) {
-    for (let i = 0; i < students.length; i++) {
-        if (students[i][0] === name) {
-            return students[i][1];
+        let grades = students[i].grades;
+        let letterGrade = "";
+        for (let j = 0; j < grades.length; j++) {
+            if (grades[j] >= 90) {
+                letterGrade += "A ";
+            } else if (grades[j] >= 80) {
+                letterGrade += "B ";
+            } else if (grades[j] >= 70) {
+                letterGrade += "C ";
+            } else if (grades[j] >= 60) {
+                letterGrade += "D ";
+            } else {
+                letterGrade += "F ";
+            }
         }
+        console.log(students[i].name + ": " + letterGrade);
     }
 }
 
-console.log(findStudentGrade(students, 'Alice'));
+convertGrades(students);
 ```
 
-Again, here we are using the `for` loop to iterate over the students array. We are also using the `if` statement to check if the current element of the students array matches the name we are searching for. If it does, we will return the grade of the student. As parameters we simply pass in the `students` array and the name of the student we are searching for.
+This function is slightly more complicated, because we need to iterate _both_ through the `students` array and each student's `grades` array, and evaluate the latter numbers to a letter grade. We can accomplish this by using two `for` loops: a `for` loop to iterate through the `students` array (using `i` and `students.length`), and a nested `for` loop to iterate through each student's `grades` (using `j` and `grades.length`). In other words, as we work through each student obejct, we first store the grades values of each student in a variable `grades`. Because `grades` is itself an array of values, we can use the `.length` property to determine the number of grades for each student (5). We then use the `if` statement to determine the letter grade for each number, and add it to the `letterGrade` variable with the `+=` operator.
 
-Lastly, let's create a new function `toLetterGrade()` that will evaluate a student's grade and return a letter grade. For this function, we could also utilize our `findStudentGrade()` function so that we can search for a student and convert their grade, like so:
+Let's put the whole program together:
 
 ```JavaScript
-function toLetterGrade(students, name) {
-    const grade = findStudentGrade(students, name);
-    if (grade >= 90) {
-        return 'A';
-    } else if (grade >= 80) {
-        return 'B';
-    } else if (grade >= 70) {
-        return 'C';
-    } else if (grade >= 60) {
-        return 'D';
-    } else {
-        return 'F';
+// array of student objects
+let students = [
+    {
+        name: "Bob",
+        grades: [88, 90, 80, 77, 89]
+    },
+    {
+        name: "Alice",
+        grades: [100, 95, 92, 89, 97]
+    },
+    {
+        name: "Juan",
+        grades: [91, 90, 94, 86, 90]
+    }
+];
+
+// print all student names and their grades
+function printGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i].name + ": " + students[i].grades);
     }
 }
 
-console.log(toLetterGrade(students, 'Alice'));
-```
-
-As you can see, we create a new constant variable `grade` and assign it the value of the grade of the student we are searching for by capturing the result of our `findStudentGrade()` function. Keep in mind that it can be very useful to store the result of a function in a variable, even within a different function! We then use a series of `if/else` statements to determine the letter grade of the student and return it.
-
-Let's put the whole program together and run it:
-
-```JavaScript
-let students = [['Bob', '55'], ['Alice', '98'], ['Juan', '77'], ['Samar', '100']];
-
-function printAllGrades(students) {
-    for (let i = 0; i < students.length; i++) {
-        console.log(students[i][0] + ': ' + students[i][1]);
-    }
+//add a new student
+function addStudent(name, grades) {
+    let student = {
+        name: name,
+        grades: grades
+    };
+    students.push(student);
 }
 
-function addStudent(students, name, grade) {
-    students.push([name, grade]);
-}
-
-function findStudentGrade(students, name) {
+// convert grades to letters
+function convertGrades(students) {
     for (let i = 0; i < students.length; i++) {
-        if (students[i][0] === name) {
-            return students[i][1];
+        let grades = students[i].grades;
+        let letterGrade = "";
+        for (let j = 0; j < grades.length; j++) {
+            if (grades[j] >= 90) {
+                letterGrade += "A ";
+            } else if (grades[j] >= 80) {
+                letterGrade += "B ";
+            } else if (grades[j] >= 70) {
+                letterGrade += "C ";
+            } else if (grades[j] >= 60) {
+                letterGrade += "D ";
+            } else {
+                letterGrade += "F ";
+            }
         }
+        console.log(students[i].name + ": " + letterGrade);
     }
 }
 
-function toLetterGrade(students, name) {
-    const grade = findStudentGrade(students, name);
-    if (grade >= 90) {
-        return 'A';
-    } else if (grade >= 80) {
-        return 'B';
-    } else if (grade >= 70) {
-        return 'C';
-    } else if (grade >= 60) {
-        return 'D';
-    } else {
-        return 'F';
-    }
-}
-
-addStudent(students, 'Biff', '32');
-printAllGrades(students);
-console.log(findStudentGrade(students, 'Alice'));
-console.log(toLetterGrade(students, 'Alice'));
+// call functions
+addStudent("Biff", [71, 80, 56, 65, 60]);
+printGrades(students);
+convertGrades(students);
 ```
+Try running the program below in the editor and seeing the result in the browser's developer console.
 
-Try running the program below in the editor and seeing the result in the developer console.
-
-<CodeEditor language='JavaScript'>
+<CodeEditor language='JavaScript' >
      </CodeEditor>
 
 *Congratulations*, you have now created a simple grading program utilizing functions!
 
-Functions are a great way to keep your code organized and readable. They can also be used to create reusable pieces of code that can be employed in multiple places in your program. Remember that functions should ideally always be used to perform a single task, and that their names should be descriptive of the task they are performing.
+Functions are a great way to keep your code organized and readable. They are mainly used to create reusable pieces of code that can be employed in multiple places in your program. Remember that functions should ideally always be used to perform a _single_ task, and that their names should be descriptive of the task they are performing.
 
 ## Review Questions
 
@@ -1645,9 +1661,15 @@ console.log(greet);
 
 1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to do this.)
 
-2. Biff decided to drop your class after his unfortunate grade. Add a function to the Student Grades program that will remove Biff from the list of students.
+2. Biff decided to drop your class after his unfortunate grade. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
-3. At the moment, our `toLetterGrade()` function requires the user to manually type the name of each student in order to convert their grade. Write a new function that will iterate through the entire list of students and convert their grades to letter grades.
+3. In the wild, you will often see what are called __arrow functions__. In modern JavaScript, arrow functions are a shorter way to write functions, and utilize the `=>` syntax. Check out [this resource](https://www.w3schools.com/js/js_arrow_function.asp) to learn about the syntax for arrow functions. Then, try to reformat the following traditional function using arrow function syntax instead:
+
+```JavaScript
+function add(a, b) {
+    return a + b;
+}
+```
 
 ## Key Terms
 
@@ -1658,16 +1680,49 @@ Do you recall the meaning of the following terms?
 - call (function)
 - return value
 - constant
-- multidimensional array
 - scope
+- objects
 
 # Making Mistakes
 
+TODO: Finish up lesson
+
+It is an inevitability to make mistakes while programming. Especially when you are first beginning, it is easy to create errors and to write code that acts erratically. In fact, we have already made a few mistakes (on purpose) in previous lessons to illustrate the problems that can arise when learning to write a new programming language. However, you should be aware that even the most seasoned professional programmers make mistakes as well. Coding can be a frustrating, laborious task at times, and dealing with errors and bugs is a constant process. However, I think you'll also find that coming up with creative ways to address issues that arise in your code can also be a great source of satisfaction.
+
+Thankfully, programmers have developed many tools and strategies to help them deal with errors. In this lesson, we will cover a variety of tools, techniques, and strategies to help you write cleaner code, avoid common programming errors and pitfalls, and generally feel more confident in your ability to address problems.
+
+First, let's jump into some common error types and their causes.
+
+## Common Types of Errors
+
+### Syntax Errors
+
+You may have noticed that JavaScript is a finnicky language. One errant `{` can cause your entire program to break. For all their usefulness, computers are not (yet) very good at discerning meaning or understanding implicit intentions. You must speak to them in a highly specific way for them to understand what you are trying to achieve. 
+
+When writing JavaScript, the most common type of error to make is a __syntax error__. These errors arise when you fail to add or misspell an element of the language that is needed for the code to be understood. For instance, below is an example of a basic syntax error. Can you identify the error? Try running it in the code editor to see the result.
+
+```JavaScript
+const oops = 12;
+if (oops == 12 {
+    alert(oops)
+}
+```
+
+<CodeEditor language="JavaScript">
+    </CodeEditor>
+
+As you can see, we get the message of `SyntaxError: Unexpected token '{'`. In other words, it is telling us that the first curly brace seems out of place. Why? Well, looking closely you'll notice that we did not close the parentheses `)` in the `if` statement, as JavaScript expected us to. Instead, it found a curly brace and didn't know what to do with it. 
+
+When dealing with syntax errors, it is often best to use the error message JavaScript gives you to try and pinpoint where the error might be located. In this example, for instance, the curly brace _is_ where it should be, but is still described as "unexpected." From this you can guess that you are likely missing something immediately before it.
+
+Many code editors nowadays (including VSCode, which we'll begin to work with in the next lesson) have built-in tools that will detect and alert you to syntactical mistakes you are making while writing your code. Syntax errors will inevitably happen, though, so when you see them arise make sure to take a careful look over what you've written for typos or missing elements.
 
 
-# VSCode and GitHub
 
-Up to this point we have been working entirely in the browser and our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. So, to get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout the rest of this course, we will be working in this folder.
+
+# VSCode and GitHub 
+
+Up to this point we have been working entirely in the browser and our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. So, to get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout the rest of this course, we will be working in this folder. 
 
 Click this button to download a couple of files we'll be needing. Unzip the folder and add the files to your working folder.
 
@@ -1707,23 +1762,25 @@ In the Explorer, you should now be able to view both the `index.html` file and t
 
 ![New Project](/images/vscode_openproject.png)
 
-Next, let's go ahead and initialize a git repository for our project.
+Next, let's go ahead and initialize a Git repository for our project.
 
 ## Creating a GitHub Account
 
-The first step we'll need to take is to set up a GitHub account. Navigate to the [GitHub homepage](https://github.com/) and click Sign Up for GitHub. You'll be prompted to create a new account.
+The first step we'll need to take is to set up a GitHub account. Navigate to the [GitHub homepage](https://github.com/) and click "Sign Up for GitHub". You'll be prompted to create a new account.
 
 ![GitHub Sign Up](/images/github_homepage.png)
 
-Work through the steps to create a new account and return here when you are done.
+ __Note:__ Although you don't have to, it is best to use your student email account (.edu) to register with GitHub, as this will allow you access to some features you otherwise would have to pay for.
+
+ Work through the steps to create a new account and return here when you are finished.  
 
 ## Getting Acquainted with Git and GitHub
 
 Now that you have a GitHub account, let's go ahead and initialize a repository (folder) for our project. 
 
-First, we should understand a little about how Git and Github work. __Git__ is a version control system that allows you to track changes to your files. If you have used "track changes" in the past with either Microsoft Word or Google Docs, you're likely familiar with the terminology.
+First, we should understand a little about how Git and Github work. __Git__ is a _version control system_ that allows you to track changes to your files. If you have used "track changes" in the past with either Microsoft Word or Google Docs, you're likely familiar with the terminology. In effect, you are tracking all of the "versions" or life-histories of your files stored in the repository.
 
-GitHub is an online platform for hosting Git repositories. It functions for some, predominantly programmers, as a social network for sharing and collaborating on code-based projects. Users can share their own projects, as well as search for others, which they can then often work on and contribute to. Digital Humanists, librarians, and other academics are also finding ways Git and GitHub are useful in writing projects and teaching.
+__GitHub__ is an online platform for hosting Git repositories. It functions for some, predominantly programmers, as a social network for sharing and collaborating on code-based projects. Users can share their own projects, as well as search for others, which they can then often work on and contribute to. Digital Humanists, librarians, and other academics are also finding ways Git and GitHub are useful in writing projects and teaching.
 
 A [study of how Digital Humanists use GitHub](https://digitalscholarship.files.wordpress.com/2016/07/spirosmithdh2016githubpresentationfinal.pdf), conducted by Lisa Spiro and Sean Morey Smith, found that a wide range of users, including professors, research staff, graduate students, IT staff, and librarians commonly used the site in their DH work. They used GitHub for a diverse range of activities, such as:
 
@@ -1739,7 +1796,7 @@ Although it has many benefits, using Git and GitHub effectively does take a bit 
 
 ## Initializing a Git Repository on GitHub
 
-Git can be enabled in a folder, and then used to save the state of the contents in that folder at different points in the future. It will also keep a record of all changes made in the past. It knows exactly when a file is added to a project and even when it is deleted. It can even resurrect files that have been deleted, if needed.
+Git, as a version control system, can be enabled in a folder, and then used to save the state of the contents in that folder at different points in the future. It will also keep a record of all changes made in the past. It knows exactly when a file is added to a project and even when it is deleted. It can even resurrect files that have been deleted, if needed.
 
 Let's go ahead and initialize a Git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
 
@@ -1749,15 +1806,15 @@ You should now be able to see the following:
 
 ![Initial Commit](/images/vscode_gitcommit.png)
 
-In Git, every change you make to a file and submit to the repository is called a __commit__. A commit is effectively a snapshot of the file at a certain point in time. Every commit also has a __commit message__, which is a short description of what the commit is all about, either for yourself or for others you are collaborating with.
+In Git, every change you make to a file and submit to version control is called a __commit__. A commit is effectively a snapshot of a file or files at a certain point in time. Every commit also has a __commit message__, which is a short description of what the commit is all about, either for yourself or for others you are collaborating with. You should write a brief, descriptive message that encapsulates the changes you have made at that point in time.
 
-Let's go ahead and make our first commit. In VSCode, type "first commit" in the message window and click `Commit`.
+Let's go ahead and make our first commit. In VSCode, type "First commit" in the message window and click `Commit`.
 
 You should receive a message that `There are no staged changes to commit`. 
 
 ![No Staged Changes](/images/vscode_nostaged.png)
 
-This is because we haven't made any changes to any files yet and because we haven't __staged__ any files yet. Before making a commit, you need to add the files to the staging environment. Staged files are those that are ready to be committed. This will make more sense later as we continue to work with Git.
+This is because we haven't made any changes to any files yet and because we haven't __staged__ any files yet. Before making a commit, you need to add the files to the "staging environment". Staged files are those that are ready to be committed. This will make more sense later as we continue to work with Git.
 
 For now, go ahead and click `Yes` to the prompt.
 
@@ -1773,7 +1830,7 @@ If you receive a message to `Authorize VSCode`, click Authorize.
 
 If you are given additional messages to allow VSCode to access your account, click through to allow.
 
-Lastly, you will want to give your repository a name. In VSCode at the top, you should see a text field window for typing the name of your repository. Give it whatever name you want, and click `Publish to public repository`.
+Lastly, you will want to give your repository a name. In VSCode at the top, you should see a text field window for typing the name of your repository. Give it whatever name you want, and click `Publish to public repository`. You can also create private repositories, but for this class we will make our repositories public.
 
 Afterwards, you should see a message that says `Successfully published to GitHub` in the lower right corner of VSCode. (If you also receive a message to `periodically run git fetch`, you can just say no for now.)
 
@@ -1799,27 +1856,27 @@ Now open the `script.js` file. As you can tell by the file extension (`.js`), th
 
 As a project, each of these files is contributing to the webpage. We will learn more about how later, but for now let's look at the webpage in your browser.
 
-Navigate to your folder containing these two files (in your file system, not in VSCode), and double-click the `index.html` file to open it in your browser.
+In your file system, (not in VSCode), navigate to your folder containing these two files and double-click the `index.html` file to open it in your browser.
 
 You should see the following:
 
 ![Hey it worked!](/images/heyitworked.png)
 
-If you reference both files in VSCode, you can see that text from each is being reflected on the webpage. In the HTML file, we are displaying `This is my project!` and `This is the response div`. In the JavaScript file, we are providing an alert that says `Hey it worked!`.
+If you reference both files in VSCode, you can see that text from each is being reflected on the webpage. In the HTML file, we are displaying `This is my project!`. In the JavaScript file, we are providing an alert that says `Hey it worked!`.
 
 ### Making a Change
 
-Without worrying about the HTML for now, let's change the `Hey it worked!` message to `My project is going to be awesome!`.
+Without worrying about the HTML for now, let's change the `Hey it worked!` message to `My project is going to be awesome!`. Go ahead and make the change in your code editor.
 
 If you save the file now, you should see a new change being registered in the source control window.
 
 ![Second Commit](/images/second_commit.png)
 
-The number 1 in the source control icon indicates that there is one change to the file. If you click on it, you can see that it is tracking the changes made to the file. The little `M` next to the file name indicates that the file is modified. 
+The number 1 in the source control icon indicates that there is one file change. If you click on it, you can see that it is tracking all the changes made to the file. The little `M` next to the file name indicates that the file is modified. 
 
 ### Staging our Change
 
-You can also see a `+` (plus) sign next to the file name, which allows you to stage a change for commit. Go ahead and click it. You should now see a section that says `Staged Changes`.
+You can also see a `+` (plus) sign next to the file name, which allows you to __stage__ a change for commit. Go ahead and click it. You should now see a section that says `Staged Changes`.
 
 ![Staged Changes](/images/staged_changes.png)
 
@@ -1829,7 +1886,7 @@ Now that we have staged our change, let's go ahead and commit our change. Be sur
 
 ### Pushing our Changes to GitHub
 
-You should now see a button that says `Sync Changes`. In the lingo of Git, this is called __pushing__ your changes. It is a way to send your changes to the remote repository on GitHub. Simply committing your changes will not make the changes on your remote repository until you push them. Let's go ahead and click `Sync Changes` and click `Ok`to the prompt.
+You should now see a button that says `Sync Changes`. In the lingo of Git, this is called __pushing__ your changes. It is a way to send your changes to the remote repository on GitHub. Simply committing your changes will _not_ make the changes on your remote repository until you push them. Let's go ahead and click `Sync Changes` and click `Ok`to the prompt.
 
 If you navigate to your repository in GitHub, you should see a new commit with the message `Second Commit`.
 
@@ -1837,13 +1894,483 @@ If you navigate to your repository in GitHub, you should see a new commit with t
 
 Congratulations! You have successfully pushed your changes to GitHub.
 
-In general, the process for working with Git is as follows:
+Using Git and GitHub might take a little getting used to, but it is a valuable resource for maintaining, sharing, and collaborating on projects. 
+
+To wrap up, keep in mind that the general process for working with Git is as follows:
 1. Make Changes
 2. Stage modified files
 3. Commit files with message
 4. Push to remote repository on GitHub
 
+## Review Questions
+
+1. A version control system like Git allows you to (select all that apply):
+
+<Quiz>
+- track changes to your files*
+- share your files and collaborate with others*
+- restore files you may have deleted on your own machine*
+- undo changes and revert to earlier versions*
+</Quiz>
+
+2. True or False - You need to stage your files before committing them.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+3. True or False - If you commit your changes, they will be immediately reflected in your GitHub repository.
+
+<Quiz>
+- True
+- False*
+</Quiz>
+
+## Challenge
+
+We saw that both the HTML file and the JavaScript file are contributing to the creation of our project webpage. For this challenge, try changing the text that is displayed from the HTML page to whatever you'd like. Once you have made a change and see it reflected in the webpage, stage the change, commit it, and push it to GitHub with an appropriate message.
+
+## Key Terms
+
+Do you recall the meaning of the following terms?
+
+- Git
+- GitHub
+- stage
+- commit
+- push
+
 # HTML and CSS
+
+In the last lesson we set up our project and created a repository on GitHub. Now that we have the environment set up and some files to work with, let's begin learning about writing HTML and CSS to modify a webpage. 
+
+We will be refreshing the page a lot, so the first thing I recommend doing is opening your `script.js` file in VSCode and commenting out `//` the alert that says `My project is going to be awesome!` so it doesn't become as much of an annoyance.
+
+```JavaScript
+// alert('My project is going to be awesome!');
+```
+
+To start us off and provide some context for this lesson, let's understand a bit about how HTML, CSS, and JavaScript work together.
+
+## HTML, CSS, and JavaScript
+
+__HTML__ stands for HyperText Markup Language. It is the standard language used to define the _structure and content_ of a particular webpage. It allows you to add text, images, and other elements to a webpage, and to direct the overall layout of the webpage. For example, you can use HTML to add a header to your webpage, structure text in a series of paragraphs, add a table, a list of bullet points, and much, much more. 
+
+HTML works in tandem with __CSS__, which defines the _style_ of a webpage. CSS stands for Cascading Style Sheets. While HTML directs the overall structure and content of a page, CSS is used to define the particular stylistic or aesthetic appearance of the page. For example, you can use CSS to define the color of text, the font, the size, the background color, the color of elements like buttons, and much more. While you could create a webpage entirely using HTML, it would ultimately be a boring, uninteresting webpage with a white background and black Times New Roman text.
+
+Both HTML and CSS can also work in tandem with JavaScript files. While HTML and CSS direct the structure and style of a page, JavaScript allows you to add _functionality_ to a webpage. For example, you could use JavaScript to add a button that says "Click Me!" and when the button is clicked, it will display an alert that says "Hey a button was clicked!". In other words, whatever the user can interact with on a webpage is controlled by JavaScript.
+
+It's worth noting that the three languages are intertwined, and that you can write CSS and JavaScript inside an HTML file. This will make more sense as we continue learning.
+
+In general, just keep in mind that:
+- HTML provides the _structure_ of a webpage.
+- CSS provides the _style_ of a webpage.
+- JavaScript provides the _functionality_ of a webpage.
+
+With this in mind, let's dive into the basics of HTML.
+
+## HTML
+
+So far, we have one HTML file to work with in our project: `index.html`. You can tell it is an HTML file by the `.html` extension. The name of the file (index) is an industry standard, because web browsers tend to recognize the index.html page as the opening page to your website directory. See [here](https://www.thoughtco.com/index-html-page-3466505) for more explanation.
+
+Let's take a look at the contents of the file. Open your project in VSCode and open the `index.html` file. You should see the following code display:
+
+```html
+<!doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My JavaScripting Master's Student Project</title>
+  </head>
+  <body>
+    <h1>This is my project!</h1>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+This is a standard layout for a basic HTML page. The first thing you'll probably notice is that HTML elements are defined by the `<` and `>` characters. Some tags need both opening and closing tags, like `<h1></h1>`, while others only need one tag, like `<meta>`. Tags that are self-closing, or don't require closing tags, are called _void elements_. To close a tag when needed, add a `/` before the name of the element in the last tag.
+
+Let's break down some of the specific elements we are seeing here. The first element is a `<!doctype>` tag. This tag is used to define the type of document that is being created: in this case, an HTML doc. We also see an `<html>` tag. This tag begins the HTML document proper.
+
+We also have a `<head>` tag. This element is where we put all of the background information, or _metadata_, about the webpage. None of this information is actually visible in a webpage except for the `<title>` tag, which will be displayed as the title of the page in your browser's title bar.
+
+Next, we have the `<body>` tag. This tag begins the body of the webpage, where we put all of the actual content we want to display. In this case, we have a `<h1>` tag. This tag defines a header, or a large series of text, and it has a text content of `"This is my project!"`. For the moment, let's skip the `<script>` tag--we'll discuss that later in the lesson. We end the HTML document by closing the `<body>` and `<html>` tags.
+
+In general, then, the basic template for any HTML document is as follows:
+
+```html
+<!doctype HTML>
+<html lang="en">
+    <head>
+        <title>This is the page title.</title>
+    </head>
+<body>
+    <h1>Here's an example large heading.</h1>
+    <p>This is an example paragraph of text.</p>
+</body>
+</html>
+```
+
+In other words...
+- All HTML documents must start with a document type declaration: `<!doctype html>`.
+- The HTML document itself begins with `<html>` and ends with `</html>`.
+- The `<head>` of the HTML document contains the metadata about the document, such as the `<title>`.
+- The visible part of the HTML document is between `<body>` and `</body>`, which can hold any number of elements you want to display.
+
+### Useful Tags
+
+There are many tags you will find yourself using in HTML. Here are some of the most common:
+
+- `<p></p>`: This tag defines a paragraph of text.
+- `<h1></h1>`: This tag defines a header, or a large series of text.
+- `<h2</h2>`: This tag defines a smaller header, or a smaller series of text. It descends all the way down to `<h6>`.
+- `<img src ="..." alt="Text for accessibility purposes" />`: This tag sets an image to display. Note that it is a void element, meaning that it doesn't have a closing tag.
+- `<a href="...">...</a>`: This tag creates a hyperlink.
+- `<div></div>`:  This tag designates a container block or section for other elements.
+- `<section></section>`: This tag creates a section of content.
+
+There are many, many other tags you will encounter in the wild. You can find a complete list of tags here: [HTML Tags](https://www.w3schools.com/tags/default.asp).
+
+In your browser, you can observe the HTML for any page you encounter using the same browser's developer tools you used to open the console. It may not make much sense depending on the page you are looking at, but it can often be a good way to get a sense of what the HTML looks like. Open the `index.html` page in your browser and right-click on the page and select `View Source`. You should be familiar with the code you are seeing.
+
+### HTML Attributes
+
+In the `<html>` tag in our `index.html` file, you'll also notice we have added `lang="en"`. This is called an _attribute_. Attributes are pieces of information that are added to a tag element, and follow the syntax `attribute="value"`. They allow us to modify the behavior of the element in a variety of ways or to add information. Here we wrote `lang="en"` to define the language of the document as English (a common practice as info for the browser). 
+
+You'll also notice, in the `<script>` tag, that we added a `src` attribute. We'll discuss this in more detail later in this lesson. Throughout the course, you'll be introduced to a variety of useful attributes that you can use to modify elements in your HTML pages. For now, however, just keep in mind the syntax so you can recognize attributes when you see them.
+
+Now that we have some basic understanding of how an HTML document is set up, let's move on to CSS to add some style to our webpage.
+
+## CSS
+
+As mentioned earlier, HTML works in conjunction with CSS to define the style of a webpage. 
+
+Examples of what CSS can help you modify include:
+- What background color you want to use for the page or a paragraph.
+- What font or font size you want for your headings or your normal text.
+- How large you want the images, and whether you want them aligned center, left, or right.
+- Where elements appear on the page.
+- Whether elements are visible to a user or not.
+
+And much more! 
+
+### Adding A New Stylesheet
+
+CSS files are called _stylesheets_. Let's create a new file called `style.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
+
+To add a new file in VSCode, simply click on the "New File" button  next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
+
+Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void <link> tag that lives inside the _parent_, or containing, <head> tag. Its `href` attribute is a relative link to our CSS document. The link tag is as follows:
+
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+The `rel` attribute is used to define the relationship between the HTML document and the CSS document. In this case, the relationship is `stylesheet` because we are linking a CSS stylesheet. The `href` attribute is used to define the location of the CSS document. In this case, the location is relative to the location of the HTML document (it lives in the same folder), so we'll just provide the name of the CSS file.
+
+So, open the `index.html` file in VSCode and add the link to the `<head>` section like so:
+
+```html
+<!doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>My JavaScripting Master's Student Project</title>
+  </head>
+  <body>
+    <h1>This is my project!</h1>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+### Styling Elements
+
+Next, let's start adding some styling to our page. In the `styles.css` file, let's add a background color. We'll do this by adding a `background-color` property to the `body` element. 
+
+```css
+body {
+    background-color: rgb(118, 92, 120);
+  }
+``` 
+
+To modify an HTML element, you first indicate which element you want to modify, followed by curly braces containing the properties you want to modify. In this case, we want to modify the `background-color` of the `body` element. Lines within the curly braces are called _declarations_, and they change the formatting of the elements in the HTML document. Each line in the declaration sets the value for a property and ends with a semicolon `;`.
+
+To define the color, we use the `rgb()` function. This function takes three numbers as arguments that represent color values, and returns a color in the form `rgb(Red, Green, Blue)`. In this case, I'm using the RGB values for a purplish gray color, but you can use whatever color you'd like. VSCode usually comes equipped with a built-in color picker, so you can just click on the color you want and it will appear in the text field. If you can't see the color picker, you can also determine particular RGB values using [this online resource](https://htmlcolorcodes.com/color-picker/) to get the RGB value you want along with analogous colors. __Note:__ High contrast is very important for people with vision problems. So, when designing websites always ensure that the contrast between the text color and the background color (or background image) is good!
+
+If you save the CSS file and open the HTML file in your browser, you should now see the background color change.
+
+Next, let's modify the header element a bit. Let's make it white, a different font, and a little bigger. We'll also set it to be bold and center it.
+
+```css
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+```
+
+As you can see, each of these aspects have their own properties you can modify. If you add this code to your file and refresh your browser, you should see the header centered and modified accordingly.
+
+Next, let's add a paragraph with some text to our page. We'll start by adding a `<p>` tag to our HTML file, within the `<body>`. I'm going to add a very bad (sorry!) joke to my site, but you can write whatever you'd like.
+
+```html
+<!doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>My JavaScripting Master's Student Project</title>
+  </head>
+  <body>
+    <h1>This is my project!</h1>
+    <p>Q: Why did the programmer quit her job?
+      A: Because she didn't get arrays.</p>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+Next, let's add some styling to the paragraph. We'll follow the same process as we did for the header, but we'll make the text a bit smaller.
+
+```css
+p {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+  }
+```
+
+The other addition is the `white-space` property. This property allows you to control how whitespace is handled. In this case, I wanted to preserve the line break in the text so the question and answer are on different lines, so I set the value to `pre-line`.
+
+If you save and reload, you should see something like the following:
+
+![First CSS styling](/images/1_css-styling.png)
+
+### CSS Selectors
+
+CSS is made up of selectors with specific properties. Selectors are usually tags, ids, or classes. Let's take a look at both of the latter selectors. `id` will allow us to select a single element by its id and modify it. `class` will allow us to efficiently modify a number of elements with the same class at once.
+
+#### Class
+
+In our project page so far, we applied many of the same styles to the `<h1>` element as well as to the `<p>` element. For instance, we centered them both, made them both white, changed the font, etc. This works, but is ultimately repetitive and inefficient because we had to rewrite the same code. Using the `<div>` tag and classes, we can make this much easier.
+
+First, let's create a class in our CSS file. We'll create a class called `formatText` and use it to style all the text on the page.
+
+```css
+.formatText {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+  }
+```
+
+To create a class, we use the `.` (dot) character followed by the name of the class. We can then use the class in our HTML file. Let's use the `<div>` tag, which acts like a container for other elements, and style it with our class. Everything within the `<div>` tag will then be styled according to the `.formatText` properties.
+
+
+```html
+<!doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>My JavaScripting Master's Student Project</title>
+  </head>
+  <body>
+    <div class="formatText">
+      <h1>This is my project!</h1>
+      <p>Q: Why did the programmer quit her job?
+        A: Because she didn't get arrays.</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+As you can see, we use the `class` selector to style the `<div>` element with the name of the class we created. We include both text elements within the bounds of the `<div>` tag so they are both styled the same.
+
+Back in our CSS file, we can now delete the repetitive bits. Our `<h1>` element now only needs to be distinguished by font size and boldness...
+
+```css
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+```
+
+...while our `<p>` element only needs to be distinguished by the text size.
+
+```css
+p {
+    font-size: 30px;
+  }
+```
+
+All together, your CSS file should now look something like this:
+
+```css
+body {
+    background-color: rgb(118, 92, 120);
+  }
+
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+p {
+    font-size: 30px;
+  }
+
+.formatText {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+  }
+```
+
+Save and reload the page, and you should see the same result as before. What, then, was the point? Well, by using classes we have reduced the amount of code we need to write and made it much more readable and organized. Classes are very useful when you know you want to style many elements at once with a number of common or generic properties. You can apply classes to almost any element, and every element can even have multiple classes! Just separate the names with a space, like so:
+
+```html
+<div class="firstClass secondClass thirdClass"></div>
+```
+
+This is a particularly powerful feature of classes.
+
+##### ID
+
+In contrast to classes, IDs are unique. They are used to identify a _single_ element in the HTML file rather than many. This is useful when you want to style a single element, but you don't want to style every element with the same properties.
+
+Let's say we wanted to set our joke apart from the header text a bit. Let's add a border around the joke text and provide it with a different background and font color. Let's also add a second joke to the page.
+
+There are several ways we could do this, but the best might be to use a _flexbox_. Flexbox is a method to layout elements in a way that is more efficient than using absolute positioning, manually figuring out height and width. It is a way to allow for a dynamic positioning of elements on a page. This layout makes elements responsive, which means that the elements change their behavior according to the kind of device displaying them. No matter if you are viewing the page on a mobile phone or a computer monitor, the elements will be provided with appropriate position and symmetry. In general, flexbox is one of the best methods for vertically (and horizontally) centering text since it’s responsive and doesn’t require margin calculations.
+
+Let's start by creating a new section in our HTML file, and adding a new `id` of `joke` to designate it as the joke section. I'll also add a new bad joke, this time at the expense of academics:
+
+```html
+<!doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>My JavaScripting Master's Student Project</title>
+  </head>
+  <body>
+    <div class="formatText">
+      <h1>This is my project!</h1>
+        <section id="joke">     
+          <p>Q: Why did the programmer quit her job?
+          A: Because she didn't get arrays.</p>
+          <p>Q: What's the difference between an academic and a genie?
+          A: One grants wishes, the other wishes for grants.</p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+You can see that we have now designated a new `<section>` with an `id` of `joke`. Next, let's move to our CSS file to define the properties for the section.
+
+The syntax for ids is mostly the same as classes, but instead of using the `.` (dot) character, we use the `#` (hash) character:
+
+```css
+#joke {
+    border: 5px solid rgb(16, 29, 55);
+    background-color: rgb(118, 125, 158);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    color: rgb(255, 230, 204);
+  }
+```
+
+We have several new things here, so let's break them down. First, we create a border around the joke text. We use the `border` property to set the border width (`5px` = 5 pixels) and style. `solid` indicates a solid fill border, and we set the color to a dark blue. We also use the `display` property to set the display type of our `joke` id to `flex`. This is defining our flexbox layout. We use the `flex-direction` property to set the direction of the layout to `column`. This means that the elements will be laid out in a column, rather than a row. This way our second joke will appear below the first on the page. In other words, each `<p>` element within the joke `<section>` will appear evenly spaced below the first.
+
+ We then use the `justify-content` and `align-items` properties to set the alignment of the elements to `center`. This means that the elements (the jokes) will be aligned in the center of the flex container. We use the `width` property to set the width of the container to 50% of the width of the screen, and we use the `margin` property to set the margin to `0 auto`. This means that the container will be centered on the screen (the margins will be even on each side). Finally, we use the `color` property to set the text color to a light peach color.
+
+ If you save and reload the page, you should now see something like the following:
+
+![joke id](/images/2_css-styling.png)
+
+Nice! You'll notice that even though the id is located within the `.formatText` class (i.e., the parent class) and that its styling is still being applied, you can nest ids and classes within each other to override the styling of the parent or container they are in. This allows you to create a complex hierarchy of styles that can be applied to many elements at once.
+
+By creating a joke id we now have a specific section to hold and style all our terrible jokes. At this point I might encourage you to check out the [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to learn a bit more about flexboxes, as they are incredibly useful for modern CSS.
+
+Additionally, while there are far, far too many CSS properties to cover in this course, I also urge you to at least peek through the [entire CSS reference library](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and bookmark it. Try looking up the `flex` property, or any of the other properties we have covered so far.
+
+### External, Internal, and Inline CSS
+
+As a final note about CSS, in this course we are using an _external_ CSS file, meaning it is its own separate file that we have to link to in our HTML. This is the recommended way to utilize CSS. However, it is possible to use CSS directly in your HTML file as well, through both _internal_ and _inline_ methods. If you are curious, you can visit [this page to understand the differences](https://www.w3schools.com/css/css_howto.asp) between these methods. In general, however, just keep in mind that using external CSS files is the preferred method of using CSS.
+
+## JavaScript
+
+So far, we have just been using HTML and CSS to style our page. The only bit of JavaScript we have is linked through the `<script>` tag, located in the `<body>` of the HTML file:
+
+```html
+    <script src="script.js"></script>
+```
+
+The `src` (source) attribute is used to link to the JavaScript file `script.js`. This is the file that contains the code that will be executed when the page loads. At the moment, the only thing it is doing is alerting the user that your project is going to be awesome.
+
+However, in the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
+
+## Review Questions
+
+1. How do we associate a CSS stylesheet with a HTML file? (select one)
+
+<Quiz>
+- By including a link to the CSS file in the HTML page's `<head>` element.*
+- By including the CSS file in the HTML page's `<body>` element.
+- By sheer coincidence.
+</Quiz>
+
+2. True or False - ids are created using the `.` (dot) character and classes are created using the `#` (hash) character.
+
+<Quiz>
+- True
+- False*
+</Quiz>
+
+3. True or False - Flexboxes are useful because they allow for a dynamic layout of elements on a page.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+## Challenges
+
+1. Add another joke of your own to the jokes section of your page.
+
+2. Add a link in the jokes section to an online list of jokes using the `<a href=""></a>` tag. To learn about this tag, [see this page](https://www.w3schools.com/html/html_images.asp).
+
+3. Create a new section in your HTML file to display your favorite poem. In CSS, give it an appropriate id, and define the section as a centered flexbox with a different border, background color, and text color.
+
+4. Push all your changes to the project to GitHub.
+
+## Key Terms
+
+Do you remember the meaning of the following terms?
+
+- self-closing or void tags
+- metadata
+- attributes
+- class
+- id
+- flexbox
 
 # Interactive Web Design
 
