@@ -11,6 +11,7 @@ import Presentation from '../../components/Presentation';
 import SlideoutEditor from '../../components/Editor/SlideoutEditor'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import yaml from '../../config.yml'
 
 
 export default function WorkshopPage({
@@ -119,11 +120,12 @@ export default function WorkshopPage({
           handlePageChange={handlePageChange}
 
         />
-        <Presentation
+
+        {yaml.presentation !==false && <Presentation
           currentHeader={currentHeader}
           content={currentFile}
           title={title}
-        />
+        />}
         <Button
           className='next-page'
           onClick={() => handlePageChange(event, Number(currentPage) + 1)}

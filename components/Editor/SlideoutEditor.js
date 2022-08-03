@@ -74,9 +74,7 @@ export default function SlideoutEditor(props) {
                                     color: 'white',
                                 }} />
                         </Button>
-                        {/* <CodeEditorComponent minLines={10} onChange={commitCode} defaultCode={text}
-                        language={yaml.slideout.language} /> */}
-                        <InterpreterComponent language={ yaml.slideout.language } onChange={commitCode} defaultCode={text} {...props} />
+                        <InterpreterComponent language={ yaml.slideout.language } onChange={commitCode} height='300px' defaultCode={text} {...props} />
                     </div>
                 </Slide>
             </div>
