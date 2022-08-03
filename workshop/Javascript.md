@@ -687,8 +687,6 @@ Here we have given the player two options by entering either `1` or `2` into the
 
 Okay, now we have some additional options for the player to choose from, along with more error messages if they choose incorrectly. Putting it all together then, here is the story so far:
 
-TODO: It is very hard to see and type this much code in the console/code editor. Maybe an issue to consider?
-
 ```JavaScript
     var playerName, playerChoice;
 
@@ -729,7 +727,7 @@ TODO: It is very hard to see and type this much code in the console/code editor.
 
 Try writing a short story of your own in the code editor below. (You can also copy/paste the code from mine if you want to see it in action.)
 
-<CodeEditor language='JavaScript' height = '10000px'>
+<CodeEditor language='JavaScript' height = '450px'>
 </CodeEditor>
 
 While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
@@ -780,7 +778,7 @@ else
 
 2. Utilizing `switch` statements, write a short Choose Your Own Adventure story that allows the player 3 choices to choose from at a time.
 
-<CodeEditor language='JavaScript' height='500px'>
+<CodeEditor language='JavaScript' height='400px'>
 </CodeEditor>
 
 ## Key Terms
@@ -1285,7 +1283,7 @@ Okay, now that we have some basic understanding of how functions operate, let's 
 
 ## Scope
 
-When you create a function, it designates a new __scope__. Scope is the context in which a particular variable is accessible. In other words, it means where a variable can be available for use (read, manipulated, displayed, etc.) in your code. Depending on how and where you declare your variables, you can have different scopes. To understand scope, let's discuss the different ways to declare variables in JavaScript.
+When you create a function, it designates a new __scope__. Scope is the context in which a particular variable is accessible. In other words, it means where a variable can be available for use (read, manipulated, displayed, etc.) in your code. Depending on how and where you declare your variables, you can have different scopes.
 
 ### Rethinking Variable Declarations: `var` vs. `let` and `const`
 
@@ -1313,7 +1311,7 @@ function newFunction() {
 }
 ```
 
-In this example, `greet` is globally scoped because it exists outside of the function, while `hello` is function scoped. These variables have different scopes or levels of access. To see what I mean, try running the code below in the editor:
+In this example, `greet` is globally scoped because it exists outside of the function, while `hello` is function scoped. These variables have different levels of access. To see what I mean, try running the code below in the editor:
 
 ```JavaScript
 var greet = "hey hi"
@@ -1661,7 +1659,7 @@ console.log(greet);
 
 1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to do this.)
 
-2. Biff decided to drop your class after his unfortunate grade. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
+2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
 3. In the wild, you will often see what are called __arrow functions__. In modern JavaScript, arrow functions are a shorter way to write functions, and utilize the `=>` syntax. Check out [this resource](https://www.w3schools.com/js/js_arrow_function.asp) to learn about the syntax for arrow functions. Then, try to reformat the following traditional function using arrow function syntax instead:
 
@@ -1685,11 +1683,9 @@ Do you recall the meaning of the following terms?
 
 # Making Mistakes
 
-TODO: Finish up lesson
-
 It is an inevitability to make mistakes while programming. Especially when you are first beginning, it is easy to create errors and to write code that acts erratically. In fact, we have already made a few mistakes (on purpose) in previous lessons to illustrate the problems that can arise when learning to write a new programming language. However, you should be aware that even the most seasoned professional programmers make mistakes as well. Coding can be a frustrating, laborious task at times, and dealing with errors and bugs is a constant process. However, I think you'll also find that coming up with creative ways to address issues that arise in your code can also be a great source of satisfaction.
 
-Thankfully, programmers have developed many tools and strategies to help them deal with errors. In this lesson, we will cover a variety of tools, techniques, and strategies to help you write cleaner code, avoid common programming errors and pitfalls, and generally feel more confident in your ability to address problems.
+Thankfully, programmers have developed many tools and strategies to help us deal with errors. In this lesson, we will cover a variety of tools, techniques, and strategies to help you write cleaner code, avoid common programming errors and pitfalls, and generally feel more confident in your ability to address problems.
 
 First, let's jump into some common error types and their causes.
 
@@ -1717,8 +1713,182 @@ When dealing with syntax errors, it is often best to use the error message JavaS
 
 Many code editors nowadays (including VSCode, which we'll begin to work with in the next lesson) have built-in tools that will detect and alert you to syntactical mistakes you are making while writing your code. Syntax errors will inevitably happen, though, so when you see them arise make sure to take a careful look over what you've written for typos or missing elements.
 
+### Type Errors
+
+__Type errors__ are when you try to perform an operation on a value of the wrong type. For instance, below is an example of a type error. Can you identify what is causing the error? Try running it in the code editor to see the result.
+
+```JavaScript
+let num = 1;
+oops = num.toUpperCase();
+console.log(oops);
+```
+
+<CodeEditor language="JavaScript">
+    </CodeEditor>
+
+In this example, we are trying to use the `toUpperCase` method on a number. However, `toUpperCase` is only available for strings. Hence the `TypeError` message. 
+
+This error gives us a direct clue for how to fix our code. We would first need to convert the number to a string. For instance, we could use the `toString` method:
+
+```JavaScript 
+let num = 1;
+fixed = num.toString().toUpperCase();
+console.log(fixed);
+```
+
+Here we apply both the `toString` and `toUpperCase` methods to the number, which then allows us to use it as an uppercase string.
+
+If, for whatever reason, you are ever in doubt about the particular type of a value, remember that you can use the `typeof` operator to check its type. This is a useful tool for debugging.
+
+### Reference Errors
+
+When your programs begin to get more complex, it is occasionally difficult to discern what particular scope you are working within. This can cause programs to throw a __Reference Error__. Take a look at the example below. Can you identify what is causing the error? Try running it in the code editor to see the result.
+
+```JavaScript
+let someValue = 1;
+
+if (someValue > 0) {
+    let oops = "blah blah";
+    console.log(oops);
+}
+
+console.log(someValue);
+console.log(oops); 
+```
+
+<CodeEditor language="JavaScript">
+    </CodeEditor>
 
 
+As you can see, we receive the message of `ReferenceError: oops is not defined`. This is telling us that we are trying to use the `oops` variable out of the scope in which it was declared. Always be sure to check the scope of your variables before using them.
+
+## Logical Errors
+
+__Logical errors__ occur where your syntax is actually correct but the code is not producing what you intended. In other words, the program runs successfully, but gives "incorrect" results. These are often harder to fix than other types of errors, as there usually isn't an explicit error message to direct you to the source of the error.
+
+Take a look at this example. It is a perfectly valid and legal code snippet, but won't work as intended. Can you identify where it is going wrong? Try running it in the code editor to see the result.
+
+```JavaScript
+function getPassword(){
+  let correct = "password";
+  let guess = "";
+  while (guess == correct) {
+    guess = prompt("What is the password?");
+  }
+  alert("You may enter.");
+}
+
+getPassword();
+```
+
+<CodeEditor language="JavaScript">
+    </CodeEditor>
+
+As you can see, this is not a very good password system. In fact, it lets everyone have access immediately! To correct this, we would need to change the `==` operator to `!=`, to make sure the `while` loop runs until the correct password is entered.
+
+This is a fairly straightforward example, but for larger pieces of software logical errors can be much more complex and difficult to identify. Let's discuss some general strategies to help you deal with logical errors.
+
+## Strategies to Avoid Mistakes
+
+Below are some general strategies and best practices you can follow to help you think through the structure and design of your programs.
+
+### Writing Pseudo-code
+
+One common mistake for beginners in approaching code and coding problems is trying to solve a problem entirely in JavaScript. While this may seem like an obvious and commonsense approach, it is actually not always the best way to tackle a problem. Often, when creating complex programs, it is often useful to flesh out the structure and logic of your program before even writing any code.
+
+This practice is called __pseudo-coding__. Pseudo-code is an amalgamation of code-like expressions and regular English (or whatever natural language you are most comfortable with). There's no correct way to write pseudo-code--you make it up as you go along. As long as it looks a little bit like code and follows the same general pattern and procedure, you're doing well.
+
+The reason we write pseudo-code is that it allows us to flesh out the logic of the program in a clear and accessible way. We use it to skip over unnecessary details in a way that we can easily convert into code later.
+
+Here's a possible example of pseudo-code for our simple password program from before:
+
+```
+create function get password
+    store correct password in variable
+    prompt user for password
+    while password is incorrect
+        prompt for password
+    alert user they may enter
+    end function
+```
+
+As you can see, pseudo-code is a lot more readable than writing actual code. It provides you with an accessible blueprint of a program's logic and structure that you can then overlay or follow with actual code.
+
+As mentioned, there is no one way to write pseudo-code. You can be as detailed or as abstract as you'd like. As long as you are clarifying the structure of your program to yourself (and others you may be collaborating with), it is sufficient. It is often best, however, to write pseudo-code that more or less matches the syntax and vocabulary of JavaScript.
+
+Whenever you are beginning a new program, it is highly recommended to write pseudo-code first. Not only will it make the overall structure of your program more intelligible, but it will also help you to avoid making logical errors down the road.
+
+### General Tips
+
+Here are some more general tips for dealing with logical errors:
+
+1. Understand what your code is doing step by step.
+
+With a logic error, code behavior is unpredictable. A loop may never happen, it may never end, or it might sometimes work right and sometimes not. The key to finding logic errors is to predict why the code is doing what it's doing and why it's not doing what you want. Follow through the code step by step and try to understand what is happening. 
+
+2. Form a hypothesis or two before looking at any code. 
+
+Think about what is wrong before you look over the code. Try to describe in plain English what is going wrong. Go through this process before you look at code because the moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about logic, and no amount of staring at code will show you logic errors, nor will a debugger spot them for you.
+
+3. Resolve syntax errors.
+
+Go to the console and see if there are any syntax errors. If so, resolve them. Logic errors will not appear until you've resolved all syntax errors. If your code shows no syntax errors but still doesn't work correctly, you've got a logic error.
+
+4. Identify key variables or conditions.
+
+Most logic errors are centered around a condition that's not working right, and conditions are usually based on variables. Begin by taking a careful look at the conditions that control the behavior you're concerned about.
+
+5. Think about your logic.
+
+Logic errors aren't about getting the commands right (those are syntax errors). Logic errors are about telling the computer to do the wrong thing. Remember, the computer only does precisely what you tell it to do, so think hard about the logic you've applied and how you might be able to revise it.
+
+## Review Questions
+
+1. True or False - A syntax error occurs when code is not written correctly.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+2. True or False - A reference error occurs when a variable is used outside its scope or before it is declared.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+3. True or False - A logical error occurs when code works but is not producing the results you expected.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+## Challenges
+
+1. Identify the logical error in the following code.
+
+```JavaScript
+// find the even numbers in an array
+let someValues = [0, 1, 2, 3, 4, 5];
+
+for (let i = 0; i < someValues.length; i++) {
+    if (someValues[i] / 2 == 0) {
+        console.log(someValues[i]);
+    }
+}
+```
+
+2. Let's say you are writing a program that allows users to manage a collection of recipes. You want the user to be able to add, remove, edit, and search through their recipes. You also want the user to be able to "favorite" individual recipes and let them search and look through their list of favorites. Write some pseudo-code for a program that allows for each of these features.
+
+## Key Terms
+
+- syntax error
+- type error
+- reference error
+- logical error
+- pseudo-code
 
 # VSCode and GitHub 
 
@@ -2070,7 +2240,7 @@ Next, we'll link to the `style.css` file in our HTML file so it can be applied t
 
 The `rel` attribute is used to define the relationship between the HTML document and the CSS document. In this case, the relationship is `stylesheet` because we are linking a CSS stylesheet. The `href` attribute is used to define the location of the CSS document. In this case, the location is relative to the location of the HTML document (it lives in the same folder), so we'll just provide the name of the CSS file.
 
-So, open the `index.html` file in VSCode and add the link to the `<head>` section like so:
+So, open the `index.html` file in VSCode and add the `<link>` to the `<head>` section like so:
 
 ```html
 <!doctype HTML>
@@ -2099,7 +2269,9 @@ body {
 
 To modify an HTML element, you first indicate which element you want to modify, followed by curly braces containing the properties you want to modify. In this case, we want to modify the `background-color` of the `body` element. Lines within the curly braces are called _declarations_, and they change the formatting of the elements in the HTML document. Each line in the declaration sets the value for a property and ends with a semicolon `;`.
 
-To define the color, we use the `rgb()` function. This function takes three numbers as arguments that represent color values, and returns a color in the form `rgb(Red, Green, Blue)`. In this case, I'm using the RGB values for a purplish gray color, but you can use whatever color you'd like. VSCode usually comes equipped with a built-in color picker, so you can just click on the color you want and it will appear in the text field. If you can't see the color picker, you can also determine particular RGB values using [this online resource](https://htmlcolorcodes.com/color-picker/) to get the RGB value you want along with analogous colors. __Note:__ High contrast is very important for people with vision problems. So, when designing websites always ensure that the contrast between the text color and the background color (or background image) is good!
+To define the color, we use the `rgb()` function. This function takes three numbers as arguments that represent color values, and returns a color in the form `rgb(Red, Green, Blue)`. In this case, I'm using the RGB values for a purplish gray color, but you can use whatever color you'd like. VSCode usually comes equipped with a built-in color picker, so you can just click on the color you want and it will appear in the text field. If you can't see the color picker, you can also determine particular RGB values using [this online resource](https://htmlcolorcodes.com/color-picker/) to get the RGB value you want along with analogous colors. 
+
+__Note:__ High contrast is very important for people with vision problems. So, when designing websites always ensure that the contrast between the text color and the background color (or background image) is good!
 
 If you save the CSS file and open the HTML file in your browser, you should now see the background color change.
 
@@ -2252,7 +2424,7 @@ In contrast to classes, IDs are unique. They are used to identify a _single_ ele
 
 Let's say we wanted to set our joke apart from the header text a bit. Let's add a border around the joke text and provide it with a different background and font color. Let's also add a second joke to the page.
 
-There are several ways we could do this, but the best might be to use a _flexbox_. Flexbox is a method to layout elements in a way that is more efficient than using absolute positioning, manually figuring out height and width. It is a way to allow for a dynamic positioning of elements on a page. This layout makes elements responsive, which means that the elements change their behavior according to the kind of device displaying them. No matter if you are viewing the page on a mobile phone or a computer monitor, the elements will be provided with appropriate position and symmetry. In general, flexbox is one of the best methods for vertically (and horizontally) centering text since it’s responsive and doesn’t require margin calculations.
+There are several ways we could do this, but the best might be to use a _flexbox_. Flexbox is a method to layout elements in a way that is more efficient than using absolute positioning, or manually figuring out height, width, and dimensions. It is a way to allow for a dynamic positioning of elements on a page. This layout also makes elements responsive, which means that the elements change their behavior according to the kind of device displaying them. No matter if you are viewing the page on a mobile phone or a computer monitor, the elements will be provided with appropriate position and symmetry. In general, flexbox is one of the best methods for vertically (and horizontally) centering text since it’s responsive and doesn’t require margin calculations.
 
 Let's start by creating a new section in our HTML file, and adding a new `id` of `joke` to designate it as the joke section. I'll also add a new bad joke, this time at the expense of academics:
 
@@ -2309,7 +2481,7 @@ Nice! You'll notice that even though the id is located within the `.formatText` 
 
 By creating a joke id we now have a specific section to hold and style all our terrible jokes. At this point I might encourage you to check out the [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to learn a bit more about flexboxes, as they are incredibly useful for modern CSS.
 
-Additionally, while there are far, far too many CSS properties to cover in this course, I also urge you to at least peek through the [entire CSS reference library](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and bookmark it. Try looking up the `flex` property, or any of the other properties we have covered so far.
+Additionally, while there are far, far too many CSS properties to cover in this course, I also urge you to at least peek through the [entire CSS reference library](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and bookmark it. Try looking up the `flex` property, or any of the other properties we have used so far.
 
 ### External, Internal, and Inline CSS
 
@@ -2325,7 +2497,7 @@ So far, we have just been using HTML and CSS to style our page. The only bit of 
 
 The `src` (source) attribute is used to link to the JavaScript file `script.js`. This is the file that contains the code that will be executed when the page loads. At the moment, the only thing it is doing is alerting the user that your project is going to be awesome.
 
-However, in the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
+In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
 
 ## Review Questions
 
@@ -2355,7 +2527,7 @@ However, in the next lesson, we will learn how to use JavaScript to create a mor
 
 1. Add another joke of your own to the jokes section of your page.
 
-2. Add a link in the jokes section to an online list of jokes using the `<a href=""></a>` tag. To learn about this tag, [see this page](https://www.w3schools.com/html/html_images.asp).
+2. Add a link in the jokes section to an online list of jokes using the `<a href=""></a>` tag. To learn about this tag, [see this page](https://www.w3schools.com/Html/html_links.asp).
 
 3. Create a new section in your HTML file to display your favorite poem. In CSS, give it an appropriate id, and define the section as a centered flexbox with a different border, background color, and text color.
 
