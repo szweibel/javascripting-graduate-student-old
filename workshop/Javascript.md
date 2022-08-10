@@ -956,7 +956,7 @@ This may look a little complicated, so let's explore it a bit. The `for` loop is
 To break it down a little more:
 - `var i = 0`: This is the starting point of the loop. It will serve as the index number of the first element in the array.
 - `i < array.length`: This is the condition of the loop. It is a boolean expression that determines whether the loop should continue. In other words, it says: "while `i` is less than the `length` of the array, do the following:".
-- `i++`: This is the incrementor. `++` is a new operator that means that the value of `i` will increase or ___increment__ by 1 each time the loop executes. We use it to increment the index number of the loop so that it will continually move to the next element in the array. 
+- `i++`: This is the incrementor. `++` is a new operator that means that the value of `i` will increase or __increment__ by 1 each time the loop executes. We use it to increment the index number of the loop so that it will continually move to the next element in the array. 
 
  Let's see how this works in action using our `myArray` array from earlier:
 
@@ -1104,13 +1104,13 @@ Try running and exploring the program:
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action, we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
+Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action (i.e., request, display, quit), we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
 
 Congratulations! You have now successfully created a basic library search program. There are, of course, a number of limitations to this program. For instance: 
 - The search parameters are not very robust. The user must type out the full title of the book, with the exact spelling and punctuation of the title. As you might imagine, this is not a very good user experience.
 - The `for` loop sends an alert for each book in the library. This is not ideal, especially if we had a large amount of books. We would want to display the books in a more organized manner.
 
-These are basic considerations we would want to take into account if we were actually designing a library search program. However, if you can understand how this program works, you are well on your way to creating complex and robust JavaScript programs. To get some practice in, try out the challenges below.
+These are basic considerations we would want to take into account if we were actually designing a library search program. However, if you can understand how this program works, you are well on your way to creating complex and robust JavaScript programs. To get some more practice in, try out the challenges below.
 
 ## Review Questions
 
@@ -1163,7 +1163,7 @@ alert(myArray[0]);
 
 1. Write a `for` loop that prints all even numbers from 0 to 100 to the console.
 
-2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp), which converts all the letters of a string to lowercase, to make the search parameters case insensitive. _Hint: To match the two terms, you will want to perform the `toLowerCase` method both on the user's response as well as on each book title in the library. Try storing these results in a new variable!_
+2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp), which converts all the letters of a string to lowercase, to make the search parameters case insensitive. _Hint: To match the two terms, you will want to perform the `toLowerCase` method both on the user's response as well as on each book title in the library. Try storing these results in new variables!_
 
 ## Key Terms
 
@@ -1179,7 +1179,7 @@ Do you recall the following terms from this lesson?
 
 # Functions
 
-In the last lesson, we learned how to loop through a series of statements to repeat blocks of code. As you saw, this can be very useful if we want to automate a series of tasks that would otherwise take forever to write out manually. __Functions__ are another technique that can be used to repeat and reuse blocks of code and help us automate tasks. In this lesson, we will learn how to create our own functions and how to use them. To this end, at the end of the lesson we will create a simple grading program that will allow you to add, calculate, and display student grades.
+In the last lesson, we learned how to loop through a series of statements to repeat blocks of code. As you saw, this can be very useful if we want to automate a series of tasks that would otherwise take forever to write out manually. __Functions__ are another technique that can be used to repeat and reuse blocks of code and help us automate tasks. In this lesson, we will learn how to create our own functions and how to use them. To this end, at the bottom of the lesson we will create a simple grading program that will allow you to add, calculate, and display student grades.
 
 ## What are Functions?
 
@@ -1194,7 +1194,7 @@ function functionName(parameter1, parameter2, ...) {
 }
 ```
 
-To create a function, you must first define the function name. Naming conventions for functions are [lower CamelCase](https://wiki.c2.com/?LowerCamelCase), in which the first word is lowercase and the following words begin with a capital letter. Next you define the function's __parameters__ or __arguments__ within closed parentheses `()`. The parameters are the values that will be __passed__ into the function when it is called. Passing in parameters allows us to reuse the same function for different tasks, because we can pass in different values to the function each time we want to reuse it. The parameters are separated by commas. You can define as many parameters as you want.
+To create a function, you must first define the function name. Naming conventions for functions are [lower CamelCase](https://wiki.c2.com/?LowerCamelCase), in which the first word is lowercase and the following words begin with a capital letter. Next, you define the function's __parameters__ or __arguments__ within closed parentheses `()`. The parameters are the values that will be __passed__ into the function when it is called. Passing in parameters allows us to reuse the same function for different tasks, because we can pass in different values to the function each time we want to reuse it. The parameters are separated by commas. You can define as many parameters as you want.
 
 Like loops, you can see that functions use curly braces to define their contents. The contents of the function are the code that will be executed whenever the function is called.
 
@@ -1327,7 +1327,7 @@ console.log(hello); // but this will not
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-As you can see, the console trips up at the `console.log(hello);` and throws a `ReferenceError`, which states that '`hello is not defined`. This is because `hello` is only available inside of the function in which it was declared. If you try to access `hello` outside of the function, JavaScript can't find the variable declaration you are referring to.
+As you can see, the console trips up at the `console.log(hello);` and throws a `ReferenceError`, which states that '`hello is not defined`. This is because `hello` is only available _inside_ of the function in which it was declared. If you try to access `hello` outside of the function, JavaScript can't find the variable declaration you are referring to. In contrast, `greet` will correctly log the value of `greet` because it is globally scoped.
     
 You have also seen how `var` declarations are mutable, insofar as they can be re-declared and reassigned. You can change the value of a `var` at any time:
 
@@ -1362,7 +1362,7 @@ console.log(greet); // but this throws a ReferenceError
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-We can see that using `greet` outside of its block (the curly braces where it was defined) returns an error. Again, this is because `greet` is only available inside of the block in which it was declared. __Note:__ If you cannot see the two successful console logs, check the developer console in your browser, rather than in the embedded code editor.
+We can see that using `greet` outside of its block (the curly braces where it was defined) returns an error. Again, this is because `greet` is only available inside of the block in which it was declared. By contrast, `someValue` is available to display because it was declared within its own block outside of the function.
 
 Just like with `var`, you can reassign the values of `let` variables at any time. However, unlike `var`, you cannot re-declare a `let` variable. So while this will work:
 
@@ -1426,7 +1426,7 @@ Let's imagine that students have just submitted several homework assignments and
 2. A new student has joined and submitted work, so we want to add a student to our list of students.
 3. Evaluate their numbered grades to a letter (A, B, C, D, or F).
 
-Functions are perfect for this because we can define each of these three tasks as a separate function. We can then call each of these functions at the appropriate time. Remember, functions should be used to perform a single task.
+Functions are perfect for this because we can define each of these three tasks as a separate function. We can then call each of these functions at the appropriate time. Remember, functions should be used to perform a _single_ defined task whenever possible.
 
 ## Objects
 
@@ -1510,7 +1510,7 @@ function addStudent(name, grades) {
 addStudent("Biff", [71, 80, 56, 65, 60]);
 ```
 
-In the function, we are creating a new student object with `name` and `grades` properties to match the other students. We then add this object to the end of the `students` array using the `push` method. Finally, we call the function with the name and grades of the new student (poor Biff didn't do too well, sadly). If you were to run the `printGrades` function now, you would see that the new student is included in the list of students.
+In the function, we are creating a new student object with `name` and `grades` properties to match the other students. We then add this object to the end of the `students` array using the `push` method. Finally, we call the function with the name and grades of the new student (poor Biff didn't do too well, sadly), which will add the values to the corresponding properties. If you were to run the `printGrades` function now, you would see that the new student is included in the list of students.
 
 ### Converting Grades to Letters
 
@@ -1541,7 +1541,7 @@ function convertGrades(students) {
 convertGrades(students);
 ```
 
-This function is slightly more complicated, because we need to iterate _both_ through the `students` array and each student's `grades` array, and evaluate the latter numbers to a letter grade. We can accomplish this by using two `for` loops: a `for` loop to iterate through the `students` array (using `i` and `students.length`), and a nested `for` loop to iterate through each student's `grades` (using `j` and `grades.length`). In other words, as we work through each student obejct, we first store the grades values of each student in a variable `grades`. Because `grades` is itself an array of values, we can use the `.length` property to determine the number of grades for each student (5). We then use the `if` statement to determine the letter grade for each number, and add it to the `letterGrade` variable with the `+=` operator.
+This function is slightly more complicated, because we need to iterate _both_ through the `students` array and each student's `grades` array, and evaluate the latter numbers to a letter grade. We can accomplish this by using two `for` loops: a `for` loop to iterate through the `students` array (using `i` and `students.length`), and a nested `for` loop to iterate through each student's `grades` (using `j` and `grades.length`). In other words, as we work through each student object, we first store the grades values of each student in a variable `grades`. Because `grades` is itself an array of values, we can use the `.length` property to determine the number of grades for each student (5). We then use the `if` statement to determine the letter grade for each number, and add it to the `letterGrade` variable with the `+=` operator (and an extra space at the end to make it more readable).
 
 Let's put the whole program together:
 
@@ -1669,6 +1669,9 @@ function add(a, b) {
 }
 ```
 
+<CodeEditor language='JavaScript' >
+     </CodeEditor>
+
 ## Key Terms
 
 Do you recall the meaning of the following terms?
@@ -1794,7 +1797,7 @@ Below are some general strategies and best practices you can follow to help you 
 
 ### Writing Pseudo-code
 
-One common mistake for beginners in approaching code and coding problems is trying to solve a problem entirely in JavaScript. While this may seem like an obvious and commonsense approach, it is actually not always the best way to tackle a problem. Often, when creating complex programs, it is often useful to flesh out the structure and logic of your program before even writing any code.
+One common mistake for beginners in approaching code and coding problems is trying to solve a problem entirely in JavaScript. While this may seem like an obvious and commonsense approach, it is actually not always the best way to tackle a problem. Often, when creating complex programs, it is often useful to flesh out the structure and logic of your program before even writing any code or when faced with a seemingly unsolvable problem.
 
 This practice is called __pseudo-coding__. Pseudo-code is an amalgamation of code-like expressions and regular English (or whatever natural language you are most comfortable with). There's no correct way to write pseudo-code--you make it up as you go along. As long as it looks a little bit like code and follows the same general pattern and procedure, you're doing well.
 
@@ -1824,7 +1827,7 @@ Here are some more general tips for dealing with logical errors:
 
 1. Understand what your code is doing step by step.
 
-With a logic error, code behavior is unpredictable. A loop may never happen, it may never end, or it might sometimes work right and sometimes not. The key to finding logic errors is to predict why the code is doing what it's doing and why it's not doing what you want. Follow through the code step by step and try to understand what is happening. 
+With a logical error, code behavior is unpredictable. A loop may never happen, it may never end, or it might sometimes work right and sometimes not. The key to finding logic errors is to predict why the code is doing what it's doing and why it's not doing what you want. Follow through your code step by step, identifying key changes of behavior. 
 
 2. Form a hypothesis or two before looking at any code. 
 
@@ -1840,11 +1843,21 @@ Most logic errors are centered around a condition that's not working right, and 
 
 5. Think about your logic.
 
-Logic errors aren't about getting the commands right (those are syntax errors). Logic errors are about telling the computer to do the wrong thing. Remember, the computer only does precisely what you tell it to do, so think hard about the logic you've applied and how you might be able to revise it.
+Logical errors aren't about getting the vocabulary right (remember, those are syntax errors). Logic errors are about telling the computer to do the wrong thing. The computer only does precisely what you tell it to do, so think hard about the logic you've applied and how you might be able to revise it.
+
+## Using console.log() to Debug
+
+TODO: emphasize console log debugging over printing
+
+To keep things simple, we have been console.logging a lot of our programs just so we can see an immediate result. However, `console.log()` is best for debugging purposes
+
+When trying to fix problems in your code, it is often useful to use the `console.log()` function to print out the value of a variable or expression to see what you are actually getting
+
+TODO: Add how to read code from Python the hard way
 
 ## Review Questions
 
-1. True or False - A syntax error occurs when code is not written correctly.
+1. True or False - A syntax error occurs when code is not typed out correctly.
 
 <Quiz>
 - True*
@@ -2232,7 +2245,7 @@ CSS files are called _stylesheets_. Let's create a new file called `style.css` i
 
 To add a new file in VSCode, simply click on the "New File" button  next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
 
-Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void <link> tag that lives inside the _parent_, or containing, <head> tag. Its `href` attribute is a relative link to our CSS document. The link tag is as follows:
+Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a relative link to our CSS document. The link tag is as follows:
 
 ```html
 <link rel="stylesheet" href="styles.css">
@@ -2308,7 +2321,7 @@ Next, let's add a paragraph with some text to our page. We'll start by adding a 
 </html>
 ```
 
-Next, let's add some styling to the paragraph. We'll follow the same process as we did for the header, but we'll make the text a bit smaller.
+Next, let's add some styling to the paragraph. We'll follow the same process as we did for the header, but we'll make the text size a bit smaller (20px smaller, to be precise).
 
 ```css
 p {
@@ -2424,7 +2437,7 @@ In contrast to classes, IDs are unique. They are used to identify a _single_ ele
 
 Let's say we wanted to set our joke apart from the header text a bit. Let's add a border around the joke text and provide it with a different background and font color. Let's also add a second joke to the page.
 
-There are several ways we could do this, but the best might be to use a _flexbox_. Flexbox is a method to layout elements in a way that is more efficient than using absolute positioning, or manually figuring out height, width, and dimensions. It is a way to allow for a dynamic positioning of elements on a page. This layout also makes elements responsive, which means that the elements change their behavior according to the kind of device displaying them. No matter if you are viewing the page on a mobile phone or a computer monitor, the elements will be provided with appropriate position and symmetry. In general, flexbox is one of the best methods for vertically (and horizontally) centering text since it’s responsive and doesn’t require margin calculations.
+There are several ways we could do this, but the best might be to use a _flexbox_. Flexbox is a method to lay out elements in a way that is more efficient than using absolute positioning (or manually figuring out height, width, and dimensions of the page). It is a way to allow for a dynamic positioning of elements on a particular page. This layout also makes elements responsive, which means that the elements change their behavior according to the kind of device displaying them. No matter if you are viewing the page on a mobile phone or a computer monitor, the elements will be provided with appropriate position and symmetry. In general, flexbox is one of the best methods for vertically and horizontally centering elements because it’s responsive and doesn’t require margin calculations.
 
 Let's start by creating a new section in our HTML file, and adding a new `id` of `joke` to designate it as the joke section. I'll also add a new bad joke, this time at the expense of academics:
 
@@ -2469,9 +2482,9 @@ The syntax for ids is mostly the same as classes, but instead of using the `.` (
   }
 ```
 
-We have several new things here, so let's break them down. First, we create a border around the joke text. We use the `border` property to set the border width (`5px` = 5 pixels) and style. `solid` indicates a solid fill border, and we set the color to a dark blue. We also use the `display` property to set the display type of our `joke` id to `flex`. This is defining our flexbox layout. We use the `flex-direction` property to set the direction of the layout to `column`. This means that the elements will be laid out in a column, rather than a row. This way our second joke will appear below the first on the page. In other words, each `<p>` element within the joke `<section>` will appear evenly spaced below the first.
+We have several new things here, so let's break them down. First, we create a border around the joke text. We use the `border` property to set the border width (`5px` = 5 pixels) and style. `solid` indicates a solid fill border, and we set the color to a dark blue. We also use the `display` property to set the display type of our `joke` id to `flex`. This is defining our flexbox layout. We use the `flex-direction` property to set the direction of the layout to `column`. Flexboxes can utilize horizontal rows (this is defining their "direction") as well as a columnar structure. Choosing columns allows us to place jokes one below the other on our page and make it easier to read. In other words, each `<p>` element within the joke `<section>` will appear evenly spaced below the first as a long column of jokes.
 
- We then use the `justify-content` and `align-items` properties to set the alignment of the elements to `center`. This means that the elements (the jokes) will be aligned in the center of the flex container. We use the `width` property to set the width of the container to 50% of the width of the screen, and we use the `margin` property to set the margin to `0 auto`. This means that the container will be centered on the screen (the margins will be even on each side). Finally, we use the `color` property to set the text color to a light peach color.
+ We then use the `justify-content` and `align-items` properties to set the alignment of the elements to `center`. This means that the elements (the jokes) will be aligned in the center of the flex container. We use the `width` property to set the width of the overall flex container to 50% of the width of the screen, and we use the `margin` property to set the margin to `0 auto`. This means that the container will be centered on the screen (the margins will be even on each side and it will warp to 50% of the screen width). Finally, we use the `color` property to set the text color to a light peach color.
 
  If you save and reload the page, you should now see something like the following:
 
@@ -2497,7 +2510,7 @@ So far, we have just been using HTML and CSS to style our page. The only bit of 
 
 The `src` (source) attribute is used to link to the JavaScript file `script.js`. This is the file that contains the code that will be executed when the page loads. At the moment, the only thing it is doing is alerting the user that your project is going to be awesome.
 
-In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
+In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned soWEll far concerning HTML and CSS.
 
 ## Review Questions
 
@@ -2546,9 +2559,849 @@ Do you remember the meaning of the following terms?
 
 # Interactive Web Design
 
-# Getting Data
+Now that you have a basic understanding of HTML and CSS, let's begin using JavaScript to add more interactivity to your webpage. 
+
+Just as a note, for the rest of this course, we will be switching back and forth between environments (e.g., VSCode, the browser, the console) as well as between languages (e.g., JavaScript, HTML, and CSS) fairly often. This might be a little confusing and disorienting at first, but with a bit of practice it will eventually begin to feel more natural.
+
+Before we get to working with JavaScript, there are a few things we'll want to do. The first is to get a local server up and running so we can test our code on the fly, and the next will be to incorporate the jQuery library into our code. Let's accomplish these now.
+
+## Running a Live Server in VSCode
+
+So far, we have simply double-clicked the `index.html` file in your computer's file system and opened it in the browser. This is a perfectly fine way to get started previewing our webpage, but it may cause issues as we add more complexity. To address this, let's add an extension to our VSCode that will allow us to run a local web server to load and preview our webpage.
+
+Open up your project in VSCode. Next, click on the Extensions button in the sidebar.
+
+![vscode extension](/images/open_extensions.png)
+
+In the search field, type `live server` and press enter.
+
+Open the Live Server extension (it will likely be the first search result, see below for specifics), and click Install.
+
+![Live Server](/images/live_server.png)
+
+Once installed, you should see a new button in the taskbar on the bottom-right of VSCode that says "Go Live".
+
+![Go Live](/images/go_live.png)
+
+Clicking this button will open a new window that will load your webpage in the browser. Now, you can make changes to your page and, after saving the file in VScode, you can see your changes immediately reflected in the browser. Try changing some of the text on your page, saving it, and returning to your page in the browser. You should see your changes display, without even needing to reload the page. 
+
+Pretty neat, right?
+
+To shut down the server, simply click on the button (now showing the port #) in the taskbar again.
+
+## Importing jQuery
+
+Next, we will incorporate the __jQuery library__ into our code. JQuery is an open-source JavaScript library that allows us to build our webpage without needing to reinvent the wheel in terms of common functionality. It takes many of the typical tasks that would usually take many lines of JavaScript or HTML code to accomplish, and simplifies them into functions that you can call with a single line of code. In short, it is a "library" in the sense that it provides us with many pre-written functions that we can use to make our webpage writing much more simple and efficient.
+
+First, we need to import the jQuery library into our code. To do this, we need to add another script tag to our HTML file. Above the `script.js` import in the `<body>`, add the following line:
+
+```html
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+```
+
+Here we are importing the jQuery library from the [jQuery CDN](https://code.jquery.com/) (Content Delivery Network). In other words, our `src` attribute is directed to the web server `code.jquery.com` and is told to download the source file `jquery-3.6.0.min.js`, which is the latest version of jQuery (at the time of writing this).
+
+Next, let's learn how to use jQuery to perform some basic tasks.
+
+## Using jQuery
+
+### Selecting Elements
+
+The first function we will cover is the __jQuery selector__, which is one of the most important functions in jQuery. It allows us to select and manipulate HTML elements on our page. It is used to "find" HTML elements based on their name, id, class, type, and other attributes.
+
+All selectors start with a dollar sign followed by parentheses: `$("")`. A selector takes a single argument in the parentheses (set between doublequotes `""`), which is the element we want to modify. Let's look at some basic examples.
+
+### Selecting the Header
+
+Currently, our header in the `<h1>` tag seems a bit unnecessary. All it is doing is telling us `This is my project!`, which is information we clearly already know (and which also doesn't do much for the visitor to the site). We could, of course, simply change the text to something more appropriate, but to show you the power of jQuery selectors, let's play around with this element a bit and see how we can use JavaScript to modify it.
+
+First, we could simply hide the header from our page so that visitors to the site would not see it. In your `script.js`, add the following line:
+
+```JavaScript
+$("h1").hide();
+```
+
+We begin by selecting `$` the `h1` element of our page, and then we use the `.hide()` method to hide the element. This will remove the header from view on our page, but keep it in our HTML code. Save the file and check out your page in the browser. The header with the message `This is my project!` should now be hidden from view.
+
+What happens now if we add a new header to replace the old one? Let's try it out. In your `index.html`, add a new header below the old one:
+
+```html
+<h1>This is my project!</h1>
+<h1>Bad Jokes Galore!</h1>
+```
+
+Save the file and check out your page in the browser. What happens?
+
+Nothing, right? The new header is not visible to the visitor either. This is because by using the `$("h1")` selector to hide, we are selecting _all_ the `h1` elements in our page. In other words, any `<h1>` tag we try to add will be hidden from view.
+
+### Selecting by ID
+
+Let's address this by utilizing an __ID selector__ instead. This will allow us to select a single element. In your `index.html`, let's define an id `noShow` for the header we specifically want to hide, like so:
+
+```html
+<h1 id="noShow">This is my project!</h1>
+<h1>Bad Jokes Galore!</h1>
+```
+Next, let's change our selector so that only the element with the id `noShow` is hidden instead of all `h1` elements. In your `script.js`, change the hide code to the following:
+
+```JavaScript
+$("#noShow").hide();
+```
+
+To select by id, we use the `#` (hashtag) symbol followed by the id name (this is, as you might recall, the same when styling by id in CSS). If you save and view the page, you should now see the old header hidden from view, but the new header still visible:
+
+![id selector](/images/id_selector.png)
+
+Great!
+
+...well, perhaps we think these jokes are getting too much flak. In fact, let's consider that these may actually be the best jokes ever. Why don't we change the text of the header to reflect this more positive attitude (no matter how misguided it may be)? We could, of course, simply change the text manually in the HTML file, but we can also use the `.html()` method to change the text of an element entirely in JavaScript.
+
+In your `script.js`, add the following line:
+
+```JavaScript
+$("h1").html("The Best Jokes Ever!");
+```
+
+If you save and check your page, you should now see the header text changed to `The Best Jokes Ever!`. 
+
+![change header](/images/change_header_text.png)
+
+Keep in mind, again, that because we are specifying the `h1` tag, this will change the text of _all_ `h1` elements in the page to "The Best Jokes Ever!" If you were to add another header anywhere on the page, it would also change the text to "The Best Jokes Ever!". This is clunky and wouldn't be advised for more complex webpages, but will work for now just for demonstration purposes.
+
+### Selecting by Class
+
+Selecting by class is the same as selecting by id, but instead of using the `#` symbol, we use the `.` (dot) symbol. You can select any class element with the following syntax:
+
+```JavaScript
+$(".className")
+```
+
+This will allow you to modify or manipulate all elements with the class `className` in the page, just as you did with the id selector.
+
+### Appending Elements
+
+Let's say we wanted to add a new joke to our page. We could simply add a new `<p>` tag to our HTML file like we did in earlier lessons, but we can also add elements with jQuery. It makes sense to use JavaScript here anyway--for instance, what if we wanted users to be able to post their own jokes to the page? We would want a way to automatically update the list of jokes rather than doing it manually ourselves. 
+
+So, let's use the `.append()` method to add a new joke to our `joke` section. In your `script.js`, add the following line:
+
+```JavaScript
+$("#joke").append("<p>Q. What do you call a fake noodle? <br /> A. An impasta</p>");
+```
+
+Here we are identifying the element with the id `joke` (used for our joke `<section>`) and adding a new paragraph `<p>` element to it. To keep a line break between the question and answer, we use the self-closing HTML `<br />` (break) tag in between. Save the file and check out your page in the browser.
+
+![append joke](/images/append_joke.png)
+
+Cool, we now have three ~~terrible~~ amazing jokes on our page.
+
+To wrap up, keep in mind that...
+- `$("")` is the jQuery selector.
+- To select an element by id, use `#` followed by the id name.
+- To select an element by class, use `.` followed by the class name.
+- You can use methods like `.hide()` and `.html()` and `.append()` to modify elements that you select. 
+
+## Adding Interactivity
+
+Okay, we have learned how to use jQuery to select and manipulate elements on our page. However, we still don't have any real interactivity. As a basic example, let's add a button that will allow us to show and hide the jokes section from view on the page.
+
+### Creating a Button
+
+To create the button, add the following code to your `index.html` file, underneath your header tags:
+
+```html
+<button id="toggleJokes">Toggle Jokes</button>
+```
+
+Here we have a simple `<button>` element set to an id `toggleJokes`. If you save your file, you should now see a basic button on the page above your jokes section.
+
+You can see that it doesn't look very good at the moment, so why don't we add a bit of styling to make it better? Now, we could simply style the button in our CSS file like we did with other elements in the page. For example, to make the button orange, with larger white text, a border, some padding, and some margin space around the button to separate it from other elements, we could add the following code to our `style.css` file:
+
+```css
+#toggleJokes {
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+```
+
+Here we are styling the button with the id `toggleJokes` using the CSS styling techniques we learned about earlier. This would probably be the best and most efficient way to style the button. However, you can also style an element entirely in JavaScript. Why don't we try this instead?
+
+### CSS Styling in JavaScript
+
+We can use the `.css()` method to add styling to any element. For example, take a look at the code below:
+
+```JavaScript
+// modify css styles for the button
+$("#toggleJokes").css("background-color", "orange");
+$("#toggleJokes").css("color", "white");
+$("#toggleJokes").css("font-size", "20px");
+$("#toggleJokes").css("padding", "10px");
+$("#toggleJokes").css("border-radius", "5px");
+$("#toggleJokes").css("border", "2px solid black");
+$("#toggleJokes").css("margin", "10px");
+```
+
+Here, we are modifying the the many CSS properties of the button with the id `toggleJokes`. When using the `.css()` method, you must specify the property name and the value you want to set it to. As you can see, we use the same properties and values as we do when writing regular CSS styles. JavaScript, HTML, and CSS are very interwoven languages.
+
+Instead of writing a bunch of separate lines, we can also use the `.css()` method to modify the styles of multiple properties of an element at once. To do so, you simply wrap the properties in curly braces and separate them with a comma, writing them out as you would in a typical CSS style sheet:
+
+```JavaScript
+// modify css styles for the button
+$("#toggleJokes").css({
+    "background-color": "orange",
+    "color": "white",
+    "font-size": "20px",
+    "padding": "10px",
+    "border-radius": "5px",
+    "border": "2px solid black",
+    "margin": "10px"
+});
+```
+
+This is functionally the same, but is cleaner and easier to read. Add this code to your `script.js` file and save your file. You should see something like the following:
+
+![Button Styling](/images/style_button.png)
+
+A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles within your CSS stylesheet, you can see how JavaScript can add dynamic styles to your elements as well. This can be useful when you have many different user actions going on.
+
+Speaking of user actions, if you try clicking on the button, you'll notice it doesn't do anything yet. Let's add some proper interactivity to it.
+
+### Making the Button Clickable
+
+We'll want this button to both show and hide the jokes section. Now, we could write a somewhat complex function that would `hide()` the jokes section when the button is clicked (and when the text is displayed), while also `show()` the jokes section when the button is clicked (when the text is hidden), but here's an example of jQuery to the rescue, simplifying things for us. You can simply use the `.toggle()` method to toggle the display (visible/invisible) of a particular element.
+
+To accomplish this, however, we need to make the button clickable in the first place. We can do this by using another jQuery method, `.click()`, which will add a click __event__ to the button. You can think of events as "things that happen" to your HTML elements (text fields being typed in, buttons being clicked, etc). So, in your `script.js`, add the following lines:
+
+```JavaScript
+$("#toggleJokes").click(function() {
+  $("#joke").toggle();
+});
+```
+
+First we select the button with the id `toggleJokes` and then add a click event to it. We attach a simple function to the `click()` event so it will run when the click occurs. This function selects the `joke` section and adds a `.toggle()` method to it.
+
+If you save and check your page, you should now be able to click on the button and see the jokes section disappear and reappear. 
+
+Very well done! You're already a successful web developer.
+
+## Additional jQuery Methods
+
+There are many, many more jQuery methods available (way too many to cover). You can find a full list of them [here](http://api.jquery.com/).
+
+As their slogan has it, with jQuery the intent is to "write less, do more". It allows you to very easily perform tasks and manage behaviors on your page without having to write lengthy, complicated code for common situations. As your web project grows more interactive, the potential for using more jQuery grows along with it.
+
+## Review Questions
+
+1. True or False - Unless you specify otherwise, a selector will select all elements of the same type on a page.
+
+<Quiz>
+1. True*
+2. False
+</Quiz>
+
+2. True or False - To select an element by id, use `#` followed by the id name.
+
+<Quiz>
+1. True*
+2. False
+</Quiz>
+
+3. True or False - To select an element by class, use `.` followed by the class name.
+
+<Quiz>
+1. True*
+2. False
+</Quiz>
+
+## Challenges
+
+1. Add an image somewhere on the page. You can [learn how to add images here](https://www.w3schools.com/html/html_images.asp). Note that you will have to save the image within your project folder to be able to load it into your page.
+
+2. Using selectors, give the image [rounded corners](https://www.w3schools.com/css/css3_borders.asp) in JavaScript.
+
+3. `Prompt()` the user whether the jokes on our page are good or bad. If the user responds with "bad", then change the header text to "The Worst Jokes Ever!". If the user responds with "good", keep the header text as "The Best Jokes Ever!".
+
+4. Add a button to the page that will change the page's color scheme (background color, text color, etc.).
+
+5. Push all your changes to GitHub.
+
+## Key Terms
+
+Do you recall these terms?
+
+- jQuery
+- selector
+- events
+
+# Building a Data-Driven Webpage
+
+Let's begin putting all our knowledge together to build a data-driven webpage that is more useful than simply a list of unfunny jokes. In this lesson, we'll build a digital version of a famous poem that will allow users to click on aspects of the poem to see more information about the literary devices being used. It is meant to be an educational tool for anyone who is interested in the techniques utilized in the poem.
+
+As a preliminary note, this lesson might take you a bit longer to get through. We will be learning about a variety of important new concepts, so take your time and try to understand each step before moving on. 
+
+Are you ready? 
+
+Let's get into it!
+
+## The Poem
+
+Because we are all in NYC and have likely experienced the throbbing, perpetual daylight of Times Square, as a dataset let's work with Walt Whitman's famous poem _Broadway_, published in 1888. Here is the poem in its entirety:
+
+    Broadway
+    Walt Whitman
+
+    What hurrying human tides, or day or night!
+    What passions, winnings, losses, ardors, swim thy waters!
+    What whirls of evil, bliss and sorrow, stem thee!
+    What curious questioning glances- glints of love!
+    Leer, envy, scorn, contempt, hope, aspiration!
+    Thou portal- thou arena- thou of the myriad long-drawn lines and groups!
+    (Could but thy flagstones, curbs, facades, tell their inimitable tales;
+    Thy windows rich, and huge hotels- thy side-walks wide;)
+    Thou of the endless sliding, mincing, shuffling feet!
+    Thou, like the parti-colored world itself- like infinite, teeming,
+    mocking life!
+    Thou visor'd, vast, unspeakable show and lesson!
+
+Our goal will be to create a page that prints these lines and turns certain parts into clickable elements. When the user does click, the page will display a message below the text that contains information about that element.
+
+## Setting Up the Page
+
+Let's create a new page specifically for our poem. Perhaps the simplest way for now will be to just create a link to our page in the `index.html` file. So, within the `<div>` container on your page, add the following code for a link:
+
+```HTML
+<h2><a href="poem.html">Walt Whitman's <em>Broadway</em></a></h2>
+```
+
+The `<em></em>` tags stand for emphasis, which allows us to italicize words.
+
+Next, create a new file (by clicking the New File button in the VSCode Explorer Window) called `poem.html`. Paste into it this basic structure:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Walt Whitman's Broadway</title>
+    <link rel="stylesheet" href="poem.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1><em>Broadway</em> by Walt Whitman</h1>
+      <div id="intro">
+        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Hover over elements to see more information about them.</p>
+      </div>
+      <div id="poem">
+      </div>
+      <div id="info">
+      </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="poem.js"></script>
+  </body>
+</html>
+```
+
+You'll see that we are adding a new dedicated stylesheet to work with `poem.css`, as well as a new script file to work with `poem.js`. Let's go ahead and create those now (again click New File > `poem.css` and `poem.js`).
+
+Use the "Go Live" button to see your new page and make sure you are seeing the intro text display. 
+
+Now that we have a page, let's convert our poem into usable JavaScript data.
+
+## Converting the Poem into Data
+
+We have seen how both `arrays` and `objects` allow us to store large quantities of data. Here we have 11 lines of a poem, with a variable amount of words per line. We want to be able to manipulate each word as well as each line, if needed.
+
+We could envision an array of `lines`, that stores another array of `words`. But, just like we did with our Student Grades program in a previous lesson, it would probably be best to create an `array` containing a series of `objects`. 
+
+Let's take a look at what this might mean for the first line of the poem. 
+
+```JavaScript
+let line1 = [{text:  "What"}, {text: "hurrying"}, {text: "human"}, {text: "tides"}, {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+```
+
+Here we have the first line of the poem, broken up into words. Each word is an `object` with a `text` property that designates each word of the poem.
+
+### The `map()` Method
+
+To perform an operation on each of these elements, we can use a new JavaScript method called `map()`. This method allows us to iterate over each element of an array and perform an operation (specifically, a function) on each element.
+
+This method takes the function as an argument and runs that function's operations as it iterates. In doing so, it will create a new array that you can use to store the results of the function without altering the original array.  In short, you use `.map()` whenever you want to build an array out of another array. In this case, we want to create a new array that contains the text of each word in the poem.
+
+```JavaScript
+let line1TextArray = []
+line1TextArray = line1.map(function(word) {
+  return word.text;
+}); 
+```
+
+`.map()` here creates a new array out of the array of word objects, and this new array contains just the `.text` property (the words) of each object. 
+
+Now, we can put the phrase back together using another new method.
+
+### The `join()` Method
+
+The `join()` method returns an array as a string. In other words, when applied to our array of words, it will return them together as a string, with spaces in between each word.
+
+```JavaScript
+let line1Text = line1TextArray.join(" ");
+```
+
+Let's put it all together in our `poem.js` file to see what it looks like.
+
+```JavaScript
+$("#info").html("<p>The info will go here.</p>");
+let line1, line1Text; // don’t need the intermediate step of line1TextArray
+line1 = [{text:  "What"}, {text: "hurrying"}, {text: "human"}, {text: "tides"}, 
+    {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+line1Text = line1.map(function(word){
+    return word.text;
+    }).join(" ");
+$("#poem").html("<p>" + line1Text + "<br /></p>");
+```
+
+If you save and check your page in the browser, you should see that we have successfully displayed the first line of the poem.
+
+![Poem first line](/images/poem_first_line.png)
+
+## Adding Information to the Poem
+
+Next, we'll want a way to display information about certain elements of the poem. To indicate which ones, we can add another property to specific word objects. Let's add a new property `info` that will provide information about the literary device being used.
+
+```JavaScript
+    line1 = [{text:  "What", info: "Anaphora: The repetition of a word or phrase at the beginning of (usually successive) lines. For example, the use of What in the first four lines."}, 
+        {text: "hurrying"}, {text: "human"}, {text: "tides"}, 
+        {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+```
+
+Here you can see that we have added a new `info` property to the first word of the poem to describe the technique of [anaphora](https://literarydevices.net/anaphora/). 
+
+This way, we can send this info down to the `#info` div on the page when the user clicks the word. 
+
+## Making Elements Clickable
+
+You might recall our brief discussion of _events_ in the previous lesson. Events are the actions that occur when a user interacts with a certain element. For instance, when a user clicks on a button, a certain event occurs. 
+
+We want the user to be able to click on a word to find the appropriate information about it. Do you recall how we might accomplish this?
+
+We can use the `click` event, of course! It will allow us to listen for a user's click on a certain element. To do this, however, we'll need to revamp our code a bit. We want to use word-size chunks of data here, so we'll need to get rid of our `.join()` method from before and instead iterate through the array word by word.
+
+For now, just paste the following to overwrite all your current code:
+
+```JavaScript
+$("#info").html("<p>The info will go here.</p>");
+let line1, line1Text; // don’t need the intermediate step of line1TextArray
+line1 = [{text:  "What", info: "Anaphora: The repetition of a word or phrase at the beginning of (usually successive) lines. For example, the use of What in the first four lines."}, 
+    {text: "hurrying"}, {text: "human"}, {text: "tides"}, 
+    {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+// Create a blank string that opens two tags.
+line1Text = "<blockquote><p>"; // opening tags for blockquote and p, we close them in the loop below
+line1.map(function(word){
+  // Add in the word object’s .text property plus a space.
+  line1Text = line1Text + word.text + " ";
+});
+// Break the line and close the two tags.
+line1Text = line1Text + "<br />(line 2 would go here)</p></blockquote>";
+$("#poem").html(line1Text);
+```
+
+If you save and check your page, you'll see functionally the same result as before. We use the `map()` method to iterate through the array of word objects, setting `line1Text` to the `.text` property of each word object and add spacing. We then use the `.html()` method to set the `#poem` `<div>` to the string we created. 
+
+Next we'll want to check if a specific word has an `info` property. We can accomplish this by using an `if` statement within our `map()` method, like so:
+
+```JavaScript
+line1.map(function(word){
+  // Define a variable that will be the entirety of a single
+  // word-sized chunk of information.
+  let wordString;
+  wordString = word.text;
+  // Test to see if the .info property exists.
+  if (word.info){
+    // If it does, surround wordString in an <a> tag.
+    wordString = "<a href='#'>" + wordString + "</a>";
+  }
+  // Add wordString plus a space to the line1Text.
+  line1Text = line1Text + wordString + " ";
+});
+$("#poem").html(line1Text);
+```
+
+For each word in the array, we check to see if it has an `info` property using an `if` statement (if word.info == True). If it does, we add an `<a>` tag to the word, which will turn the word element into a clickable link. By capturing this in `wordString`, we can add it to the overall `line1Text` string phrase as usual. Otherwise, `wordString` will just be the word itself and get added as well.
+
+If you save, you should be able to see the poem with "What" now clickable. If it you do click it, however, nothing will happen yet. Let's add in our `click` event listener:
+
+```JavaScript
+$("#poem a").click(function(){
+    $("#info").html("<h2>You clicked on a word!</h2>");
+  });
+```
+
+If you save and click on the word now, you should see "This is where the info will go" replaced by "You clicked on a word!". What's happening here is that we're listening for a click on every element in the page marked with an `<a>` tag (by using `#poem a`). Because we marked "What" with an `<a>`, the `.click` event knows to trigger. When that happens, we're setting the `#info` `<div>` to the text "You clicked on a word!".
+
+All together, the code looks like this: 
+
+```JavaScript
+$("#info").html("<p>The info will go here.</p>");
+let line1, line1Text; // don’t need the intermediate step of line1TextArray
+line1 = [{text:  "What", info: "Anaphora: The repetition of a word or phrase at the beginning of (usually successive) lines. For example, the use of What in the first four lines."}, 
+    {text: "hurrying"}, {text: "human"}, {text: "tides"}, 
+    {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+// Create a blank string that opens two tags.
+line1Text = "<blockquote><p>"; // opening tags for blockquote and p, we close them in the loop below
+line1.map(function(word){
+  // Define a variable that will be the entirety of a single
+  // word-sized chunk of information.
+  let wordString;
+  wordString = word.text;
+  // Test to see if the .info property exists.
+  if (word.info){
+    // If it does, surround wordString in an <a> tag.
+    wordString = "<a href='#'>" + wordString + "</a>";
+  }
+  // Add wordString plus a space to the line1Text.
+  line1Text = line1Text + wordString + " ";
+});
+$("#poem").html(line1Text);
+$("#poem a").click(function(){
+    // Define the text and the word that was clicked.
+    let infoText, clickedWord;
+    clickedWord = $( this ).text();
+    infoText = "<h2>You clicked on the word: " + clickedWord + "</h2>";
+    $("#info").html(infoText);
+  });
+```
+
+Okay, we now have clickable elements that allow us to display info about words. However, we want to actually display the info in the `info` property we wrote out.
+
+There are a few step we'll need to take to carry this out.
+
+## Accessing the Info Property
+
+We have two things to accomplish here. First, we want to send specific information to the `#info` div. Second, we want that data to be the `info` property of the word that was clicked.
+
+Let's tackle the first part. We'll need to modify our `click` event listener:
+
+```JavaScript
+$("#poem a").click(function(){
+    // Define the text and the word that was clicked.
+    let infoText, clickedWord;
+    clickedWord = $( this ).text();
+    infoText = "<h2>You clicked on the word: " + clickedWord + "</h2>";
+    $("#info").html(infoText);
+  });
+```
+
+We have a new element introduced here: the keyword `this`. In this context, `this` indicates a reference to the object that is currently being acted upon (e.g., whatever word that was just clicked). In short, we can use `this` to access the `.text` property of the word that was just clicked, whichever word that may be.
+
+We haven't quite accomplished what we want here, but we're getting there. We can now access at least the `.text` property of the word that was clicked, but we still need to get at the `.info` property.
+
+To do this, we'll need to use __data attributes__. Data attributes allow us to store data on an element and access it. They are custom-made attributes that we can apply on HTML elements.
+
+Let's make one, called `data-info`, and use it to modify the string of text we create in our `.map()` method:
+
+```JavaScript
+line1.map(function(word){
+  // Define a variable that will be the entirety of a single
+  // word-sized chunk of information.
+  let wordString;
+  wordString = word.text;
+  // Test to see if the .info property exists.
+  if (word.info){
+    // Add the data-info attribute to the word.
+    wordString = "<a href='#' data-info='" + word.info + "'>" + wordString + "</a>";
+  }
+  // Add wordString plus a space to the line1Text.
+  line1Text = line1Text + wordString + " ";
+});
+```
+
+Here we have added a new data attribute and utilized it to store the `.info` property of the word that was clicked. Be careful about copying this correctly: you'll notice that we need to close the opening `<a` and `data-info` attribute with a `>` closing tag, as well as correct opening and closing quotes to indicate the info is a string.
+
+If you check the HTML element inspector in your browser, you should see that the info text is now stored in the `data-info` attribute.
+
+We can now access this data attribute in our `click` event listener, using the `.data` method:
+
+```JavaScript
+$("#poem a").click(function(){
+    let infoText, clickedWord, clickedInfo; //variables to capture the info text and the clicked text/info
+    clickedWord = $( this ).text(); // get the clicked word
+    // .data("info") looks for the data-info HTML attribute.
+    clickedInfo = $( this ).data("info"); // get the info from the clicked word using .data
+    infoText = clickedInfo; // set the info text var to the clicked info
+    $("#info").html(infoText); // change the info div to the info text
+  });
+```
+
+If you save and try to click on the word now, you should be rewarded with the info that was stored in the `.info` property about anaphora.
+
+Okay! So far so good. We've added in the ability to display info about words. However, all we currently have is one line of text. Surely we'd like to add _all_ the lines of the poem, right? Let's go about doing that now.
+
+## JSON
+
+To use our dataset (our poem) more efficiently, we'll use JSON. JSON stands for JavaScript Object Notation. We can use a JSON object (as a separate file) to store our poem data, and then use that data to populate our poem. 
+
+JSON, as a data format, allows us to store data in a structured way and utilize it in a variety of ways in JavaScript. Like object syntax you have seen so far, JSON object data is written in key/value pairs. For instance, here's a object containing details about an example person named Charity Case in JSON:
+
+```JSON
+{
+   "firstName": "Charity",
+   "lastName": "Case",
+   "age": 30,
+   "streetAddress": "404 Internet Dr",
+   "city": "JavaTown",
+   "state": "JA",
+   "postalCode": "12345",
+   "phoneNumbers": [
+      { "Mobile": "111-111-1111" },
+      { "Home": "222-222-2222" }
+   ]
+}
+```
+
+As you can see, we store data in key/value pairs as usual, and we can use both object and array syntax.
+
+Using JSON, we can store our poem in a file called `poem.json`. As you might imagine, writing it all out is a bit of a pain, so luckily for you I've already done it. Download the `poem.json` file from the button below and save it to your working folder.
+
+<Download files='poem.json'><br />
+
+If you open the file in VSCode, you can see that we have stored the lines of the text in a similar fashion as we did before, with a `text` property for each word of the poem. I also went ahead and added a few extra literary devices for the first half of the poem and listed them as `info`. 
+
+In general, just keep in mind that:
+1. JSON objects are very much like JavaScript objects.
+2. JSON objects are written in key/value pairs.
+3. JSON objects are surrounded by curly braces `{ }`.
+4. Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null).
+5. Keys and values are separated by a colon.
+6. Each key/value pair is separated by a comma.
+7. Arrays are enclosed in square brackets `[ ]` and each element is separated by a comma.
+
+Now that we have a full JSON file with our poem, let's use it to populate our page with the text. We'll need to revamp our code one more time to accomplish this. 
+
+To clearly observe the logic of what we have so far, let's take a look at the 3 different parts to our program:
+
+```JavaScript
+//Part 1 - Define the extra information section for the poem
+$("#info").html("<p>Extra info will go here.</p>");
+
+// Part 2 - Display the first line of the poem and access info from the poem object if it exists
+let line1, line1Text;
+line1 = [{text:  "What", info: "Anaphora: The repetition of a word or phrase at the beginning of (usually successive) lines. For example, the use of What in the first four lines."}, 
+    {text: "hurrying"}, {text: "human"}, {text: "tides,"}, 
+    {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
+line1Text = "<blockquote><p>"; 
+line1.map(function(word){
+  let wordString;
+  wordString = word.text;
+  if (word.info){
+    wordString = "<a href='#' data-info='"+ word.info + "'>" + wordString + "</a>";
+  }
+  line1Text = line1Text + wordString + " ";
+});
+$("#poem").html(line1Text);
+
+// Part 3 - Add the click event listener to the poem
+$("#poem a").click(function(){
+    let infoText, clickedWord, clickedInfo;
+    clickedWord = $( this ).text();
+    clickedInfo = $( this ).data("info");
+    infoText = clickedInfo;
+    $("#info").html(infoText);
+  });
+```
+
+I have deleted all the earlier comments, so just look at the three new ones I've added here. We can see that we have 3 parts to our program:
+- Part 1 - Define the extra information section for the poem
+- Part 2 - Display the first line of the poem and access `info` from the poem object if it exists
+- Part 3 - Add the click event listener to the poem
+
+It is clear that we'll need to revamp part 2 to display the full data from the JSON file instead of just the first line we manually inputted. Let's do just that. We'll use the `getJSON` method to retrieve the data from the JSON file. We'll also create a new variable that will store all the text of the poem garnered from the JSON file.
+
+```JavaScript
+//Part 1 - Define the extra information section for the poem
+$("#info").html("<p>Extra info will go here.</p>");
+
+// Part 2 - Display the first line of the poem and access info from the poem object if it exists
+$.getJSON("poem.json", function(data){ // data variable is the JSON object
+  let poemText; // Define a new variable to hold all text
+  poemText = "<blockquote><p>"; // Open the starting tags
+  // Now you can iterate (map) over the data variable’s .lines property:
+  data.lines.map(function(line){ // We get a variable, line
+    // Define a blank lineText.
+    let lineText = "";
+    // Now iterate over each word. This part should be familiar to you from before
+    line.map(function(word){
+      let wordString;
+      wordString = word.text;
+      if (word.info){
+        wordString = "<a href='#' data-info='" + word.info + "'>" + wordString + "</a>";
+      }
+      lineText = lineText + wordString + " "; // Add the word to the lineText variable with spacing
+    });
+    // Add lineText with a line break to the poemText
+    poemText = poemText + lineText + "<br/>";
+  });
+  // Close the poemText tags
+  poemText = poemText + "</p></blockquote>";
+  // Replace the content of #poem
+  $("#poem").html(poemText);
+  // Now that we have the data, we can add the click event listener to the poem
+  $("#poem a").click(function(){
+    let infoText, clickedWord, clickedInfo;
+    clickedWord = $( this ).text();
+    // .data("info") looks for the data-info HTML attribute
+    clickedInfo = $( this ).data("info");
+    infoText = clickedInfo;
+    $("#info").html(infoText);
+  });
+}); // Close the getJSON method and callback function
+```
+
+There is some new syntax and logic here, so try to follow along with the comments. We're first using a selector and the `getJSON()` method to retrieve the data from the JSON file. `getJSON()` takes two arguments: the source of the JSON file, and what's called a __callback function__. Callback functions are functions that are passed in as arguments to other functions. In this case, we're passing in a function that takes one argument, which is the `data` from the JSON file.
+
+In other words, the essential moves of the code are as follows:
+- Run the `getJSON()` method, passing in the `poem.json` file as the source.
+- Call the callback function, passing in the `data` variable (the JSON object).
+- Create a new variable to hold all the text of the poem.
+- `map()` over the data variable's `lines` property.
+- `map()` over each word in each line.
+- Make elements clickable if they have `info` data.
+- Add each line to the `poemText` variable with a line break, and add the text to the `#poem` element.
+- Run the `click()` method on the `#poem` element, to see if the user clicks on a word.
+
+All together, your program should now look something like this:
+
+```JavaScript
+//Part 1 - Define the extra information section for the poem
+$("#info").html("<p>Extra info will go here.</p>");
+
+// Part 2 - Display the poem and allow for clicking on words
+$.getJSON("poem.json", function(data){ // data variable is the JSON object
+  let poemText; // Define a new variable to hold all text
+  poemText = "<blockquote><p>"; // Open the starting tags
+  // Now you can iterate (map) over the data variable’s .lines property:
+  data.lines.map(function(line){ // We get a variable, line
+    // Define a blank lineText.
+    let lineText = "";
+    // Now iterate over each line. This part should be familiar to you from before
+    line.map(function(word){
+      let wordString;
+      wordString = word.text;
+      if (word.info){
+        wordString = "<a href='#' data-info='" + word.info + "'>" + wordString + "</a>";
+      }
+      lineText = lineText + wordString + " "; // Add the word to the lineText variable with spacing
+    });
+    // Add lineText with a line break to the poemText
+    poemText = poemText + lineText + "<br/>";
+  });
+  // Close the poemText tags
+  poemText = poemText + "</p></blockquote>";
+  // Replace the content of #poem
+  $("#poem").html(poemText);
+  // Now that we have the data, we can add the click event listener to the poem
+  $("#poem a").click(function(){
+    let infoText, clickedWord, clickedInfo;
+    clickedWord = $( this ).text();
+    // .data("info") looks for the data-info HTML attribute
+    clickedInfo = $( this ).data("info");
+    infoText = clickedInfo;
+    $("#info").html(infoText);
+  });
+}); // Close the getJSON method and callback function
+```
+
+Save and check the page. You should now see the full poem and have a few clickable elements to explore.
+
+Congrats! You now have a workable dataset and some interesting ways to display and interact with it. We've covered quite a lot of new terrain in this lesson, but for the most part, we are still just utilizing the foundational skills and tools you've encountered so far. 
+
+In the next lesson, we'll introduce a brand new tool called Leaflet. We'll learn how to use Leaflet to add interactive maps to our web pages.
+
+But, as major takeaways from this lesson, just keep in mind that:
+- We usually want to break down data into smaller, discrete pieces we can manipulate
+- JSON allows you to store data in a structured way and work with it
+- Data attributes are used to store extra information that you may want to access or display
+- Events are used to trigger actions when something happens
+
+## Asynchronous vs Synchronous?
+
+## Review Questions
+
+1. True or False - `map()` allows you to iterate over an array, but it doesn't return anything.
+
+<Quiz>
+- True
+- False*
+</Quiz>
+
+2. True or False - We can import a JSON dataset as an `object` in JavaScript.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+3. The following code would affect which element?
+
+
+```JavaScript
+$("#poem h3").click(function(){
+    // some action
+});
+```
+
+<Quiz>
+- The paragraph element
+- The header element*
+- The info element
+- The body element
+</Quiz>
+
+## Challenges
+
+1. Our poem page is quite bland. Spruce it up however you'd like by marshalling your CSS skills.
+
+2. `.map()` is an important method. Get a little practice in by writing a new function that takes an array of integers and, using `.map()`, returns an array of those integers, doubled. So if we give it [1, 2, 3], we receive, in turn, [2, 4, 6]. Display this info in the console.
+
+3. `.map()` is similar to another method, `.forEach()`. We haven't covered the latter, but you may encounter it in the wild. Read through [this article](https://codeburst.io/javascript-map-vs-foreach-f38111822c0f) to understand the differences between the two, and to learn a little more about `.map()` specifically.
+
+4. Add a new property to the JSON file that stores a wiki link for a particular literary device (e.g., [here for anaphora](https://en.wikipedia.org/wiki/Anaphora_(rhetoric)). Create a new data attribute to access this property and add it to the info message that is displayed when clicked. 
+
+## Key Terms
+
+Do you recall the meaning of the following terms?
+
+- `.map()`
+- `.join()`
+- `.getJSON()`
+- data attributes
+- events
+- callbacks
 
 # Leaflet
+
+The last lesson exposed us to a variety of good programming practices. For instance, we separated out our data into a JSON file instead of simply creating a `line1`, `line2`, `line3`, ... `line11` set of arrays to populate our poem. While that also would have worked, it is repetitive and inefficient. Instead, we made some basic assumptions about our data (that a `.lines` property could exist as an array of word objects that we could `.map()` over) and followed that approach, creating a new JSON file object. Separating out our logic for the program and the data we were working with is a good example of __modular__ programming:  of separating out our code into smaller building blocks that ultimately work together to create a whole project.
+
+In this lesson, we'll work with a new tool called __Leaflet__. Leaflet is an open-source JavaScript library (like jQuery) that will help us add interactive maps to our web pages. Interactive maps have become one of the most popular ways to visualize and explore spatial data. This will ultimately require us to decide how to aggregate, categorize, combine, and visualize our data. All of these decisions, plus the context of the map on your page, will influence the story that the map tells. Thinking about your data as a story (no matter what the data is), is a good way to reckon with the ethical dimensions of web development.
+
+On that note, and given current events, it is probably worth mentioning that Leaflet was created by a Ukrainian programmer in Kyiv. On [their main page](https://leafletjs.com/), you can read about the maintainers' sentiments on the war. This is a good time to reflect on how even well-established programming libraries can be affected by social and political forces, and also how they can be utilized in ways that were once unimaginable.
+
+Keeping these ideas in mind, let's get started working with Leaflet.
+
+## Web Maps
+
+You are likely very familiar with web maps. I personally have found myself quite lost in NYC before. While "being lost" is not necessarily a bad way of being, if you have a specific destination (not to mention a certain time) in mind, having a map is quite helpful. You know what I mean-- Google or Apple provide us with interactive geo-location almost every second of our lives.
+
+Before we begin integrating web maps into our project, it might be helpful to consider the basic "layering" of a web map.
+
+Web maps can be layered in many ways, but the most basic can resolve into 2 layers:
+
+1. The background layer (the map itself, with all its internal data about streets, boroughs, cities).
+2. The foreground layer (the interactive parts: the markers, lines, and other elements of the map you can manipulate, such as the marker indicating my lost self wandering around).
+
+## 
 
 # Reading Documentation
 
