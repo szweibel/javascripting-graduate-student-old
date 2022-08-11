@@ -3,15 +3,8 @@ location:
   city: New York
   state: NY
 event: "The Javascripting Master's Student"
-intro: "The Digital Humanities Research Institute (DHRI) is an intensive, community-oriented, 
-and foundational approach to learning technical skills in service of humanities teaching and 
-learning. The DHRI curriculum features workshops, tutorials, glossaries, resources, reading 
-materials, and more that have been developed at The Graduate Center, City University of New York 
-since 2016. Part of a 2019 grant from the National Endowment for the Humanities' (NEH) Office of 
-Digital Humanities (ODH), DHRI's curriculum, which was originally developed for in-person workshops, 
-was revised in Summer 2020 to better meet the needs of virtual instruction due to the covid-19 pandemic. 
-While the curriculum has always been available openly on GitHub, this site creates a more 
-user-friendly and functional interface that is open and free for public use."
+motto: "A JavaScript OER"
+intro: "This is a basic introduction to JavaScript, which is the programming language of the web. The class is designed for anyone interested in developing a website, or creating an interactive data visualization. By the end of this course, you will be able to read JavaScript you find online and adapt it to your needs. You will also have an opportunity to work with common JavaScript libraries/tools and enhance your own research practices."
 slideout: 
   enabled: true
   language: javascript

@@ -20,7 +20,7 @@ goals:
 
 Hello!
 
-# Learning Outcomes
+## Learning Outcomes
 
 By the end of the semester, successful students will
 

@@ -47,32 +47,36 @@ export default function Home({ workshop }) {
     let subPages = 0;
     return (
       page.map((item, index) => {
+        if (subPages > 4) {
+          return null;
+        }
         if (item.type === 'h1') {
           whichChapter++;
           return (
             <Typography key={index} variant="h4" style={{ margin: '0.5rem 0' }}>
-            <a href={`workshop/${workshop.slug}/?page=${whichChapter}`}>{whichChapter}. {item.props.children}</a>
+              <a href={`workshop/${workshop.slug}/?page=${whichChapter}`}>{whichChapter}. {item.props.children}</a>
             </Typography>
-    )
+          )
         } else if (item.type === 'h2') {
           subPages++;
           if (subPages > 4) {
             return (
               '...'
             )
-          }
-          // if not last item 
-          if (index !== page.length - 1) {
-          return (
-            <span>{item.props.children} / </span>
-          )
           } else {
-            return (
-              <span>{item.props.children}</span>
-            )
+            // if not last item 
+            if (index !== page.length - 1) {
+              return (
+                <span>{item.props.children} / </span>
+              )
+            } else {
+              return (
+                <span>{item.props.children}</span>
+              )
+            }
           }
         }
-         })
+      })
     )
   })
   return (
