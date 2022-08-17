@@ -152,7 +152,6 @@ const HTMLEditor = ({ className, children }) => {
         }
         if (children[i].type === 'javascript') {
             var javascript = [];
-            console.log(children[i].props.children);
             // javascript = renderToStaticMarkup(children[i].props.children.join(''));
             // for line in children[i].props.children {
             for (var j = 0; j < children[i].props.children.length; j++) {

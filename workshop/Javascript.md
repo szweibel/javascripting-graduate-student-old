@@ -3411,7 +3411,7 @@ Before we begin integrating web maps into our project, it might be helpful to co
 
 <html>
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+ <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
     <div id="map"></div>
 </html>
 <css>
