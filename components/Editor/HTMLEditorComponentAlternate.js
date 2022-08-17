@@ -6,15 +6,13 @@ const EditorComponent = dynamic(
     () => import("./EditorComponent"),
     { ssr: false }
 );
-const Frame = dynamic(
-    () => import('react-frame-component'),
-    { ssr: false }
-);
-import { FrameContextConsumer } from "react-frame-component";
+
 import "allotment/dist/style.css";
 import { Console, Hook, Unhook } from 'console-feed';
 import { html } from "js-beautify";
-import { ReactDOM } from "react";
+import { createPortal } from 'react-dom'
+import { useMemo } from "react";
+import { renderToStaticMarkup } from 'react-dom/server';
 
 
 export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTML here -->", defaultCSS = "/* Write CSS Here */",
@@ -28,13 +26,30 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
     const [logs, setLogs] = useState([]);
     const [contentRef, setContentRef] = useState(null);
     const [toShow, setToShow] = useState(false);
-    const [initialContent, setInitialContent] = useState('<!DOCTYPE html><html><head></head><body><div id="mountHere"></div></body></html>');
+    const [changeAllowed, setChangeAllowed] = useState(false);
+    const frameRef = useRef(null);
     const frameScripts = useRef([]);
     const javascript = useRef(defaultJS);
     const code = useRef(defaultCode);
     const css = useRef(defaultCSS);
     const consoleRef = useRef(null);
 
+    const outputComponent = useMemo(() => {
+        return (
+            renderToStaticMarkup(
+                <div key={outputKey}>
+                    {output.map((item, index) => {
+                        if (typeof item === 'string') {
+                            return
+                        }
+                        return (
+                            item
+                        )
+                    })}
+                </div>
+            )
+        )
+    })
 
     const consoleHook = () => {
         setTimeout(() => {
@@ -118,21 +133,6 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
         runAll();
     };
 
-    const outputComponent = (output) => {
-        return (
-            <div key={outputKey}>
-                {output.map((item, index) => {
-                    if (typeof item === 'string') {
-                        return
-                    }
-                    return (
-                        item
-                    )
-                })}
-            </div>
-        )
-    }
-
     const frameEval = (allCode) => {
         if (frameWindow) {
             try {
@@ -158,6 +158,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
     };
 
     const runAll = () => {
+        setChangeAllowed(true);
         if (frameWindow && frameDoc) {
             setOutputKey(Math.random());
             doParsing(code.current);
@@ -165,53 +166,41 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                 frameEval(javascript.current);
             }, 2000);
         }
+        setChangeAllowed(false);
     }
 
-    const iFrameStyle = <style>
-        {css.current}
-    </style>;
-
-    const frameHead = [iFrameStyle];
+    const srcDoc = `<!DOCTYPE html><html><head><style>${css.current}</style></head><body>${outputComponent}</body></html>`;
 
     const FramePane = () => {
+        const mountNode = contentRef?.contentWindow?.document?.body
+
         return (
             <div
                 style={{
                     width: "100%",
                     height: "100%",
                 }}>
-                <Frame
-                    ref={contentRef}
+                <iframe
                     key={frameKey}
-                    head={frameHead}
-                    initialContent={initialContent}
-                    mountTarget='#mountHere'
+                    ref={frameRef}
+                    srcDoc={srcDoc}
                     style={{
                         width: "100%",
                         height: "100%",
-                        background: "white",
                     }}
+                    onLoad={() => {
+                        setFrameDoc(frameRef.current.contentDocument);
+                        setFrameWindow(frameRef.current.contentWindow);
+                        consoleRef.current = frameRef.current.contentWindow.console;
+                        setFrameReady(true);
+                    }
+                    }
                 >
-                    <FrameContextConsumer>
-                        {
-                            // Callback is invoked with iframe's window and document instances
-                            ({ document, window }) => {
-                                setFrameWindow(window);
-                                setFrameDoc(document);
-                                setFrameReady(true);
-                                consoleRef.current = window.console;
-                                return (
-                                    <>
-                                        {outputComponent(output)}
-                                    </>
-                                )
-                            }
-                        }
-                    </FrameContextConsumer>
-                </Frame>
+                </iframe>
             </div>
         )
     }
+
 
     const ConsolePane = () => {
         return (
