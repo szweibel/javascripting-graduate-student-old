@@ -424,7 +424,7 @@ Do you recall the meaning of the following terms from this lesson?
 
 # Control Flow
 
-So far in this course, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
+So far, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
 
 We are speaking here about __control flow__: the order in which the computer executes statements in a script.
 
@@ -460,7 +460,7 @@ One of the simplest ways to gather user input is through the `prompt()` function
 ```JavaScript
     var userName = prompt("What is your name?");
 ```
-Here is a simple example of the `prompt()` function in action. The user is asked to enter their name and waits for them to type it out and hit <kbd>Enter</kbd>. Once the user completes their name, their response will be stored in the variable `userName`. In other words, the function __returns__ the value you enter and stores it in the variable. we'll learn more about returns in a later lesson discussion functions. For now, try running the code in the console below, answer the prompt, and then type `userName` in the console to see that the variable is now populated with the name you have entered.
+Here is a simple example of the `prompt()` function in action. The user is asked to enter their name and waits for them to type it out and hit <kbd>Enter</kbd>. Once the user completes their name, their response will be stored in the variable `userName`. In other words, the function __returns__ the value you enter and stores it in the variable. We'll learn more about returns in a later lesson. For now, try running the code in the console below, answer the prompt, and then type `userName` in the console to see that the variable is now populated with the name you have entered.
 
 <JSTerminal />
 
@@ -765,7 +765,7 @@ else
 <Quiz>
 - `break`*
 - `continue`
-- curly braces
+- curly braces*
 - a default case*
 </Quiz>
 
@@ -1492,11 +1492,11 @@ function printGrades(students) {
 printGrades(students);
 ```
 
-As you can see, we are accessing the `name` and `grades` properties of each student object (using the `.` dot operator) and logging them as we loop through.
+As you can see, we are accessing the `name` and `grades` properties of each student object (using the `.` dot operator) and logging them as we loop through. By using `i` as our index, we are accessing each student object in the array.
 
 ### Adding a Student
 
-A new student joined our class and submitted his work. So, let's add him to our array of students with a new `addStudent` function.
+A new student joined our class and submitted his work. So, let's add him to our array of students with a new `addStudent()` function.
 
 ```JavaScript
 function addStudent(name, grades) {
@@ -1510,7 +1510,7 @@ function addStudent(name, grades) {
 addStudent("Biff", [71, 80, 56, 65, 60]);
 ```
 
-In the function, we are creating a new student object with `name` and `grades` properties to match the other students. We then add this object to the end of the `students` array using the `push` method. Finally, we call the function with the name and grades of the new student (poor Biff didn't do too well, sadly), which will add the values to the corresponding properties. If you were to run the `printGrades` function now, you would see that the new student is included in the list of students.
+In the function, we are creating a new student object with `name` and `grades` properties to match the other students. We then add this object to the end of the `students` array using the `push` method. Finally, we call the function with the name and grades of the new student (poor Biff didn't do too well, sadly), which will add the values to the corresponding properties. If you were to run the `printGrades()` function now, you would see that the new student is included in the list of students.
 
 ### Converting Grades to Letters
 
@@ -1541,7 +1541,7 @@ function convertGrades(students) {
 convertGrades(students);
 ```
 
-This function is slightly more complicated, because we need to iterate _both_ through the `students` array and each student's `grades` array, and evaluate the latter numbers to a letter grade. We can accomplish this by using two `for` loops: a `for` loop to iterate through the `students` array (using `i` and `students.length`), and a nested `for` loop to iterate through each student's `grades` (using `j` and `grades.length`). In other words, as we work through each student object, we first store the grades values of each student in a variable `grades`. Because `grades` is itself an array of values, we can use the `.length` property to determine the number of grades for each student (5). We then use the `if` statement to determine the letter grade for each number, and add it to the `letterGrade` variable with the `+=` operator (and an extra space at the end to make it more readable).
+This function is slightly more complicated, because we need to iterate _both_ through the `students` array and each student's `grades` array, and evaluate the latter numbers to a letter grade. We can accomplish this by using two `for` loops: a `for` loop to iterate through the `students` array (using `i` and `students.length`), and a nested `for` loop to iterate through each student's `grades` (using `j` and `grades.length`). As we work through each student object, we first store the grades values of each student in a variable `grades`. Because `grades` is itself an array of values, we can use the `.length` property to determine the number of grades for each student (5). We then use the `if` statement to determine the letter grade for each number, and add it to the `letterGrade` variable with the `+=` operator (with an extra space at the end to make it more readable).
 
 Let's put the whole program together:
 
@@ -1630,8 +1630,6 @@ Let's review the concepts we have learned in this lesson.
 2. What will be the result of the following code?
 
 ```JavaScript
-let someValue = 1;
-
 if (someValue > 0) {
     let greet = "hi there";
     console.log(greet);
@@ -1657,7 +1655,7 @@ console.log(greet);
 
 ## Challenges
 
-1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to do this.)
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to get the last element.)
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
@@ -1686,7 +1684,7 @@ Do you recall the meaning of the following terms?
 
 # Making Mistakes
 
-It is an inevitability to make mistakes while programming. Especially when you are first beginning, it is easy to create errors and to write code that acts erratically. In fact, we have already made a few mistakes (on purpose) in previous lessons to illustrate the problems that can arise when learning to write a new programming language. However, you should be aware that even the most seasoned professional programmers make mistakes as well. Coding can be a frustrating, laborious task at times, and dealing with errors and bugs is a constant process. However, I think you'll also find that coming up with creative ways to address issues that arise in your code can also be a great source of satisfaction.
+It is an inevitability to make mistakes while programming. Especially when you are first beginning, it is easy to create errors and to write code that acts erratically or doesn't work at all. In fact, we have already made a few mistakes in previous lessons to illustrate the problems that can arise when learning to work with a new programming language. However, you should be aware that even the most seasoned professional programmers make mistakes as well. Coding can be a frustrating, laborious task at times, and dealing with errors and bugs is a constant process. However, I think you'll also find that coming up with creative ways to address issues that arise in your code can also be a great source of satisfaction.
 
 Thankfully, programmers have developed many tools and strategies to help us deal with errors. In this lesson, we will cover a variety of tools, techniques, and strategies to help you write cleaner code, avoid common programming errors and pitfalls, and generally feel more confident in your ability to address problems.
 
@@ -1729,7 +1727,7 @@ console.log(oops);
 <CodeEditor language="JavaScript">
     </CodeEditor>
 
-In this example, we are trying to use the `toUpperCase` method on a number. However, `toUpperCase` is only available for strings. Hence the `TypeError` message. 
+In this example, we are trying to use the `toUpperCase` method on a number. However, `toUpperCase` is only available for strings. You can only uppercase text! Hence the `TypeError` message. 
 
 This error gives us a direct clue for how to fix our code. We would first need to convert the number to a string. For instance, we could use the `toString` method:
 
@@ -1739,9 +1737,9 @@ fixed = num.toString().toUpperCase();
 console.log(fixed);
 ```
 
-Here we apply both the `toString` and `toUpperCase` methods to the number, which then allows us to use it as an uppercase string.
+Here we apply both the `toString` and `toUpperCase` methods to the number, which then allows us to use it as an uppercase string. Note that you can chain methods together to accomplish tasks like this.
 
-If, for whatever reason, you are ever in doubt about the particular type of a value, remember that you can use the `typeof` operator to check its type. This is a useful tool for debugging.
+If, for whatever reason, you are ever in doubt about the particular type of a value, remember that you can use the `typeof` operator to check its type. This is a useful tool for figuring out where you might be going wrong.
 
 ### Reference Errors
 
@@ -1787,7 +1785,7 @@ getPassword();
 <CodeEditor language="JavaScript">
     </CodeEditor>
 
-As you can see, this is not a very good password system. In fact, it lets everyone have access immediately! To correct this, we would need to change the `==` operator to `!=`, to make sure the `while` loop runs until the correct password is entered.
+As you can see, this is not a very good password system. In fact, it lets everyone have access immediately! To correct this, we would need to change the `==` operator to `!=`, to make sure the `while` loop runs only until the correct password is entered.
 
 This is a fairly straightforward example, but for larger pieces of software logical errors can be much more complex and difficult to identify. Let's discuss some general strategies to help you deal with logical errors.
 
@@ -1827,11 +1825,11 @@ Here are some more general tips for dealing with logical errors:
 
 1. Understand what your code is doing step by step.
 
-With a logical error, code behavior is unpredictable. A loop may never happen, it may never end, or it might sometimes work right and sometimes not. The key to finding logic errors is to predict why the code is doing what it's doing and why it's not doing what you want. Follow through your code step by step, identifying key changes of behavior. 
+With a logical error, code behavior is unpredictable. A loop may never happen, it may never end, or it might sometimes work right and sometimes not. The key to finding logic errors is to predict why the code is doing what it's doing and why it's not doing what you want. Follow through your code step by step, identifying _key changes of behavior_. 
 
-2. Form a hypothesis or two before looking at any code. 
+2. Form a hypothesis or two before looking at the code. 
 
-Think about what is wrong before you look over the code. Try to describe in plain English what is going wrong. Go through this process before you look at code because the moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about logic, and no amount of staring at code will show you logic errors, nor will a debugger spot them for you.
+Think about what is wrong before you look over the code. Try to describe in plain English (or etc.) what is going wrong. Go through this process before you look at code because the moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about _logic_, and no amount of staring at code will show you the error, nor will a debugger spot it for you.
 
 3. Resolve syntax errors.
 
@@ -2138,11 +2136,11 @@ To start us off and provide some context for this lesson, let's understand a bit
 
 ## HTML, CSS, and JavaScript
 
-__HTML__ stands for HyperText Markup Language. It is the standard language used to define the _structure and content_ of a particular webpage. It allows you to add text, images, and other elements to a webpage, and to direct the overall layout of the webpage. For example, you can use HTML to add a header to your webpage, structure text in a series of paragraphs, add a table, a list of bullet points, and much, much more. 
+__HTML__ stands for HyperText Markup Language. It is the standard language used to define the _structure and content_ of a particular webpage. It allows you to add text, images, and other elements to a webpage, and to direct the overall layout of the webpage. For example, you can use HTML to add a header to your webpage, structure text in a series of paragraphs, add a table, a list of bullet points, an image, and much, much more. 
 
-HTML works in tandem with __CSS__, which defines the _style_ of a webpage. CSS stands for Cascading Style Sheets. While HTML directs the overall structure and content of a page, CSS is used to define the particular stylistic or aesthetic appearance of the page. For example, you can use CSS to define the color of text, the font, the size, the background color, the color of elements like buttons, and much more. While you could create a webpage entirely using HTML, it would ultimately be a boring, uninteresting webpage with a white background and black Times New Roman text.
+HTML works in tandem with __CSS__, which defines the _style_ of a webpage. CSS stands for Cascading Style Sheets. While HTML directs the overall structure and content of a page, CSS is used to define the particular _stylistic or aesthetic appearance_ of the page. For example, you can use CSS to define the color of text, the font, the size, the background color, the color of elements like buttons, and much more. While you could create a webpage entirely using HTML, it would ultimately be a boring, uninteresting webpage with a white background and black Times New Roman text. This is precisely where CSS comes in.
 
-Both HTML and CSS can also work in tandem with JavaScript files. While HTML and CSS direct the structure and style of a page, JavaScript allows you to add _functionality_ to a webpage. For example, you could use JavaScript to add a button that says "Click Me!" and when the button is clicked, it will display an alert that says "Hey a button was clicked!". In other words, whatever the user can interact with on a webpage is controlled by JavaScript.
+Both HTML and CSS can also work in tandem with JavaScript files. While HTML and CSS direct the structure and style of a page, JavaScript allows you to add _functionality_ to a webpage. For example, you could use JavaScript to add a button that says "Click Me!" and when the button is clicked, it will display an alert that says "Hey! A button was clicked!". In other words, whatever the user can interact with on a webpage is controlled by JavaScript.
 
 It's worth noting that the three languages are intertwined, and that you can write CSS and JavaScript inside an HTML file. This will make more sense as we continue learning.
 
@@ -2151,7 +2149,7 @@ In general, just keep in mind that:
 - CSS provides the _style_ of a webpage.
 - JavaScript provides the _functionality_ of a webpage.
 
-With this in mind, let's dive into the basics of HTML.
+With this in mind, let's go ahead and dive into the basics of HTML.
 
 ## HTML
 
@@ -2175,11 +2173,11 @@ Let's take a look at the contents of the file. Open your project in VSCode and o
 
 This is a standard layout for a basic HTML page. The first thing you'll probably notice is that HTML elements are defined by the `<` and `>` characters. Some tags need both opening and closing tags, like `<h1></h1>`, while others only need one tag, like `<meta>`. Tags that are self-closing, or don't require closing tags, are called _void elements_. To close a tag when needed, add a `/` before the name of the element in the last tag.
 
-Let's break down some of the specific elements we are seeing here. The first element is a `<!doctype>` tag. This tag is used to define the type of document that is being created: in this case, an HTML doc. We also see an `<html>` tag. This tag begins the HTML document proper.
+Let's break down some of the specific elements we are seeing here. The first element is a `<!doctype>` tag. This tag is used to define the type of document that is being created: in this case, an HTML doc. We also see an `<html>` tag after. This tag begins the HTML document proper.
 
 We also have a `<head>` tag. This element is where we put all of the background information, or _metadata_, about the webpage. None of this information is actually visible in a webpage except for the `<title>` tag, which will be displayed as the title of the page in your browser's title bar.
 
-Next, we have the `<body>` tag. This tag begins the body of the webpage, where we put all of the actual content we want to display. In this case, we have a `<h1>` tag. This tag defines a header, or a large series of text, and it has a text content of `"This is my project!"`. For the moment, let's skip the `<script>` tag--we'll discuss that later in the lesson. We end the HTML document by closing the `<body>` and `<html>` tags.
+Next, we have the `<body>` tag. This tag begins the body of the webpage, where we put all of the actual content we want to display. In this case, we have a `<h1>` tag. This tag defines a header, or a large series of text, and it has a text content of `"This is my project!"`. For the moment, let's skip the `<script>` tag--we'll discuss that later in the lesson. We end the HTML document by closing the `</body>` and `</html>` tags.
 
 In general, then, the basic template for any HTML document is as follows:
 
@@ -2197,7 +2195,7 @@ In general, then, the basic template for any HTML document is as follows:
 ```
 
 In other words...
-- All HTML documents must start with a document type declaration: `<!doctype html>`.
+- All HTML documents must start with a document type declaration: `<!doctype HTML>`.
 - The HTML document itself begins with `<html>` and ends with `</html>`.
 - The `<head>` of the HTML document contains the metadata about the document, such as the `<title>`.
 - The visible part of the HTML document is between `<body>` and `</body>`, which can hold any number of elements you want to display.
@@ -2209,14 +2207,14 @@ There are many tags you will find yourself using in HTML. Here are some of the m
 - `<p></p>`: This tag defines a paragraph of text.
 - `<h1></h1>`: This tag defines a header, or a large series of text.
 - `<h2</h2>`: This tag defines a smaller header, or a smaller series of text. It descends all the way down to `<h6>`.
-- `<img src ="..." alt="Text for accessibility purposes" />`: This tag sets an image to display. Note that it is a void element, meaning that it doesn't have a closing tag.
+- `<img src ="..." alt="Text for accessibility purposes" />`: This tag sets an image to display, with an alternative text for accessibility. Note that it is a void element, meaning it doesn't have a closing tag.
 - `<a href="...">...</a>`: This tag creates a hyperlink.
 - `<div></div>`:  This tag designates a container block or section for other elements.
 - `<section></section>`: This tag creates a section of content.
 
 There are many, many other tags you will encounter in the wild. You can find a complete list of tags here: [HTML Tags](https://www.w3schools.com/tags/default.asp).
 
-In your browser, you can observe the HTML for any page you encounter using the same browser's developer tools you used to open the console. It may not make much sense depending on the page you are looking at, but it can often be a good way to get a sense of what the HTML looks like. Open the `index.html` page in your browser and right-click on the page and select `View Source`. You should be familiar with the code you are seeing.
+In your browser, you can observe the HTML for any page you encounter using the same browser's developer tools you used to open the console. It may not make much sense depending on the page you are looking at, but it can often be a good way to to simply get a glimpse of what the HTML looks like. Open the `index.html` page in your browser and right-click on the page and select `View Source`. You should be familiar with the code you are seeing.
 
 ### HTML Attributes
 
@@ -2243,9 +2241,9 @@ And much more!
 
 CSS files are called _stylesheets_. Let's create a new file called `style.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
 
-To add a new file in VSCode, simply click on the "New File" button  next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
+To add a new file in VSCode, simply click on the "New File" button next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
 
-Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a relative link to our CSS document. The link tag is as follows:
+Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a link to our CSS document. The link tag is as follows:
 
 ```html
 <link rel="stylesheet" href="styles.css">
@@ -2282,9 +2280,9 @@ body {
 
 To modify an HTML element, you first indicate which element you want to modify, followed by curly braces containing the properties you want to modify. In this case, we want to modify the `background-color` of the `body` element. Lines within the curly braces are called _declarations_, and they change the formatting of the elements in the HTML document. Each line in the declaration sets the value for a property and ends with a semicolon `;`.
 
-To define the color, we use the `rgb()` function. This function takes three numbers as arguments that represent color values, and returns a color in the form `rgb(Red, Green, Blue)`. In this case, I'm using the RGB values for a purplish gray color, but you can use whatever color you'd like. VSCode usually comes equipped with a built-in color picker, so you can just click on the color you want and it will appear in the text field. If you can't see the color picker, you can also determine particular RGB values using [this online resource](https://htmlcolorcodes.com/color-picker/) to get the RGB value you want along with analogous colors. 
+To define the color, we use the `rgb()` function. This function takes three numbers as arguments that represent color values, and returns a color in the form `rgb(Red, Green, Blue)`. In this case, I'm using the RGB values for a purplish grey color, but you can use whatever color you'd like. VSCode usually comes equipped with a built-in color picker, so you can just click on the color you want and it will appear in the text field. If you can't see the color picker, you can also determine particular RGB values using [this online resource](https://htmlcolorcodes.com/color-picker/) to get the RGB value you want along with analogous colors. 
 
-__Note:__ High contrast is very important for people with vision problems. So, when designing websites always ensure that the contrast between the text color and the background color (or background image) is good!
+__Note:__ High contrast is very important for people with visual disabilities. So, when designing websites always ensure that the contrast between the text color and the background color (or background image) is good! See [this very useful contrast checker](https://webaim.org/resources/contrastchecker/).
 
 If you save the CSS file and open the HTML file in your browser, you should now see the background color change.
 
@@ -2490,7 +2488,7 @@ We have several new things here, so let's break them down. First, we create a bo
 
 ![joke id](/images/2_css-styling.png)
 
-Nice! You'll notice that even though the id is located within the `.formatText` class (i.e., the parent class) and that its styling is still being applied, you can nest ids and classes within each other to override the styling of the parent or container they are in. This allows you to create a complex hierarchy of styles that can be applied to many elements at once.
+Nice! You'll notice that even though the id is located within the `.formatText` class (i.e., the parent class) and that its styling is still being applied, you can nest ids and classes within each other to override the particular styling of the parent or container they are in. This allows you to create a complex hierarchy of styles that can be applied to many elements at once.
 
 By creating a joke id we now have a specific section to hold and style all our terrible jokes. At this point I might encourage you to check out the [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to learn a bit more about flexboxes, as they are incredibly useful for modern CSS.
 
@@ -2542,7 +2540,7 @@ In the next lesson, we will learn how to use JavaScript to create a more complex
 
 2. Add a link in the jokes section to an online list of jokes using the `<a href=""></a>` tag. To learn about this tag, [see this page](https://www.w3schools.com/Html/html_links.asp).
 
-3. Create a new section in your HTML file to display your favorite poem. In CSS, give it an appropriate id, and define the section as a centered flexbox with a different border, background color, and text color.
+3. Create a new `<section>` in your HTML file to display your favorite poem. In CSS, give it an appropriate id, and define the section as a centered flexbox with a different border, background color, and text color.
 
 4. Push all your changes to the project to GitHub.
 
@@ -2561,7 +2559,7 @@ Do you remember the meaning of the following terms?
 
 Now that you have a basic understanding of HTML and CSS, let's begin using JavaScript to add more interactivity to your webpage. 
 
-Just as a note, for the rest of this course, we will be switching back and forth between environments (e.g., VSCode, the browser, the console) as well as between languages (e.g., JavaScript, HTML, and CSS) fairly often. This might be a little confusing and disorienting at first, but with a bit of practice it will eventually begin to feel more natural.
+Just as a note, for the rest of this course, we will be switching back and forth between environments (e.g., VSCode, the browser, the console) as well as between languages (e.g., JavaScript, HTML, and CSS) fairly often. This might be a little confusing and disorienting at first, but with a bit of practice it will eventually begin to feel more natural. 
 
 Before we get to working with JavaScript, there are a few things we'll want to do. The first is to get a local server up and running so we can test our code on the fly, and the next will be to incorporate the jQuery library into our code. Let's accomplish these now.
 
@@ -2642,13 +2640,13 @@ Let's address this by utilizing an __ID selector__ instead. This will allow us t
 <h1 id="noShow">This is my project!</h1>
 <h1>Bad Jokes Galore!</h1>
 ```
-Next, let's change our selector so that only the element with the id `noShow` is hidden instead of all `h1` elements. In your `script.js`, change the hide code to the following:
+Next, let's change our selector so that only the element with the id `noShow` is hidden instead of all `h1` elements. In your `script.js`, change the original hide code to the following:
 
 ```JavaScript
 $("#noShow").hide();
 ```
 
-To select by id, we use the `#` (hashtag) symbol followed by the id name (this is, as you might recall, the same when styling by id in CSS). If you save and view the page, you should now see the old header hidden from view, but the new header still visible:
+To select by id, we use the `#` (hash) symbol followed by the id name (this is, as you might recall, the same when styling by id in CSS). If you save and view the page, you should now see the old header hidden from view, but the new header still visible:
 
 ![id selector](/images/id_selector.png)
 
@@ -2680,7 +2678,7 @@ This will allow you to modify or manipulate all elements with the class `classNa
 
 ### Appending Elements
 
-Let's say we wanted to add a new joke to our page. We could simply add a new `<p>` tag to our HTML file like we did in earlier lessons, but we can also add elements with jQuery. It makes sense to use JavaScript here anyway--for instance, what if we wanted users to be able to post their own jokes to the page? We would want a way to automatically update the list of jokes rather than doing it manually ourselves. 
+Let's say we wanted to add a new joke to our page. We could simply add a new `<p>` tag to our HTML file like we did in earlier lessons, but we can also add elements with jQuery. It makes sense to use JavaScript here anyway--for instance, what if we wanted users to be able to post their own jokes to the page? We would want a way to automatically update the list of jokes rather than doing it manually ourselves in HTML. 
 
 So, let's use the `.append()` method to add a new joke to our `joke` section. In your `script.js`, add the following line:
 
@@ -2766,9 +2764,9 @@ This is functionally the same, but is cleaner and easier to read. Add this code 
 
 ![Button Styling](/images/style_button.png)
 
-A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles within your CSS stylesheet, you can see how JavaScript can add dynamic styles to your elements as well. This can be useful when you have many different user actions going on.
+A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles _within your CSS stylesheet_, you can see how JavaScript can add dynamic styles to your elements as well. Each language forms a part of the whole to define the user's experience.
 
-Speaking of user actions, if you try clicking on the button, you'll notice it doesn't do anything yet. Let's add some proper interactivity to it.
+Speaking of user experience, if you try clicking on the button, you'll notice it doesn't do anything yet. Let's add some proper interactivity to it.
 
 ### Making the Button Clickable
 
@@ -2893,7 +2891,7 @@ Next, create a new file (by clicking the New File button in the VSCode Explorer 
     <div class="container">
       <h1><em>Broadway</em> by Walt Whitman</h1>
       <div id="intro">
-        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Hover over elements to see more information about them.</p>
+        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Click on elements to see more information about them.</p>
       </div>
       <div id="poem">
       </div>
@@ -3325,8 +3323,6 @@ But, as major takeaways from this lesson, just keep in mind that:
 - Data attributes are used to store extra information that you may want to access or display
 - Events are used to trigger actions when something happens
 
-## Asynchronous vs Synchronous?
-
 ## Review Questions
 
 1. True or False - `map()` allows you to iterate over an array, but it doesn't return anything.
@@ -3380,36 +3376,481 @@ Do you recall the meaning of the following terms?
 - events
 - callbacks
 
-# Leaflet
+# Mapping With Leaflet
 
-The last lesson exposed us to a variety of good programming practices. For instance, we separated out our data into a JSON file instead of simply creating a `line1`, `line2`, `line3`, ... `line11` set of arrays to populate our poem. While that also would have worked, it is repetitive and inefficient. Instead, we made some basic assumptions about our data (that a `.lines` property could exist as an array of word objects that we could `.map()` over) and followed that approach, creating a new JSON file object. Separating out our logic for the program and the data we were working with is a good example of __modular__ programming:  of separating out our code into smaller building blocks that ultimately work together to create a whole project.
+The last lesson exposed us to a variety of good programming practices. For instance, we separated out our data into a JSON file instead of simply creating a `line1`, `line2`, `line3`, ... `line11` set of arrays to populate our poem. While that also would have worked, it is repetitive and inefficient. Instead, we made some basic assumptions about our data (that a `.lines` property could exist as an array of word objects that we could `.map()` over) and followed that approach, creating a new JSON file object. Separating out our logic for the program and the data we were working with is a good example of a __modular__ programming approach:  of separating out our code into smaller building blocks that ultimately work together to create a whole project. We have already been doing this with our HTML, CSS, and JS files, but we can do it with our data as well.
 
-In this lesson, we'll work with a new tool called __Leaflet__. Leaflet is an open-source JavaScript library (like jQuery) that will help us add interactive maps to our web pages. Interactive maps have become one of the most popular ways to visualize and explore spatial data. This will ultimately require us to decide how to aggregate, categorize, combine, and visualize our data. All of these decisions, plus the context of the map on your page, will influence the story that the map tells. Thinking about your data as a story (no matter what the data is), is a good way to reckon with the ethical dimensions of web development.
+In this lesson, we'll work with a new tool called __Leaflet__. Leaflet is an open-source JavaScript library (like jQuery) that will help us add interactive maps to our web pages. Interactive maps have become one of the most popular ways to visualize and explore spatial data. What this will ultimately require us to decide is how to aggregate, categorize, combine, and visualize our data. All of these decisions, plus the context of the map on your page, will influence the story that the map tells. Thinking about your data as a story (no matter what the data is), is a good way to reckon with the ethical dimensions of web development.
 
-On that note, and given current events, it is probably worth mentioning that Leaflet was created by a Ukrainian programmer in Kyiv. On [their main page](https://leafletjs.com/), you can read about the maintainers' sentiments on the war. This is a good time to reflect on how even well-established programming libraries can be affected by social and political forces, and also how they can be utilized in ways that were once unimaginable.
+On that note, and given current events, it is probably worth mentioning that Leaflet was created by a Ukrainian programmer in Kyiv. On the library's [main page](https://leafletjs.com/), you can read about the maintainers' sentiments on the war. This is a good time to reflect on how even well-established programming libraries can be affected by social and political forces, and also how they can be utilized in ways that were once unimaginable.
 
 Keeping these ideas in mind, let's get started working with Leaflet.
 
 ## Web Maps
 
-You are likely very familiar with web maps. I personally have found myself quite lost in NYC before. While "being lost" is not necessarily a bad way of being, if you have a specific destination (not to mention a certain time) in mind, having a map is quite helpful. You know what I mean-- Google or Apple provide us with interactive geo-location almost every second of our lives.
+You are likely very familiar with web maps. I personally have found myself quite lost in NYC before. While "being lost" is not necessarily a bad way of being sometimes, if you have a specific destination (not to mention a certain time) in mind, having a map is quite helpful. You know what I mean--Google or Apple provide us with interactive geo-location almost every second of our lives.
 
-Before we begin integrating web maps into our project, it might be helpful to consider the basic "layering" of a web map.
+Before we begin integrating web maps into our project, it might be helpful to consider the basic "layering" of a web map. Take a look at the map below. It was created using Leaflet, and you can see some of the code (HTML, CSS, and JavaScript) powering it on the side. Click on stuff and zoom and drag around on the map.
 
-Web maps can be layered in many ways, but the most basic can resolve into 2 layers:
+<HTMLEditor >
 
-1. The background layer (the map itself, with all its internal data about streets, boroughs, cities).
-2. The foreground layer (the interactive parts: the markers, lines, and other elements of the map you can manipulate, such as the marker indicating my lost self wandering around).
+<html>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <div id="map"></div>
+</html>
+<css>
+#map {
+    height: 600px;
+    width: 600px;
+}
+</css>
+<javascript>
+```
+var map = L.map('map').setView([51.505, -0.09], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('Here is a pop-up<br> on a marker')
+    .openPopup();
+```
+</javascript>
 
-## 
+</HTMLEditor>
+<br />
+
+You'll notice that there are several "layers" to this map. Web maps can be layered in many ways, but the most basic can resolve into just a few:
+1. The background or tile layer--the map itself, with all its internal data about streets, boroughs, cities, etc.
+2. The foreground layer--the parts that overlay the map: the markers, lines, and other elements.
+3. The popup layer--the text or notification that appears when you click on a marker or other element on the map.
+4. The control layer--the buttons that control the map, such as the zoom buttons. This layer is usually on top of the other layers.
+
+These layers all work together to comprise the interactivity of the map. For our purposes, we will mostly work with the foreground layer and the popup layer.
+
+## Getting Started with Leaflet
+
+Leaflet is fairly straightforward to get started with and allows for a wide array of customization.
+
+If you look at the JavaScript code for the map above, you'll notice a bunch of `L`s. Leaflet creates an object, `L`, that has a bunch of methods that we can use to create and manipulate maps. Our map is, itself, an object. The tile layer? A different object. Markers are objects, polylines are objects, polygons are objects, popups are objects--you get the point. And all these objects have properties and methods we can modify, too.
+
+To better understand how this all works, let's get to work setting up our own map. Leaflet has an official [quick starter guide here](https://leafletjs.com/examples/quick-start/) that we'll more or less follow, but we'll add some more context. 
+
+Let's say we want to add a map of New York to our page with Whitman's _Broadway_ poem. Using Leaflet, let's get a map to show and add a bit of spatial context to our page.
+
+## HTML
+
+First, open your `poem.html` file. My recommendation here is to simply overwrite all your existing HTML by copy/pasting the following:
+
+```HTML
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Walt Whitman's Broadway</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="poem.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1><em>Broadway</em> by Walt Whitman</h1>
+      <div id="intro">
+        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Hover over elements to see more information about them.</p>
+      </div>
+      <div id="poem"> </div>
+      <div id="info"></div>
+      <h2>Map of New York</h2>
+      <div id="map"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="map.js"></script>
+    <script src="poem.js"></script>
+  </body>
+</html>
+```
+
+You'll notice we have added a few new things here. First, before our `poem.css` file, we added a new `<link>` tag to link to Leaflet's CSS file. You _must_ always include Leaflet's CSS file in the `<head>` section of your documents when adding maps. Also in the `<head>` we added a new `<script>` tag to link to Leaflet's JavaScript file. _This is also required_ for Leaflet to work.
+
+Next, within our `<div>` `container`, we added a new `<div>` with an `id` of `map` at the end. This is where we'll put our map. It will appear underneath the poem and info divs. To offset it a bit, we also included a new `<h2>` tag with the text "Map of New York" to appear above the map.
+
+Lastly, we have added a new `<script>` tag to link to our own new JavaScript file named `map.js`. This is where we'll add our own JavaScript code for the map.
+
+Everything else in the HTML should be familiar to you. This will be about all the work we need to do on our HTML file in this lesson.
+
+## CSS
+
+The next step we'll need to take is to specific a height for our map. Leaflet's one demand of CSS is that it be a certain height. We can do this by adding a `height` property to our `#map` id. In your `poem.css` file, add the following:
+
+```CSS
+#map {
+  height: 400px;
+}
+```
+
+You can change the height to whatever you'd like, but it must be there.
+
+If you save your files and click "Go Live", you should see our new header with a considerable amount of whitespace beneath it. That is where our map will live. Currently, however, the map is not visible. This is because we need to initialize the map in JavaScript.
+
+## Initializing the Map
+
+Create a new file called `map.js` and add the following:
+
+```JavaScript
+// Create a new Leaflet map
+let poemMap;
+poemMap = L.map("map");
+```
+
+`poemMap` is now designated an object that we can use to modify the map on the page. Note the syntax: `.map()` is a method that `L` (Leaflet) has that creates a map in the `<div>` with the `id` given as the parameter. (`L.map()` here is not to be confused with the ordinary `.map()` method you've seen before!) If you save everything and check the browser, you should see a map element appear.
+
+Unfortunately, the map is currently blank and grey. This is because we have not yet added a tile layer to the map. Remember, the tile or background layer is the map itself, with all its internal data about streets, boroughs, cities, etc.
+
+Let's go ahead and add the tile layer now. Below the initialization of the map, add the following:
+
+```JavaScript
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(poemMap);
+
+poemMap.setView([40.7128, -74.0060], 16);
+```
+
+Let's take a look at what this code does. First, we add a new `.tileLayer` to the map. The first parameter is the URL of the tile layer source (in this case, [openstreetmap.org](https://www.openstreetmap.org/)). The second parameter is an object that contains the following properties:
+
+- `maxZoom`: The maximum zoom level that the map can be zoomed to.
+- `attribution`: The attribution text (to show the source of the map) that appears at the bottom of the map.
+
+Whenever we create a new object like this `tileLayer`, we need to add it to the map. We do this by calling the `.addTo()` method on the object. This method takes one parameter, which is the map we want to add the tile layer to (`poemMap`).
+
+Next, we use the `.setView()` method. This method takes two parameters: an array of the latitude (north-south) and longitude (east-west) of the center of the map, and the zoom level. We set the center of the map to New York City (using its coordinates) and the zoom level to 16. As we specified earlier, the max zoom level here is 18.
+
+If you save and check your page, you should now see a map with New York City at its center. Nice!
+
+## Adding Markers
+
+Because our poem is about Broadway, why don't we add a marker to the map indicating where Times Square is located? We can get the official coordinates of Times Square simply by Googling "Times Square coordinates". The result is 40.7580 N, and 73.9855 W. Let's add a marker to the map at these coordinates:
+
+```JavaScript
+const timesSquare = L.marker([40.7580, -73.9855]).addTo(poemMap);
+```
+
+First, we create a new `.marker()` object. This object takes one parameter, which is an array of the latitude and longitude of the location we want to mark. We then add this marker to the map.
+
+If you scroll up on the map or zoom out, you should now see a marker appear at the coordinates. Next, let's add a popup to the marker. To do this, we need to add a `.bindPopup()` method to the marker. This method takes one parameter, which is simply the text we want to appear in the popup.
+
+```JavaScript
+timesSquare.bindPopup("<b>Times Square</b>");
+```
+
+Here we bind the popup to the marker with the bold text "Times Square". If you save and click on the marker, you should now see the popup appear.
+
+![Times Square](/images/times-square.png)
+
+## Adding Shapes
+
+Besides popups and markers, you can add shapes to the map like lines, polygons, and circles. Let's add a circle to the map.
+
+```JavaScript
+const circle = L.circle([40.7580, -73.9855], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(poemMap);
+```
+
+Here we have added a circle with a radius of 500 meters. The circle is reddish (in terms of both border and fill) and has a 50% opacity so we can see the map underneath. To add the circle, we simply need to specify the coordinates of the center and add it to the map with the `.addTo()` method.
+
+We can also add polylines to the map. Let's add a polyline from Times Square to the Graduate Center:
+
+```JavaScript
+const polyline = L.polyline([
+    [40.7580, -73.9855],
+    [40.7486, -73.9840]
+], {
+    color: 'blue'
+}).addTo(poemMap);
+```
+
+Here we simply need to specify the start and end coordinates of the polyline. We can also specify the color of the line.
+
+Lines, circles, and polygons are usually used to show a path or provide some contextual boundaries. We can also bind a popup to a line, circle, or polygon. For example, let's add a popup to the line from Times Square to the Graduate Center:
+
+```JavaScript
+polyline.bindPopup("<b>Times Square to the Graduate Center</b>");
+```
+
+If you click on the line on the map, you should now see a popup appear.
+
+You can similarly add popups to circles and polygons. Let's add a popup to the circle:
+
+```JavaScript
+circle.bindPopup("I'm a circle!");
+```
+
+## Coordinates and Events
+
+Leaflet has many methods for working with coordinates. For example, we can get the latitude and longitude of a marker by calling the `.getLatLng()` (getLatitudeLongitude) method:
+
+```JavaScript
+const latLng = timesSquare.getLatLng();
+console.log(latLng.lat);
+console.log(latLng.lng);
+```
+
+If you check your console in the browser, you should now see the latitude and longitude of our Times Square marker display.
+
+If we wanted to pan (or shift the map's view) to Times Square, we could do so by calling the `.panTo()` method on the map:
+
+```JavaScript
+poemMap.panTo(timesSquare.getLatLng());
+```
+
+If you check your page, you should now see the map shift to the location of the Times Square marker.
+
+Every time something happens in Leaflet, e.g. the user clicks on a marker or map zoom changes, the corresponding object in Leaflet sends an event which you can access with a function. It allows you to react to user interaction. For example, let's add a function to the map that logs the latitude and longitude of the point on the map that the user clicks on.
+
+```JavaScript
+poemMap.on('click', function(e) {
+    const latLng = e.latlng;
+    console.log(latLng.lat);
+    console.log(latLng.lng);
+});
+```
+
+Here we add a function to the map that is called whenever the user clicks on the map. The `.on()` method takes two parameters: the event name and a function that is called when the event occurs. The event name is `click` and the function has a parameter `e`, which is the map click event object that is created.
+
+When the user clicks on the map, the `.on()` method calls the function we defined. We can access these coordinates by getting the `.latlng` (lowercase) property of the `e` object and then the `.lat` and `.lng` properties on the new `.latLng` object. (Note the differences between the new object we create--it has a capital `L` in the name.)
+
+Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in the next lesson, but it's good to take a preliminary look.
+
+## Review Questions
+
+1. Modular programming emphasizes separating the functionality of a program into smaller, independent pieces.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+2. After initializing your map, you should add the tile layer.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+3. The `.addTo()` method adds an object to a map.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+## Challenges
+
+1. Create a marker at the location of your favorite restaurant, bar, cafe, or event space in NYC.
+
+2. Draw some polylines that replicate a walk to the nearest subway station from your favorite spot in step 1. (Note: It doesn't need to be super precise: just use the click event and console.log to map out the general coordinates of your walk at each turn.)
+
+3. Push all your code to GitHub.
+
+## Key Terms
+
+Do you recall the following key terms?
+
+- modular programming
+- layers
+- markers
+- popups
+- events
 
 # Reading Documentation
 
+Throughout this course, we have often referred you to "the documentation" for various libraries and tools. As you may have experienced when looking through these resources, documentation can be overwhelmingly large, complex, and confusing. Learning to read documentation is an important skill, but it's one that takes time.
+
+So, in this lesson, we'll look to some strategies to help you:
+1. Better navigate through technical jargon.
+2. Better understand the structure and style of documentation.
+3. Feel more confident in your ability to read documentation overall.
+
+## What is Documentation?
+
+Documentation, at its core, is a collection of descriptions/explanations for employing a particular product or service. Unfortunately, documentation can run the gamut from being very thorough to very vague. Oftentimes, the more niche a product is, and the smaller the community, the less in-depth the documentation. 
+
+This is also, partly, due to the nature of documentation's audience. If documentation is too overly thorough in its explanations, experienced developers might find it bloated. On the other hand, if documentation is too sparse, new developers might find it difficult to understand. Writing efficient documentation means hitting the sweet spot between thoroughness, understandability, and ease of use.
+
+## "Getting Started" vs. "Documentation"
+
+Most documentation for a tool has two separate sections, written from different perspectives.
+
+1. "Getting Started" is a section that describes how to get started using the product. It is meant to be a quick introduction for how to install, configure, and use the product in a basic way. Leaflet's ["Quick Start" guide](https://leafletjs.com/examples/quick-start/) is a good example of this, with basic comprehension and implementation instructions.
+2. Compare, now, Leaflet's Quick Start to [Leaflet's full docs](https://leafletjs.com/reference.html). This is more like a dictionary or glossary of presets, methods, and actions. Information density is prioritized rather than presenting a readable tutorial you can follow along with directly.
+
+## The Art of ~~Reading~~ Referencing
+
+For the most part, documentation isn't meant to be "read" in the traditional sense. Rather, it is meant to be _referenced_. If you have a sense of the overall structure, you can usually jump through non-chronologically. Using <kbd>ctrl</kbd> + <kbd>f</kbd> to maneuver through search terms is often the best approach.
+
+Let's take a look at the [CSS reference docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference). It is, in short, overwhelming. It contains the full list of CSS properties and values, as well as a lot of information about them. However, if we want to achieve something simple, such as changing the font properties of a particular piece of text, we can simply <kbd>ctrl</kbd> + <kbd>f</kbd> `font` to find all the relevant properties:
+
+![MDN font](/images/mdn-font.png)
+
+This is a good example of how documentation works. The baseline property, in this case, `font`, is our first highlighted result. Everything else is in some sense a derivative of the baseline property; for instance, we can specify directly the font size, the weight, the [kerning](https://developer.mozilla.org/en-US/docs/Web/CSS/font-kerning), etc. 
+
+In general, when searching for terms, first look to the most basic (i.e., probably the least wordy and jargony) instance. It will likely provide you with the foundational concept of the language that you're looking for and let you expand upon it.
+
+Here is a list of reference docs for the tools we are using in this course. Spend a little bit of time looking at each one, discerning its structure and how you can best use it. Search around for some terms and click/scroll around to see what comes up.
+
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+- [jQuery](https://api.jquery.com/)
+- [Leaflet](https://leafletjs.com/reference.html)
+- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+
+The MDN reference docs are usually the most comprehensive, and besides searching for terms you can also use the sidebar to navigate through additional resources. This is also the case with the Leaflet and jQuery docs.
+
+If you ever find yourself without internet and need offline documentation, one useful tool is [Zeal](https://zealdocs.org/), an offline documentation browser. It contains most (although not all) of the docsets for the tools and languages that we've used in this course so far.
+
+## Beyond the Docs
+
+### Google Searches
+
+There are a number of reasons why learning with official documentation is the best approach for really coming to grips with a language. However, we may have inflated this a little. While documentation is best utilized when you have a very specific end goal, and when you already have a basic sense of how this goal might be accomplished, these factors may not always be in place. Especially when you are first starting out with a language or tool, you may not know the best search parameters to use in docs. 
+
+If you aren't quite sure what you are looking for (and <kbd>ctrl</kbd> + <kbd>f</kbd> isn't being helpful), simply Googling around is the best way to go when faced with a particular problem. There are, however, some best practices for this as well. 
+
+For example, let's say you created a button on a page, and you wanted to add some space around it so other elements aren't cramming it. How would you go about doing this? What sort of keywords would you use? What language is suitable?
+
+Programming isn't always that different from other software contexts you have encountered. Thinking about the typical Word or Google doc you might write, when thinking about space around something you are probably dealing with `margins` in some form. Aside from <kbd>ctrl</kbd> + <kbd>f</kbd> `margin` in the docs, you could also turn to Google. In this case your search parameters could be something like: "adding margins around a button css", or even simply, "adding space around a button css." Note that although Google will likely figure it out, we are explicitly searching here for CSS. Specifying the language is important, as it will help us narrow down our search results.
+
+### Handling Errors
+
+We have talked about the basics of understanding errors before, but its worth noting that documentation often provides info on how to deal with possible errors that may arise in a program. There may be errors that can arise that are specific to the tool, and the docs can be the best place to go when dealing with these issues. However, this may not always be the case. If the docs are less than clear, again, simply Googling a confusing error message can be a useful approach if it has you stumped. This is not necessarily to say you should simply copy/paste an entire error. For example, copy/pasting this behemoth of an error message...
+    
+```
+Uncaught (in promise) TypeError: _super.call is not a function
+    at new ObservableQuery (b1f6a7d9f98d979758232d0dc3c394ce.js:26213)
+    at QueryManager.watchQuery (b1f6a7d9f98d979758232d0dc3c394ce.js:27305)
+    at b1f6a7d9f98d979758232d0dc3c394ce.js:27332
+    at new Promise (<anonymous>)
+    at QueryManager.query (b1f6a7d9f98d979758232d0dc3c394ce.js:27330)
+    at ApolloClient.query (b1f6a7d9f98d979758232d0dc3c394ce.js:27981)
+    at Object.require.2.react (b1f6a7d9f98d979758232d0dc3c394ce.js:29740)
+    at newRequire (b1f6a7d9f98d979758232d0dc3c394ce.js:41)
+    at require.39 (b1f6a7d9f98d979758232d0dc3c394ce.js:66)
+    at b1f6a7d9f98d979758232d0dc3c394ce.js:71
+```
+
+... would not give you very good results. A solution might be to:
+
+1. First, articulate your code that's breaking into a series of smaller steps. Often, programmers recommend a method called [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging). This is a technique similar to writing pseudocode, in that you first try to articulate your problem in spoken or written natural language. Attempting to explain the problem in simple language will very often lead you to a solution, or the beginning of a solution. In describing what the code is supposed to do and observing what it actually does, any incongruity between these two becomes apparent. 
+
+2. Second, begin your search. Hopefully you now have a rough idea of what your code is and isn't doing correctly, so begin by including keywords from your error message and try to find results that fit your particular use case. For example, in the error above, if you Google "javascript uncaught (in promise) typeerror", you will find quite a few people have run into the same problem!
+
+The first hit of this result is [this](https://stackoverflow.com/questions/57673148/how-to-fix-uncaught-in-promise-typeerror-cannot-read-property-method-of-un) question on the notorious Stack Overflow. Its worth taking a minute to discuss this site.
+
+![Stack Overflow](/images/error_google.png)
+
+### Stack Overflow
+
+Stack Overflow is a very commonly used resource for programmers. It is a great place to find answers to all kinds of questions, and even to share your knowledge with others if you feel up to it. It is essentially a question/answer forum, and, at this point, contains over 21 million programming questions. If you have a question or issue about your code, it is very likely someone else has had it too. Whether or not you will always find an answer to your problem is more dubious, but it can be informational in other ways as well.  
+
+Let's say we wanted to figure out how to disable a button using jQuery (for instance, a "submit" button that only works when a form is filled out on the page). We could search for "disable button jquery" in Google. The first hit of this result is not actually pointing us to documentation, but rather to [this Stack Overflow question](https://stackoverflow.com/questions/1594952/jquery-disable-enable-submit-button/62723465#62723465).
+
+![Stack Overflow](/images/stack_overflow_example.png)
+
+Always, take a quick look at the question to make sure it's relevant to your problem. Then scroll down through the answers and the discussions to find what you're looking for. You may also notice snarky debates—another "feature" of Stack Overflow. In this particular case, there are many, many answers, and almost each one is a different way to solve the problem. It is worth pointing out that this question was asked over 12 years ago, which is something you might want to consider, as some things may possibly be out of date. In any case, there is a plethora of information on the page that should help point you in the right direction.
+
+As you might imagine, implementing code snippets from Stack Overflow is an incredibly common practice, and is even the source of many jokes, like this meme:
+
+![Joke](/images/so_joke.jpg)
+
+Don't feel the need to reinvent the wheel if you find a working solution on Stack Overflow. However, do pay close attention to any code you wrangle with, and make sure you understand what it is doing and how it fits into your overall program/project.
+
+### Other Resources
+
+While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more.
+
+## Final Thoughts
+
+In general, keep in mind that documentation is best used as a reference for what you can do with a particular piece of software. It is not always the best place to start for beginners, but you will likely always end up arriving at the official documentation in one way or another. Beyond that, simply Googling around can be a good jumping off point. The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the _right_ questions. As a recap, when searching, be sure to:
+1. Include the language/tool you are searching in as a search parameter.
+2. Break down your search into keywords.
+3. Be specific.
+4. Don't be afraid to copy/paste and tweak results to fit your programs, but be sure to understand what the code is doing as best you can.
+
+## Review Questions
+
+1. You should read documentation straight through, from top to bottom.
+
+<Quiz>
+- True
+- False*
+</Quiz>
+
+2. You should copy and paste your entire error message when searching for guidance through Google.
+
+<Quiz>
+- True
+- False*
+</Quiz>
+
+3. To get the most out of your Google searches, you should: (select all that apply)
+
+<Quiz>
+- Include the target language/tool you are searching in as a search parameter.*
+- Break down your search into keywords.*
+- Be specific.*
+- Say please.
+</Quiz>
+
+## Challenges
+
+Here's a basic rectangle class in HTML:   
+
+```HTML
+<div class="rectangle">
+    <p>I am a rectangle</p>
+</div>
+```
+
+1. Using this [CSS reference guide](https://www.w3schools.com/cssref/), look into how you might do the following: 
+    1. Give the rectangle a width, height, and background color.
+    2. Give the box a thick border.
+    3. Center the rectangle on the page.
+    4. Center the "I am a rectangle" text within the rectangle.
+    5. Add a drop shadow to the rectangle.
+
+2. Using the [jQuery reference](https://api.jquery.com/), look into how you might do the following:
+    1. Check if the user has pressed the <kbd>enter</kbd> key on the keyboard.
+    2. Add a hover event to an element (like a button) so that it will change color when the mouse is hovering over it.
+    3. Scroll to the top of the page if the user clicks a button.
+
+3. Using the [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and/or Google, look into how you might do the following:
+    1. Find the index of a substring within a string (like "dog" in "The dog jumped.").
+    2. Given an array of numbers (e.g., `[40, 38, 37, 93, 55, 66]`, filter out any values that are less than 50.
+    3. Given a decimal number (like `.36`), round it up to the nearest whole number.
+    4. Create a random number between 1 and 100.
+
+## Key Terms
+
+- Documentation
+- Reference
+- Rubber Duck Debugging 
+
 # Starting Your Project
 
-# Create the Page
+# Integrating with Leaflet
 
-# Building Interactivity / Integrating JS
+# Polishing up Your Site
 
 # Going Live
 
