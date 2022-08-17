@@ -163,7 +163,7 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
         doParsing(code.current);
         setTimeout(() => {
             frameEval(javascript.current);
-        }, 200);
+        }, 1000);
     }
 
     const iFrameStyle = <style>
