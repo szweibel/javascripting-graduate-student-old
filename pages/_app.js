@@ -25,11 +25,11 @@ function MyApp({ Component, pageProps }) {
         {process.env.NEXT_PUBLIC_GITHUB_ACTIONS == false && <><link rel="icon" href={base + "/images/favicon.ico"} sizes="32x32"></link>
           <link rel="icon" href={base + "/images/favicon.ico"} sizes="192x192"></link>
           <link rel="apple-touch-icon" href={base + "/images/favicon.ico"}></link></>
-          ||  
+          ||
           <><link rel="icon" href={"favicon.ico"} sizes="32x32"></link>
-          <link rel="icon" href={"favicon.ico"} sizes="192x192"></link>
-          <link rel="apple-touch-icon" href={"favicon.ico"}></link></>
-          }
+            <link rel="icon" href={"favicon.ico"} sizes="192x192"></link>
+            <link rel="apple-touch-icon" href={"favicon.ico"}></link></>
+        }
       </Head>
       <CssBaseline />
       <ThemeProvider>
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
         </StyledEngineProvider>
       </ThemeProvider>
       <BackToTop />
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
