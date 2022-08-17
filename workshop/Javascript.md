@@ -16,28 +16,43 @@ goals:
 
 ---
 
-# What is JavaScript?
+# Introduction
 
-## JavaSCRIPT, not Java
+Hello!
 
-Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development.
+## Learning Outcomes
 
-<CodeEditor language='JavaScript'>
-1 + 1
-</CodeEditor>
+By the end of the semester, successful students will
 
-## What am I doing here?
+- Gain capacity to read and write JavaScript at a beginner level
+- Understand the core programming concepts, including variables, loops, and conditionals.
+- Distinguish among five core data types—integers, floats, strings, booleans, and arrays.
+- Engage with error output and use the internet and documentation to independently research language features.
+- Be familiar with JS libraries like Leaflet and JQuery
+- Create a small project of their own that can live on the web!
+- Be ready for further classes that require JavaScript knowledge.
 
-You the reader may have come to this page pre-convinced that you want to learn how to program. To the wholly unconvinced, I can only ask, "Why are you taking this class?" The majority, including myself at first, exist in a state between the two. I am not going to try to convince you of the 'value' of programming, as value is a personal question. Instead I will show you a few neat tools that  
+## What am I doing here? Why Learn JavaScript?
+
+## The Process of Learning a Language
+
+There are many ways to learn a language. In the case of human languages, the most effective is said to be full immersion. It can be very motivating to be put in a situation where learning is aligned well with a concrete goal, in this case communicating with the people around you.
+
+In the same way I have observed that learning a programming language requires an aim, a goal, something to be achieved. This ends up looking like a project built in that language. The problem often ends up being that new learners do not know what is possible to do with the language, so it's hard to have a clear goal. This text is designed towards a guided process of project-oriented learning. At the end of this text you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language. 
 
 ## Cool, inspiring libraries
 
-What's possible with JavaScript? JavaScript is a programming language that can be used to create dynamic web pages. It can be used to create interactive web applications, or to create data visualizations and animations. Here are some cool libraries that you can use with JavaScript.
+What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. 
 
 - [Chart.js](https://www.chartjs.org/docs/latest/)
 - [D3.js](https://d3js.org/)
 - [p5.js](https://p5js.org/)
 - [leaflet.js](https://leafletjs.com/)
+
+## JavaSCRIPT, not Java
+
+Part of what it takes to be learn how to program is to learn the meanings of specialist words in common use. the first thing that trips up a lot of beginners is the name of the programming language, "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so: the confusion could very nearly be called intentional! A bit of history:
+Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name there is no association between the two.
 
 # Getting Started with JavaScript
 

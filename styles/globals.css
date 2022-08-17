@@ -232,6 +232,7 @@ img {
   text-align: justify;
   border: #e74c3c 3px solid;
   box-shadow: #e74c3c 8px 8px 0px;
+  padding: 20px;
 }
 
 .sectionTitle {
