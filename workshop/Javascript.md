@@ -453,7 +453,7 @@ Do you recall the meaning of the following terms from this lesson?
 - declaration/assignment
 - mutability
 
-# Control Flow
+# If/Then
 
 So far, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
 
