@@ -783,8 +783,10 @@ table, th, td {
   margin-top: 20px !important;
   padding: 5px !important;
   border: 2px solid #d5222c !important;
+  border-radius: 0% !important;
   background: var(--background-page) !important;
-  box-shadow: #d5222c 8px 8px 0px; 
+  box-shadow: #d5222c 8px 8px 0px !important;
+  color: #000000 !important;
 }
 
 /* Boxes */
