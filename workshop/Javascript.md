@@ -62,6 +62,7 @@ What's possible with JavaScript? You can use it to create a map, a data visualiz
 
 ## JavaSCRIPT, not Java
 
+
 A fundamental part of learning how to program is becoming familiar with the meanings of specialist words in common use. The first thing that trips up a lot of beginners is the name of the programming language, "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so. The confusion could very nearly be called intentional! A bit of history:
 
 Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name, there is no association between the two.
@@ -72,9 +73,9 @@ This material is modeled off of [The JavaScripting English Major](https://the-ja
 
 # Getting Started with JavaScript
 
-Let's begin our journey with the JavaScript language. As is tradition, we're first going to explore some ways to print a "Hello World!" message as output to the screen. In doing so, you will be introduced to the basics of working with the JavaScript console. As will become clearer, you can think of the console as an interactive way to run basic JavaScript commands in your browser. 
+Let's begin our journey with the JavaScript language. As is tradition, we're first going to explore some ways to print a "Hello World!" message as output to the screen. In doing so, you will be introduced to the basics of working with the JavaScript console. As will become clearer, you can think of the console as an interactive way to run JavaScript commands in your browser. 
 
-To become further acquainted with the console, we will end the lesson by exploring basic data types and variables in JavaScript, and how you can use these capabilities to calculate and display a variety of conditions.
+To become further acquainted with the console, we will end the lesson by exploring some fundamental data types and variables in JavaScript, and ways you can use these capabilities to calculate and display a variety of conditions.
 
 ## Hello, World!
 
@@ -102,7 +103,7 @@ You will also notice that there is a `;` (semicolon) after the `alert` command. 
 
 ### Using Your Browser's Console
 
-While we have provided a console for you embedded into this web page, you can also use the console to run commands directly from your browser's developer tools. Most modern browsers allow you access to a developer console where you can work with JavaScript and read or manipulate data on a page. 
+While we have provided a console for you embedded into this web page, you can also use a console built into your browser's developer tools to run commands. Most modern browsers allow you access to a developer console where you can work with JavaScript and read or manipulate data on a page. 
 
 To open the developer console, you can use these methods:
 
@@ -130,13 +131,13 @@ We should note here that the alert's system dialog box is not related to the des
 
 ### The console.log() Function
 
-Let's use another technique to display "Hello, World!" This time, we will use the `console.log()` function, which writes a message to the console. In your browser's developer console, write the following line of code:
+Let's use another technique to display "Hello, World!" This time, we will use the `console.log()` function, which writes a message to be output by the console. In your browser's developer console, write the following line of code:
 
 ```JavaScript
 console.log("Hello, World!");
 ```
 
-You should see the message "Hello, World!" now printed out for you in the console itself.
+You should now see the message "Hello, World!" printed out for you in the console itself.
 
 The `console.log()` function is a useful tool for testing and debugging your code. As you continue learning JavaScript and begin building your own webpages, you will find it an effective way to display and understand the results of your programs.
 
@@ -173,7 +174,7 @@ We can also perform various mathematical calculations on these numbers. For exam
 
 <JSTerminal />
 
-JavaScript effectively calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example (in case you are unfamiliar) uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.  
+JavaScript calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example (in case you are unfamiliar) uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.
 
 In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison:  seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either true or false. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
 
@@ -318,7 +319,7 @@ As a final step for this lesson, let's make using data types a bit more interest
 
 Now that we have explored a number of data types and how to use them, let's explore how to create variables in JavaScript to utilize data types more effectively.
 
-You can think of __variables__ as kinds of containers for data. They are named and can be assigned a value based on whatever data type is appropriate. To create a variable, you simply type the `var` keyword along with the name of the variable you want to create, followed by a single equal sign (`=`) and then the value of the variable. For example, `var myMessage = "Hello, World!";` will create a new variable called `myMessage` and assign it the value `"Hello, World!"`. Creating a variable is called __declaring__ or __defining__ it, and attributing a value to it is called __assigning__ it.
+You can think of __variables__ as kinds of containers for data. They are named and can be assigned a value based on whatever data type is appropriate. To create a variable, type the `var` keyword along with the name of the variable you want to create, followed by a single equal sign (`=`) and then the value of the variable. For example, `var myMessage = "Hello, World!";` will create a new variable called `myMessage` and assign it the value `"Hello, World!"`. Creating a variable is called __declaring__ or __defining__ it, and attributing a value to it is called __assigning__ it.
 
 As mentioned earlier, this drastically sets apart the single equals `=` operator from the double equals `==` operator. The single equals operator is used to __assign__ a value to a variable, while the double equals operator (as well as the triple equals) is used to __test__ if two values or variables are equal to each other (without modifying either value).
 
@@ -375,9 +376,11 @@ As you can see, we have declared all the variables we want to include for our ca
 ### Variable Naming Conventions
 
 There are a few rules for variable naming conventions in JavaScript. 
+
 - Variables must begin with a letter or an underscore. You can't begin a variable name with a number (although you can use numbers after). 
 - Variables must not contain spaces or special characters. For example, `myVariable` is a valid variable name, but `my variable` is not.
 - Variable names are case sensitive. That is, a variable named `My_Books` is treated as an entirely different variable than one named `my_books`.
+
 - You can't use one of JavaScript's reserved words as a variable name. All programming languages have a supply of words that are used internally by the language. For a complete list, see here: [Reserved Words](https://www.w3schools.com/js/js_reserved.asp).
 - Do not include hyphens `-`. Hyphens can be misconstrued by JavaScript as attempts to subtract one value from another and will cause errors.
 
@@ -446,6 +449,7 @@ var d = 5;
 ## Key Terms
 
 Do you recall the meaning of the following terms from this lesson?
+
 - boolean
 - string
 - variable
@@ -466,6 +470,7 @@ In general, code is run in order from the first line in the file to the last lin
 Let's talk about the process of thinking in code. What does someone think about before they write code? In your head, how might you imagine what the code in action would look like? 
 
 In general, we might present a few initial ideas about the process:
+
 1. The computer reads from top to bottom. It does things according to the instructions it reads, step by step. That's the sense in which we mean 'scripting'. My thought process is about the steps that are necessary to get from the beginning to a defined end. What kind of data do I have? How will it have to be transformed? What will be the result? That's the linear vision of scripting.
 2. Digging into the code is a lot more difficult and we really need to envision its structure. What might the structure of the code look like? What is the structure of the data itself? That's the hierarchical vision of scripting.
 3. A branching, rather than linear, vision of code is about the decisions that are made in the process of getting to the end. The branches in the program are equivalent to a "decision tree." 
@@ -475,6 +480,7 @@ In general, we might present a few initial ideas about the process:
 The decision tree is a visual representation of the process of getting to the end of a program. The diagram above shows how code will follow the different "branches" depending on the truth or falsity of a certain condition.
 
 To aid us in thinking about what our program might look like, let's also consider what a typical "Choose Your Own Adventure" game would consist of. In simple terms, it would need:
+
 1. A predefined story (the story that the player is told)
 2. A set of choices that the player can make at certain points in the story 
 3. An internal way to change the story based on the player's choices (code branching)
@@ -496,6 +502,7 @@ Here is a simple example of the `prompt()` function in action. The user is asked
 <JSTerminal />
 
 Pretty nifty, right? `Prompt` code is like `alert` code, with a couple differences:
+
 1. In a prompt, you need a way to capture the user's response. So, you must begin the prompt with a variable declaration.
 2. In a prompt, you can specify a second message, which acts as a "default" value. If the user doesn't enter a response, the default message will be stored in the variable. For instance, we might make a prompt like: `var whatAmI = prompt("What am I?", "I am a human!");`, in which `I am a human!` will prepopulate the response field and act as the default return value if the user doesn't enter anything themselves. 
 
@@ -532,9 +539,9 @@ The basic structure of an `if/else` statement is:
     }
 ```
 
-If statements work like "_If condition is met, then execute the task_". In other words, the code in the `if` "block" will run if the `condition` (whatever it may be) is true and skip the `else` block, and the code in the `else` block will run if the `condition` is false and skip the initial `if` block. Note the beginning and ending curly braces `{}` surrounding each branch of the code: `if` and `else` always utilize curly braces, rather than semicolons. These braces always indicate a particular block of code and you will encounter them in many contexts.
+If statements translate to something like "_If condition is met, then execute the task_". In other words, the code in the `if` "block" will run if the `condition` (whatever it may be) is true and skip the `else` block, and the code in the `else` block will run if the `condition` is false and skip the initial `if` block. Note the beginning and ending curly braces `{}` surrounding each branch of the code: `if` and `else` always utilize curly braces, rather than semicolons. These braces always indicate a particular block of code and you will encounter them in many contexts.
 
-The other new thing of note here is the text following the two forward slashes `//`: these are called __comments__. Comments are used to explain the code and are not executed by the computer. They are purely for human readers. As we continue to build more complex programs, we will often use comments to explain the code. Writing comments for yourself is an important way to make sure that you recall the purpose of the code you are writing if you return to it later. It also helps others reading your code to understand your intentions as well.
+Also note the text following the two forward slashes `//`: these are called __comments__. Comments are used to explain the code and are not executed by the computer. They are purely for human readers. As we continue to build more complex programs, we will often use comments to explain the code. Writing comments for yourself is an important way to make sure that you recall the purpose of the code you are writing if you return to it later. It also helps others reading your code to understand your intentions as well.
 
 Let's look at a more concrete example of an if/else statement, modifying our "get the user's age" program from above and seeing if they are legally eligible to vote (as far as age goes) in the U.S. Try running the code in the console below.
 
@@ -651,7 +658,7 @@ Let's take a look at a more concrete example of a `switch` statement. Let's say 
 
 Here we have three different difficulty levels (although you can have as many levels or `cases` as you want in a `switch` statement). The first `case` statement checks to see if the user entered `1`, the second `case` statement checks to see if the user entered `2`, and the final `case` statement checks to see if the user entered `3`. If the user entered `1`, `2`, or `3`, the `alert` message is displayed. If the user entered anything else, the `default` block is executed and an error message is shown. 
 
-While this simple example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many less curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
+While this example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many less curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
 
 ## Choose Your Own Adventure
 
@@ -837,6 +844,7 @@ else
 ## Key Terms
 
 Do you recall the meaning of the following terms from this lesson?
+
 - control flow
 - return
 - comments
