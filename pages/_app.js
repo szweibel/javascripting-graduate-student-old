@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { StyledEngineProvider } from '@mui/material/styles';
 import '../styles/globals.css';
 import '../node_modules/highlight.js/styles/obsidian.css';
 import React, { useEffect, useState } from 'react';
@@ -9,7 +10,6 @@ import dynamic from 'next/dynamic';
 import { ThemeProvider } from 'next-themes';
 const Footer = dynamic(() => import('../components/Footer'))
 import PyodideProvider from '../components/PyodideProvider';
-import { StyledEngineProvider } from '@mui/material/styles';
 import yaml from '../config.yml';
 
 function MyApp({ Component, pageProps }) {
