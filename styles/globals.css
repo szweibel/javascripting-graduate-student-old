@@ -628,19 +628,30 @@ header a:hover {
 
 .page-content h1 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding: 10px !important;
+  border: #5d55a5;
+  border: 2px solid #5d55a5 !important;
+  background: var(--background-page) !important;
+  box-shadow: #5d55a5 8px 8px 0px; 
 }
 
 .page-content h2 {
   font-size: 1.6rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   margin-top: 30px;
+  padding: 10px !important;
+  border: #5d55a5;
+  border: 2px solid #5d55a5 !important;
+  background: var(--background-page) !important;
+  box-shadow: #5d55a5 8px 8px 0px;
 }
 
 .page-content h3 {
   font-size: 1.4rem;
-  margin-bottom: 10px;
   margin-top: 30px;
+  padding: 5px !important;
+  margin-bottom: 10px;
 }
 
 .page-content p {
