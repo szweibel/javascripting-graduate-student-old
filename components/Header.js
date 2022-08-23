@@ -126,12 +126,6 @@ export default function Header({ props }) {
                             <h2 className='headerLink'>{yaml.event}</h2>
                         </Link>
                     </Typography>
-                        <ul className='links'>
-                            <li>
-                                {propsAvailable ? <Drawer files={allWorkshops} category='workshops' /> : null}
-                            </li>
-
-                        </ul>
                     <IconButton sx={{ ml: 1 }}
                         id="dark-mode-toggle"
                         onClick={(e) => themeToggle(e)}
