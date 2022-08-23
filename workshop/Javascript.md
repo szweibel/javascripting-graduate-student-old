@@ -18,31 +18,42 @@ goals:
 
 # Introduction
 
-Hello!
+Hello! This is *The JavaScripting Masters Student*, a course designed particulary for graduate students who are not pursuing a degree in computer science. The course is designed to help you learn the fundamentals of programming and to help you get started on your own projects. The course is __not__ intended to be a comprehensive introduction to computer science concepts, but rather a step-by-step path to making something useful.
 
 ## Learning Outcomes
 
 By the end of the semester, successful students will
 
-- Gain capacity to read and write JavaScript at a beginner level
+- Gain capacity to read and write JavaScript at a beginner level.
 - Understand the core programming concepts, including variables, loops, and conditionals.
 - Distinguish among five core data types—integers, floats, strings, booleans, and arrays.
 - Engage with error output and use the internet and documentation to independently research language features.
-- Be familiar with JS libraries like Leaflet and JQuery
+- Be familiar with JS libraries like Leaflet and JQuery.
 - Create a small project of their own that can live on the web!
 - Be ready for further classes that require JavaScript knowledge.
 
-## What am I doing here? Why Learn JavaScript?
+<!-- ## What am I doing here? Why Learn JavaScript?
+
+There are two ways of meaning that question:
+MORE
+
+ 
+1. JavaScript is a good first language to learn.
+
+"JavaScript is the language of the web". You will have heard that, perhaps. MORE
+
+2. Learning JavaScript means learning an adaptable language that can be used to bring your work to people on the web.
+MORE -->
 
 ## The Process of Learning a Language
 
 There are many ways to learn a language. In the case of human languages, the most effective is said to be full immersion. It can be very motivating to be put in a situation where learning is aligned well with a concrete goal, in this case communicating with the people around you.
 
-In the same way I have observed that learning a programming language requires an aim, a goal, something to be achieved. This ends up looking like a project built in that language. The problem often ends up being that new learners do not know what is possible to do with the language, so it's hard to have a clear goal. This text is designed towards a guided process of project-oriented learning. At the end of this text you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language. 
+In the same way, learning a programming language benefits from having a specific aim, typically a project built in that language. The problem, though, often ends up being that new learners do not know what is possible to do with a language, so it's hard to develop a clear and realistic goal. In order to help learners along their path, this course is designed as a guided process of project-oriented learning. At the end of this text, you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language.
 
-## Cool, inspiring libraries
+## Cool, Inspiring Libraries
 
-What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. 
+What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. Below are a few examples of powerful tools that you can use to create your own projects. We will be exploring one of these, Leaflet, later in the course.
 
 - [Chart.js](https://www.chartjs.org/docs/latest/)
 - [D3.js](https://d3js.org/)
@@ -51,9 +62,14 @@ What's possible with JavaScript? You can use it to create a map, a data visualiz
 
 ## JavaSCRIPT, not Java
 
-Part of what it takes to learn how to program is to learn the meanings of specialist words in common use. The first thing that trips up a lot of beginners is the name of the programming language: "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so: the confusion could very nearly be called intentional! A bit of history:
 
-Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name there is no association between the two.
+A fundamental part of learning how to program is becoming familiar with the meanings of specialist words in common use. The first thing that trips up a lot of beginners is the name of the programming language, "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so. The confusion could very nearly be called intentional! A bit of history:
+
+Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name, there is no association between the two.
+
+## Acknowledgements
+
+This material is modeled off of [The JavaScripting English Major](https://the-javascripting-english-major.org/v1/contents) by Moacir P. de Sá Pereira. Its pragmatic approach to teaching programming inspired our own, particularly in the project-oriented design of the course. Similarly [Eloquent JavaScript](https://eloquentjavascript.net/) by Marijn Haverbeke demonstrated to us a step-by-step accretive method of learning that feels fitting for an audience of non-CS majors. We were also influenced by [Learn Python the Hard Way](https://learnpythonthehardway.org/book/) by Zed A. Shaw, in his emphasis on engaging the reader in actual typing and not just memorizing syntax. 
 
 # Getting Started with JavaScript
 
@@ -83,7 +99,7 @@ As you can see, the alert dialog box takes the focus and forces the user to read
 
 You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotations marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
 
-You will also notice that there is a `;`(semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, make sure to __include the semicolon__ at the end of each line of code.
+You will also notice that there is a `;` (semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, just make sure to __include the semicolon__ at the end of each line of code.
 
 ### Using Your Browser's Console
 
@@ -441,7 +457,7 @@ Do you recall the meaning of the following terms from this lesson?
 - declaration/assignment
 - mutability
 
-# Control Flow
+# If/Then
 
 So far, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
 
@@ -674,40 +690,63 @@ I’m going to have some fun with this story and let the player decide what to d
     }
 ```
 
-Here we have given the player two options by entering either `1` or `2` into the prompt. Now that we have their first options, we can add further options by nesting additional `if` statements:
+Let's try adding some more options to our story. Using the code editor below, see if you can add further options by nesting additional `if-else if` statements in the areas I have indicated with comments. You'll first want to include a new `prompt()` for `playerChoice` to get the player's new choices.
+
+<CodeEditor language='JavaScript' height = '600px'>
+var playerName, playerChoice;
+var playerName = prompt("What is your name?");
+alert("Welcome, " + playerName + "!");
+alert(playerName + ", you are the last person on earth, sitting alone in a room. There is a knock on the door... What will you do?");
+playerChoice = prompt("Enter 1 to cautiously approach the door. Enter 2 to hide under the table.");
+if (playerChoice == "1"){
+    alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+    // add new prompt and choices for this branch here
+} else if (playerChoice == "2"){
+    alert("As you hide under the table you hear the doorknob rattling.");
+    // add new prompt and choices for this branch here
+}
+else {
+    alert("Invalid entry.");
+}
+</CodeEditor>
+
+
+Were you successfully able to add more options? Study my example below for a minute. For each choice (whether 1 or 2), I have added a new `if/else-if/else` statement within that block:
 
 ```JavaScript
-    if (playerChoice == "1"){
+    if (playerChoice == "1"){ // here's their first choice #1
         alert("Your hands are trembling as you approach the door. You pause a moment before it.");
         playerChoice = prompt("Enter 1 to bravely open the door. Enter 2 to look through the door's peephole.");
-        if (playerChoice == "1"){
+        if (playerChoice == "1"){ //here's their second choice #1
             alert("You swing the door open with courageous gusto.")
         }
-        else if (playerChoice == "2"){
+        else if (playerChoice == "2"){ //here's their second choice #2
             alert("You cautiously look through the peephole. You make out a vague shape looming before the door.")
         }
         else {
-            alert("Invalid entry.");
+            alert("Invalid entry."); // invalid entry for second choices
         }
-    } else if (playerChoice == "2"){
+    } else if (playerChoice == "2"){ // here's their first choice #2
         alert("As you hide under the table you hear the doorknob rattling.");
         playerChoice = prompt("Enter 1 to stay hidden under the table. Enter 2 to get up and find a weapon to defend yourself with.");
-        if (playerChoice == "1"){
+        if (playerChoice == "1"){ //here's their second choice #1
             alert("Whatever is at the door has now begun banging on it loudly.");
         }
-        else if (playerChoice == "2"){
+        else if (playerChoice == "2"){ //here's their second choice #2
             alert("You quickly but quietly get up and look around. You see a broom in the corner of the room and wield it mightily.");
         }
         else {
-            alert("Invalid entry.");
+            alert("Invalid entry."); // invalid entry for second choices
         }
     }
     else {
-        alert("Invalid entry.");
+        alert("Invalid entry."); // invalid entry for first choices
     }
 ```
 
-Okay, now we have some additional options for the player to choose from, along with more error messages if they choose incorrectly. Putting it all together then, here is the story so far:
+In this way, we are creating a branching structure that follows different paths according to player choice.
+
+Putting it all together then, here is the story so far:
 
 ```JavaScript
     var playerName, playerChoice;
@@ -747,12 +786,12 @@ Okay, now we have some additional options for the player to choose from, along w
     }
 ```
 
-Try writing a short story of your own in the code editor below. (You can also copy/paste the code from mine if you want to see it in action.)
+Copy/paste my code into the code editor below if you'd like to see it in action.
 
 <CodeEditor language='JavaScript' height = '450px'>
 </CodeEditor>
 
-While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
+While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else if` statements makes a program incredibly difficult to build and maintain. You probably noticed this yourself when trying to add more choices to the program. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
 
 ## Review Questions
 
@@ -786,7 +825,6 @@ else
 
 <Quiz>
 - `break`*
-- `continue`
 - curly braces*
 - a default case*
 </Quiz>
@@ -972,8 +1010,6 @@ for (var i = 0; i < array.length; i++) {
 }
 ```
 
-TODO: Reverse logic, explain more clearly, add another example
-
 This may look a little complicated, so let's explore it a bit. The `for` loop is comprised of three parts: the first part is the initialization of the loop, which is the variable `i` in this case (`i` is often used by convention, but the variable name can be anything you want). The second part is the condition that the loop will continue to execute until, and the third part is the incrementor. Each is separated by a semi-colon `;`.
 
 To break it down a little more:
@@ -995,7 +1031,31 @@ Try running this code in the code editor below.
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-As you can see, the loop iterated through the array and alerted each value in the array. You'll notice that the loop executed the alert 5 times instead of displaying all the values at once. This is because the loop is executing the alert once for each value in the array. In other words, the code inside the `for` loop block executes once for each value in the array based on the current value of `i`. So, if there are 5 values in the array, the loop will execute 5 times.
+As you can see, the loop iterated through the array and alerted each value in the array. You'll notice that the loop executed the alert 5 times instead of displaying all the values at once. This is because the loop is executing the alert once _for each_ value in the array. In other words, the code inside the `for` loop block executes once for each value in the array based on the current value of `i`. So, if there are 5 values in the array, the loop will execute 5 times.
+
+`for` loops are incredibly important to get the hang of, so let's look at one more example, looping from 1 to 5:
+
+```JavaScript
+var num = 5;
+
+// looping from i = 1 to 5
+// in each iteration, i is increased by 1
+for (var i = 0; i <= num; i++) {
+    console.log(i);     // printing the value of i
+}
+```
+
+If we were to run this, what would we get? Well, in this case we would get the following output:
+
+```
+1
+2
+3
+4
+5
+```
+
+In this case, we started our loop at `i = 1`, rather than `i = 0`. This is because we want to start our loop at 1, not 0. We then check if `i` is less than or equal to `num`, which is 5. If `i` is less than or equal to 5, the loop will continue to execute. If `i` is greater than 5, the loop will stop executing. Thus, we get the output of 1 through 5.
 
 ## The While Loop
 
@@ -1682,7 +1742,7 @@ console.log(greet);
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
-3. In the wild, you will often see what are called __arrow functions__. In modern JavaScript, arrow functions are a shorter way to write functions, and utilize the `=>` syntax. Check out [this resource](https://www.w3schools.com/js/js_arrow_function.asp) to learn about the syntax for arrow functions. Then, try to reformat the following traditional function using arrow function syntax instead:
+3. In the wild, you will often see what are called __arrow functions__. In modern JavaScript, arrow functions are a shorter way to write functions, and utilize the `=>` (arrow) syntax. Check out [this resource](https://www.w3schools.com/js/js_arrow_function.asp) to learn about the syntax for arrow functions. Then, try to reformat the following traditional function using arrow function syntax instead:
 
 ```JavaScript
 function add(a, b) {
@@ -1868,13 +1928,10 @@ Logical errors aren't about getting the vocabulary right (remember, those are sy
 
 ## Using console.log() to Debug
 
-TODO: emphasize console log debugging over printing
+To keep things simple, we have been console.logging a lot of our programs just so we can see an immediate result. However, `console.log()` is best used for debugging purposes in your programs. It is a quick and easy way to see the current state of a particular variable or condition. If you are ever uncertain about what result you might get from a particular piece of code, or if it is giving you an error or an otherwise unintended value, try breaking down the code step by step and using `console.log()` to see what is going on at each point.
 
-To keep things simple, we have been console.logging a lot of our programs just so we can see an immediate result. However, `console.log()` is best for debugging purposes
+Keep in mind that `console.log()` is useful no matter the data type: for instance, if you pass in an array, you'll be able to inspect the array's contents. Pass in an object, you can examine the object's attributes/methods. Pass in a string, it'll log the string. A good first step in any debugging process is to see exactly what you're getting back from the code. Pairing `console.log()` with `typeof` can also be particularly effective. Usually, this will give you some insight into what is going wrong.
 
-When trying to fix problems in your code, it is often useful to use the `console.log()` function to print out the value of a variable or expression to see what you are actually getting
-
-TODO: Add how to read code from Python the hard way
 
 ## Review Questions
 
@@ -2846,7 +2903,7 @@ As their slogan has it, with jQuery the intent is to "write less, do more". It a
 
 3. `Prompt()` the user whether the jokes on our page are good or bad. If the user responds with "bad", then change the header text to "The Worst Jokes Ever!". If the user responds with "good", keep the header text as "The Best Jokes Ever!".
 
-4. Add a button to the page that will change the page's color scheme (background color, text color, etc.).
+4. Add a button to the page that will change the page's overall color scheme (background color, text color, etc.).
 
 5. Push all your changes to GitHub.
 
@@ -3384,6 +3441,9 @@ $("#poem h3").click(function(){
 
 2. `.map()` is an important method. Get a little practice in by writing a new function that takes an array of integers and, using `.map()`, returns an array of those integers, doubled. So if we give it [1, 2, 3], we receive, in turn, [2, 4, 6]. Display this info in the console.
 
+<CodeEditor language="JavaScript">
+</CodeEditor>
+
 3. `.map()` is similar to another method, `.forEach()`. We haven't covered the latter, but you may encounter it in the wild. Read through [this article](https://codeburst.io/javascript-map-vs-foreach-f38111822c0f) to understand the differences between the two, and to learn a little more about `.map()` specifically.
 
 4. Add a new property to the JSON file that stores a wiki link for a particular literary device (e.g., [here for anaphora](https://en.wikipedia.org/wiki/Anaphora_(rhetoric)). Create a new data attribute to access this property and add it to the info message that is displayed when clicked. 
@@ -3508,7 +3568,7 @@ Everything else in the HTML should be familiar to you. This will be about all th
 
 ## CSS
 
-The next step we'll need to take is to specific a height for our map. Leaflet's one demand of CSS is that it be a certain height. We can do this by adding a `height` property to our `#map` id. In your `poem.css` file, add the following:
+The next step we'll need to take is to specify a height for our map. Leaflet's one demand of CSS is that it be a certain height. We can do this by adding a `height` property to our `#map` id. In your `poem.css` file, add the following:
 
 ```CSS
 #map {
@@ -3681,7 +3741,7 @@ Leaflet has [very extensive documentation](https://leafletjs.com/reference.html)
 
 1. Create a marker at the location of your favorite restaurant, bar, cafe, or event space in NYC.
 
-2. Draw some polylines that replicate a walk to the nearest subway station from your favorite spot in step 1. (Note: It doesn't need to be super precise: just use the click event and console.log to map out the general coordinates of your walk at each turn.)
+2. Draw some polylines that replicate a walk to the nearest subway station from your favorite spot in step 1. (Note: It doesn't need to be super precise: just use the `click` event and `console.log()` to map out the general coordinates of your walk at each turn.)
 
 3. Push all your code to GitHub.
 
@@ -3694,6 +3754,381 @@ Do you recall the following key terms?
 - markers
 - popups
 - events
+
+# Working With GeoSpatial Data
+
+In this lesson, we'll marshall our hard-earned skills with jQuery, JSON, and Leaflet to add a bit more complexity to our mapping project. We'll use a dataset of geospatial data to add some more interesting features to our maps. Specifically, we'll use a dataset that defines the locations of neighborhoods across New York City and incorporate it into our project.
+
+Using this dataset will allow us to:
+- Add neighborhoods boundaries as a new layer to the map
+- Add popups to the neighborhood polygons
+- List all neighborhoods on the page and add buttons and links to pan to each neighborhood's location
+
+Because we are combining all of the skills we've learned throughout this course, I recommend taking it slowly and carefully. Be sure to understand the concepts, syntax, and major moves of each part before moving on. 
+
+Without further ado, let's get started!
+
+## The Dataset
+
+We have said that we'd like to use a dataset that defines the locations of neighborhoods across New York City. We'll talk about good ways to find datasets in the coming weeks (as you begin your own final projects), but for now, let's use the dataset [from this source](https://data.beta.nyc/dataset/pediacities-nyc-neighborhoods/resource/35dd04fb-81b3-479b-a074-a27a37888ce7). If you click on the link, you can see a nice map of NYC that shows the boundaries of the neighborhoods. We'll do something similar with this dataset on our own maps.
+
+Let's use the dataset as a local file in our project folder. You can download it from the source website or simply use the download button below:
+
+<Download files='nycneighborhoods.json'><br />
+
+You'll see that we get a JSON file that contains the data we need. Make sure you save it in your working directory for this course. Let's open this file in VSCode and take a look at it:
+
+![NYC Dataset](/images/nyc-dataset.png)
+
+It all looks a little confusing, doesn't it? Let's break down what we are seeing here.
+
+The JSON file we have here is an example of __GeoJSON__. [GeoJSON](https://geojson.org/) is a subset of JSON that defines a set of specifically _geographic_ features. In other words, it is a standardized format for representing spatial data and is used by many different mapping applications.
+
+Just like regular JSON files you have seen, GeoJSON files utilize key-value pairs to define the features.
+
+You'll notice our dataset is of the _type_ `"FeatureCollection"`. This is a special type of JSON object that contains a list or collection of multiple features. Each feature is itself a JSON object that additionally has the key `"type"` with a value of `"Feature"`. Each feature has a number of properties that define the object. For instance, you can see that we have properties of `neighborhood`, `boroughCode`, `borough`, and `id`. Each of these has a value that we will be able to access and use later. Each feature also has a property called `geometry` that contains the coordinates of the feature (the neighborhood). Each feature is defined as a polygon with an array of coordinates that define the shape of the polygon (the neighborhood in question). Remember that spatial data can be points, lines, or polygons--we are dealing with polygons here because we are circumscribing the shape of each neighborhood. If you scroll through the file, you'll see that we have a feature for each of the neighborhoods in NYC. 
+
+Okay, let's prepare our page so we can use the dataset.
+
+## Preparing the Page
+
+Let's create a few new files. First, create a new HTML file in your working directory called `nyc-data.html`. Go ahead and add the following:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>NYC Neighborhoods</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="nyc-data.css">
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>NYC Neighborhoods</h1>
+      <div id="map"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="nyc-data.js"></script>
+  </body>
+</html>
+```
+
+This should all be fairly familiar stuff to you. We get the necessary Leaflet and jQuery files, and we add a custom CSS file as well as a new JavaScript file to work with. To be able to navigate to the page, you can simply add another link to it in your `index.html` file, like we did with our poem:
+
+```html
+<h2><a href="nyc-data.html">NYC Neighborhoods</a></h2>
+```
+
+Next, go ahead and create the new CSS file, `nyc-data.css`, and add the following:
+
+```css
+#map { 
+    height: 600px; 
+    width: 75%;
+}
+```
+
+This will set the size of the map to be 75% of the width of the page and 600px tall.
+
+Next, create a new JavaScript file, `nyc-data.js`, and add the following to create the initial map:
+
+```JavaScript
+let nycMap;
+nycMap = L.map("map");
+
+// create tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(nycMap);
+
+nycMap.setView([40.7128, -74.0060], 16);
+```
+
+Check to make sure your map displays properly. If so, let's move on to the next step.
+
+## Adding the Data
+
+There are several different ways we could add this data to our map, but perhaps the simplest way will be to use Leaflet's built-in `L.geoJSON` method. This function takes in a GeoJSON object and adds it to a map.
+
+To use this method, however, we'll need to make a minor change to our `nycneighborhoods.json` file. In the file itself, we'll want to store the JSON object as a JavaScript variable we can work with.
+
+The first thing we'll need to do is change the file type from `.json` to `.js`, as a JavaScript file. You can change the file extension easily by simply right-clicking the file in the Explorer Window and selecting Rename. Change the file name to `nycneighborhoods.js`.
+
+Now, in your `nycneighborhoods.js` file, create a new variable at the very top of the file to store the data like so:
+
+```JavaScript
+const nyc = {
+"type": "FeatureCollection",
+...
+...
+...
+```
+
+This allows us to work directly with the `nyc` variable to add the data to our map. This is the easiest way I've found to utilize the `L.geoJSON()` method to add data to a map without having to worry about taking extra steps to "parse" the data. Otherwise, Leaflet seems to have difficulty working directly with GeoJSON data, and you'll receive an `"Invalid GeoJSON object"` error. 
+
+There is, however, one more step to take. We'll need to include the dataset as a source in our HTML file. So, in the `<head>` of your `nyc-data.html` file, add the following:
+
+```html
+<script src="nycneighborhoods.js"></script>
+```
+
+Now, we can finally create a new Leaflet layer with the data and add it to our map. In your `nyc-data.js` file, add the following line of code:
+
+```JavaScript
+L.geoJSON(nyc).addTo(nycMap);
+```
+
+The `nyc` variable we created earlier is the data in our dataset. We can use the `L.geoJSON` method to add this data to our map. If you save and check your page, you should now see the neighborhoods of NYC outlined over the map:
+
+![Nyc Neighborhoods](/images/nyc-neighborhoods1.png)
+
+Pretty neat, right? Make sure you are seeing this correctly display before moving on.
+
+## Styling the Data
+
+Let's add a bit of fill color to the polygons to make them stand out:
+
+```JavaScript
+// add some fill color to the map
+L.geoJSON(nyc, {
+    style: function(feature) {
+        return {
+            color: "blue",
+            fillColor: "yellow",
+            fillOpacity: 0.5
+        };
+    }
+}).addTo(nycMap);
+```
+
+The `style` function takes in a feature (in this case, our neighborhood polygons) and returns a style object, which we add to our map. The style object here has three properties: `color`, `fillColor`, and `fillOpacity`. The `color` property sets the color of the polygon border, the `fillColor` property sets the color of the polygon interior, and the `fillOpacity` property sets the opacity of the polygon interior.
+
+You should now see the polygons styled as a pale yellow with a blue border:
+
+![NYC Neighborhoods](/images/nyc-neighborhoods2.png)
+
+## Adding Popups to the Data
+
+Let's add some popups to our map to show the name of each neighborhood. To do this, we'll need to add a new property to our object: `onEachFeature`. This property takes in a function that will be called for each feature (each neighborhood) in the dataset:
+
+```JavaScript
+// show each borough on the map
+L.geoJSON(nyc, {
+    onEachFeature: function(feature, layer) {
+        layer.bindPopup("<h3>" + feature.properties.borough + "</h3> <hr> <h3>" + feature.properties.neighborhood + "</h3>");
+    }
+}).addTo(nycMap);
+```
+
+The `onEachFeature` property takes in a function with two arguments: the feature and the layer. The feature is the neighborhood itself, and the layer is the Leaflet layer that will be added to the map. We can use the `bindPopup` method to add a popup to the layer. Using HTML in the popup, we can display the name of the neighborhood and the borough by getting the `properties` object from the feature and accessing the `borough` and `neighborhood` properties. In between the `<h3>` tags, we can put a horizontal rule `<hr>` to separate the borough and neighborhood names. Finally, as always, we add the layer to the map.
+
+If you save, you should now be able to click on each neighborhood to see a popup with the name of the neighborhood and the borough.
+
+![NYC Neighborhoods](/images/nyc-neighborhoods3.png)
+
+Great! Now, let's add a bit more functionality to our page.
+
+## Adding Buttons
+
+Let's say we wanted to add a button to our page that pans the map to a particular neighborhood. Let's create a new button in our `nyc-data.html` file, below our map `<div>` tag:
+
+```html
+<button id="pan-to-flatbush">Pan to Flatbush</button>
+```
+
+We can then use jQuery to check for a click event on the button, and find the neighborhood in the dataset:
+
+```JavaScript
+$("#pan-to-flatbush").click(function() {
+    // find flatbush neighborhood property in the dataset
+    let flatbush = nyc.features.find(function(feature) {
+        return feature.properties.neighborhood === "Flatbush";
+    });
+    console.log(flatbush);
+});
+```
+
+We can use the `find` method to find the neighborhood in the dataset that matches the name we want to pan to. The `find` method takes in a function that will be called for each feature (each neighborhood) in the dataset. In this case, we want to find the neighborhood that matches the name "Flatbush". The `find` method will return the first neighborhood that matches the function. To see the result, we `console.log()` the neighborhood we find, just to make sure we are pulling in the correct data.
+
+If you save and click the Flatbush button, you should see the feature object for Flatbush logged to the console:
+
+![Find Flatbush](/images/find_flatbush.png)
+
+Perfect, we have successfully found the neighborhood we want to pan to. Now, let's use the `panTo` method to pan the map to the neighborhood. Let's fill out this section of code to accomplish this:
+
+```JavaScript
+// use jquery to see if flatbush button is clicked
+$("#pan-to-flatbush").click(function() {
+    // find flatbush neighborhood property in the dataset
+    let flatbush = nyc.features.find(function(feature) {
+        return feature.properties.neighborhood === "Flatbush";
+    });
+    console.log(flatbush);
+    // find the coordinates of flatbush property
+    let coordinates = nyc.features.find(function(feature) {
+        return feature.properties.neighborhood === "Flatbush";
+    }).geometry.coordinates;
+    console.log(coordinates);
+    nycMap.panTo(new L.LatLng(coordinates[0][0][1], coordinates[0][0][0]));
+});
+```
+
+To pan the map to the neighborhood, we need to find the coordinates of the neighborhood. We can do this by accessing the `geometry` property from the feature and accessing the `coordinates` property. The `coordinates` property is an array of arrays, and we `console.log(coordinates)` to make sure we are pulling in the correct data. We then use the `panTo` method to pan the map to the coordinates.
+
+If you save and click the Flatbush button, you should see the map pan to Flatbush. It's not perfect (it doesn't pan to the exact center, but to the outer border of the neighborhood), but it's pretty close. To pan exactly to the center of the polygon would require a bit more complex calculations on our part, but this will work for demonstration purposes.
+
+## Listing All Neighborhoods
+
+We now have a simple external button control that allows us to pan the map to Flatbush. What if we wanted to list _all_ the neighborhoods of NYC and allow the user to click on each to pan to it? 
+
+Below our Flatbush button, let's add a new `<div>` for displaying the entire list of neighborhoods:
+
+```html
+<div id ="neighborhoods"></div>
+```
+
+Next, we'll want to loop through the dataset objects, pulling out the neighborhood name from each so we can display it in the list.
+
+```JavaScript
+// get a list of all the neighborhoods in the dataset
+let neighborhoods = nyc.features.map(function(feature) {
+    return feature.properties.neighborhood;
+}).filter(function(neighborhood) {
+    return neighborhood !== "";
+}).sort();
+console.log(neighborhoods);
+```
+
+We can use the `map` method to loop through the dataset and return an array of neighborhood names. The `filter` method then allows us to remove any neighborhoods that are blank (in case there are blank property names in the dataset). We then use the `sort` method to sort the neighborhoods alphabetically. Finally, we `console.log()` the neighborhoods array to make sure we are pulling in the correct data.
+
+If you check your console, you should see the list of sorted neighborhoods as output:
+
+![Neighborhoods List](/images/neighborhoods_list.png)
+
+Let's go ahead and write these out to our neighborhoods `<div>`:
+
+```Javascript
+// display all the neighborhoods in the neighborhoods div
+neighborhoods.forEach(function(neighborhood) {
+    $("#neighborhoods").append("<a href ='#'><li>" + neighborhood + "</li></a>");
+    // display in columns
+    if (neighborhoods.indexOf(neighborhood) % 4 === 0) {
+        $("#neighborhoods").append("<br>");
+    }
+});
+```
+
+Here we utilize the `forEach` method to loop through the neighborhoods array and `append` each neighborhood to the `<div>` with the id of `neighborhoods`. As you may recall from [an earlier lesson's Challenge #3](http://localhost:3000/workshop/Javascript/?page=10), `forEach` is similar to `map()`, with the important difference being that `forEach` does not create a new array (which would be unnecessary in this case). You'll notice that we are surrounding each neighborhood with an `<a href>` tag and a `<li>` (list item) tag. This is because we want to be able to turn each name into a clickable element. We can use the `indexOf` method to find the index of the neighborhood in the array. If the index is divisible by 4, we add a `<br>` tag to separate the neighborhoods into spaced columns to make things a little easier to read.
+
+To enable a basic columnar structure, we also need to add a line of code to our `nyc-data.css` file:
+
+```CSS
+#neighborhoods {
+    columns: 100px 3
+}
+```
+
+This allows us to create a simple columnar structure with 3 columns, each 100px wide.
+
+If you save all files and check your page, you should see the list of neighborhoods displayed in columns:
+
+![Neighborhoods List](/images/neighborhoods_list_columns.png)
+
+You'll notice that there are several duplicates in the dataset (e.g., Jamaica Bay, Broad Islands, Pelham Islands, etc.), and that we are not always getting groups of 4. The data probably needs to be cleaned up (in this case, removing redundancies), which is always a good idea when working with data in your actual projects. We won't worry about this for now.
+
+In any case, we now have a full list of clickable elements. Finally, let's add a click event to each neighborhood to pan the map to that neighborhood.
+
+```JavaScript
+// if the neighborhood is clicked, find the neighborhood on the map and pan to it
+$("#neighborhoods").on("click", "li", function() {
+    let neighborhoodText = $(this).text(); // get the text of the neighborhood
+    let coordinates = nyc.features.find(function(feature) {
+        return feature.properties.neighborhood === neighborhoodText; //check if the text matches the neighborhood in the dataset
+    }).geometry.coordinates; // get the coordinates of the neighborhood
+    nycMap.panTo(new L.LatLng(coordinates[0][0][1], coordinates[0][0][0]));
+    // zoom in
+    nycMap.setZoom(16);
+    // add a marker to the neighborhood polygon
+    L.marker(new L.LatLng(coordinates[0][0][1], coordinates[0][0][0])).addTo(nycMap);
+    // add a popup to the marker
+    L.marker(new L.LatLng(coordinates[0][0][1], coordinates[0][0][0])).bindPopup("<h3>" + neighborhoodText + "</h3>").addTo(nycMap);
+});
+```
+
+We can use the `.on(click)` method to add a click event to the `<li>` tag (i.e., each neighborhood name). We then use the `$(this).text` method to get the text of the particular `<li>` tag that was clicked. Remember, in this context, `this` simply points to whatever element is being acted upon. It is flexible in that we don't have to specify an individual element of the type. Next, we check if the `neighborhoodText` matches the `neighborhood` property in the dataset. If it does, we can use the `find` method to find the neighborhood in the dataset and grab the coordinates. Using the coordinates, we `panTo` the location. We also zoom in on the neighborhood and add a marker with a popup to the spot.
+
+If you save your page, you should now be able to click on each neighborhood and the map will automatically zoom toward the neighborhood in question. Cool!
+
+Again, you'll notice we are not displaying the marker in the exact center of the neighborhood polygon. Because each polygon is differently shaped and built-up from a large variety of coordinates, we'll just place the marker at the border of the neighborhood like we did before. Figuring out how to center each marker would probably be an important task if we were planning to use this website professionally, however.
+
+The last step we should probably take is to give attribution to our dataset source. Even if the source is open and freely available for use, it's wise to give attribution in case there are mistakes or otherwise undesirable elements in the data. This is not only a way to protect yourself, but also to let others know where to find/work with your data themselves.
+
+For our purposes, we can simply provide a link to the source at the top of our page, by adding a link below our header:
+
+```HTML
+<a href = "https://data.beta.nyc/dataset/pediacities-nyc-neighborhoods/resource/35dd04fb-81b3-479b-a074-a27a37888ce7" alt="Data Source">Here's the source for NYC neighborhood boundaries.</a>
+```
+
+## What Have We Done?
+
+Let's take a moment to review the variety of skills and techniques we've utilized to create this new page. Although the page is fairly simple looking, we've accomplished some rather complex tasks. We have:
+
+- A base layer map of the world
+- An overlay of neighborhoods in NYC specifically, using a geospatial dataset
+- The ability to click around on the map and see each neighborhood
+- An external button that allows us to navigate to a particular location on the map, based on the data we have
+- An entire list of clickable neighborhoods pulled from the dataset
+
+We are only scratching the surface of what jQuery, JSON, and Leaflet can do working in tandem, but we have accomplished quite a lot. These are the skills we'll employ to put together your own final projects with your own datasets, your own stylistic creativity, and your own intentions for the final result.
+
+## Review Questions
+
+1. Each object in a GeoJSON dataset is called a:
+
+<Quiz>
+- Property
+- Feature* 
+- Coordinate
+</Quiz>
+
+2. True or False - The `geometry` property contains coordinate data for a particular feature.
+
+<Quiz>
+- True*
+- False
+</Quiz>
+
+3. When using a dataset pulled from an online source, it is wise to: (select all that apply)
+
+<Quiz>
+- Check the data for redundancies, duplicates, or otherwise erroneous material*
+- `console.log()` your retrievals of the data for testing purposes*
+- Give attribution for your source*
+</Quiz>
+
+
+## Challenges
+
+1. Create another button that pans the map to your favorite neighborhood.
+
+2. Draw some polylines to connect the boundaries of different neighborhoods.
+
+3. If a neighborhood is in Manhattan, change the color of the neighborhood polygons to red. (Hint: You'll need to check for the `borough` property and perform `style` changes accordingly.)
+
+## Key Terms
+
+Do you recall the meaning of the following terms?
+
+- GeoJSON
+- FeatureCollections/Features
+- Geometry
 
 # Reading Documentation
 
@@ -3714,7 +4149,7 @@ This is also, partly, due to the nature of documentation's audience. If document
 
 Most documentation for a tool has two separate sections, written from different perspectives.
 
-1. "Getting Started" is a section that describes how to get started using the product. It is meant to be a quick introduction for how to install, configure, and use the product in a basic way. Leaflet's ["Quick Start" guide](https://leafletjs.com/examples/quick-start/) is a good example of this, with basic comprehension and implementation instructions.
+1. "Getting Started" is a section that describes how to get started using the tool. It is meant to be a quick introduction for how to install, configure, and use the product in a basic way. Leaflet's ["Quick Start" guide](https://leafletjs.com/examples/quick-start/) is a good example of this, with basic comprehension and implementation instructions.
 2. Compare, now, Leaflet's Quick Start to [Leaflet's full docs](https://leafletjs.com/reference.html). This is more like a dictionary or glossary of presets, methods, and actions. Information density is prioritized rather than presenting a readable tutorial you can follow along with directly.
 
 ## The Art of ~~Reading~~ Referencing
@@ -3774,7 +4209,7 @@ Uncaught (in promise) TypeError: _super.call is not a function
 
 ... would not give you very good results. A solution might be to:
 
-1. First, articulate your code that's breaking into a series of smaller steps. Often, programmers recommend a method called [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging). This is a technique similar to writing pseudocode, in that you first try to articulate your problem in spoken or written natural language. Attempting to explain the problem in simple language will very often lead you to a solution, or the beginning of a solution. In describing what the code is supposed to do and observing what it actually does, any incongruity between these two becomes apparent. 
+1. First, articulate your code that's breaking into a series of smaller steps. Often, programmers recommend a method called [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging). This is a technique similar to writing pseudo-code, in that you first try to articulate your problem in spoken or written natural language. Attempting to explain the problem in simple language will very often lead you to a solution, or the beginning of a solution. In describing what the code is supposed to do and observing what it actually does, any incongruity between these two becomes apparent. 
 
 2. Second, begin your search. Hopefully you now have a rough idea of what your code is and isn't doing correctly, so begin by including keywords from your error message and try to find results that fit your particular use case. For example, in the error above, if you Google "javascript uncaught (in promise) typeerror", you will find quite a few people have run into the same problem!
 
@@ -3802,6 +4237,8 @@ Don't feel the need to reinvent the wheel if you find a working solution on Stac
 
 While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more.
 
+If you would like to go really in-depth learning Leaflet, I would highly recommend Malcom Maclean's [Leaflet Tips and Tricks](https://leanpub.com/leaflet-tips-and-tricks/read).
+
 ## Final Thoughts
 
 In general, keep in mind that documentation is best used as a reference for what you can do with a particular piece of software. It is not always the best place to start for beginners, but you will likely always end up arriving at the official documentation in one way or another. Beyond that, simply Googling around can be a good jumping off point. The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the _right_ questions. As a recap, when searching, be sure to:
@@ -3809,6 +4246,8 @@ In general, keep in mind that documentation is best used as a reference for what
 2. Break down your search into keywords.
 3. Be specific.
 4. Don't be afraid to copy/paste and tweak results to fit your programs, but be sure to understand what the code is doing as best you can.
+
+As you begin putting together your final project in the remaining weeks, try to keep these resources and strategies in mind, and refer back to them as needed.
 
 ## Review Questions
 
@@ -3869,279 +4308,234 @@ Here's a basic rectangle class in HTML:
 - Reference
 - Rubber Duck Debugging 
 
-# Starting Your Project
+# Starting Your Project 
 
-# Integrating with Leaflet
+Congratulations on making it this far! We've covered quite a lot of ground in a rather short amount of time. At this point, you should be well-equipped to get your hands dirty starting your own projects. 
 
-# Polishing up Your Site
+That being the case, the remaining few weeks will be entirely devoted to working on your own projects. Your projects will largely be self-directed, based on your own particular creative aspirations or research interests. There are, however, a few requirements. Let's go through them.
+
+## Project Requirements
+
+Your projects should demonstrate that you understand the major concepts covered in this course. At a baseline level, this means your project should include:
+
+- A homepage that includes a brief description of your project and its purpose.
+- Interactive content that allows the user to explore the project (buttons, links, images, text, etc).
+- Dataset(s) pertinent to the project, whether it be data you've created yourself, or data you've imported from a data source.
+- Some sort of visualization of the data you are working with (e.g., a map).
+- A style appropriate to the project or to your personal aesthetic tastes.
+- A new GitHub repository dedicated to the project and a working version that you can share with others.
+
+Depending on the kind of project you are creating, it might be weighted towards one or more of these requirements over the others. This is fine, as long as you are, again, able to show that you understand the material we've covered.
+
+## Project Components
+
+The above requirements will expect you to demonstrate knowledge with JavaScript, HTML, CSS, jQuery, JSON, Leaflet, and GitHub. In other words, in practical terms your project will be comprised of _at least_ one of each of the following:
+
+- HTML file
+- CSS file
+- JavaScript file
+- JSON file
+- Leaflet map
+- GitHub repository
+
+Keep in mind that all of these components are meant to _work together_ to tell a particular story or demonstrate a particular idea or purpose.
+
+It will be up to you to decide how you want to structure your project. Will it be comprised of multiple web pages? Will it be a single web page with multiple components? The design will probably depend on your own creative ideas, the kind of project you are developing, and your ultimate goals for the user of the site. We'll talk through some strategies for putting your site together next week, but it will be helpful to have some idea of how you might structure your project before you begin writing any code.
+
+## Project Ideas
+
+As mentioned, your projects are self-directed and individually tailored. The content and structure of your site can be based on whatever you'd like. However, let's discuss some ideas to help you get off the ground.
+
+As a starting point for your projects, ask yourself: 
+
+1. What kind of story do I want to tell?
+2. What kind of data will I need?
+3. What kind of visualizations will I want?
+4. How will the website be structured?
+5. How will the user interact with the website?
+
+Here are some sample ideas for projects:
+
+- An exploration of an essay, poem, or work of fiction
+- A Choose Your Own Adventure game
+- A walking tour of the city
+- An exploration of green spaces, parks, wildlife, etc.
+- An exploration of libraries, archives, or museums
+- Observations/celebrations of ethnic or cultural diversity
+- Observations on geography and political affiliations, income levels, access to healthcare, etc.
+- An investigation of the impacts of climate change
+
+These are just suggestions, but feel free to use them as a starting point. For example, let's say you wanted to create a walking tour. What might your site consist of? A few things off the top of my head could be:
+
+- Polylines indicating the tour on a map
+- A dataset with coordinates of the walk and interesting features along the way
+- Markers and popups giving information on the map
+- Images to show some of the views of the walk
+- Text to describe the walk
+- Links to landmarks, businesses (restaurants, bars, cafes) etc. along the way
+
+These are just basic elements that could be the foundation of an interesting guided tour. Feel free to get creative and expand on your ideas to make something particularly unique!
+
+## Project Scope
+
+It is very important to keep in mind that there are only a few weeks remaining in the semester. While it is fine to have big ideas and plans for your project, be very mindful of the __scope__ of your project and what you can actually accomplish in the allotted time. In other words, try to narrow down your project to a _single achievable goal_. Creating big, complex, beautiful websites takes a lot of time and effort, and is not necessarily the point of this project. 
+
+Instead, try to provide major milestones for yourself to work towards that comprise the essential parts of your project. Keep your project goals direct, to the point, and attuned to the project requirements. You can always build upon your work later, but don't get bogged down in too much detail or minor features until you have a sufficient working version of the site.
+
+## Where to Find Data?
+
+Okay, now that we've discussed some of the basics for your project, let's look to some ways to gather data. Depending on your project, you might be gathering/creating your dataset yourself, or you might be importing data from a source online. For the latter option, here are a few recommendations for finding datasets:
+
+- [NYC Open Data](https://opendata.cityofnewyork.us/): Official source for data in New York City.
+- [USGS (United States Geological Survey)](https://www.usgs.gov/): Official source for geological data in the United States.
+- [Google's Dataset Search](https://datasetsearch.research.google.com/): Search for datasets on Google.
+- [Kaggle](https://www.kaggle.com/datasets): Search for a variety of datasets on Kaggle.
+- [Data.gov](https://www.data.gov/): US Gov data covering everything from climate change to crime.
+- [Datahub.io](https://datahub.io/): Mostly business and finance datasets
+- [EarthData](https://earthdata.nasa.gov/): NASA data
+- [Data.world](https://data.world/): Data from various sources
+
+### Use JSON Data
+
+Each of these websites has a search engine that can help you find datasets that you might be interested in. In general, keep in mind that __we want to use JSON files__. Some sites will give you an option of multiple formats. If not, you may want to convert the data into JSON. For instance, if you encounter CSV files (which is common), you can use the [CSVtoJSON](https://csv.keyangxiang.com/) tool to convert the data into JSON. There are many online converters out there, so don't be discouraged if your data is not in a format you want.
+
+Okay, enough prepping. Let's get started! Attempt the Challenges below to get going with your ideas. __Above all, remember to have fun with your projects!__
+
+## Challenges
+
+1. Write a short project proposal to share your ideas with the class (a paragraph or two will suffice).
+
+2. Begin gathering or creating a dataset relevant to your ideas.
+
+3. Create a new folder and a new GitHub repository for the project. Begin uploading your essential files you'll be working with (an HTML file, a CSS file, a JS file, your data, etc.). If you need a refresher with GitHub, review the [GitHub lesson](http://localhost:3000/workshop/Javascript/?page=7).
+
+# Putting the Project Together
+
+Hopefully you have a good idea of what you'd like your project to achieve. While there is no one right answer for how to structure your project, there are some best practices that you can employ to help you envision the final product. In this lesson, we'll cover a few strategies for thinking about your project holistically.
+
+## Wireframing
+
+__Wireframing__ is the practice of creating a rough outline of a project in order to help you visualize the final product. It usually involves drawing a basic sketch of what the project will look like and figuring out minor details later on. This helps determine how the information is presented and how the various bits of information interact. Because this entanglement of information is the center of wireframing, there is no focus on fonts or colors or graphics. For instance, here's a basic wireframe for YouTube culled from [this site](https://www.visual-paradigm.com/learning/handbooks/agile-handbook/wireframe.jsp):
+
+![Wireframe](/images/wireframe_example.png)
+
+If you've ever used modern-day YouTube, this should look pretty familiar to you. It highlights only the essential aspects of what the site is meant to accomplish and what the user experience should be. Again, the point of wireframing is to help you visualize the final product; in other words, it serves as a blueprint for design. For your project, it can help you plan out:
+
+- __Content:__ What content will be displayed?
+- __Structure:__ How are the pieces of the application fitting together?
+- __Information Hierarchy:__ How is the information organized and displayed together? What is most important?
+- __Functionality:__ How will the overall interface work?
+- __Behavior:__ How will the users interact with the interface? What will be the results?
+
+Try grabbing a notebook or using [this site](https://app.diagrams.net/) to draw a simple wireframe plan for your project.
+
+## CSS Styling
+
+### Flexbox Layout
+
+Remember flexboxes? We used them to center and space our jokes page to make them look nice and to allow it to display well on mobile devices. They are not required for you to use in your projects, but they will likely come in handy in allowing you to effectively structure the content of your pages. For instance, we could have used them style our columns of NYC neighborhoods we created earlier to make the page much cleaner looking.
+
+If you need a refresher on flexboxes, feel free to review [the lesson on CSS](http://localhost:3000/workshop/Javascript/?page=8) or look through the very handy [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
+It's worth pointing out that flexboxes are similar to CSS `grids`. Depending on what you are trying to achieve, one might be better suited for your purposes than the other. I'd encourage you to [look over this resource](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout) and especially [this resource](https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184) to learn about the differences between `grid` and `flexbox`, and to decide which might be best for your project.
+
+### Styling Elements
+
+Keep in mind that basically anything you display on the page can be styled. You can style the entire page, individual elements, or even individual parts of elements. For instance, let's say we wanted to add a bit of style to our "Flatbush" button from our map page we created in previous lessons. We want it to change color when the mouse hovers over it, and change color again once it's clicked. To accomplish this, we could use jQuery and CSS like so:
+
+```JavaScript
+// change the color of the button when the mouse hovers over it and when it is clicked
+$("#flatbush").mouseover(function() {
+    $("#flatbush").css("background-color", "orange");
+}).mouseout(function() {
+    $("#flatbush").css("background-color", "white");
+}).click(function() {
+    $("#flatbush").css("background-color", "yellow");
+}
+);
+```
+
+`mouseover` and `mouseout` are jQuery events that are triggered when the mouse enters or leaves the element. The button's normal state is colored white, but when the mouse hovers over it, it changes color to orange. When the mouse is clicked, the button changes color to yellow.
+
+Alternatively, we could accomplish this entirely in CSS (without needing jQuery) to style the button when the mouse hovers over it and when it is clicked:
+
+```CSS
+#flatbush {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#flatbush:hover {
+    background-color: orange;
+}
+
+#flatbush:active {
+    background-color: yellow;
+}
+```
+
+The above CSS code will change the button's background color to orange when the mouse hovers over it, and to yellow when it is clicked. This latter option is probably the most appropriate way to go, as it is usually best to keep style changes to your CSS files if possible, but both options are available to you. There is almost always more than one way to accomplish a particular task.
+
+These are very simple examples meant to get you thinking about the overall design of your page, and how you can make individual elements more perceptible and visually appealing. Remember, for accessibility purposes, you should try to provide a solid contrast with the colors you are using, especially if you are styling text.
+
+## Incorporating GeoJSON Data
+
+If you have a GeoJSON dataset you'd like to work with, keep in mind the preliminary step we covered in the [Working With GeoSpatial Data](http://localhost:3000/workshop/Javascript/?page=12) lesson. If you recall, we first needed to convert the file to a JavaScript object, by changing the file extension to `.js` and then storing the data in a variable:
+
+```JavaScript
+const varToStoreData = { // store all the data in a const variable
+"type": "FeatureCollection",
+...
+...
+...
+```
+
+This is the easiest way to utilize the `L.geoJSON()` method to add data to a map without having to worry about taking extra steps to "parse" the data. Otherwise, Leaflet seems to have difficulty working directly with JSON data. Once this is done, also remember that you need to include the new `.js` file in your HTML file's `<head>`:
+
+```HTML
+<head>
+    <script src="your_dataset.js"></script>
+```
+
+This method should work well in most cases.
+
+## General Advice
+
+In general, while working on your projects, keep the following in mind:
+
+- __Don't be afraid to ask for help__. If you need help, you can always reach out to your instructor or to your fellow classmates. Even for solo projects, programming is almost always a collaborative venture (whether in drawing advice from colleagues, friends, or complete strangers online).
+- __Break down your project into smaller steps__. This will help you to better understand the overall purpose of your project and allow you to better understand the steps you need to take to complete it.
+- __Break your code itself down into logical chunks__. This is especially important for large projects, as it helps you keep your code organized and focused on the task at hand.
+- __Review previous lessons, check documentation, and search the web for resources__. This will help you to better understand the concepts you are employing and to better understand the code you are writing.
+- __Limit your scope__. Focus on the basics of building your site first, and worry about the complex aspects later.
+
+## Challenge
+
+Your only challenge here is to continue working on your projects. __Good luck!__
 
 # Going Live
 
+The last step in building your project is to go live with your project, or to deploy it to the web. This is, of course, the final step in the process of building a web application. Thankfully, GitHub has a built-in deployment tool that will allow you to deploy your project very easily.
 
+### Deploying to the Web
 
-Up to this point our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. To get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout this class, we will be working in this folder.
-Click this button to download a couple of files we'll be needing. Add them to your working folder.
-<Download files='index.html, script.js'>
+Once you are finished with your project, follow the instructions below to deploy your project to the web.
 
-## The HTML
+1. __Stage, commit, and push all your changes to GitHub.__ Once you are finished working on your project, make sure to push all your changes to GitHub. 
 
+2. __Navigate to your GitHub repository in your browser__. Make sure you are logged in to GitHub and click through to your project repository.
 
+3. __Go to the Settings tab at the top, and then to the Pages tab in the sidebar__.
 
+4. __Under Branch, choose `master`__.
 
+5. __Click the Save button__.
 
-First we need to understand the HTML. HTML is the markup language that is used to create web pages. It is a simple language that is used to describe the structure of a web page. 
-    
-```html
-<!doctype HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>My JavaScripting Master's Student Project</title>
-  </head>
-  <body>
-    <h1>This is my project!</h1>
-    <div id="response">This is the #response div.</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="scripts.js"></script>
-  </body>
-</html>
-```
+6. __Refresh the page, or click on the Pages tab again__. You should see a new message saying "Your site is live at...". This will include your username, repository name, and the URL of your site.
 
-## The JavaScript
+7. __Click Visit Site to view your published site__.
 
-```javascript
-alert('Hey, it worked!');
-```
+And that's it! You should now be able to see your site live on the web and be able to share it with others. For instance, here is my URL of the practice site we built together in this course: https://zipper3030.github.io/Javascript/
 
-<JSConsole />
-
-
-
-Loops are a way to repeat a block of code a certain number of times. Deciding when and how often to repeat a block of code is a huge part of what makes programming useful. One key concept of looping is 'iteration'. Iteration is moving through a series of items, one at a time. Here is an example of a loop iterating through a list of numbers:
-
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-for (var i = 0; i < numbers.length; i++) {
-    console.log(numbers[i]);
-}
-```
-
-Notice that we set a variable called `i` to 0. This is called the 'initialization' of the loop. We then set the condition that the loop will run as long as `i` is less than the length of the array. This is called the 'test'. We then increment `i` by 1. This is called the 'update'. We use that index to get the value at that index in the array. So, in order, we initialize, test, and update.
-
-Let's talk through the loop we made. First, we initialize the loop. We set `i` to 0. Then, we test the condition. We check to see if `i` is less than the length of the array. If it is, we move on to the next step. If it isn't, we exit the loop. Then, we update the loop. We increment `i` by 1. We repeat the loop until `i` is greater than or equal to the length of the array. Inside the loop, we use the index `i` to get the value at that index in the array. So, we get the value at index 0, then the value at index 1, then the value at index 2, etc.
-
-Let's add a loop to our index.html file. We'll use the same code as before, but this time we'll add a button to the page that will run the loop.
-
-## The HTML
-
-```html
-<!doctype HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My JavaScripting Master's Student Project</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="scripts.js"></script>
-    </head>
-    <body>
-        <h1>This is my project!</h1>
-        <div id="response">This is the #response div.</div>
-        <button id="button">Click me!</button>
-    </body>
-</html>
-```
-
-## The JavaScript
-
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-$('#button').click(function() {
-    for (var i = 0; i < numbers.length; i++) {
-        console.log(numbers[i]);
-    }
-}
-```
-
-See how we're connecting the button to the loop? We're using the `$` function to select the element with the id `button`. We're also using the `click` function to run the loop when the button is clicked.
-
-
-
-Functions are a way to group code together. They are useful for keeping your code organized. They are also a great way to reuse code. Here's an example:
-
-```javascript
-function add(a, b) {
-    return a + b;
-}
-```
-
-This function is called `add`. It takes two parameters, `a` and `b`. It then returns the sum of `a` and `b`. What does it mean to `return` something? Let's take a look:
-
-```javascript
-var newValue = add(1, 2);
-console.log(newValue);
-```
-
-What does `newValue` equal? It equals 3. This is because we called the function `add` with the parameters 1 and 2, which returned 3. So, returning something is a way to get the value of something, just like getting the end result of a calculation.
-
-So, you could call this function a machine that adds two numbers. Let's talk about the syntax:
-
-```javascript
-    `function name(parameter1, parameter2) {`
-    `    code to run`
-    `}`
-``` 
-
-Inside the parentheses, we're defining the parameters. This is just like defining variables, but they're used to pass values into the function. Let's try it out.
-
-```javascript
-var firstNumber = 1;
-var secondNumber = 2;
-var c = add(firstNumber, secondNumber);
-console.log(c);
-```
-
-This is something that all learning programmers have to wrap their head around. INSIDE the function, `firstNumber` and `secondNumber` are known as `a` and `b`. We're calling the function `add` and passing `a` and `b` into it. The function then returns the sum of `a` and `b`. This move is confusing at first, but is key to understanding how functions work. Let's try another one.
-
-```javascript
-function howFeel(mood) {
-    if (mood === 'happy') {
-        return 'I feel happy!';
-    } else if (mood === 'sad') {
-        return 'I feel sad!';
-    } else {
-        return 'I feel neutral!';
-    }
-}
-```
-
-Notice that we've included an if/else statement. Everything we've learned up to this point can be used in a function. Here's another one, this time looping through a list:
-
-```javascript
-var NYBoroughs = ['Manhattan', 'Bronx', 'Brooklyn', 'Queens', 'Staten Island'];
-for (var i = 0; i < NYBoroughs.length; i++) {
-    if (NYBoroughs[i] === 'Queens') {
-        console.log('Queens has the best food!');
-    } else {
-        console.log(NYBoroughs[i]);
-    }
-}
-```
-
-<JSTerminal />
-
-<CodeEditor language='javascript'>
-var t = 10;
-</CodeEditor>
-
-
-
-When encountering an error, the browser will stop running the code. It will show an error message. The error will show a few things:
-
-- The line of code that caused the error
-- The error message
-- The stack trace
-
-There are a few main types of errors:
-
-- Syntax errors
-- Runtime errors
-- Logical errors
-
-Syntax errors are when the code is not written correctly. Runtime errors are when the code is written correctly, but the computer is not able to run it. Logical errors are when the code is written correctly, but the computer is not able to run it because it is not doing what it should.
-
-When you have a syntax error, the error report will show you the line of code that caused the error. It is not always clear where the error is. It is often the line of code that comes after the error (??). There are online resources that can help you find the error, such as [Stack Overflow](https://stackoverflow.com/). Stack Overflow is a great place to find answers to your questions. The people there are not always friendly.
-
-If you get a runtime error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
-
-If you get a logical error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
-
-
-You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
-
-
-
-We're gonna add some INTERACTIVITY to our project. We're going to add a button to the page that will ask the user for their name. We're going to add a div to the page that will show the user their name. 
-
-```html
-<!doctype HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My JavaScripting Master's Student Project</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="scripts.js"></script>
-    </head>
-    <body>
-        <h1>This is my project!</h1>
-        <div id="response">This is the #response div.</div>
-        <button id="button">Click me!</button>
-    </body>
-</html>
-```
-## The JavaScript
-
-```javascript
-$('#button').click(function() {
-    var name = prompt('What is your name?');
-    $('#response').text(name);
-}
-```
-
-
-
-The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the right questions. It comes through practice. Seeing an error
-
-
-
-Objects are a way to store data in a structured way. They are useful for storing data that has a lot of different properties. Here's an example:
-
-```javascript
-    var person = {
-        name: 'Sandra',
-        age: 30,
-        favoriteFood: 'pizza'
-    };
-```
-
-What's nice about this is that we can access the properties of the object using dot notation. What is the difference between dot notation and bracket notation? Let's take a look:
-```javascript
-    person.name;
-    person['name'];
-```
-
-
-
-Documentation exists to explain what a tool is and how to use it. Too often, whether because documentation is an afterthought, or because the people responsible for making it are better programmers than communicators, technical documentation fails to make itself clear. Paradoxically, it is often necessary to already be familiar with using a tool in order to interpret the instructions about how to use it.
-
-
-
-D3 is a JavaScript library that allows you to create visualizations. Other tools are higher-level libraries that have more assumptions about how to use them. D3 is less opinionated about how to use it. It is more flexible. It is more robust. It is more efficient. It is more powerful. BUT it is more complicated. Here's a quick example of how to use D3:
-
-<HTMLEditor >
-
-<html>
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
-    <div id="map"></div>
-</html>
-<css>
-#map {
-    height: 400px;
-    width: 400px;
-}
-</css>
-<javascript>
-```
-var map = L.map('map').setView([51.505, -0.09], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
-```
-</javascript>
-
-</HTMLEditor>
-
+__Congratulations on all your work!__ You have accomplished quite a lot in this course and had to overcome many difficult challenges along the way. I hope the course has inspired you to continue to improve your skills and knowledge with programming and web development. Good luck with your future endeavors!

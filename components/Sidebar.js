@@ -101,7 +101,7 @@ export default function SidebarDrawer({ pages, currentPage, handlePageChange }) 
                                         cursor: currentPage === index + 1 ? 'default' : 'pointer'
                                     }}
                                     onClick={() => handlePageChange(event, index + 1)}
-                                    primary={page} />
+                                    primary={index + 1 + ". " + page} />
                             </ListItem>
                         ))}
                     </List>

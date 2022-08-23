@@ -100,7 +100,6 @@ export default function HTMLEditorComponent({ defaultCode = "<!-- Write your HTM
                 }
                 xhr.send();
             }
-            // return <script key={index} src={node?.attribs?.src}>{data}</script>;
         }
     };
 

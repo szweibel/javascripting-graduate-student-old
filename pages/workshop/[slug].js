@@ -12,7 +12,8 @@ import SlideoutEditor from '../../components/Editor/SlideoutEditor'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import yaml from '../../config.yml'
-
+import Skeleton from '@mui/material/Skeleton';
+import { map } from 'jquery'
 
 export default function WorkshopPage({
   workshops,
@@ -42,11 +43,11 @@ export default function WorkshopPage({
       }
       return acc;
     }, []);
-  
+
     return (
       allPages.map((page, index) => {  // page = [h1, p, p]
         // if page classname is 'frontpage' then render frontpage
-        
+
         return (
           <div key={index} className='page-content'>
             {page.map((element, index) => {
@@ -68,6 +69,7 @@ export default function WorkshopPage({
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState(htmlContent(content));
   const [currentContent, setCurrentContent] = useState([]);
+  const [currentContentLoaded, setCurrentContentLoaded] = useState(false);
   const [pageTitles, setPageTitles] = useState([]);
   const [currentHeader, setCurrentHeader] = useState(null);
 
@@ -85,12 +87,15 @@ export default function WorkshopPage({
   useEffect(() => {
     setPages(htmlContent(content));
     setCurrentPage(1);
-    setCurrentContent(pages[0]);
     const urlParams = new URLSearchParams(window.location.search);
     const page = Number(urlParams.get('page'));
     if (page) {
       setCurrentPage((page));
       setCurrentContent(pages[page - 1]);
+      setCurrentContentLoaded(true);
+    } else {
+      setCurrentContent(pages[0]);
+      setCurrentContentLoaded(true);
     }
   }, [slug]);
 
@@ -121,7 +126,7 @@ export default function WorkshopPage({
 
         />
 
-        {yaml.presentation !==false && <Presentation
+        {yaml.presentation !== false && <Presentation
           currentHeader={currentHeader}
           content={currentFile}
           title={title}
@@ -161,7 +166,21 @@ export default function WorkshopPage({
       <div className="card-page">
         <div className="workshop-container">
           {PaginationComponent(currentPage)}
-          {currentContent}
+          {currentContentLoaded ? (
+            currentContent
+          ) : (
+
+            <div className='skeleton-container'
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <Skeleton variant="rect" width={'100%'} height={'50px'} />
+              {
+                Array(content.split('\n').length).fill(<Skeleton variant="text" height='100%' width='100%' />)}
+            </div>
+          )}
           {PaginationComponent(currentPage)}
           <SlideoutEditor />
         </div>
