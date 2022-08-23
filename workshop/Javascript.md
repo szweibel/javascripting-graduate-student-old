@@ -18,31 +18,42 @@ goals:
 
 # Introduction
 
-Hello!
+Hello! This is *The JavaScripting Masters Student*, a course designed particulary for graduate students who are not pursuing a degree in computer science. The course is designed to help you learn the fundamentals of programming and to help you get started on your own projects. The course is __not__ intended to be a comprehensive introduction to computer science concepts, but rather a step-by-step path to making something useful.
 
 ## Learning Outcomes
 
 By the end of the semester, successful students will
 
-- Gain capacity to read and write JavaScript at a beginner level
+- Gain capacity to read and write JavaScript at a beginner level.
 - Understand the core programming concepts, including variables, loops, and conditionals.
 - Distinguish among five core data types—integers, floats, strings, booleans, and arrays.
 - Engage with error output and use the internet and documentation to independently research language features.
-- Be familiar with JS libraries like Leaflet and JQuery
+- Be familiar with JS libraries like Leaflet and JQuery.
 - Create a small project of their own that can live on the web!
 - Be ready for further classes that require JavaScript knowledge.
 
-## What am I doing here? Why Learn JavaScript?
+<!-- ## What am I doing here? Why Learn JavaScript?
+
+There are two ways of meaning that question:
+MORE
+
+ 
+1. JavaScript is a good first language to learn.
+
+"JavaScript is the language of the web". You will have heard that, perhaps. MORE
+
+2. Learning JavaScript means learning an adaptable language that can be used to bring your work to people on the web.
+MORE -->
 
 ## The Process of Learning a Language
 
 There are many ways to learn a language. In the case of human languages, the most effective is said to be full immersion. It can be very motivating to be put in a situation where learning is aligned well with a concrete goal, in this case communicating with the people around you.
 
-In the same way I have observed that learning a programming language requires an aim, a goal, something to be achieved. This ends up looking like a project built in that language. The problem often ends up being that new learners do not know what is possible to do with the language, so it's hard to have a clear goal. This text is designed towards a guided process of project-oriented learning. At the end of this text you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language. 
+In the same way, learning a programming language benefits from having a specific aim, typically a project built in that language. The problem, though, often ends up being that new learners do not know what is possible to do with a language, so it's hard to develop a clear and realistic goal. In order to help learners along their path, this course is designed as a guided process of project-oriented learning. At the end of this text, you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language.
 
 ## Cool, inspiring libraries
 
-What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. 
+What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. Below are a few examples of powerful tools that you can use to create your own projects. We will be exploring one of these, Leaflet, later in the course.
 
 - [Chart.js](https://www.chartjs.org/docs/latest/)
 - [D3.js](https://d3js.org/)
@@ -51,8 +62,13 @@ What's possible with JavaScript? You can use it to create a map, a data visualiz
 
 ## JavaSCRIPT, not Java
 
-Part of what it takes to be learn how to program is to learn the meanings of specialist words in common use. the first thing that trips up a lot of beginners is the name of the programming language, "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so: the confusion could very nearly be called intentional! A bit of history:
-Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name there is no association between the two.
+A fundamental part of learning how to program is becoming familiar with the meanings of specialist words in common use. The first thing that trips up a lot of beginners is the name of the programming language, "JavaScript". Often new learners will see references to "Java" and "JavaScript" and think that they are referring to the same language. They are not! But you would be forgiven for thinking so. The confusion could very nearly be called intentional! A bit of history:
+
+Java is a programming language that became popular in the 1990s. It was used primarily for desktop applications, but as the web became a bigger deal, Java was positioned as the language of choice for web development. The creator of JavaScript, Brendan Eich, wanted to hitch a ride on the success of Java and associate his new language with the more established one. Hence, "JavaScript". Other than the name, there is no association between the two.
+
+## Acknowledgements
+
+This material is modeled off of [The JavaScripting English Major](https://the-javascripting-english-major.org/v1/contents) by Moacir P. de Sá Pereira. Its pragmatic approach to teaching programming inspired our own, particularly in the project-oriented design of the course. Similarly [Eloquent JavaScript](https://eloquentjavascript.net/) by Marijn Haverbeke demonstrated to us a step-by-step accretive method of learning that feels fitting for an audience of non-CS majors. We were also influenced by [Learn Python the Hard Way](https://learnpythonthehardway.org/book/) by Zed A. Shaw, in his emphasis on engaging the reader in actual typing and not just memorizing syntax. 
 
 # Getting Started with JavaScript
 
@@ -437,7 +453,7 @@ Do you recall the meaning of the following terms from this lesson?
 - declaration/assignment
 - mutability
 
-# Control Flow
+# If/Then
 
 So far, we have been working with fairly simple programming structures. Our code thus far has been written as a single, linear, ordered list of instructions. However, there are other ways to structure your code that takes account of various conditions and reacts accordingly. 
 
@@ -3411,7 +3427,7 @@ Before we begin integrating web maps into our project, it might be helpful to co
 
 <html>
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+ <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
     <div id="map"></div>
 </html>
 <css>
