@@ -98,7 +98,7 @@ As you can see, the alert dialog box takes the focus and forces the user to read
 
 You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotations marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
 
-You will also notice that there is a `;`(semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, just make sure to __include the semicolon__ at the end of each line of code.
+You will also notice that there is a `;` (semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, just make sure to __include the semicolon__ at the end of each line of code.
 
 ### Using Your Browser's Console
 
@@ -683,40 +683,63 @@ I’m going to have some fun with this story and let the player decide what to d
     }
 ```
 
-Here we have given the player two options by entering either `1` or `2` into the prompt. Now that we have their first options, we can add further options by nesting additional `if` statements:
+Let's try adding some more options to our story. Using the code editor below, see if you can add further options by nesting additional `if-else if` statements in the areas I have indicated with comments. You'll first want to include a new `prompt()` for `playerChoice` to get the player's new choices.
+
+<CodeEditor language='JavaScript' height = '600px'>
+var playerName, playerChoice;
+var playerName = prompt("What is your name?");
+alert("Welcome, " + playerName + "!");
+alert(playerName + ", you are the last person on earth, sitting alone in a room. There is a knock on the door... What will you do?");
+playerChoice = prompt("Enter 1 to cautiously approach the door. Enter 2 to hide under the table.");
+if (playerChoice == "1"){
+    alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+    // add new prompt and choices for this branch here
+} else if (playerChoice == "2"){
+    alert("As you hide under the table you hear the doorknob rattling.");
+    // add new prompt and choices for this branch here
+}
+else {
+    alert("Invalid entry.");
+}
+</CodeEditor>
+
+
+Were you successfully able to add more options? Study my example below for a minute. For each choice (whether 1 or 2), I have added a new `if/else-if/else` statement within that block:
 
 ```JavaScript
-    if (playerChoice == "1"){
+    if (playerChoice == "1"){ // here's their first choice #1
         alert("Your hands are trembling as you approach the door. You pause a moment before it.");
         playerChoice = prompt("Enter 1 to bravely open the door. Enter 2 to look through the door's peephole.");
-        if (playerChoice == "1"){
+        if (playerChoice == "1"){ //here's their second choice #1
             alert("You swing the door open with courageous gusto.")
         }
-        else if (playerChoice == "2"){
+        else if (playerChoice == "2"){ //here's their second choice #2
             alert("You cautiously look through the peephole. You make out a vague shape looming before the door.")
         }
         else {
-            alert("Invalid entry.");
+            alert("Invalid entry."); // invalid entry for second choices
         }
-    } else if (playerChoice == "2"){
+    } else if (playerChoice == "2"){ // here's their first choice #2
         alert("As you hide under the table you hear the doorknob rattling.");
         playerChoice = prompt("Enter 1 to stay hidden under the table. Enter 2 to get up and find a weapon to defend yourself with.");
-        if (playerChoice == "1"){
+        if (playerChoice == "1"){ //here's their second choice #1
             alert("Whatever is at the door has now begun banging on it loudly.");
         }
-        else if (playerChoice == "2"){
+        else if (playerChoice == "2"){ //here's their second choice #2
             alert("You quickly but quietly get up and look around. You see a broom in the corner of the room and wield it mightily.");
         }
         else {
-            alert("Invalid entry.");
+            alert("Invalid entry."); // invalid entry for second choices
         }
     }
     else {
-        alert("Invalid entry.");
+        alert("Invalid entry."); // invalid entry for first choices
     }
 ```
 
-Okay, now we have some additional options for the player to choose from, along with more error messages if they choose incorrectly. Putting it all together then, here is the story so far:
+In this way, we are creating a branching structure that follows different paths according to player choice.
+
+Putting it all together then, here is the story so far:
 
 ```JavaScript
     var playerName, playerChoice;
@@ -756,12 +779,12 @@ Okay, now we have some additional options for the player to choose from, along w
     }
 ```
 
-Try writing a short story of your own in the code editor below. (You can also copy/paste the code from mine if you want to see it in action.) __Note:__ If you are particularly fond of your story, feel free to copy and paste it in a document for use later! We'll learn how to work with local JavaScript files in a later lesson.
+Copy/paste my code into the code editor below if you'd like to see it in action.
 
 <CodeEditor language='JavaScript' height = '450px'>
 </CodeEditor>
 
-While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else` statements makes a program incredibly difficult to build and maintain. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
+While this approach to creating a Choose Your Own Adventure program works, it is very clunky and quite hard to read. As we said before, simply using a bunch of nested `if/else if` statements makes a program incredibly difficult to build and maintain. You probably noticed this yourself when trying to add more choices to the program. Also, if the player incorrectly inputs a number, this program simply exits rather than prompting them to try again. Thankfully, JavaScript has many tools to help us address these issues. As we continue to learn more about the language, we will learn to use more control flow structures and data types to make our programs more readable and maintainable. Specifically, in the next lesson we will begin learning about loops and how to use them to repeat blocks of code, iterate over a series of values, and make our programs more efficient overall.
 
 ## Review Questions
 
@@ -795,7 +818,6 @@ else
 
 <Quiz>
 - `break`*
-- `continue`
 - curly braces*
 - a default case*
 </Quiz>
@@ -980,8 +1002,6 @@ for (var i = 0; i < array.length; i++) {
 }
 ```
 
-TODO: Reverse logic, explain more clearly, add another example
-
 This may look a little complicated, so let's explore it a bit. The `for` loop is comprised of three parts: the first part is the initialization of the loop, which is the variable `i` in this case (`i` is often used by convention, but the variable name can be anything you want). The second part is the condition that the loop will continue to execute until, and the third part is the incrementor. Each is separated by a semi-colon `;`.
 
 To break it down a little more:
@@ -1003,7 +1023,31 @@ Try running this code in the code editor below.
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-As you can see, the loop iterated through the array and alerted each value in the array. You'll notice that the loop executed the alert 5 times instead of displaying all the values at once. This is because the loop is executing the alert once for each value in the array. In other words, the code inside the `for` loop block executes once for each value in the array based on the current value of `i`. So, if there are 5 values in the array, the loop will execute 5 times.
+As you can see, the loop iterated through the array and alerted each value in the array. You'll notice that the loop executed the alert 5 times instead of displaying all the values at once. This is because the loop is executing the alert once _for each_ value in the array. In other words, the code inside the `for` loop block executes once for each value in the array based on the current value of `i`. So, if there are 5 values in the array, the loop will execute 5 times.
+
+`for` loops are incredibly important to get the hang of, so let's look at one more example, looping from 1 to 5:
+
+```JavaScript
+var num = 5;
+
+// looping from i = 1 to 5
+// in each iteration, i is increased by 1
+for (var i = 0; i <= num; i++) {
+    console.log(i);     // printing the value of i
+}
+```
+
+If we were to run this, what would we get? Well, in this case we would get the following output:
+
+```
+1
+2
+3
+4
+5
+```
+
+In this case, we started our loop at `i = 1`, rather than `i = 0`. This is because we want to start our loop at 1, not 0. We then check if `i` is less than or equal to `num`, which is 5. If `i` is less than or equal to 5, the loop will continue to execute. If `i` is greater than 5, the loop will stop executing. Thus, we get the output of 1 through 5.
 
 ## The While Loop
 
@@ -3819,7 +3863,9 @@ const nyc = {
 ...
 ```
 
-This allows us to work directly with the `nyc` variable to add the data to our map. There is, however, one more step to take. We'll need to include the dataset as a source in our HTML file. So, in the `<head>` of your `nyc-data.html` file, add the following:
+This allows us to work directly with the `nyc` variable to add the data to our map. This is the easiest way I've found to utilize the `L.geoJSON()` method to add data to a map without having to worry about taking extra steps to "parse" the data. Otherwise, Leaflet seems to have difficulty working directly with GeoJSON data, and you'll receive an `"Invalid GeoJSON object"` error. 
+
+There is, however, one more step to take. We'll need to include the dataset as a source in our HTML file. So, in the `<head>` of your `nyc-data.html` file, add the following:
 
 ```html
 <script src="nycneighborhoods.js"></script>
@@ -4341,7 +4387,9 @@ Okay, now that we've discussed some of the basics for your project, let's look t
 - [EarthData](https://earthdata.nasa.gov/): NASA data
 - [Data.world](https://data.world/): Data from various sources
 
-Each of these websites has a search engine that can help you find datasets that you might be interested in. In general, keep in mind that we want to use JSON files. Some sites will give you an option of multiple formats. If not, you may want to convert the data into JSON. For instance, if you encounter CSV files (which is common), you can use the [CSVtoJSON](https://csv.keyangxiang.com/) tool to convert the data into JSON. There are many online converters out there, so don't be discouraged if your data is not in a format you want.
+### Use JSON Data
+
+Each of these websites has a search engine that can help you find datasets that you might be interested in. In general, keep in mind that __we want to use JSON files__. Some sites will give you an option of multiple formats. If not, you may want to convert the data into JSON. For instance, if you encounter CSV files (which is common), you can use the [CSVtoJSON](https://csv.keyangxiang.com/) tool to convert the data into JSON. There are many online converters out there, so don't be discouraged if your data is not in a format you want.
 
 Okay, enough prepping. Let's get started! Attempt the Challenges below to get going with your ideas. __Above all, remember to have fun with your projects!__
 
@@ -4363,7 +4411,7 @@ __Wireframing__ is the practice of creating a rough outline of a project in orde
 
 ![Wireframe](/images/wireframe_example.png)
 
-If you've ever used modern-day YouTube, this should be pretty familiar to you. It highlights only the essential aspects of what the site is meant to accomplish and what the user experience should be. Again, the point of wireframing is to help you visualize the final product; in other words, it serves as a blueprint for design. For your project, it can help you plan out:
+If you've ever used modern-day YouTube, this should look pretty familiar to you. It highlights only the essential aspects of what the site is meant to accomplish and what the user experience should be. Again, the point of wireframing is to help you visualize the final product; in other words, it serves as a blueprint for design. For your project, it can help you plan out:
 
 - __Content:__ What content will be displayed?
 - __Structure:__ How are the pieces of the application fitting together?
@@ -4371,290 +4419,115 @@ If you've ever used modern-day YouTube, this should be pretty familiar to you. I
 - __Functionality:__ How will the overall interface work?
 - __Behavior:__ How will the users interact with the interface? What will be the results?
 
-Try grabbing a notebook or using this site to draw a simple wireframe for your project.
+Try grabbing a notebook or using [this site](https://app.diagrams.net/) to draw a simple wireframe plan for your project.
 
 ## CSS Styling
 
-Remember flexboxes? They will likely come in handy in allowing you to effectively structure the content of your pages. [See this resource](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout) and [this resource](https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184) to learn about the differences between `grid` and `flexbox`. 
+### Flexbox Layout
 
-## Accessibility
+Remember flexboxes? We used them to center and space our jokes page to make them look nice and to allow it to display well on mobile devices. They are not required for you to use in your projects, but they will likely come in handy in allowing you to effectively structure the content of your pages. For instance, we could have used them style our columns of NYC neighborhoods we created earlier to make the page much cleaner looking.
 
+If you need a refresher on flexboxes, feel free to review [the lesson on CSS](http://localhost:3000/workshop/Javascript/?page=8) or look through the very handy [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
-break your project down into steps 
+It's worth pointing out that flexboxes are similar to CSS `grids`. Depending on what you are trying to achieve, one might be better suited for your purposes than the other. I'd encourage you to [look over this resource](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout) and especially [this resource](https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184) to learn about the differences between `grid` and `flexbox`, and to decide which might be best for your project.
 
-Showing/hiding data - keep things from getting too cluttered
+### Styling Elements
 
-If you are trying to figure something out, review the lessons from this course, check documentation, or search the web. Keep in mind the strategies we've discussed in the [Reading Documentation]() lesson.
+Keep in mind that basically anything you display on the page can be styled. You can style the entire page, individual elements, or even individual parts of elements. For instance, let's say we wanted to add a bit of style to our "Flatbush" button from our map page we created in previous lessons. We want it to change color when the mouse hovers over it, and change color again once it's clicked. To accomplish this, we could use jQuery and CSS like so:
 
-Collaborative coding
+```JavaScript
+// change the color of the button when the mouse hovers over it and when it is clicked
+$("#flatbush").mouseover(function() {
+    $("#flatbush").css("background-color", "orange");
+}).mouseout(function() {
+    $("#flatbush").css("background-color", "white");
+}).click(function() {
+    $("#flatbush").css("background-color", "yellow");
+}
+);
+```
+
+`mouseover` and `mouseout` are jQuery events that are triggered when the mouse enters or leaves the element. The button's normal state is colored white, but when the mouse hovers over it, it changes color to orange. When the mouse is clicked, the button changes color to yellow.
+
+Alternatively, we could accomplish this entirely in CSS (without needing jQuery) to style the button when the mouse hovers over it and when it is clicked:
+
+```CSS
+#flatbush {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#flatbush:hover {
+    background-color: orange;
+}
+
+#flatbush:active {
+    background-color: yellow;
+}
+```
+
+The above CSS code will change the button's background color to orange when the mouse hovers over it, and to yellow when it is clicked. This latter option is probably the most appropriate way to go, as it is usually best to keep style changes to your CSS files if possible, but both options are available to you. There is almost always more than one way to accomplish a particular task.
+
+These are very simple examples meant to get you thinking about the overall design of your page, and how you can make individual elements more perceptible and visually appealing. Remember, for accessibility purposes, you should try to provide a solid contrast with the colors you are using, especially if you are styling text.
+
+## Incorporating GeoJSON Data
+
+If you have a GeoJSON dataset you'd like to work with, keep in mind the preliminary step we covered in the [Working With GeoSpatial Data](http://localhost:3000/workshop/Javascript/?page=12) lesson. If you recall, we first needed to convert the file to a JavaScript object, by changing the file extension to `.js` and then storing the data in a variable:
+
+```JavaScript
+const varToStoreData = { // store all the data in a const variable
+"type": "FeatureCollection",
+...
+...
+...
+```
+
+This is the easiest way to utilize the `L.geoJSON()` method to add data to a map without having to worry about taking extra steps to "parse" the data. Otherwise, Leaflet seems to have difficulty working directly with JSON data. Once this is done, also remember that you need to include the new `.js` file in your HTML file's `<head>`:
+
+```HTML
+<head>
+    <script src="your_dataset.js"></script>
+```
+
+This method should work well in most cases.
+
+## General Advice
+
+In general, while working on your projects, keep the following in mind:
+
+- __Don't be afraid to ask for help__. If you need help, you can always reach out to your instructor or to your fellow classmates. Even for solo projects, programming is almost always a collaborative venture (whether in drawing advice from colleagues, friends, or complete strangers online).
+- __Break down your project into smaller steps__. This will help you to better understand the overall purpose of your project and allow you to better understand the steps you need to take to complete it.
+- __Break your code itself down into logical chunks__. This is especially important for large projects, as it helps you keep your code organized and focused on the task at hand.
+- __Review previous lessons, check documentation, and search the web for resources__. This will help you to better understand the concepts you are employing and to better understand the code you are writing.
+- __Limit your scope__. Focus on the basics of building your site first, and worry about the complex aspects later.
+
+## Challenge
+
+Your only challenge here is to continue working on your projects. __Good luck!__
 
 # Going Live
 
+The last step in building your project is to go live with your project, or to deploy it to the web. This is, of course, the final step in the process of building a web application. Thankfully, GitHub has a built-in deployment tool that will allow you to deploy your project very easily.
 
+### Deploying to the Web
 
-Up to this point our work has faded into the past at every screen refresh. Ephemerality is not a feature much appreciated in programming. To get started on something more permanent, let's set up a practice folder to hold our code. Call it `javascript`, or whatever you want, as long as you promise to remember it. Throughout this class, we will be working in this folder.
-Click this button to download a couple of files we'll be needing. Add them to your working folder.
-<Download files='index.html, script.js'>
+Once you are finished with your project, follow the instructions below to deploy your project to the web.
 
-## The HTML
+1. __Stage, commit, and push all your changes to GitHub.__ Once you are finished working on your project, make sure to push all your changes to GitHub. 
 
+2. __Navigate to your GitHub repository in your browser__. Make sure you are logged in to GitHub and click through to your project repository.
 
+3. __Go to the Settings tab at the top, and then to the Pages tab in the sidebar__.
 
+4. __Under Branch, choose `master`__.
 
+5. __Click the Save button__.
 
-First we need to understand the HTML. HTML is the markup language that is used to create web pages. It is a simple language that is used to describe the structure of a web page. 
-    
-```html
-<!doctype HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>My JavaScripting Master's Student Project</title>
-  </head>
-  <body>
-    <h1>This is my project!</h1>
-    <div id="response">This is the #response div.</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="scripts.js"></script>
-  </body>
-</html>
-```
+6. __Refresh the page, or click on the Pages tab again__. You should see a new message saying "Your site is live at...". This will include your username, repository name, and the URL of your site.
 
-## The JavaScript
+7. __Click Visit Site to view your published site__.
 
-```javascript
-alert('Hey, it worked!');
-```
+And that's it! You should now be able to see your site live on the web and be able to share it with others. For instance, here is my URL of the practice site we built together in this course: https://zipper3030.github.io/Javascript/
 
-<JSConsole />
-
-
-
-Loops are a way to repeat a block of code a certain number of times. Deciding when and how often to repeat a block of code is a huge part of what makes programming useful. One key concept of looping is 'iteration'. Iteration is moving through a series of items, one at a time. Here is an example of a loop iterating through a list of numbers:
-
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-for (var i = 0; i < numbers.length; i++) {
-    console.log(numbers[i]);
-}
-```
-
-Notice that we set a variable called `i` to 0. This is called the 'initialization' of the loop. We then set the condition that the loop will run as long as `i` is less than the length of the array. This is called the 'test'. We then increment `i` by 1. This is called the 'update'. We use that index to get the value at that index in the array. So, in order, we initialize, test, and update.
-
-Let's talk through the loop we made. First, we initialize the loop. We set `i` to 0. Then, we test the condition. We check to see if `i` is less than the length of the array. If it is, we move on to the next step. If it isn't, we exit the loop. Then, we update the loop. We increment `i` by 1. We repeat the loop until `i` is greater than or equal to the length of the array. Inside the loop, we use the index `i` to get the value at that index in the array. So, we get the value at index 0, then the value at index 1, then the value at index 2, etc.
-
-Let's add a loop to our index.html file. We'll use the same code as before, but this time we'll add a button to the page that will run the loop.
-
-## The HTML
-
-```html
-<!doctype HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My JavaScripting Master's Student Project</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="scripts.js"></script>
-    </head>
-    <body>
-        <h1>This is my project!</h1>
-        <div id="response">This is the #response div.</div>
-        <button id="button">Click me!</button>
-    </body>
-</html>
-```
-
-## The JavaScript
-
-```javascript
-var numbers = [1, 2, 3, 4, 5];
-$('#button').click(function() {
-    for (var i = 0; i < numbers.length; i++) {
-        console.log(numbers[i]);
-    }
-}
-```
-
-See how we're connecting the button to the loop? We're using the `$` function to select the element with the id `button`. We're also using the `click` function to run the loop when the button is clicked.
-
-
-
-Functions are a way to group code together. They are useful for keeping your code organized. They are also a great way to reuse code. Here's an example:
-
-```javascript
-function add(a, b) {
-    return a + b;
-}
-```
-
-This function is called `add`. It takes two parameters, `a` and `b`. It then returns the sum of `a` and `b`. What does it mean to `return` something? Let's take a look:
-
-```javascript
-var newValue = add(1, 2);
-console.log(newValue);
-```
-
-What does `newValue` equal? It equals 3. This is because we called the function `add` with the parameters 1 and 2, which returned 3. So, returning something is a way to get the value of something, just like getting the end result of a calculation.
-
-So, you could call this function a machine that adds two numbers. Let's talk about the syntax:
-
-```javascript
-    `function name(parameter1, parameter2) {`
-    `    code to run`
-    `}`
-``` 
-
-Inside the parentheses, we're defining the parameters. This is just like defining variables, but they're used to pass values into the function. Let's try it out.
-
-```javascript
-var firstNumber = 1;
-var secondNumber = 2;
-var c = add(firstNumber, secondNumber);
-console.log(c);
-```
-
-This is something that all learning programmers have to wrap their head around. INSIDE the function, `firstNumber` and `secondNumber` are known as `a` and `b`. We're calling the function `add` and passing `a` and `b` into it. The function then returns the sum of `a` and `b`. This move is confusing at first, but is key to understanding how functions work. Let's try another one.
-
-```javascript
-function howFeel(mood) {
-    if (mood === 'happy') {
-        return 'I feel happy!';
-    } else if (mood === 'sad') {
-        return 'I feel sad!';
-    } else {
-        return 'I feel neutral!';
-    }
-}
-```
-
-Notice that we've included an if/else statement. Everything we've learned up to this point can be used in a function. Here's another one, this time looping through a list:
-
-```javascript
-var NYBoroughs = ['Manhattan', 'Bronx', 'Brooklyn', 'Queens', 'Staten Island'];
-for (var i = 0; i < NYBoroughs.length; i++) {
-    if (NYBoroughs[i] === 'Queens') {
-        console.log('Queens has the best food!');
-    } else {
-        console.log(NYBoroughs[i]);
-    }
-}
-```
-
-<JSTerminal />
-
-<CodeEditor language='javascript'>
-var t = 10;
-</CodeEditor>
-
-
-
-When encountering an error, the browser will stop running the code. It will show an error message. The error will show a few things:
-
-- The line of code that caused the error
-- The error message
-- The stack trace
-
-There are a few main types of errors:
-
-- Syntax errors
-- Runtime errors
-- Logical errors
-
-Syntax errors are when the code is not written correctly. Runtime errors are when the code is written correctly, but the computer is not able to run it. Logical errors are when the code is written correctly, but the computer is not able to run it because it is not doing what it should.
-
-When you have a syntax error, the error report will show you the line of code that caused the error. It is not always clear where the error is. It is often the line of code that comes after the error (??). There are online resources that can help you find the error, such as [Stack Overflow](https://stackoverflow.com/). Stack Overflow is a great place to find answers to your questions. The people there are not always friendly.
-
-If you get a runtime error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
-
-If you get a logical error, the error report will show you the line of code that caused the error. It will also show you the error message. The error message is often a little more specific than the line of code. It will also show you the stack trace. The stack trace is a list of the lines of code that were run before the error. It is often helpful to look at the stack trace to see where the error is.
-
-
-You've got to have a webpage with content in it in order to use JavaScript to manipulate it! We're going to use css Grid and Flexbox to get where we're going, so nothing like Bootstrap or etc.
-
-
-
-We're gonna add some INTERACTIVITY to our project. We're going to add a button to the page that will ask the user for their name. We're going to add a div to the page that will show the user their name. 
-
-```html
-<!doctype HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My JavaScripting Master's Student Project</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="scripts.js"></script>
-    </head>
-    <body>
-        <h1>This is my project!</h1>
-        <div id="response">This is the #response div.</div>
-        <button id="button">Click me!</button>
-    </body>
-</html>
-```
-## The JavaScript
-
-```javascript
-$('#button').click(function() {
-    var name = prompt('What is your name?');
-    $('#response').text(name);
-}
-```
-
-
-
-The absolute most important thing to learn is how to find answers to your questions. This means learning how to ask the right questions. It comes through practice. Seeing an error
-
-
-
-Objects are a way to store data in a structured way. They are useful for storing data that has a lot of different properties. Here's an example:
-
-```javascript
-    var person = {
-        name: 'Sandra',
-        age: 30,
-        favoriteFood: 'pizza'
-    };
-```
-
-What's nice about this is that we can access the properties of the object using dot notation. What is the difference between dot notation and bracket notation? Let's take a look:
-```javascript
-    person.name;
-    person['name'];
-```
-
-
-
-Documentation exists to explain what a tool is and how to use it. Too often, whether because documentation is an afterthought, or because the people responsible for making it are better programmers than communicators, technical documentation fails to make itself clear. Paradoxically, it is often necessary to already be familiar with using a tool in order to interpret the instructions about how to use it.
-
-
-
-D3 is a JavaScript library that allows you to create visualizations. Other tools are higher-level libraries that have more assumptions about how to use them. D3 is less opinionated about how to use it. It is more flexible. It is more robust. It is more efficient. It is more powerful. BUT it is more complicated. Here's a quick example of how to use D3:
-
-<HTMLEditor >
-
-<html>
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
-    <div id="map"></div>
-</html>
-<css>
-#map {
-    height: 400px;
-    width: 400px;
-}
-</css>
-<javascript>
-```
-var map = L.map('map').setView([51.505, -0.09], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
-```
-</javascript>
-
-</HTMLEditor>
-
+__Congratulations on all your work!__ You have accomplished quite a lot in this course and had to overcome many difficult challenges along the way. I hope the course has inspired you to continue to improve your skills and knowledge with programming and web development. Good luck with your future endeavors!
