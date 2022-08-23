@@ -1,9 +1,4 @@
-/* @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
-@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
-
-@import 'https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700'; */
-
-
+/* necessary comment */
 :root {
   /* default theme */
   --background: rgb(231, 235, 240);
