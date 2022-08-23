@@ -51,7 +51,7 @@ There are many ways to learn a language. In the case of human languages, the mos
 
 In the same way, learning a programming language benefits from having a specific aim, typically a project built in that language. The problem, though, often ends up being that new learners do not know what is possible to do with a language, so it's hard to develop a clear and realistic goal. In order to help learners along their path, this course is designed as a guided process of project-oriented learning. At the end of this text, you will have finished a small project that you can put on the web, therefore getting some idea of what you can do with the language.
 
-## Cool, inspiring libraries
+## Cool, Inspiring Libraries
 
 What's possible with JavaScript? You can use it to create a map, a data visualization, a website, or any number of things. Below are a few examples of powerful tools that you can use to create your own projects. We will be exploring one of these, Leaflet, later in the course.
 
