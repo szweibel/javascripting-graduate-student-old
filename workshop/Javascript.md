@@ -3981,7 +3981,7 @@ To enable a basic columnar structure, we also need to add a line of code to our 
 }
 ```
 
-This allows us to create a columnar structure with 3 columns, each 100px wide.
+This allows us to create a simple columnar structure with 3 columns, each 100px wide.
 
 If you save all files and check your page, you should see the list of neighborhoods displayed in columns:
 
@@ -4375,7 +4375,7 @@ Try grabbing a notebook or using this site to draw a simple wireframe for your p
 
 ## CSS Styling
 
-
+Remember flexboxes? They will likely come in handy in allowing you to effectively structure the content of your pages. [See this resource](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout) and [this resource](https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184) to learn about the differences between `grid` and `flexbox`. 
 
 ## Accessibility
 
