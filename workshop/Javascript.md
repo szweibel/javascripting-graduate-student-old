@@ -174,7 +174,23 @@ We can also perform various mathematical calculations on these numbers. For exam
 
 JavaScript calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.
 
-In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison: seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either `true` or `false`. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
+### Strings
+
+As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string.
+
+Just like with numbers, you can simply type a string (for instance, `"Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a `string` type.
+
+It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
+
+__Note__: If you need to use double-quotes inside of a string, there are two ways you can do this. You can, conversely, simply use single-quotation marks to surround a phrase, e.g., `'I wonder what "truth" means today?'`, or you can use a <kbd>\</kbd> (backslash) to precede a double-quotation mark within enclosed double-quotation marks, e.g. `"I wonder what \"truth\" means today?"`. 
+
+Strings can also utilize the `+` operator to __concatenate__, or join, separate string phrases together. For example, `"Hello, " + "World!"` will return `"Hello, World!"`. Try it out in the console below.
+
+<JSTerminal />
+
+## Comparisons
+
+In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison: seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either `true` or `false`. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself. In the `"5" == "5"` example below, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
 
 <table>
     <caption><strong>Comparison Operators</strong></caption>
@@ -291,19 +307,6 @@ While nearly all of these operators are shared amongst the majority of modern pr
 
 We'll continue to work with comparison/equality operators throughout the course, so don't worry if they're still a bit unclear. Additionally, we have for now purposefully left out the `=` (single equals) operator, as it has a different function than evaluating equality. We'll cover the single equals operator later in this lesson.
 
-### Strings
-
-As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string. In the `"5" == "5"` example you just saw, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
-
-Just like with numbers, you can simply type a string (for instance, `"Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a `string` type.
-
-It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
-
-__Note__: If you need to use double-quotes inside of a string, there are two ways you can do this. You can, conversely, simply use single-quotation marks to surround a phrase, e.g., `'I wonder what "truth" means today?'`, or you can use a <kbd>\</kbd> (backslash) to precede a double-quotation mark within enclosed double-quotation marks, e.g. `"I wonder what \"truth\" means today?"`. 
-
-Strings can also utilize the `+` operator to __concatenate__, or join, separate string phrases together. For example, `"Hello, " + "World!"` will return `"Hello, World!"`. Try it out in the console below.
-
-<JSTerminal />
 
 ### Boolean
 
