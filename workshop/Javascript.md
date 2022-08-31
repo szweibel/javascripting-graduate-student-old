@@ -97,7 +97,7 @@ You should now see a pop-up box that displays your message. __Note__: If you do 
 
 As you can see, the alert dialog box takes the focus and forces the user to read the specified message on the current webpage. This being the case, it is wise to avoid overusing this method because it stops the user from accessing other parts of the webpage until the box is closed. It is best used as a kind of warning message. For instance, you may have seen developers use it to notify the user that they are heading to a new external website after clicking a link.
 
-You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotations marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
+You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotation marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
 
 You will also notice that there is a `;` (semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, just make sure to __include the semicolon__ at the end of each line of code.
 
@@ -658,7 +658,7 @@ Let's take a look at a more concrete example of a `switch` statement. Let's say 
 
 Here we have three different difficulty levels (although you can have as many levels or `cases` as you want in a `switch` statement). The first `case` statement checks to see if the user entered `1`, the second `case` statement checks to see if the user entered `2`, and the final `case` statement checks to see if the user entered `3`. If the user entered `1`, `2`, or `3`, the `alert` message is displayed. If the user entered anything else, the `default` block is executed and an error message is shown. 
 
-While this example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many less curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
+While this example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many fewer curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
 
 ## Choose Your Own Adventure
 
@@ -1040,7 +1040,7 @@ var num = 5;
 
 // looping from i = 1 to 5
 // in each iteration, i is increased by 1
-for (var i = 0; i <= num; i++) {
+for (var i = 1; i <= num; i++) {
     console.log(i);     // printing the value of i
 }
 ```
@@ -1303,7 +1303,7 @@ This is functionally the same result. The only difference is that we have create
 
 ## Calling a Function
 
-If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function. Let's try calling the `add()` function with two number values:
+If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function as parameters. Let's try calling the `add()` function with two number values:
 
 ```JavaScript
 function add(num1, num2) {
@@ -2319,11 +2319,11 @@ And much more!
 
 ### Adding A New Stylesheet
 
-CSS files are called _stylesheets_. Let's create a new file called `style.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
+CSS files are called _stylesheets_. Let's create a new file called `styles.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
 
 To add a new file in VSCode, simply click on the "New File" button next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
 
-Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a link to our CSS document. The link tag is as follows:
+Next, we'll link to the `styles.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a link to our CSS document. The link tag is as follows:
 
 ```html
 <link rel="stylesheet" href="styles.css">
@@ -2392,8 +2392,8 @@ Next, let's add a paragraph with some text to our page. We'll start by adding a 
   </head>
   <body>
     <h1>This is my project!</h1>
-    <p>Q: Why did the programmer quit her job?
-      A: Because she didn't get arrays.</p>
+    <p>Q: Why did the programmer quit his job?
+      A: Because he didn't get arrays.</p>
     <script src="script.js"></script>
   </body>
 </html>
@@ -2450,8 +2450,8 @@ To create a class, we use the `.` (dot) character followed by the name of the cl
   <body>
     <div class="formatText">
       <h1>This is my project!</h1>
-      <p>Q: Why did the programmer quit her job?
-        A: Because she didn't get arrays.</p>
+      <p>Q: Why did the programmer quit his job?
+        A: Because he didn't get arrays.</p>
     </div>
     <script src="script.js"></script>
   </body>
@@ -2531,8 +2531,8 @@ Let's start by creating a new section in our HTML file, and adding a new `id` of
     <div class="formatText">
       <h1>This is my project!</h1>
         <section id="joke">     
-          <p>Q: Why did the programmer quit her job?
-          A: Because she didn't get arrays.</p>
+          <p>Q: Why did the programmer quit his job?
+          A: Because he didn't get arrays.</p>
           <p>Q: What's the difference between an academic and a genie?
           A: One grants wishes, the other wishes for grants.</p>
         </section>
@@ -2645,7 +2645,7 @@ Before we get to working with JavaScript, there are a few things we'll want to d
 
 ## Running a Live Server in VSCode
 
-So far, we have simply double-clicked the `index.html` file in your computer's file system and opened it in the browser. This is a perfectly fine way to get started previewing our webpage, but it may cause issues as we add more complexity. To address this, let's add an extension to our VSCode that will allow us to run a local web server to load and preview our webpage.
+So far, we have simply double-clicked the `index.html` file in your computer's file system and opened it in the browser. This is a perfectly fine way to get started previewing our webpage, but it may cause issues as we add more complexity. To address this, let's add an extension to our VSCode that will allow us to run a local web server to load and preview our webpages.
 
 Open up your project in VSCode. Next, click on the Extensions button in the sidebar.
 
@@ -2687,7 +2687,7 @@ Next, let's learn how to use jQuery to perform some basic tasks.
 
 The first function we will cover is the __jQuery selector__, which is one of the most important functions in jQuery. It allows us to select and manipulate HTML elements on our page. It is used to "find" HTML elements based on their name, id, class, type, and other attributes.
 
-All selectors start with a dollar sign followed by parentheses: `$("")`. A selector takes a single argument in the parentheses (set between doublequotes `""`), which is the element we want to modify. Let's look at some basic examples.
+All selectors start with a dollar sign followed by parentheses: `$("")`. A selector takes a single argument in the parentheses (set between double quotes `""`), which is the element we want to modify. Let's look at some basic examples.
 
 ### Selecting the Header
 
@@ -2790,7 +2790,7 @@ To create the button, add the following code to your `index.html` file, undernea
 <button id="toggleJokes">Toggle Jokes</button>
 ```
 
-Here we have a simple `<button>` element set to an id `toggleJokes`. If you save your file, you should now see a basic button on the page above your jokes section.
+Here we have a simple `<button>` element set to an id `toggleJokes`. If you save your file, you should now see a button on the page above your jokes section.
 
 You can see that it doesn't look very good at the moment, so why don't we add a bit of styling to make it better? Now, we could simply style the button in our CSS file like we did with other elements in the page. For example, to make the button orange, with larger white text, a border, some padding, and some margin space around the button to separate it from other elements, we could add the following code to our `style.css` file:
 
@@ -4225,7 +4225,7 @@ Let's say we wanted to figure out how to disable a button using jQuery (for inst
 
 ![Stack Overflow](/images/stack_overflow_example.png)
 
-Always, take a quick look at the question to make sure it's relevant to your problem. Then scroll down through the answers and the discussions to find what you're looking for. You may also notice snarky debates—another "feature" of Stack Overflow. In this particular case, there are many, many answers, and almost each one is a different way to solve the problem. It is worth pointing out that this question was asked over 12 years ago, which is something you might want to consider, as some things may possibly be out of date. In any case, there is a plethora of information on the page that should help point you in the right direction.
+Always, take a quick look at the question to make sure it's relevant to your problem. Then scroll down through the answers and the discussions to find what you're looking for. You may also notice snarky debates—another "feature" of Stack Overflow. (Unfortunately, in many cases this is why I wouldn't recommend _asking_ questions as a beginner on StackOverflow, as folks and moderators can be less than friendly. It is still a great place for _finding_ answers through search, however). In this particular case, there are many, many answers, and almost each one is a different way to solve the problem. It is worth pointing out that this question was asked over 12 years ago, which is something you might want to consider, as some things may possibly be out of date. In any case, there is a plethora of information on the page that should help point you in the right direction.
 
 As you might imagine, implementing code snippets from Stack Overflow is an incredibly common practice, and is even the source of many jokes, like this meme:
 
@@ -4235,7 +4235,7 @@ Don't feel the need to reinvent the wheel if you find a working solution on Stac
 
 ### Other Resources
 
-While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more.
+While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more. I would especially recommend reddit, as the communities are very active and usually inviting of folks who are just learning to code.
 
 If you would like to go really in-depth learning Leaflet, I would highly recommend Malcom Maclean's [Leaflet Tips and Tricks](https://leanpub.com/leaflet-tips-and-tricks/read).
 
