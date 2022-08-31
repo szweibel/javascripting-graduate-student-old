@@ -13,7 +13,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import yaml from '../../config.yml'
 import Skeleton from '@mui/material/Skeleton';
-import { map } from 'jquery'
 
 export default function WorkshopPage({
   workshops,

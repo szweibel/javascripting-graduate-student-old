@@ -789,6 +789,10 @@ table, th, td {
   color: #000000 !important;
 }
 
+.quizButton:hover {
+  box-shadow: none !important;
+}
+
 /* Boxes */
 .boxed h2{
   margin-top: 0;

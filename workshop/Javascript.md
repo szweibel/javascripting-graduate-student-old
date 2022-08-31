@@ -125,7 +125,7 @@ __Opera:__
 - Command + Option + i (Mac)
 - Ctrl + Shift + i (Windows/Linux)
 
-Using these shortcuts should open a console window that you can use to run commands. After the `>` prompt, create another new `alert` command and hit the <kbd>Enter</kbd> key to run it. You should again see a pop-up box that displays your message.
+Using these shortcuts should open a console window that you can use to run commands. After the `>` prompt, create another new `alert` command and hit the <kbd>Enter</kbd> key to run it. You should again see a pop-up box that displays your message. Practice opening your console with these commands to get the feel of it into your fingers.
 
 We should note here that the alert's system dialog box is not related to the design of the webpage currently being shown in the browser. Its appearance depends solely on your current operating system and browser (rather than on the HTML code of the current page). You will learn how to manipulate a webpage's content and appearance directly with JavaScript, HTML, and CSS in later lessons.  
 
@@ -160,8 +160,6 @@ Values of the `number` type are, as you might have guessed, numbers. Try typing 
 ```
 <JSTerminal />
 
-As you can see, JavaScript recognizes a variety of different number categories. Unlike other programming languages you may (or may not) be familiar with, JavaScript does not define different types of numbers, like integer, double, etc. All numbers are recognized as the same type.
-
 We can also perform various mathematical calculations on these numbers. For example, try running each of the following mathematical operations in the console:
 
 ```JavaScript
@@ -174,9 +172,25 @@ We can also perform various mathematical calculations on these numbers. For exam
 
 <JSTerminal />
 
-JavaScript calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example (in case you are unfamiliar) uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.
+JavaScript calculates the result of these operations for you. Whenever you can use a number, you can also create a mathematical expression using typical algebraic operators. The last example uses the <kbd>%</kbd> (remainder) symbol, which evaluates the remainder of a division.
 
-In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison:  seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either true or false. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself.
+### Strings
+
+As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string.
+
+Just like with numbers, you can simply type a string (for instance, `"Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a `string` type.
+
+It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
+
+__Note__: If you need to use double-quotes inside of a string, there are two ways you can do this. You can, conversely, simply use single-quotation marks to surround a phrase, e.g., `'I wonder what "truth" means today?'`, or you can use a <kbd>\</kbd> (backslash) to precede a double-quotation mark within enclosed double-quotation marks, e.g. `"I wonder what \"truth\" means today?"`. 
+
+Strings can also utilize the `+` operator to __concatenate__, or join, separate string phrases together. For example, `"Hello, " + "World!"` will return `"Hello, World!"`. Try it out in the console below.
+
+<JSTerminal />
+
+## Comparisons
+
+In the table below, you can see more of the various operators available to you as a JS programmer when working with data types. Many of the most useful operators deal in terms of comparison: seeing if one value is equal to, greater than, or lesser than another value. Each of these comparisons will evaluate to either `true` or `false`. It is important to understand how these operators work, so try inputting some of the examples you might be unclear with into the JS console to check out the results for yourself. In the `"5" == "5"` example below, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
 
 <table>
     <caption><strong>Comparison Operators</strong></caption>
@@ -293,19 +307,6 @@ While nearly all of these operators are shared amongst the majority of modern pr
 
 We'll continue to work with comparison/equality operators throughout the course, so don't worry if they're still a bit unclear. Additionally, we have for now purposefully left out the `=` (single equals) operator, as it has a different function than evaluating equality. We'll cover the single equals operator later in this lesson.
 
-### Strings
-
-As a data type, a __string__ is simply a series of alphanumeric characters, meaning it can combine both numbers and text into a phrase. Strings are mostly used for displaying or recognizing a series of text in your programs. You have actually already encountered a string--in the `console.log("Hello, World!");` command you ran above, everything enclosed in the double-quotation marks (namely, `Hello, World!`) is considered a string. In the `"5" == "5"` example you just saw, each 5 is actually considered a _string_, rather than a number, because they are enclosed in quotation marks.
-
-Just like with numbers, you can simply type a string (for instance, `"Hello, World!"`) into the console and it will repeat your string back to you. It is important to note that were you to add a number to the string, e.g., `"Hello, World in the Year 3030!";`, the entire phrase would still be considered a string and _not_ a number. This is because you have enclosed it within double-quotation marks, which always indicates a `string` type.
-
-It's worth noting that you can use both single- <kbd>'</kbd> and double-quotation <kbd>"</kbd> marks to identify a string. It is important, however, to keep your use consistent. For instance, if you were to write `"Hello, World!'`, beginning the phrase with double-quotes and ending with a single-quote, you will receive a `SyntaxError` (we'll cover how to deal with errors in a bit more detail later). It is best practice to primarily use double-quotes, as this allows you to use single-quotes _within_ a phrase without the console throwing errors. For example, `"It is Jill's birthday."` is a perfectly valid expression, while `'It is Jill's birthday.'` is not.
-
-__Note__: If you need to use double-quotes inside of a string, there are two ways you can do this. You can, conversely, simply use single-quotation marks to surround a phrase, e.g., `'I wonder what "truth" means today?'`, or you can use a <kbd>\</kbd> (backslash) to precede a double-quotation mark within enclosed double-quotation marks, e.g. `"I wonder what \"truth\" means today?"`. 
-
-Strings can also utilize the `+` operator to __concatenate__, or join, separate string phrases together. For example, `"Hello, " + "World!"` will return `"Hello, World!"`. Try it out in the console below.
-
-<JSTerminal />
 
 ### Boolean
 
@@ -371,7 +372,7 @@ description = "The book " + book + " by " + author + " is on ISBN " + isbn;
 console.log(description);
 ```
 
-As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program.  It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are immutable, meaning that they cannot be changed. We'll explore additional details about immutable variables in later lessons.
+As you can see, we have declared all the variables we want to include for our categorization of the books at the top of the program.  It is important to note that these variables persist only for the duration of your particular session with the console. If you close the console, they will be deleted from memory. You will also notice, however, that the values of the variables are __mutable__, meaning that they can be changed as the program progresses. If you run this program in the console, each `console.log()` command will display a new description. __Note__: Certain variable types are __immutable__, meaning that they cannot be changed. We'll explore additional details about immutable variables in later lessons.
 
 ### Variable Naming Conventions
 
@@ -380,7 +381,6 @@ There are a few rules for variable naming conventions in JavaScript.
 - Variables must begin with a letter or an underscore. You can't begin a variable name with a number (although you can use numbers after). 
 - Variables must not contain spaces or special characters. For example, `myVariable` is a valid variable name, but `my variable` is not.
 - Variable names are case sensitive. That is, a variable named `My_Books` is treated as an entirely different variable than one named `my_books`.
-
 - You can't use one of JavaScript's reserved words as a variable name. All programming languages have a supply of words that are used internally by the language. For a complete list, see here: [Reserved Words](https://www.w3schools.com/js/js_reserved.asp).
 - Do not include hyphens `-`. Hyphens can be misconstrued by JavaScript as attempts to subtract one value from another and will cause errors.
 
@@ -395,7 +395,7 @@ var myVariable = "Hello, World!";
 console.log(typeof myVariable);
 ```
 
-If you look at your developer console, you should see a `string` correctly identified as the data type of `myVariable`. You can use this operator to determine the data type of any variable you have created. This can become very useful when you are working with data types that are not explicitly defined or when you are converting data types from one type to another (which we'll begin learning in the next lesson).
+If you look at your developer console, you should see a `string` correctly identified as the data type of `myVariable`. You can use this operator to determine the data type of any variable you have created. This can become very useful when you are working with data types that are unknown to you or when you are converting data types from one type to another (which we'll begin learning in the next lesson).
 
 ## Review Questions
 
@@ -433,7 +433,7 @@ Let's review some of the main concepts we've covered in this lesson and get some
 
 ## Challenges
 
-1. In JavaScript, as in typical algebra, ambiguity in a mathematical expression is resolved by [rules of precedence (PEMDAS)](https://www.purplemath.com/modules/orderops.htm). For example, the expression `5 + 5` is evaluated as `10`, while the expression `5 + 5 * 5` is evaluated as `30`. Using the rules of precedence and the console, rework the expression `5 + 5 * 10 /2` so that it resolves to `50`. Next, utilizing the variables defined below, write an expression that resolves to `true` using the double equals `==` operator.
+1. In JavaScript, as in algebra, ambiguity in a mathematical expression is resolved by [rules of precedence (PEMDAS)](https://www.purplemath.com/modules/orderops.htm). For example, the expression `5 + 5` is evaluated as `10`, while the expression `5 + 5 * 5` is evaluated as `30`. Using the rules of precedence and the console, rework the expression `5 + 5 * 10 /2` so that it resolves to `50`. Next, utilizing the variables defined below, write an expression that resolves to `true` using the double equals `==` operator.
 
 ```JavaScript
 var a = 15;
@@ -504,7 +504,7 @@ Here is a simple example of the `prompt()` function in action. The user is asked
 Pretty nifty, right? `Prompt` code is like `alert` code, with a couple differences:
 
 1. In a prompt, you need a way to capture the user's response. So, you must begin the prompt with a variable declaration.
-2. In a prompt, you can specify a second message, which acts as a "default" value. If the user doesn't enter a response, the default message will be stored in the variable. For instance, we might make a prompt like: `var whatAmI = prompt("What am I?", "I am a human!");`, in which `I am a human!` will prepopulate the response field and act as the default return value if the user doesn't enter anything themselves. 
+2. In a prompt, you can specify a second message, which acts as a "default" value. If the user doesn't enter a response, the default message will be stored in the variable. For instance, we might make a prompt like: `var whatAmI = prompt("What am I?", "I am a human!");`, in which `I am a human!` will show in the response field and act as the default return value if the user doesn't enter anything themselves. 
 
 ### parseInt()
 
