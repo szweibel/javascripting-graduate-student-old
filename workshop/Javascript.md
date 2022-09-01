@@ -578,7 +578,7 @@ Using `else if`, you can utilize as many statements as you want in your code to 
 
 <JSTerminal />
 
-The first `if` statement checks to see if the user is old enough to purchase vote. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are at least able to drive. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the last `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
+The first `if` statement checks to see if the user is old enough to vote. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are at least able to drive. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the last `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
 
 Along with testing as many conditions as you want, you can also run as many lines of code as you want in each block. You can even chain together a series of `if/else` statements. This is called __nesting__. For example:
 
@@ -1912,7 +1912,7 @@ With a logical error, code behavior is unpredictable. A loop may never happen, i
 
 2. Form a hypothesis or two before looking at the code. 
 
-Think about what is wrong before you look over the code. Try to describe in plain English (or etc.) what is going wrong. Go through this process before you look at code because the moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about _logic_, and no amount of staring at code will show you the error, nor will a debugger spot it for you.
+Think about what is wrong before you look over the code. Try to describe in plain English (or etc.) what is going wrong. Go through this process before you look at code. The moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about _logic_, and no amount of staring at code will show you the error.
 
 3. Resolve syntax errors.
 
@@ -2143,7 +2143,7 @@ You can also see a `+` (plus) sign next to the file name, which allows you to __
 
 ### Committing our Change
 
-Now that we have staged our change, let's go ahead and commit our change. Be sure to type a message for the commit, like `Second Commit`.
+Now that we have staged our change, let's go ahead and commit our change. Be sure to type a message for the commit, like `Second Commit` or `modifying text`.
 
 ### Pushing our Changes to GitHub
 
@@ -2588,7 +2588,7 @@ So far, we have just been using HTML and CSS to style our page. The only bit of 
 
 The `src` (source) attribute is used to link to the JavaScript file `script.js`. This is the file that contains the code that will be executed when the page loads. At the moment, the only thing it is doing is alerting the user that your project is going to be awesome.
 
-In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned soWEll far concerning HTML and CSS.
+In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
 
 ## Review Questions
 
@@ -2634,6 +2634,12 @@ Do you remember the meaning of the following terms?
 - class
 - id
 - flexbox
+
+## Download the Project
+
+Here are the course files we created for this lesson:
+
+<Download files='index.html, script.js, styles.css'> <br/>
 
 # Interactive Web Design
 
@@ -3041,6 +3047,8 @@ line1Text = line1.map(function(word){
 $("#poem").html("<p>" + line1Text + "<br /></p>");
 ```
 
+TODO: Image still displays hover
+
 If you save and check your page in the browser, you should see that we have successfully displayed the first line of the poem.
 
 ![Poem first line](/images/poem_first_line.png)
@@ -3221,14 +3229,14 @@ Okay! So far so good. We've added in the ability to display info about words. Ho
 
 To use our dataset (our poem) more efficiently, we'll use JSON. JSON stands for JavaScript Object Notation. We can use a JSON object (as a separate file) to store our poem data, and then use that data to populate our poem. 
 
-JSON, as a data format, allows us to store data in a structured way and utilize it in a variety of ways in JavaScript. Like object syntax you have seen so far, JSON object data is written in key/value pairs. For instance, here's a object containing details about an example person named Charity Case in JSON:
+JSON, as a data format, allows us to store data in a structured way and utilize it in a variety of ways in JavaScript. Like object syntax you have seen so far, JSON object data is written in key/value pairs. For instance, here's a object containing details about an example person named Sal Ami in JSON:
 
 ```JSON
 {
-   "firstName": "Charity",
-   "lastName": "Case",
+   "firstName": "Sal",
+   "lastName": "Ami",
    "age": 30,
-   "streetAddress": "404 Internet Dr",
+   "streetAddress": "404 JavaScript Dr",
    "city": "JavaTown",
    "state": "JA",
    "postalCode": "12345",
@@ -3712,7 +3720,7 @@ Here we add a function to the map that is called whenever the user clicks on the
 
 When the user clicks on the map, the `.on()` method calls the function we defined. We can access these coordinates by getting the `.latlng` (lowercase) property of the `e` object and then the `.lat` and `.lng` properties on the new `.latLng` object. (Note the differences between the new object we create--it has a capital `L` in the name.)
 
-Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in the next lesson, but it's good to take a preliminary look.
+Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in a coming lesson, but it's good to take a preliminary look.
 
 ## Review Questions
 
