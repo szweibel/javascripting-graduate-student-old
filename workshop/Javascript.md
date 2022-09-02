@@ -1382,7 +1382,7 @@ const isAdmin = true;
 
 To understand the differences between these declarations, we need to understand their scope. Let's understand the scope of each of these types and see why `let` and especially `const` are the new standard.
 
-### `var`
+## `var`
 
 `var` declarations can be "globally" and "function/locally" scoped. Global scope means that the variable is available for use anywhere throughout your code. Function scope means that the variable is available for use only within the function it is defined. When declared outside of a function, `var` is global and can be accessed anywhere in your code. When declared inside of a function, `var` is function-scoped and can only be accessed within the function. Take a look at the example below:
 
@@ -1688,9 +1688,9 @@ addStudent("Biff", [71, 80, 56, 65, 60]);
 printGrades(students);
 convertGrades(students);
 ```
-Try running the program below in the editor and seeing the result in the browser's developer console.
+Try running the program below in the editor. You can observe the results of the program by checking your browser's developer console.
 
-<CodeEditor language='JavaScript' >
+<CodeEditor language='JavaScript' height='600px'>
      </CodeEditor>
 
 *Congratulations*, you have now created a simple grading program utilizing functions!
@@ -1750,7 +1750,7 @@ function add(a, b) {
 }
 ```
 
-<CodeEditor language='JavaScript' >
+<CodeEditor language='JavaScript' height='400px'>
      </CodeEditor>
 
 ## Key Terms
@@ -2637,9 +2637,9 @@ Do you remember the meaning of the following terms?
 
 ## Download the Project
 
-Here are the course files we created for this lesson:
+Here are the course files we created for this lesson if you need a reference:
 
-<Download files='index.html, script.js, styles.css'> <br/>
+<Download files='8_index.html, 8_script.js, 8_styles.css'> <br/>
 
 # Interactive Web Design
 
@@ -2850,7 +2850,7 @@ This is functionally the same, but is cleaner and easier to read. Add this code 
 
 ![Button Styling](/images/style_button.png)
 
-A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles _within your CSS stylesheet_, you can see how JavaScript can add dynamic styles to your elements as well. Each language forms a part of the whole to define the user's experience.
+A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles _within your CSS stylesheet_ (like we did initially), you can see how JavaScript can add dynamic styles to your elements as well. Each language forms a part of the whole to define the user's experience.
 
 Speaking of user experience, if you try clicking on the button, you'll notice it doesn't do anything yet. Let's add some proper interactivity to it.
 
@@ -2905,7 +2905,7 @@ As their slogan has it, with jQuery the intent is to "write less, do more". It a
 
 1. Add an image somewhere on the page. You can [learn how to add images here](https://www.w3schools.com/html/html_images.asp). Note that you will have to save the image within your project folder to be able to load it into your page.
 
-2. Using selectors, give the image [rounded corners](https://www.w3schools.com/css/css3_borders.asp) in JavaScript.
+2. Using selectors, give the image [rounded corners](https://www.w3schools.com/css/css3_borders.asp) in CSS or JavaScript.
 
 3. `Prompt()` the user whether the jokes on our page are good or bad. If the user responds with "bad", then change the header text to "The Worst Jokes Ever!". If the user responds with "good", keep the header text as "The Best Jokes Ever!".
 
@@ -2920,6 +2920,12 @@ Do you recall these terms?
 - jQuery
 - selector
 - events
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='9_index.html, 9_script.js, 9_styles.css'> <br/>
 
 # Building a Data-Driven Webpage
 
@@ -3047,8 +3053,6 @@ line1Text = line1.map(function(word){
 $("#poem").html("<p>" + line1Text + "<br /></p>");
 ```
 
-TODO: Image still displays hover
-
 If you save and check your page in the browser, you should see that we have successfully displayed the first line of the poem.
 
 ![Poem first line](/images/poem_first_line.png)
@@ -3168,7 +3172,7 @@ There are a few step we'll need to take to carry this out.
 
 We have two things to accomplish here. First, we want to send specific information to the `#info` div. Second, we want that data to be the `info` property of the word that was clicked.
 
-Let's tackle the first part. We'll need to modify our `click` event listener:
+Let's tackle the first part. We'll need to modify our `click` event:
 
 ```JavaScript
 $("#poem a").click(function(){
@@ -3288,7 +3292,7 @@ line1.map(function(word){
 });
 $("#poem").html(line1Text);
 
-// Part 3 - Add the click event listener to the poem
+// Part 3 - Add the click event to the poem
 $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3301,7 +3305,7 @@ $("#poem a").click(function(){
 I have deleted all the earlier comments, so just look at the three new ones I've added here. We can see that we have 3 parts to our program:
 - Part 1 - Define the extra information section for the poem
 - Part 2 - Display the first line of the poem and access `info` from the poem object if it exists
-- Part 3 - Add the click event listener to the poem
+- Part 3 - Add the click event to the poem
 
 It is clear that we'll need to revamp part 2 to display the full data from the JSON file instead of just the first line we manually inputted. Let's do just that. We'll use the `getJSON` method to retrieve the data from the JSON file. We'll also create a new variable that will store all the text of the poem garnered from the JSON file.
 
@@ -3333,7 +3337,7 @@ $.getJSON("poem.json", function(data){ // data variable is the JSON object
   poemText = poemText + "</p></blockquote>";
   // Replace the content of #poem
   $("#poem").html(poemText);
-  // Now that we have the data, we can add the click event listener to the poem
+  // Now that we have the data, we can add the click event to the poem
   $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3387,7 +3391,7 @@ $.getJSON("poem.json", function(data){ // data variable is the JSON object
   poemText = poemText + "</p></blockquote>";
   // Replace the content of #poem
   $("#poem").html(poemText);
-  // Now that we have the data, we can add the click event listener to the poem
+  // Now that we have the data, we can add the click event to the poem
   $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3466,6 +3470,12 @@ Do you recall the meaning of the following terms?
 - data attributes
 - events
 - callbacks
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='10_index.html, 10_script.js, 10_styles.css, 10_poem.html, 10_poem.css, 10_poem.js, poem.json'> <br/>
 
 # Mapping With Leaflet
 
@@ -3720,6 +3730,8 @@ Here we add a function to the map that is called whenever the user clicks on the
 
 When the user clicks on the map, the `.on()` method calls the function we defined. We can access these coordinates by getting the `.latlng` (lowercase) property of the `e` object and then the `.lat` and `.lng` properties on the new `.latLng` object. (Note the differences between the new object we create--it has a capital `L` in the name.)
 
+If you check your developer console in the browser, you should now see the latitude and longitude of the point on the map that the user clicks on.
+
 Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in a coming lesson, but it's good to take a preliminary look.
 
 ## Review Questions
@@ -3762,6 +3774,12 @@ Do you recall the following key terms?
 - markers
 - popups
 - events
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='11_index.html, 11_script.js, 11_styles.css, 11_poem.html, 11_poem.css, 11_poem.js, poem.json, 11_map.js'> <br/>
 
 # Working With GeoSpatial Data
 
@@ -3916,7 +3934,7 @@ L.geoJSON(nyc, {
 }).addTo(nycMap);
 ```
 
-The `style` function takes in a feature (in this case, our neighborhood polygons) and returns a style object, which we add to our map. The style object here has three properties: `color`, `fillColor`, and `fillOpacity`. The `color` property sets the color of the polygon border, the `fillColor` property sets the color of the polygon interior, and the `fillOpacity` property sets the opacity of the polygon interior.
+The `style` function takes in a `feature` (in this case, our neighborhood polygons) and returns a style object, which we add to our map. The style object here has three properties: `color`, `fillColor`, and `fillOpacity`. The `color` property sets the color of the polygon border, the `fillColor` property sets the color of the polygon interior, and the `fillOpacity` property sets the opacity of the polygon interior.
 
 You should now see the polygons styled as a pale yellow with a blue border:
 
@@ -3951,7 +3969,7 @@ Let's say we wanted to add a button to our page that pans the map to a particula
 <button id="pan-to-flatbush">Pan to Flatbush</button>
 ```
 
-We can then use jQuery to check for a click event on the button, and find the neighborhood in the dataset:
+In our `nyc-data.js` file, we can then use jQuery to check for a click event on the button, and find the neighborhood in the dataset:
 
 ```JavaScript
 $("#pan-to-flatbush").click(function() {
@@ -4002,7 +4020,7 @@ Below our Flatbush button, let's add a new `<div>` for displaying the entire lis
 <div id ="neighborhoods"></div>
 ```
 
-Next, we'll want to loop through the dataset objects, pulling out the neighborhood name from each so we can display it in the list.
+Next, in our `nyc-data.js` file, we'll want to loop through the dataset objects, pulling out the neighborhood name from each so we can display it in the list.
 
 ```JavaScript
 // get a list of all the neighborhoods in the dataset
@@ -4121,7 +4139,6 @@ We are only scratching the surface of what jQuery, JSON, and Leaflet can do work
 - Give attribution for your source*
 </Quiz>
 
-
 ## Challenges
 
 1. Create another button that pans the map to your favorite neighborhood.
@@ -4137,6 +4154,12 @@ Do you recall the meaning of the following terms?
 - GeoJSON
 - FeatureCollections/Features
 - Geometry
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='12_index.html, 12_script.js, 12_styles.css, 12_poem.html, 12_poem.css, 12_poem.js, poem.json, 12_map.js, 12_nyc-data.css, 12_nyc-data.html, 12_nyc-data.js, nycneighborhoods.js'> <br/>
 
 # Reading Documentation
 
