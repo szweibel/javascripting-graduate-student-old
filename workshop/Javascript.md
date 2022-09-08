@@ -1246,6 +1246,9 @@ alert(myArray[0]);
 
 1. Write a `for` loop that prints all even numbers from 0 to 100 to the console.
 
+<CodeEditor language='JavaScript'>
+</CodeEditor>
+
 2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp), which converts all the letters of a string to lowercase, to make the search parameters case insensitive. _Hint: To match the two terms, you will want to perform the `toLowerCase` method both on the user's response as well as on each book title in the library. Try storing these results in new variables!_
 
 ## Key Terms
