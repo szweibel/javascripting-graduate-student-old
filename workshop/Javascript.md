@@ -1184,10 +1184,10 @@ while (response != 'quit') {
 
 Try running and exploring the program:
 
-<CodeEditor language='JavaScript'>
+<CodeEditor language='JavaScript' height='550px'>
     </CodeEditor>
 
-Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action (i.e., request, display, quit), we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
+Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action (i.e., request, display, quit), we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
 
 Congratulations! You have now successfully created a basic library search program. There are, of course, a number of limitations to this program. For instance: 
 - The search parameters are not very robust. The user must type out the full title of the book, with the exact spelling and punctuation of the title. As you might imagine, this is not a very good user experience.
@@ -1715,7 +1715,6 @@ Let's review the concepts we have learned in this lesson.
 ```JavaScript
 if (someValue > 0) {
     let greet = "hi there";
-    console.log(greet);
 }
 
 console.log(greet);
@@ -3562,7 +3561,7 @@ First, open your `poem.html` file. My recommendation here is to simply overwrite
     <div class="container">
       <h1><em>Broadway</em> by Walt Whitman</h1>
       <div id="intro">
-        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Hover over elements to see more information about them.</p>
+        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Click on elements to see more information about them.</p>
       </div>
       <div id="poem"> </div>
       <div id="info"></div>
@@ -3608,7 +3607,7 @@ let poemMap;
 poemMap = L.map("map");
 ```
 
-`poemMap` is now designated an object that we can use to modify the map on the page. Note the syntax: `.map()` is a method that `L` (Leaflet) has that creates a map in the `<div>` with the `id` given as the parameter. (`L.map()` here is not to be confused with the ordinary `.map()` method you've seen before!) If you save everything and check the browser, you should see a map element appear.
+`poemMap` is now designated an object that we can use to modify the map on the page. Note the syntax: `.map()` is a method that `L` (Leaflet) has that creates a map in the `<div>` with the `id` given as the parameter. (`L.map()` here is not to be confused with the ordinary `.map()` method you've seen before! A little confusing, I know...) If you save everything and check the browser, you should see a map element appear.
 
 Unfortunately, the map is currently blank and grey. This is because we have not yet added a tile layer to the map. Remember, the tile or background layer is the map itself, with all its internal data about streets, boroughs, cities, etc.
 
