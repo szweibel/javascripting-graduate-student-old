@@ -136,13 +136,23 @@ export default function JSEditorComponent({ defaultCode = '// Write Javascript H
         setRunningCode(true);
         outputRef.current = "";
         try {
+            var logged = [];
+            // store logged values in logged array
+            var log = function (value) {
+                logged.push(value);
+
+            };
             // capture console.log output 
             console.oldLog = console.log;
-            console.log = function (value) {
-                console.oldLog(value);
-                return value;
-            };
+            console.log = log;
+           
             var result = eval(code);
+
+            writeln('Console.log:');
+            for (var i = 0; i < logged.length; i++) {
+                writeln(logged[i]);
+            }
+            writeln('Returned:');
             writeln(result);
             forceUpdate();
             setIsoutput(true);
