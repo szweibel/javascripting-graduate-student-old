@@ -97,7 +97,7 @@ You should now see a pop-up box that displays your message. __Note__: If you do 
 
 As you can see, the alert dialog box takes the focus and forces the user to read the specified message on the current webpage. This being the case, it is wise to avoid overusing this method because it stops the user from accessing other parts of the webpage until the box is closed. It is best used as a kind of warning message. For instance, you may have seen developers use it to notify the user that they are heading to a new external website after clicking a link.
 
-You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotations marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
+You'll notice that our message is enclosed in `()` (parentheses) as well as `""` double quotation marks. You'll understand why as we continue: this indicates part of the _syntax_, or the rules that define the structure of the JavaScript language.
 
 You will also notice that there is a `;` (semicolon) after the `alert` command. Not including the semicolon won't throw an error, but it is good practice to include after each command, or statement--after each single instruction given to the console. You'll see more examples of this (and learn when _not_ to include semicolons) as we progress. For now, just make sure to __include the semicolon__ at the end of each line of code.
 
@@ -303,7 +303,7 @@ In the table below, you can see more of the various operators available to you a
 
 <JSTerminal />
 
-While nearly all of these operators are shared amongst the majority of modern programming languages, the `===` (triple equals) is unique to JavaScript. The distinctions between `==` (double equals) and `===` (triple equals) are important. The double equals `==` operator is used to compare _only_ the value of two variables, while the "strict" triple equals `===` operator is used to compare the value _and_ type of two variables. The strict operator will only return true if the two variables are _exactly_ the same, both in value and in type (e.g., number or string). So, while both `5 === 5` and `"5" === "5"` will return true because they are the same value and type, `5 === "5"` will return false because the latter is testing a number against a string (discussed below). Also note the difference between the double equals `==` and triple equals `===`, which test for equality, and the `!=` and `!==` operators, which test for _inequality_.
+While nearly all of these operators are shared amongst the majority of modern programming languages, the `===` (triple equals) is unique to JavaScript. The distinctions between `==` (double equals) and `===` (triple equals) are important. The double equals `==` operator is used to compare _only_ the value of two variables, while the "strict" triple equals `===` operator is used to compare the value _and_ type of two variables. The strict operator will only return true if the two variables are _exactly_ the same, both in value and in type (e.g., number or string). So, while both `5 === 5` and `"5" === "5"` will return true because they are the same value and type, `5 === "5"` will return false because the latter is testing a number against a string. Also note the difference between the double equals `==` and triple equals `===`, which test for equality, and the `!=` and `!==` operators, which test for _inequality_.
 
 We'll continue to work with comparison/equality operators throughout the course, so don't worry if they're still a bit unclear. Additionally, we have for now purposefully left out the `=` (single equals) operator, as it has a different function than evaluating equality. We'll cover the single equals operator later in this lesson.
 
@@ -578,7 +578,7 @@ Using `else if`, you can utilize as many statements as you want in your code to 
 
 <JSTerminal />
 
-The first `if` statement checks to see if the user is old enough to purchase vote. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are at least able to drive. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the last `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
+The first `if` statement checks to see if the user is old enough to vote. If they are, the `alert` message is displayed. If they are not, the second statement `else if` checks to see if they are at least able to drive. If they are, the `alert` message is displayed. If they are not, the final `else` statement displays the last `alert` message. The final `else` statement in a series is usually considered a default case or catchall to execute if none of the other `if/else` statements are true.
 
 Along with testing as many conditions as you want, you can also run as many lines of code as you want in each block. You can even chain together a series of `if/else` statements. This is called __nesting__. For example:
 
@@ -658,7 +658,7 @@ Let's take a look at a more concrete example of a `switch` statement. Let's say 
 
 Here we have three different difficulty levels (although you can have as many levels or `cases` as you want in a `switch` statement). The first `case` statement checks to see if the user entered `1`, the second `case` statement checks to see if the user entered `2`, and the final `case` statement checks to see if the user entered `3`. If the user entered `1`, `2`, or `3`, the `alert` message is displayed. If the user entered anything else, the `default` block is executed and an error message is shown. 
 
-While this example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many less curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
+While this example could also easily be written using `if/else` statements, in your programming journey there may be times when writing a `switch` statement is more appropriate than writing many unwieldy `if/else` statements. Did you notice how many fewer curly braces you had to keep track of when writing a `switch` structure? Readability is just as important as functionality in programming.
 
 ## Choose Your Own Adventure
 
@@ -1040,7 +1040,7 @@ var num = 5;
 
 // looping from i = 1 to 5
 // in each iteration, i is increased by 1
-for (var i = 0; i <= num; i++) {
+for (var i = 1; i <= num; i++) {
     console.log(i);     // printing the value of i
 }
 ```
@@ -1184,10 +1184,10 @@ while (response != 'quit') {
 
 Try running and exploring the program:
 
-<CodeEditor language='JavaScript'>
+<CodeEditor language='JavaScript' height='550px'>
     </CodeEditor>
 
-Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, or quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action (i.e., request, display, quit), we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
+Let's break down the logic of the program a bit. First, we have a `var response = "";` line. This is an empty string variable declaration meant to store the user's response to the prompt. We will use this variable to determine whether or not the user wants to make a request, display, quit, or else search for the book in our library. Next, we have a `while` loop that will continue to execute until the user types `quit`. Within the `while` loop, we first check if the user's response is `request` or `display`. If it is, we can perform the appropriate action using `if/else if` statements. To display all book titles, we use a `for` loop to alert each book. If the response is not a defined user action (i.e., request, display, quit), we can check if the string is in the library. We use the `indexOf` method to check if the `response` string is in the library. If it is, we can alert the user that the book is available to check out. If it isn't (if the method returns `-1`), we can alert the user that the book is not in the library.
 
 Congratulations! You have now successfully created a basic library search program. There are, of course, a number of limitations to this program. For instance: 
 - The search parameters are not very robust. The user must type out the full title of the book, with the exact spelling and punctuation of the title. As you might imagine, this is not a very good user experience.
@@ -1246,6 +1246,9 @@ alert(myArray[0]);
 
 1. Write a `for` loop that prints all even numbers from 0 to 100 to the console.
 
+<CodeEditor language='JavaScript'>
+</CodeEditor>
+
 2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the [toLowerCase method](https://www.w3schools.com/jsref/jsref_tolowercase.asp), which converts all the letters of a string to lowercase, to make the search parameters case insensitive. _Hint: To match the two terms, you will want to perform the `toLowerCase` method both on the user's response as well as on each book title in the library. Try storing these results in new variables!_
 
 ## Key Terms
@@ -1303,7 +1306,7 @@ This is functionally the same result. The only difference is that we have create
 
 ## Calling a Function
 
-If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function. Let's try calling the `add()` function with two number values:
+If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function as parameters. Let's try calling the `add()` function with two number values:
 
 ```JavaScript
 function add(num1, num2) {
@@ -1382,7 +1385,7 @@ const isAdmin = true;
 
 To understand the differences between these declarations, we need to understand their scope. Let's understand the scope of each of these types and see why `let` and especially `const` are the new standard.
 
-### `var`
+## `var`
 
 `var` declarations can be "globally" and "function/locally" scoped. Global scope means that the variable is available for use anywhere throughout your code. Function scope means that the variable is available for use only within the function it is defined. When declared outside of a function, `var` is global and can be accessed anywhere in your code. When declared inside of a function, `var` is function-scoped and can only be accessed within the function. Take a look at the example below:
 
@@ -1688,9 +1691,9 @@ addStudent("Biff", [71, 80, 56, 65, 60]);
 printGrades(students);
 convertGrades(students);
 ```
-Try running the program below in the editor and seeing the result in the browser's developer console.
+Try running the program below in the editor. You can observe the results of the program by checking your browser's developer console.
 
-<CodeEditor language='JavaScript' >
+<CodeEditor language='JavaScript' height='600px'>
      </CodeEditor>
 
 *Congratulations*, you have now created a simple grading program utilizing functions!
@@ -1715,7 +1718,6 @@ Let's review the concepts we have learned in this lesson.
 ```JavaScript
 if (someValue > 0) {
     let greet = "hi there";
-    console.log(greet);
 }
 
 console.log(greet);
@@ -1750,7 +1752,7 @@ function add(a, b) {
 }
 ```
 
-<CodeEditor language='JavaScript' >
+<CodeEditor language='JavaScript' height='400px'>
      </CodeEditor>
 
 ## Key Terms
@@ -1912,7 +1914,7 @@ With a logical error, code behavior is unpredictable. A loop may never happen, i
 
 2. Form a hypothesis or two before looking at the code. 
 
-Think about what is wrong before you look over the code. Try to describe in plain English (or etc.) what is going wrong. Go through this process before you look at code because the moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about _logic_, and no amount of staring at code will show you the error, nor will a debugger spot it for you.
+Think about what is wrong before you look over the code. Try to describe in plain English (or etc.) what is going wrong. Go through this process before you look at code. The moment you see code, you'll start worrying about details rather than thinking about the bigger picture. Logic errors are almost always about _logic_, and no amount of staring at code will show you the error.
 
 3. Resolve syntax errors.
 
@@ -2143,7 +2145,7 @@ You can also see a `+` (plus) sign next to the file name, which allows you to __
 
 ### Committing our Change
 
-Now that we have staged our change, let's go ahead and commit our change. Be sure to type a message for the commit, like `Second Commit`.
+Now that we have staged our change, let's go ahead and commit our change. Be sure to type a message for the commit, like `Second Commit` or `modifying text`.
 
 ### Pushing our Changes to GitHub
 
@@ -2319,11 +2321,11 @@ And much more!
 
 ### Adding A New Stylesheet
 
-CSS files are called _stylesheets_. Let's create a new file called `style.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
+CSS files are called _stylesheets_. Let's create a new file called `styles.css` in our project so we can modify the style of our HTML page. The useful thing about stylesheets is that we simply need to create _one_, which will then control the layout of many different HTML documents.
 
 To add a new file in VSCode, simply click on the "New File" button next to your project title in the Explorer window. Type `styles.css` into the name field and hit <kbd>Enter</kbd>. Make sure to add the `.css` extension to the name.
 
-Next, we'll link to the `style.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a link to our CSS document. The link tag is as follows:
+Next, we'll link to the `styles.css` file in our HTML file so it can be applied to our webpage. In our HTML file, we'll connect the files through a void `<link>` tag that lives inside the _parent_, or containing, `<head>` tag. Its `href` attribute is a link to our CSS document. The link tag is as follows:
 
 ```html
 <link rel="stylesheet" href="styles.css">
@@ -2392,8 +2394,8 @@ Next, let's add a paragraph with some text to our page. We'll start by adding a 
   </head>
   <body>
     <h1>This is my project!</h1>
-    <p>Q: Why did the programmer quit her job?
-      A: Because she didn't get arrays.</p>
+    <p>Q: Why did the programmer quit his job?
+      A: Because he didn't get arrays.</p>
     <script src="script.js"></script>
   </body>
 </html>
@@ -2450,8 +2452,8 @@ To create a class, we use the `.` (dot) character followed by the name of the cl
   <body>
     <div class="formatText">
       <h1>This is my project!</h1>
-      <p>Q: Why did the programmer quit her job?
-        A: Because she didn't get arrays.</p>
+      <p>Q: Why did the programmer quit his job?
+        A: Because he didn't get arrays.</p>
     </div>
     <script src="script.js"></script>
   </body>
@@ -2531,8 +2533,8 @@ Let's start by creating a new section in our HTML file, and adding a new `id` of
     <div class="formatText">
       <h1>This is my project!</h1>
         <section id="joke">     
-          <p>Q: Why did the programmer quit her job?
-          A: Because she didn't get arrays.</p>
+          <p>Q: Why did the programmer quit his job?
+          A: Because he didn't get arrays.</p>
           <p>Q: What's the difference between an academic and a genie?
           A: One grants wishes, the other wishes for grants.</p>
         </section>
@@ -2588,7 +2590,7 @@ So far, we have just been using HTML and CSS to style our page. The only bit of 
 
 The `src` (source) attribute is used to link to the JavaScript file `script.js`. This is the file that contains the code that will be executed when the page loads. At the moment, the only thing it is doing is alerting the user that your project is going to be awesome.
 
-In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned soWEll far concerning HTML and CSS.
+In the next lesson, we will learn how to use JavaScript to create a more complex webpage with some actual interactivity. For now, let's just review some of the concepts we've learned so far concerning HTML and CSS.
 
 ## Review Questions
 
@@ -2635,6 +2637,12 @@ Do you remember the meaning of the following terms?
 - id
 - flexbox
 
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='8_index.html, 8_script.js, 8_styles.css'> <br/>
+
 # Interactive Web Design
 
 Now that you have a basic understanding of HTML and CSS, let's begin using JavaScript to add more interactivity to your webpage. 
@@ -2645,7 +2653,7 @@ Before we get to working with JavaScript, there are a few things we'll want to d
 
 ## Running a Live Server in VSCode
 
-So far, we have simply double-clicked the `index.html` file in your computer's file system and opened it in the browser. This is a perfectly fine way to get started previewing our webpage, but it may cause issues as we add more complexity. To address this, let's add an extension to our VSCode that will allow us to run a local web server to load and preview our webpage.
+So far, we have simply double-clicked the `index.html` file in your computer's file system and opened it in the browser. This is a perfectly fine way to get started previewing our webpage, but it may cause issues as we add more complexity. To address this, let's add an extension to our VSCode that will allow us to run a local web server to load and preview our webpages.
 
 Open up your project in VSCode. Next, click on the Extensions button in the sidebar.
 
@@ -2687,7 +2695,7 @@ Next, let's learn how to use jQuery to perform some basic tasks.
 
 The first function we will cover is the __jQuery selector__, which is one of the most important functions in jQuery. It allows us to select and manipulate HTML elements on our page. It is used to "find" HTML elements based on their name, id, class, type, and other attributes.
 
-All selectors start with a dollar sign followed by parentheses: `$("")`. A selector takes a single argument in the parentheses (set between doublequotes `""`), which is the element we want to modify. Let's look at some basic examples.
+All selectors start with a dollar sign followed by parentheses: `$("")`. A selector takes a single argument in the parentheses (set between double quotes `""`), which is the element we want to modify. Let's look at some basic examples.
 
 ### Selecting the Header
 
@@ -2790,7 +2798,7 @@ To create the button, add the following code to your `index.html` file, undernea
 <button id="toggleJokes">Toggle Jokes</button>
 ```
 
-Here we have a simple `<button>` element set to an id `toggleJokes`. If you save your file, you should now see a basic button on the page above your jokes section.
+Here we have a simple `<button>` element set to an id `toggleJokes`. If you save your file, you should now see a button on the page above your jokes section.
 
 You can see that it doesn't look very good at the moment, so why don't we add a bit of styling to make it better? Now, we could simply style the button in our CSS file like we did with other elements in the page. For example, to make the button orange, with larger white text, a border, some padding, and some margin space around the button to separate it from other elements, we could add the following code to our `style.css` file:
 
@@ -2844,7 +2852,7 @@ This is functionally the same, but is cleaner and easier to read. Add this code 
 
 ![Button Styling](/images/style_button.png)
 
-A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles _within your CSS stylesheet_, you can see how JavaScript can add dynamic styles to your elements as well. Each language forms a part of the whole to define the user's experience.
+A bit ugly still, but at least it has some flavor. Again, while it is preferred to define your styles _within your CSS stylesheet_ (like we did initially), you can see how JavaScript can add dynamic styles to your elements as well. Each language forms a part of the whole to define the user's experience.
 
 Speaking of user experience, if you try clicking on the button, you'll notice it doesn't do anything yet. Let's add some proper interactivity to it.
 
@@ -2899,7 +2907,7 @@ As their slogan has it, with jQuery the intent is to "write less, do more". It a
 
 1. Add an image somewhere on the page. You can [learn how to add images here](https://www.w3schools.com/html/html_images.asp). Note that you will have to save the image within your project folder to be able to load it into your page.
 
-2. Using selectors, give the image [rounded corners](https://www.w3schools.com/css/css3_borders.asp) in JavaScript.
+2. Using selectors, give the image [rounded corners](https://www.w3schools.com/css/css3_borders.asp) in CSS or JavaScript.
 
 3. `Prompt()` the user whether the jokes on our page are good or bad. If the user responds with "bad", then change the header text to "The Worst Jokes Ever!". If the user responds with "good", keep the header text as "The Best Jokes Ever!".
 
@@ -2914,6 +2922,12 @@ Do you recall these terms?
 - jQuery
 - selector
 - events
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='9_index.html, 9_script.js, 9_styles.css'> <br/>
 
 # Building a Data-Driven Webpage
 
@@ -3160,7 +3174,7 @@ There are a few step we'll need to take to carry this out.
 
 We have two things to accomplish here. First, we want to send specific information to the `#info` div. Second, we want that data to be the `info` property of the word that was clicked.
 
-Let's tackle the first part. We'll need to modify our `click` event listener:
+Let's tackle the first part. We'll need to modify our `click` event:
 
 ```JavaScript
 $("#poem a").click(function(){
@@ -3221,14 +3235,14 @@ Okay! So far so good. We've added in the ability to display info about words. Ho
 
 To use our dataset (our poem) more efficiently, we'll use JSON. JSON stands for JavaScript Object Notation. We can use a JSON object (as a separate file) to store our poem data, and then use that data to populate our poem. 
 
-JSON, as a data format, allows us to store data in a structured way and utilize it in a variety of ways in JavaScript. Like object syntax you have seen so far, JSON object data is written in key/value pairs. For instance, here's a object containing details about an example person named Charity Case in JSON:
+JSON, as a data format, allows us to store data in a structured way and utilize it in a variety of ways in JavaScript. Like object syntax you have seen so far, JSON object data is written in key/value pairs. For instance, here's a object containing details about an example person named Sal Ami in JSON:
 
 ```JSON
 {
-   "firstName": "Charity",
-   "lastName": "Case",
+   "firstName": "Sal",
+   "lastName": "Ami",
    "age": 30,
-   "streetAddress": "404 Internet Dr",
+   "streetAddress": "404 JavaScript Dr",
    "city": "JavaTown",
    "state": "JA",
    "postalCode": "12345",
@@ -3280,7 +3294,7 @@ line1.map(function(word){
 });
 $("#poem").html(line1Text);
 
-// Part 3 - Add the click event listener to the poem
+// Part 3 - Add the click event to the poem
 $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3293,7 +3307,7 @@ $("#poem a").click(function(){
 I have deleted all the earlier comments, so just look at the three new ones I've added here. We can see that we have 3 parts to our program:
 - Part 1 - Define the extra information section for the poem
 - Part 2 - Display the first line of the poem and access `info` from the poem object if it exists
-- Part 3 - Add the click event listener to the poem
+- Part 3 - Add the click event to the poem
 
 It is clear that we'll need to revamp part 2 to display the full data from the JSON file instead of just the first line we manually inputted. Let's do just that. We'll use the `getJSON` method to retrieve the data from the JSON file. We'll also create a new variable that will store all the text of the poem garnered from the JSON file.
 
@@ -3325,7 +3339,7 @@ $.getJSON("poem.json", function(data){ // data variable is the JSON object
   poemText = poemText + "</p></blockquote>";
   // Replace the content of #poem
   $("#poem").html(poemText);
-  // Now that we have the data, we can add the click event listener to the poem
+  // Now that we have the data, we can add the click event to the poem
   $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3379,7 +3393,7 @@ $.getJSON("poem.json", function(data){ // data variable is the JSON object
   poemText = poemText + "</p></blockquote>";
   // Replace the content of #poem
   $("#poem").html(poemText);
-  // Now that we have the data, we can add the click event listener to the poem
+  // Now that we have the data, we can add the click event to the poem
   $("#poem a").click(function(){
     let infoText, clickedWord, clickedInfo;
     clickedWord = $( this ).text();
@@ -3458,6 +3472,12 @@ Do you recall the meaning of the following terms?
 - data attributes
 - events
 - callbacks
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='10_index.html, 10_script.js, 10_styles.css, 10_poem.html, 10_poem.css, 10_poem.js, poem.json'> <br/>
 
 # Mapping With Leaflet
 
@@ -3544,7 +3564,7 @@ First, open your `poem.html` file. My recommendation here is to simply overwrite
     <div class="container">
       <h1><em>Broadway</em> by Walt Whitman</h1>
       <div id="intro">
-        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Hover over elements to see more information about them.</p>
+        <p>Welcome to the page for Walt Whitman's poem <em>Broadway</em>. Click on elements to see more information about them.</p>
       </div>
       <div id="poem"> </div>
       <div id="info"></div>
@@ -3590,7 +3610,7 @@ let poemMap;
 poemMap = L.map("map");
 ```
 
-`poemMap` is now designated an object that we can use to modify the map on the page. Note the syntax: `.map()` is a method that `L` (Leaflet) has that creates a map in the `<div>` with the `id` given as the parameter. (`L.map()` here is not to be confused with the ordinary `.map()` method you've seen before!) If you save everything and check the browser, you should see a map element appear.
+`poemMap` is now designated an object that we can use to modify the map on the page. Note the syntax: `.map()` is a method that `L` (Leaflet) has that creates a map in the `<div>` with the `id` given as the parameter. (`L.map()` here is not to be confused with the ordinary `.map()` method you've seen before! A little confusing, I know...) If you save everything and check the browser, you should see a map element appear.
 
 Unfortunately, the map is currently blank and grey. This is because we have not yet added a tile layer to the map. Remember, the tile or background layer is the map itself, with all its internal data about streets, boroughs, cities, etc.
 
@@ -3712,7 +3732,9 @@ Here we add a function to the map that is called whenever the user clicks on the
 
 When the user clicks on the map, the `.on()` method calls the function we defined. We can access these coordinates by getting the `.latlng` (lowercase) property of the `e` object and then the `.lat` and `.lng` properties on the new `.latLng` object. (Note the differences between the new object we create--it has a capital `L` in the name.)
 
-Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in the next lesson, but it's good to take a preliminary look.
+If you check your developer console in the browser, you should now see the latitude and longitude of the point on the map that the user clicks on.
+
+Leaflet has [very extensive documentation](https://leafletjs.com/reference.html) on all its methods, properties, and events that I recommend you look through. We'll discuss more strategies for using documentation in a coming lesson, but it's good to take a preliminary look.
 
 ## Review Questions
 
@@ -3754,6 +3776,12 @@ Do you recall the following key terms?
 - markers
 - popups
 - events
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='11_index.html, 11_script.js, 11_styles.css, 11_poem.html, 11_poem.css, 11_poem.js, poem.json, 11_map.js'> <br/>
 
 # Working With GeoSpatial Data
 
@@ -3908,7 +3936,7 @@ L.geoJSON(nyc, {
 }).addTo(nycMap);
 ```
 
-The `style` function takes in a feature (in this case, our neighborhood polygons) and returns a style object, which we add to our map. The style object here has three properties: `color`, `fillColor`, and `fillOpacity`. The `color` property sets the color of the polygon border, the `fillColor` property sets the color of the polygon interior, and the `fillOpacity` property sets the opacity of the polygon interior.
+The `style` function takes in a `feature` (in this case, our neighborhood polygons) and returns a style object, which we add to our map. The style object here has three properties: `color`, `fillColor`, and `fillOpacity`. The `color` property sets the color of the polygon border, the `fillColor` property sets the color of the polygon interior, and the `fillOpacity` property sets the opacity of the polygon interior.
 
 You should now see the polygons styled as a pale yellow with a blue border:
 
@@ -3943,7 +3971,7 @@ Let's say we wanted to add a button to our page that pans the map to a particula
 <button id="pan-to-flatbush">Pan to Flatbush</button>
 ```
 
-We can then use jQuery to check for a click event on the button, and find the neighborhood in the dataset:
+In our `nyc-data.js` file, we can then use jQuery to check for a click event on the button, and find the neighborhood in the dataset:
 
 ```JavaScript
 $("#pan-to-flatbush").click(function() {
@@ -3994,7 +4022,7 @@ Below our Flatbush button, let's add a new `<div>` for displaying the entire lis
 <div id ="neighborhoods"></div>
 ```
 
-Next, we'll want to loop through the dataset objects, pulling out the neighborhood name from each so we can display it in the list.
+Next, in our `nyc-data.js` file, we'll want to loop through the dataset objects, pulling out the neighborhood name from each so we can display it in the list.
 
 ```JavaScript
 // get a list of all the neighborhoods in the dataset
@@ -4113,7 +4141,6 @@ We are only scratching the surface of what jQuery, JSON, and Leaflet can do work
 - Give attribution for your source*
 </Quiz>
 
-
 ## Challenges
 
 1. Create another button that pans the map to your favorite neighborhood.
@@ -4129,6 +4156,12 @@ Do you recall the meaning of the following terms?
 - GeoJSON
 - FeatureCollections/Features
 - Geometry
+
+## Download the Project
+
+Here are the course files we created for this lesson if you need a reference:
+
+<Download files='12_index.html, 12_script.js, 12_styles.css, 12_poem.html, 12_poem.css, 12_poem.js, poem.json, 12_map.js, 12_nyc-data.css, 12_nyc-data.html, 12_nyc-data.js, nycneighborhoods.js'> <br/>
 
 # Reading Documentation
 
@@ -4225,7 +4258,7 @@ Let's say we wanted to figure out how to disable a button using jQuery (for inst
 
 ![Stack Overflow](/images/stack_overflow_example.png)
 
-Always, take a quick look at the question to make sure it's relevant to your problem. Then scroll down through the answers and the discussions to find what you're looking for. You may also notice snarky debates—another "feature" of Stack Overflow. In this particular case, there are many, many answers, and almost each one is a different way to solve the problem. It is worth pointing out that this question was asked over 12 years ago, which is something you might want to consider, as some things may possibly be out of date. In any case, there is a plethora of information on the page that should help point you in the right direction.
+Always, take a quick look at the question to make sure it's relevant to your problem. Then scroll down through the answers and the discussions to find what you're looking for. You may also notice snarky debates—another "feature" of Stack Overflow. (Unfortunately, in many cases this is why I wouldn't recommend _asking_ questions as a beginner on StackOverflow, as folks and moderators can be less than friendly. It is still a great place for _finding_ answers through search, however). In this particular case, there are many, many answers, and almost each one is a different way to solve the problem. It is worth pointing out that this question was asked over 12 years ago, which is something you might want to consider, as some things may possibly be out of date. In any case, there is a plethora of information on the page that should help point you in the right direction.
 
 As you might imagine, implementing code snippets from Stack Overflow is an incredibly common practice, and is even the source of many jokes, like this meme:
 
@@ -4235,7 +4268,7 @@ Don't feel the need to reinvent the wheel if you find a working solution on Stac
 
 ### Other Resources
 
-While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more.
+While Stack Overflow is a great resource for programmers, it is not the only resource. There are many, many others, like [GitHub](https://github.com/), [CodeProject](https://www.codeproject.com/), different subreddits (like r/webdev, r/learnjavascript, etc.) on [Reddit](https://www.reddit.com/), and much more. I would especially recommend reddit, as the communities are very active and usually inviting of folks who are just learning to code.
 
 If you would like to go really in-depth learning Leaflet, I would highly recommend Malcom Maclean's [Leaflet Tips and Tricks](https://leanpub.com/leaflet-tips-and-tricks/read).
 
