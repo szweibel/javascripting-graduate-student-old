@@ -1094,7 +1094,7 @@ var bookTitles = [
     "Lady Chatterley's Lover",
 ];
 
-bookTitles.sort()
+bookTitles.sort();
 var requestedTitle = "";
 var libRequests = []
 ```
