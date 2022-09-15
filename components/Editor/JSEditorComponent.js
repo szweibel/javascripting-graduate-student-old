@@ -125,7 +125,8 @@ export default function JSEditorComponent({ defaultCode = '// Write Javascript H
     }
 
     var writeln = function (str) {
-        if (!str) str = "";
+        // if (!str) str = "";
+        // if (str == undefined) str = "";
         outputRef.current += JSoutput(str) + "\n";
     }
 
