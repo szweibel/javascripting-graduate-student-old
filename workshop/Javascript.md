@@ -903,7 +903,7 @@ In this example, the value at index 0 (originally `1`) will be changed to `'cat'
 
 ## Adding Values to an Array
 
-To add a new value to the end of an array, we use the `push()` method. This method takes a single value and adds it to the end of the array.
+To add a new value to the end of an array, we use the `push()` method. __Methods__ are utilized with _dot notation_, and act upon whatever object or value (in the case below, an array) you specify. The `push()` method takes a single value and adds it to the end of the array.
 
 ```JavaScript
 var myArray = [1, 2, 'dog', true, [1, 2, 3]];
@@ -911,7 +911,7 @@ myArray.push('cat');
 alert(myArray[5]); // returns 'cat'
 ```
 
-This code adds the value `'cat'` to the end of the array `myArray`.
+As you can see, we attach our `push()` method to `myArray` with a `.` (dot), and indicate the value we want to add in the `()` parentheses. This code adds the value `'cat'` to the end of the array `myArray`. Methods are similar to functions, but are used to act upon a specific object. We will learn more about functions in the next lesson, but for now, just keep in mind the general syntax and usage of methods.
 
 ## Removing Values from an Array
 
@@ -951,7 +951,7 @@ var myArray = [1, 2, 'dog', true, [1, 2, 3]];
 alert(myArray.length); // returns 5
 ```
 
-We utilize `length` by prefacing it with a `.` (dot). This is called _dot notation_, and indicates we are working with a __method__. We'll cover what exactly methods are in later lessons, but for now keep in mind you utilize `length` with a dot and the array you want to work with.
+We utilize `length` by prefacing it with a `.` (dot) and the array we want to act upon. Note that with `length`, you don't need to include the ending parentheses. This is because, strictly speaking, length is a property (a value), and not a method (which act like functions). Don't worry too much about this difference for now, just keep in mind that `length` does not require parentheses.
 
 As you can see, `length` counts through the values in the array, so it will return 5. It is important to note here that `length` starts with 1, not 0, so although the last value in the array is at index 4, `length` will still return 5. Confusing, right? It is simply a quirk of the language to get used to, so keep it in mind when working with arrays.
 
@@ -1740,7 +1740,7 @@ console.log(greet);
 
 ## Challenges
 
-1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to get the last element.)
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=5) lesson if you need a refresher on an easy way to get the last element.)
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
@@ -4053,7 +4053,7 @@ neighborhoods.forEach(function(neighborhood) {
 });
 ```
 
-Here we utilize the `forEach` method to loop through the neighborhoods array and `append` each neighborhood to the `<div>` with the id of `neighborhoods`. As you may recall from [an earlier lesson's Challenge #3](http://localhost:3000/workshop/Javascript/?page=10), `forEach` is similar to `map()`, with the important difference being that `forEach` does not create a new array (which would be unnecessary in this case). You'll notice that we are surrounding each neighborhood with an `<a href>` tag and a `<li>` (list item) tag. This is because we want to be able to turn each name into a clickable element. We can use the `indexOf` method to find the index of the neighborhood in the array. If the index is divisible by 4, we add a `<br>` tag to separate the neighborhoods into spaced columns to make things a little easier to read.
+Here we utilize the `forEach` method to loop through the neighborhoods array and `append` each neighborhood to the `<div>` with the id of `neighborhoods`. As you may recall from [an earlier lesson's Challenge #3](?page=10), `forEach` is similar to `map()`, with the important difference being that `forEach` does not create a new array (which would be unnecessary in this case). You'll notice that we are surrounding each neighborhood with an `<a href>` tag and a `<li>` (list item) tag. This is because we want to be able to turn each name into a clickable element. We can use the `indexOf` method to find the index of the neighborhood in the array. If the index is divisible by 4, we add a `<br>` tag to separate the neighborhoods into spaced columns to make things a little easier to read.
 
 To enable a basic columnar structure, we also need to add a line of code to our `nyc-data.css` file:
 
@@ -4440,7 +4440,7 @@ Okay, enough prepping. Let's get started! Attempt the Challenges below to get go
 
 2. Begin gathering or creating a dataset relevant to your ideas.
 
-3. Create a new folder and a new GitHub repository for the project. Begin uploading your essential files you'll be working with (an HTML file, a CSS file, a JS file, your data, etc.). If you need a refresher with GitHub, review the [GitHub lesson](http://localhost:3000/workshop/Javascript/?page=7).
+3. Create a new folder and a new GitHub repository for the project. Begin uploading your essential files you'll be working with (an HTML file, a CSS file, a JS file, your data, etc.). If you need a refresher with GitHub, review the [GitHub lesson](?page=7).
 
 # Putting the Project Together
 
@@ -4468,7 +4468,7 @@ Try grabbing a notebook or using [this site](https://app.diagrams.net/) to draw 
 
 Remember flexboxes? We used them to center and space our jokes page to make them look nice and to allow it to display well on mobile devices. They are not required for you to use in your projects, but they will likely come in handy in allowing you to effectively structure the content of your pages. For instance, we could have used them style our columns of NYC neighborhoods we created earlier to make the page much cleaner looking.
 
-If you need a refresher on flexboxes, feel free to review [the lesson on CSS](http://localhost:3000/workshop/Javascript/?page=8) or look through the very handy [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+If you need a refresher on flexboxes, feel free to review [the lesson on CSS](?page=8) or look through the very handy [flexbox guide here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
 It's worth pointing out that flexboxes are similar to CSS `grids`. Depending on what you are trying to achieve, one might be better suited for your purposes than the other. I'd encourage you to [look over this resource](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout) and especially [this resource](https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184) to learn about the differences between `grid` and `flexbox`, and to decide which might be best for your project.
 
@@ -4514,7 +4514,7 @@ These are very simple examples meant to get you thinking about the overall desig
 
 ## Incorporating GeoJSON Data
 
-If you have a GeoJSON dataset you'd like to work with, keep in mind the preliminary step we covered in the [Working With GeoSpatial Data](http://localhost:3000/workshop/Javascript/?page=12) lesson. If you recall, we first needed to convert the file to a JavaScript object, by changing the file extension to `.js` and then storing the data in a variable:
+If you have a GeoJSON dataset you'd like to work with, keep in mind the preliminary step we covered in the [Working With GeoSpatial Data](?page=12) lesson. If you recall, we first needed to convert the file to a JavaScript object, by changing the file extension to `.js` and then storing the data in a variable:
 
 ```JavaScript
 const varToStoreData = { // store all the data in a const variable
