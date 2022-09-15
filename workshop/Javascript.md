@@ -1740,7 +1740,7 @@ console.log(greet);
 
 ## Challenges
 
-1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](http://localhost:3000/workshop/Javascript/?page=5) lesson if you need a refresher on an easy way to get the last element.)
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=4) lesson if you need a refresher on an easy way to get the last element.)
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
