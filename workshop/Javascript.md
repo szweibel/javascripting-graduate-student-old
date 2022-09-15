@@ -1094,7 +1094,7 @@ var bookTitles = [
     "Lady Chatterley's Lover",
 ];
 
-bookTitles.sort()
+bookTitles.sort();
 var requestedTitle = "";
 var libRequests = []
 ```
@@ -1740,7 +1740,11 @@ console.log(greet);
 
 ## Challenges
 
+<<<<<<< HEAD
 1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=5) lesson if you need a refresher on an easy way to get the last element.)
+=======
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=4) lesson if you need a refresher on an easy way to get the last element.)
+>>>>>>> bee3beae586af0243932920cad3c40118dec82c0
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
