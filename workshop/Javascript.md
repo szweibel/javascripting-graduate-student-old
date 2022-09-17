@@ -1806,7 +1806,7 @@ __Type errors__ are when you try to perform an operation on a value of the wrong
 
 ```JavaScript
 let num = 1;
-oops = num.toUpperCase();
+let oops = num.toUpperCase();
 console.log(oops);
 ```
 
@@ -1819,7 +1819,7 @@ This error gives us a direct clue for how to fix our code. We would first need t
 
 ```JavaScript 
 let num = 1;
-fixed = num.toString().toUpperCase();
+let fixed = num.toString().toUpperCase();
 console.log(fixed);
 ```
 
