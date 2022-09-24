@@ -1740,11 +1740,8 @@ console.log(greet);
 
 ## Challenges
 
-<<<<<<< HEAD
-1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=5) lesson if you need a refresher on an easy way to get the last element.)
-=======
 1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the [Loops and Arrays](?page=4) lesson if you need a refresher on an easy way to get the last element.)
->>>>>>> bee3beae586af0243932920cad3c40118dec82c0
+
 
 2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the `pop` method.
 
@@ -1809,7 +1806,7 @@ __Type errors__ are when you try to perform an operation on a value of the wrong
 
 ```JavaScript
 let num = 1;
-oops = num.toUpperCase();
+let oops = num.toUpperCase();
 console.log(oops);
 ```
 
@@ -1822,7 +1819,7 @@ This error gives us a direct clue for how to fix our code. We would first need t
 
 ```JavaScript 
 let num = 1;
-fixed = num.toString().toUpperCase();
+let fixed = num.toString().toUpperCase();
 console.log(fixed);
 ```
 
