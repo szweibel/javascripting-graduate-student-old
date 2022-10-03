@@ -822,7 +822,11 @@ table, th, td {
   align-items: center;
   margin-top: 20px;
   z-index: 1;
+  position: sticky;
+  top: 5px;
 }
+
+
 
 .drawer-left> .MuiPaper-root {
   z-index: 1;
