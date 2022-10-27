@@ -2058,11 +2058,35 @@ A [study of how Digital Humanists use GitHub](https://digitalscholarship.files.w
 
 Although it has many benefits, using Git and GitHub effectively does take a bit of practice. It is notorious for being a bit of a pain in the neck (leading to such websites as [Oh Shit, Git!](https://ohshitgit.com/)), but it is worth the effort.
 
-## Initializing a Git Repository on GitHub
+## Installing Git
 
 Git, as a version control system, can be enabled in a folder, and then used to save the state of the contents in that folder at different points in the future. It will also keep a record of all changes made in the past. It knows exactly when a file is added to a project and even when it is deleted. It can even resurrect files that have been deleted, if needed.
 
-Let's go ahead and initialize a Git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
+Let's go ahead and install Git. 
+
+### Installing on macOS
+
+There are several ways to install Git on a Mac. The easiest way is probably to open up the Terminal (search for it in Spotlight if you are unfamiliar with the terminal), type the following command and press <kbd>enter</kbd>:
+
+```bash
+$ git --version
+```
+
+If you don’t have it installed already, it should prompt you to install it.
+
+You can also find a macOS Git installer available for download [at the Git website](https://git-scm.com/download/mac).
+
+### Installing on Windows
+
+The most up-to-date build is available for download on the Git website. Just go to [the official download page](https://git-scm.com/download/win) and select the version you want to download (likely the 64-bit version).
+
+### Installing on Linux
+
+There are several ways to install Git on Linux, depending on your distribution. You can find the official instructions for installing Git on Linux [on the Git website](https://git-scm.com/download/linux).
+
+## Initializing a Git Repository on GitHub
+
+Next, let's go ahead and initialize a Git repository for our project. In VSCode, click on the Source Control Window and click on the `Initialize Repository` button.
 
 ![Initialize Repository](/images/vscode_initgit.png)
 
