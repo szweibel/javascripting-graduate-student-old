@@ -3194,7 +3194,7 @@ $("#poem a").click(function(){
 
 Okay, we now have clickable elements that allow us to display info about words. However, we want to actually display the info in the `info` property we wrote out.
 
-There are a few step we'll need to take to carry this out.
+There are a few steps we'll need to take to carry this out.
 
 ## Accessing the Info Property
 
