@@ -2992,6 +2992,7 @@ Next, create a new file (by clicking the New File button in the VSCode Explorer 
       </div>
       <div id="info">
       </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="poem.js"></script>
   </body>
