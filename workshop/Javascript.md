@@ -3486,7 +3486,7 @@ $("#poem h3").click(function(){
 
 3. `.map()` is similar to another method, `.forEach()`. We haven't covered the latter, but you may encounter it in the wild. Read through [this article](https://codeburst.io/javascript-map-vs-foreach-f38111822c0f) to understand the differences between the two, and to learn a little more about `.map()` specifically.
 
-4. Add a new property to the JSON file that stores a wiki link for a particular literary device (e.g., [here for anaphora](https://en.wikipedia.org/wiki/Anaphora_(rhetoric)). Create a new data attribute to access this property and add it to the info message that is displayed when clicked. 
+4. Add a new property to the JSON file that stores a wiki link for a particular literary device (e.g., [here for anaphora](https://en.wikipedia.org/wiki/Anaphora_(rhetoric%29). Create a new data attribute to access this property and add it to the info message that is displayed when clicked. 
 
 ## Key Terms
 
